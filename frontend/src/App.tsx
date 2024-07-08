@@ -1,9 +1,11 @@
 import { GlobalStyles } from "./common/styles/GlobalStyles"
+import RoutesProvider from "./router/RoutesProvider"
 
 function App() {
   return (
     <>
-    <GlobalStyles />
+      <GlobalStyles />
+      <RoutesProvider />
     </>
   )
 }
