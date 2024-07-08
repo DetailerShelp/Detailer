@@ -3,6 +3,8 @@ import { Route, createBrowserRouter, createRoutesFromElements, Navigate, RouterP
 export default function RoutesProvider() {
     const authorizedUser = true;
 
+
+    // ToDo изменить elements по готовности
     const unAuthorizedProvider = createBrowserRouter(
         createRoutesFromElements(
             <>
@@ -17,6 +19,7 @@ export default function RoutesProvider() {
         )
     );
 
+    // ToDo изменить elements по готовности
     const authorizedProvider = createBrowserRouter(
         createRoutesFromElements(
             <>
