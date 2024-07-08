@@ -1,8 +1,9 @@
 import { Global, css } from "@emotion/react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
+import { colors, transitions } from "./styleConstants";
 
 export const Container = styled("div")`
-  max-width: calc(1250px + 50px * 2);
+  max-width: calc(1440px + 50px * 2);
   padding-inline: 50px;
   margin-inline: auto;
 `;
@@ -88,8 +89,16 @@ export const GlobalStyles = () => {
             transition-property: fill, stroke;
           }
 
-
           body {
+            font-family: "Montserrat", sans-serif;
+            color: ${colors.blackTotal};
+            background-color: ${colors.whiteBackground};
+          }
+
+          a,
+          button,
+          input {
+            transition: ${transitions.fastTransition};
           }
         `}
       />
