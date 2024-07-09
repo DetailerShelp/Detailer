@@ -100,6 +100,15 @@ export const GlobalStyles = () => {
           input {
             transition: ${transitions.fastTransition};
           }
+
+          a {
+            color: ${colors.blackTotal};
+          }
+
+          button {
+            cursor: pointer;
+            text-align: center;
+          }
         `}
       />
     </>
