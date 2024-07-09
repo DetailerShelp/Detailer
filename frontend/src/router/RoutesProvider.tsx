@@ -1,3 +1,4 @@
+import { NavPanel } from "@/common/components/NavPanel";
 import { Route, createBrowserRouter, createRoutesFromElements, Navigate, RouterProvider } from "react-router-dom"
 
 export default function RoutesProvider() {
@@ -23,10 +24,19 @@ export default function RoutesProvider() {
     const authorizedProvider = createBrowserRouter(
         createRoutesFromElements(
             <>
-                <Route path="/" element={<div>Layout</div>}>
+                <Route path="/" element={<NavPanel />}>
                     <Route path="user/" element={<div>UserLayout</div>} >
 
                     </Route>
+
+                    <Route path="home" element={<NavPanel />} />
+                    <Route path="profile" element={<NavPanel />} />
+                    <Route path="messenger" element={<NavPanel />} />
+                    <Route path="shorts" element={<NavPanel />} />
+                    <Route path="saved" element={<NavPanel />} />
+                    <Route path="qrcode" element={<NavPanel />} />
+                    <Route path="settings" element={<NavPanel />} />
+                    <Route path="help" element={<NavPanel />} />
                 </Route>
                 <Route path="error" element={<div>Error 404</div>} />
                 <Route path='*' element={<Navigate to='/error' replace />} />

@@ -98,6 +98,7 @@ export const GlobalStyles = () => {
           a,
           button,
           input {
+            user-select: none;
             transition: ${transitions.fastTransition};
           }
         `}
