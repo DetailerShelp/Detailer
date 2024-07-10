@@ -5,6 +5,7 @@ export const colors = {
   
     //Gray
     grayBorder: "rgba(238, 238, 238, 1)",
+    grayText: "rgba(210, 210, 210, 1)",
   
     //Black
     blackTotal: "rgba(0, 0, 0, 1)",
@@ -20,7 +21,7 @@ export const colors = {
   };
   
   export const transitions = {
-      mediumTransition: 'all 0.5s ease 0s',
+      mediumTransition: 'all 0.3s ease 0s',
       fastTransition: 'all 0.2s ease 0s',
       lowTransition: 'all 0.8s ease 0s',
     };
