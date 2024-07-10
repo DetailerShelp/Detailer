@@ -1,4 +1,4 @@
-import { NavPanel } from "@/common/components/NavPanel";
+import { NavPanel } from "@/common/components/navpanel/NavPanel";
 import { Route, createBrowserRouter, createRoutesFromElements, Navigate, RouterProvider } from "react-router-dom"
 
 export default function RoutesProvider() {
