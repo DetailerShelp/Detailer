@@ -2,10 +2,9 @@ import { FC } from 'react';
 import styled from "styled-components";
 import Modal from '@/common/components/ui/Modal';
 import { DefaultButton } from './Button';
+import { ModalProps } from '@/common/interfaces/Modal';
 
-interface ModalConfirmProps {
-  isOpen: boolean;
-  zIndex?: number;
+interface ModalConfirmProps extends ModalProps{
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   headerText?: string;
