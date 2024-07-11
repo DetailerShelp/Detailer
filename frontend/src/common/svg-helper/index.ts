@@ -7,6 +7,7 @@ import qrcode from '@/common/svg-helper/icons/nav-icons/qrcode.svg?react';
 import settings from '@/common/svg-helper/icons/nav-icons/settings.svg?react';
 import help from '@/common/svg-helper/icons/nav-icons/help.svg?react';
 import close from '@/common/svg-helper/icons/close.svg?react';
+import trash from '@/common/svg-helper/icons/trash.svg?react';
 
 
 export type IconType = React.FunctionComponent<
@@ -26,7 +27,8 @@ export type ImageComponentsTypes =
   | 'qrcode'
   |'settings'
   | 'help'
-  | 'close';
+  | 'close'
+  | 'trash';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   profile,
@@ -38,4 +40,5 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   settings,
   help,
   close,
+  trash,
 };

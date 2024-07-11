@@ -43,8 +43,8 @@ const Modal = ({ isOpen, onClose, closeIcon, children, zIndex }: ModalProps) => 
     }
 
     return (
-        <ModalWrapper tabIndex={-1} aria-modal="true" role="dialog" zindex={zIndex || 1}>
-            <ModalContent>
+        <ModalWrapper onClick={onClose} tabIndex={-1} zindex={zIndex || 1}>
+            <ModalContent onClick={(e)=>e.stopPropagation()}>
                 {closeIcon && <CloseIcon iconName="close" onClick={onClose}></CloseIcon>}
                 {children}
             </ModalContent>
@@ -53,5 +53,4 @@ const Modal = ({ isOpen, onClose, closeIcon, children, zIndex }: ModalProps) => 
 }
 
 export default Modal;
-
 

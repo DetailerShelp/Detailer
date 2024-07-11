@@ -6,9 +6,13 @@ export const colors = {
   //Gray
   grayBorder: "rgba(238, 238, 238, 1)",
   grayText: "rgba(210, 210, 210, 1)",
+  grayBackground: "rgba(217, 217, 217, 0.7)",
 
   //Black
   blackTotal: "rgba(0, 0, 0, 1)",
+
+  //Red
+  redTotal: "rgba(255, 0, 0, 1)",
 };
 
 export const shadows = {
