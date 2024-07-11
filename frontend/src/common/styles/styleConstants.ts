@@ -5,6 +5,7 @@ export const colors = {
 
   //Gray
   grayBorder: "rgba(238, 238, 238, 1)",
+  grayText: "rgba(210, 210, 210, 1)",
   grayDark: "rgb(184, 184, 184)",
 
   //Black
@@ -16,13 +17,11 @@ export const shadows = {
 };
 
 export const borders = {
-  //borders
   defaultBorder: `1px solid ${colors.grayBorder}`,
   borderGrayDark: `1px solid ${colors.grayDark}`,
   borderBlack: `1px solid ${colors.blackTotal}`,
   borderDark: `1px solid ${colors.grayDark}`,
 
-  //radius
   defaultBorderRadius: "20px",
   bigBorderRadius: "45px",
   biggestBorderRadius: "60px",
