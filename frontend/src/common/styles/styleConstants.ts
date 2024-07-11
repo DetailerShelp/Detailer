@@ -6,7 +6,7 @@ export const colors = {
   //Gray
   grayBorder: "rgba(238, 238, 238, 1)",
   grayText: "rgba(210, 210, 210, 1)",
-  grayDark: "rgb(184, 184, 184)",
+  grayAccent: "rgb(184, 184, 184, 1)",
 
   //Black
   blackTotal: "rgba(0, 0, 0, 1)",
@@ -18,18 +18,14 @@ export const shadows = {
 
 export const borders = {
   defaultBorder: `1px solid ${colors.grayBorder}`,
-  borderGrayDark: `1px solid ${colors.grayDark}`,
+  borderGrayAccent: `1px solid ${colors.grayAccent}`,
   borderBlack: `1px solid ${colors.blackTotal}`,
-  borderDark: `1px solid ${colors.grayDark}`,
 
   defaultBorderRadius: "20px",
-  mediumBorderRadius: "45px",
-  bigBorderRadius: "60px",
-  checkBoxBorderRadius: "5px"
 };
 
 export const transitions = {
-  mediumTransition: 'all 0.5s ease 0s',
+  mediumTransition: 'all 0.3s ease 0s',
   fastTransition: 'all 0.2s ease 0s',
   lowTransition: 'all 0.8s ease 0s',
 };
@@ -50,4 +46,4 @@ export const fonts = {
     medium: 400,
     light: 300
   }
-}
+};
