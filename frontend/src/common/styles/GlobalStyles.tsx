@@ -93,6 +93,12 @@ export const GlobalStyles = () => {
             font-family: "Montserrat", sans-serif;
             color: ${colors.blackTotal};
             background-color: ${colors.whiteBackground};
+            padding-top: 75px;
+          }
+
+          a,
+          button {
+            cursor: pointer;
           }
 
           a,
@@ -100,6 +106,12 @@ export const GlobalStyles = () => {
           input {
             user-select: none;
             transition: ${transitions.fastTransition};
+          }
+
+          button {
+            border: none;
+            background-color: transparent;
+            position: relative;
           }
         `}
       />
