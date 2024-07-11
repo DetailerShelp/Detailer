@@ -23,8 +23,8 @@ export const borders = {
   borderDark: `1px solid ${colors.grayDark}`,
 
   defaultBorderRadius: "20px",
-  bigBorderRadius: "45px",
-  biggestBorderRadius: "60px",
+  mediumBorderRadius: "45px",
+  bigBorderRadius: "60px",
   checkBoxBorderRadius: "5px"
 };
 

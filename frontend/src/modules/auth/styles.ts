@@ -24,7 +24,7 @@ text-align: center;
 background-color: ${colors.whiteTotal};
 box-shadow: ${shadows.defaultShadow};
 border: ${borders.defaultBorder};
-border-radius: ${borders.bigBorderRadius};
+border-radius: ${borders.mediumBorderRadius};
 `;
 
 export const AuthImg = styled('img')`
@@ -105,7 +105,7 @@ font-weight: ${fonts.weights.regular};
 export const AuthButton = styled('button')`
 width: 100%;
 padding: 15px 0;
-border-radius: ${borders.biggestBorderRadius};
+border-radius: ${borders.bigBorderRadius};
 border: ${borders.borderBlack};
 color: ${colors.whiteTotal};
 font-size: ${fonts.sizes.subTitle};
@@ -135,7 +135,7 @@ color: ${colors.grayDark};
 
 box-shadow: ${shadows.defaultShadow};
 border: ${borders.defaultBorder};
-border-radius: ${borders.bigBorderRadius};
+border-radius: ${borders.mediumBorderRadius};
 `;
 
 export const AuthSwitchLink = styled(Link)`
