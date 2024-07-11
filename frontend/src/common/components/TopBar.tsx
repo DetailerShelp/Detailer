@@ -41,13 +41,13 @@ const TopBarInput = styled("input")`
   width: 400px;
   height: 40px;
   padding: 10px 73px 10px 25px;
-  border: ${borders.searchBorder};
+  border: ${borders.borderGrayAccent};
   border-radius: ${borders.bigBorderRadius};
   background-color: transparent;
   font-size: 18px;
 
   &::placeholder {
-    color: ${colors.graySearch};
+    color: ${colors.grayAccent};
   }
 
   &:hover {
@@ -70,7 +70,7 @@ const TopBarSearch = styled(SvgHelper)`
 
   width: 23px;
   height: 23px;
-  color: ${colors.graySearch};
+  color: ${colors.grayAccent};
 `;
 
 const TopBarList = styled("ul")`

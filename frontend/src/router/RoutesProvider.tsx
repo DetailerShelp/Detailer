@@ -1,20 +1,25 @@
+import { Route, createBrowserRouter, createRoutesFromElements, Navigate, RouterProvider } from "react-router-dom";
 import { NavPanel } from "@/common/components/navpanel/NavPanel";
-import { Route, createBrowserRouter, createRoutesFromElements, Navigate, RouterProvider } from "react-router-dom"
+import AuthPage from "@/modules/auth/AuthPage";
+import ChangePassword from "@/modules/auth/ChangePassword";
+import ForgotPassword from "@/modules/auth/ForgotPassword";
+import Login from "@/modules/auth/Login";
+import Reg from "@/modules/auth/Reg";
 
 export default function RoutesProvider() {
-    const authorizedUser = true;
+    const authorizedUser = false;
 
 
     // ToDo изменить elements по готовности
     const unAuthorizedProvider = createBrowserRouter(
         createRoutesFromElements(
             <>
-                <Route path="auth/" element={<div>AuthPage</div>}>
-                    <Route path="login" element={<div>LoginPage</div>} />
-                    <Route path="reg" element={<div>RegPage</div>} />
-                    <Route path="forgot" element={<div>ForgotPassPAge</div>} />
-                    <Route path="confirm" element={<div>ConfirmRegPage</div>} />
-                </Route>
+                <Route path="auth/" element={<AuthPage />}>
+                    <Route path="login" element={<Login />} />
+                    <Route path="reg" element={<Reg />} />
+                    <Route path="forgot" element={<ForgotPassword />} />
+                    <Route path="change" element={<ChangePassword />} />
+                </Route >
                 <Route path='*' element={<Navigate to='/auth/reg' replace />} />
             </>
         )

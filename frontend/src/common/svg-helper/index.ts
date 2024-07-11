@@ -10,6 +10,7 @@ import shorts from '@/common/svg-helper/icons/nav-icons/shorts.svg?react';
 import qrcode from '@/common/svg-helper/icons/nav-icons/qrcode.svg?react';
 import settings from '@/common/svg-helper/icons/nav-icons/settings.svg?react';
 import help from '@/common/svg-helper/icons/nav-icons/help.svg?react';
+import arrowLeft from '@/common/svg-helper/icons/arrow-left.svg?react';
 
 
 
@@ -33,7 +34,8 @@ export type ImageComponentsTypes =
   | 'shorts'
   | 'qrcode'
   |'settings'
-  | 'help';
+  | 'help'
+  | 'arrowLeft';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   logo,
@@ -48,4 +50,5 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   qrcode,
   settings,
   help,
+  arrowLeft
 };
