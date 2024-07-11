@@ -12,8 +12,8 @@ export const colors = {
   //Black
   blackTotal: "rgba(0, 0, 0, 1)",
 
-    //Red
-    redTotal: "rgba(255, 0, 0, 1)",
+  //Red
+  redTotal: "rgba(255, 0, 0, 1)",
 };
 
 export const shadows = {
