@@ -22,6 +22,9 @@ export const borders = {
   borderBlack: `1px solid ${colors.blackTotal}`,
 
   defaultBorderRadius: "20px",
+  mediumBorderRadius: "45px",
+  bigBorderRadius: "60px",
+  smallBorderRadius: "5px"
 };
 
 export const transitions = {

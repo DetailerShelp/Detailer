@@ -1,5 +1,5 @@
-import { AuthBackLink, AuthBackLinkImg } from "./styles";
-import arrowLeft from "@/common/svg-helper/arrow-left.svg";
+import SvgHelper from "@/common/svg-helper/SvgHelper";
+import { AuthBackLink } from "./styles";
 
 interface AuthReturnProps {
     to: string
@@ -8,7 +8,7 @@ interface AuthReturnProps {
 export default function AuthReturn({to}: AuthReturnProps) {
     return (
         <AuthBackLink to={to}>
-            <AuthBackLinkImg src={arrowLeft} />
+            <SvgHelper iconName="arrowLeft" />
         </AuthBackLink>
     )
 }

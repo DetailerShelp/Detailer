@@ -93,7 +93,6 @@ export const GlobalStyles = () => {
             font-family: "Montserrat", sans-serif;
             color: ${colors.blackTotal};
             background-color: ${colors.whiteBackground};
-            padding-top: 75px;
           }
 
           a,

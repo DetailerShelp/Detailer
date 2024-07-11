@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import { AuthContentWrapper, AuthForm, AuthImg, AuthWrapper } from "./styles";
+import { AuthContentWrapper, AuthForm, AuthWrapper } from "./styles";
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import logo from '@/common/svg-helper/Logo.svg';
 import AuthSwitch from "./AuthSwitch";
 import { loginText, regText, SwitchTextObject } from "./switchText";
 import { loginUrl, regUrl } from "./authLinks";
+import SvgHelper from "@/common/svg-helper/SvgHelper";
 
 export default function AuthPage() {
     const location = useLocation();
@@ -22,12 +22,11 @@ export default function AuthPage() {
     }, [location]
     )
 
-
     return (
         <AuthWrapper>
             <AuthContentWrapper>
                 <AuthForm>
-                    <AuthImg src={logo} />
+                    <SvgHelper iconName="logo" width="360px" height="70px" />
                     <Outlet />
                 </AuthForm>
                 {isSwitchShow && <AuthSwitch obj={switchText} />}

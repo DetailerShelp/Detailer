@@ -27,10 +27,6 @@ border: ${borders.defaultBorder};
 border-radius: ${borders.mediumBorderRadius};
 `;
 
-export const AuthImg = styled('img')`
-margin-bottom: 50px;
-`; // remove and add in common styles
-
 export const AuthTitle = styled('p')`
 font-size: ${fonts.sizes.title};
 font-weight: ${fonts.weights.semiBold};
@@ -72,8 +68,8 @@ export const AuthInput = styled('input')`
 padding: 19px 22px;
 font-size: ${fonts.sizes.main};
 font-weight: ${fonts.weights.regular};
-color: ${colors.grayDark};
-border: ${borders.borderGrayDark};
+color: ${colors.grayAccent};
+border: ${borders.borderGrayAccent};
 border-radius: 60px;
 `;
 
@@ -88,8 +84,8 @@ export const AuthCheckBoxInput = styled('input')`
 margin: auto 0 auto 22px;
 width: 30px;
 height: 30px;
-border-radius: ${borders.checkBoxBorderRadius};
-border: ${borders.borderGrayDark};
+border-radius: ${borders.smallBorderRadius};
+border: ${borders.borderGrayAccent};
 
 &:checked {
     background: ${colors.blackTotal};
@@ -121,7 +117,7 @@ transition: ${transitions.fastTransition};
 
 export const AuthSeparator = styled('div')`
 margin: 35px 0;
-border: ${borders.borderGrayDark};
+border: ${borders.borderGrayAccent};
 `;
 
 export const AuthSwitchWrapper = styled('div')`
@@ -131,7 +127,7 @@ background-color: ${colors.whiteTotal};
 text-align: center;
 font-size: ${fonts.sizes.subTitle};
 font-weight: ${fonts.weights.regular};
-color: ${colors.grayDark};
+color: ${colors.grayAccent};
 
 box-shadow: ${shadows.defaultShadow};
 border: ${borders.defaultBorder};
@@ -154,5 +150,3 @@ content: '';
 top: 82px;
 left: 68px;
 `;
-
-export const AuthBackLinkImg = styled('img')``;
