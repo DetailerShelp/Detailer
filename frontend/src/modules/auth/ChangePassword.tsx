@@ -1,13 +1,19 @@
-import { AuthBackLink, AuthBackLinkImg, AuthButton, AuthInput, AuthInputWrapper, AuthLabel, AuthTitle } from "./styles";
-import arrowLeft from "@/common/svg-helper/arrow-left.svg";
+import AuthReturn from "./AuthReturn";
+import { AuthButton, AuthInput, AuthInputWrapper, AuthLabel, AuthTitle } from "./styles";
+import { forgotUrl } from "./authLinks";
 
 export default function ChangePassword() {
+
+    // ToDo
+    const handleClick = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+
+    }
+    
+
     return (
         <>
-            {/* вынести в отдельный компонент? */}
-            <AuthBackLink to='/auth/forgot'>
-                <AuthBackLinkImg src={arrowLeft} />
-            </AuthBackLink>
+            <AuthReturn to={forgotUrl} />
 
             <AuthTitle>Смена пароля</AuthTitle>
             <AuthInputWrapper>
@@ -20,7 +26,7 @@ export default function ChangePassword() {
                 <AuthInput id="r-password" type="password" placeholder="--------" />
             </AuthInputWrapper>
 
-            <AuthButton>Сменить пароль</AuthButton>
+            <AuthButton onClick={(e) => handleClick(e)}>Сменить пароль</AuthButton>
         </>
     )
 }

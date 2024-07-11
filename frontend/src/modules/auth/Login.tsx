@@ -1,6 +1,13 @@
+import { forgotUrl } from "./authLinks";
 import { AuthButton, AuthInput, AuthInputWrapper, AuthLabel, AuthLink, AuthSeparator } from "./styles";
 
 export default function Login() {
+
+    // ToDo
+    const handleClick = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+
+    }
     return (
         <>
             <AuthInputWrapper>
@@ -13,11 +20,11 @@ export default function Login() {
                 <AuthInput id="password" type="password" placeholder="--------" />
             </AuthInputWrapper>
 
-            <AuthButton>Войти</AuthButton>
+            <AuthButton onClick={(e) => handleClick(e)}>Войти</AuthButton>
 
             <AuthSeparator></AuthSeparator>
 
-            <AuthLink to="/auth/forgot">Забыли пароль?</AuthLink>
+            <AuthLink to={forgotUrl}>Забыли пароль?</AuthLink>
         </>
     )
 }

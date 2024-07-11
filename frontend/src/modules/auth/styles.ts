@@ -11,12 +11,15 @@ align-items: center;
 height: 100vh;
 `;
 
-export const AuthContentWrapper = styled('div')``;
+export const AuthContentWrapper = styled('div')`
+display: flex;
+flex-direction: column;
+gap: 25px;
+`;
 
 export const AuthForm = styled('form')`
 position: relative;
 padding: 65px 170px;
-margin-bottom: 25px;
 text-align: center;
 background-color: ${colors.whiteTotal};
 box-shadow: ${shadows.defaultShadow};
@@ -94,6 +97,7 @@ border: ${borders.borderGrayDark};
 `;
 
 export const AuthCheckBoxLabel = styled('label')`
+width: 250px;
 font-size: ${fonts.sizes.small};
 font-weight: ${fonts.weights.regular};
 `;
@@ -120,7 +124,7 @@ margin: 35px 0;
 border: ${borders.borderGrayDark};
 `;
 
-export const AuthSwitch = styled('div')`
+export const AuthSwitchWrapper = styled('div')`
 padding: 38px 0;
 background-color: ${colors.whiteTotal};
 

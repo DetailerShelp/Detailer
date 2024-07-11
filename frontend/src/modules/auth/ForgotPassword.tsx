@@ -1,12 +1,22 @@
-import { AuthBackLink, AuthBackLinkImg, AuthButton, AuthDescription, AuthInput, AuthInputWrapper, AuthLabel, AuthTitle } from './styles'
-import arrowLeft from "@/common/svg-helper/arrow-left.svg";
+import { useNavigate } from 'react-router-dom';
+import AuthReturn from './AuthReturn';
+import { AuthButton, AuthDescription, AuthInput, AuthInputWrapper, AuthLabel, AuthTitle } from './styles'
+import { changeUrl, loginUrl } from './authLinks';
 
 export default function ForgotPassword() {
+    const navigate = useNavigate();
+
+    // ToDo
+    const handleClick = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+
+        navigate(changeUrl);
+    }
+    
     return (
         <>
-            <AuthBackLink to='/auth/login'>
-                <AuthBackLinkImg src={arrowLeft} />
-            </AuthBackLink>
+            <AuthReturn to={loginUrl} />
+
             <AuthTitle>Забыли пароль?</AuthTitle>
             <AuthDescription>
                 На ваш Email было отправлено письмо с кодом подтверждения аккаунта.
@@ -16,7 +26,7 @@ export default function ForgotPassword() {
                 <AuthLabel htmlFor="confirm-code" >Код подтверждения</AuthLabel>
                 <AuthInput id="confirm-code" type='password' placeholder="--------" />
             </AuthInputWrapper>
-            <AuthButton>Отправить</AuthButton>
+            <AuthButton onClick={(e) => handleClick(e)}>Отправить</AuthButton>
         </>
     )
 }

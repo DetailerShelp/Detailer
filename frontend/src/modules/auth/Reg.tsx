@@ -1,6 +1,11 @@
 import { AuthButton, AuthCheckBoxInput, AuthCheckBoxLabel, AuthCheckBoxWrapper, AuthInput, AuthInputWrapper, AuthLabel } from "./styles";
 
 export default function Reg() {
+    // ToDo
+    const handleClick = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+
+    }
     return (
         <>
             <AuthInputWrapper>
@@ -26,12 +31,12 @@ export default function Reg() {
             <AuthCheckBoxWrapper>
                 <AuthCheckBoxInput id="agreement" type="checkbox" />
                 <AuthCheckBoxLabel htmlFor="agreement">
-                    Вы соглашаетесь с Политикой<br />
+                    Вы соглашаетесь с Политикой
                     Конфиденциальности
                 </AuthCheckBoxLabel>
             </AuthCheckBoxWrapper>
 
-            <AuthButton>Зарегестрироваться</AuthButton>
+            <AuthButton onClick={(e) => handleClick(e)}>Зарегестрироваться</AuthButton>
         </>
     )
 }
