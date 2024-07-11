@@ -24,7 +24,8 @@ export const borders = {
   defaultBorderRadius: "20px",
   mediumBorderRadius: "45px",
   bigBorderRadius: "60px",
-  smallBorderRadius: "5px"
+  smallBorderRadius: "5px",
+  circleBorderRadius: "50%",
 };
 
 export const transitions = {
