@@ -1,3 +1,46 @@
+export const screen = {
+  fullScreenWidth: 1440,
+
+  desktopScreenWidth: "1440px",
+  desktopScreenWidthAbove: "1441px",
+
+  tabletScreenWidth: "1024px",
+  tabletScreenWidthAbove: "1025px",
+
+  mobileScreenWidth: "768px",
+  mobileScreenWidthAbove: "769px",
+
+  lMobileScreenWidth: "480px",
+  lMobileScreenWidthAbove: "481px",
+
+  mMobileScreenWidth: "375px",
+  mMobileScreenWidthAbove: "376px",
+
+  sMobileScreenWidth: "320px",
+  sMobileScreenWidthAbove: "321px",
+};
+
+//HELPER use in styled-components: @media ${device.tablet} { ... }
+export const device = {
+  desktopAbove: `(min-width: ${screen.desktopScreenWidthAbove})`,
+  desktop: `(max-width: ${screen.desktopScreenWidth})`,
+
+  tabletAbove: `(min-width: ${screen.tabletScreenWidthAbove})`,
+  tablet: `(max-width: ${screen.tabletScreenWidth})`,
+
+  mobileAbove: `(min-width: ${screen.mobileScreenWidthAbove})`,
+  mobile: `(max-width: ${screen.mobileScreenWidth})`,
+
+  mobileLAbove: `(min-width: ${screen.lMobileScreenWidthAbove})`,
+  mobileL: `(max-width: ${screen.lMobileScreenWidth})`,
+
+  mobileMAbove: `(min-width: ${screen.mMobileScreenWidthAbove})`,
+  mobileM: `(max-width: ${screen.mMobileScreenWidth})`,
+
+  mobileSAbove: `(min-width: ${screen.sMobileScreenWidthAbove})`,
+  mobileS: `(max-width: ${screen.sMobileScreenWidth})`,
+};
+
 export const colors = {
   //White
   whiteTotal: "rgba(255, 255, 255, 1)",

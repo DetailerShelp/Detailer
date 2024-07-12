@@ -1,11 +1,24 @@
 import { Global, css } from "@emotion/react";
 import styled from "styled-components";
-import { colors, transitions } from "./styleConstants";
+import { colors, screen, transitions } from "@/common/styles/styleConstants";
 
 export const Container = styled("div")`
-  max-width: calc(1440px + 50px * 2);
-  padding-inline: 50px;
+  max-width: calc(${screen.fullScreenWidth} + 25px * 2);
+  padding-inline: 25px;
   margin-inline: auto;
+`;
+
+export const VisuallyHidden = styled("span")`
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
 `;
 
 export const GlobalStyles = () => {
@@ -103,16 +116,18 @@ export const GlobalStyles = () => {
 
           a,
           button,
-          input {
+          input,
+          textarea,
+          svg * {
             user-select: none;
             transition: ${transitions.fastTransition};
           }
 
-          button {
+          /* button {
             border: none;
             background-color: transparent;
             position: relative;
-          }
+          } */
         `}
       />
     </>

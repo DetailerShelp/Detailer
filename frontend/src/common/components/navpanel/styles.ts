@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { borders, colors, shadows } from "@/common/styles/styleConstants";
 import { NavLink } from "react-router-dom";
-
-
+import { hoverActive, resetLink } from "@/common/styles/mixins";
 
 export const NavigationPanel = styled("nav")`
   width: 100%;
@@ -27,6 +26,8 @@ export const NavigationItem = styled("li")`
 `;
 
 export const NavigationLink = styled(NavLink)`
+  ${resetLink}
+
   display: flex;
   align-items: center;
   justify-content: start;
@@ -36,18 +37,15 @@ export const NavigationLink = styled(NavLink)`
   border-radius: ${borders.defaultBorderRadius};
 
   font-size: 18px;
-  text-decoration: none;
   color: ${colors.grayText};
 
   &.active {
     color: ${colors.blackTotal};
+
+    svg * {
+      color: ${colors.blackTotal};
+    }
   }
 
-  &:hover {
-    background-color: ${colors.whiteBackground};
-  }
-
-  &:active {
-    background-color: ${colors.grayBorder};
-  }
+  ${hoverActive}
 `;
