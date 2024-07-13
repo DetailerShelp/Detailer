@@ -26,5 +26,5 @@ export const getTheme = (themeName: string): any => {
 
 //TODO getTheme(...)
 export const getColorName = (colorName: string): string => {
-    return getTheme('dark')[colorName];
+    return getTheme('light')[colorName];
 }

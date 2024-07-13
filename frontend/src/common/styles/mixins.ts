@@ -7,6 +7,10 @@ export const clampText = (min: number, max: number) => css`
     font-size: clamp(${min}px, ${max / screen.fullScreenWidth * 100}vw, ${max}px);
 `;
 
+export const clampWidth = (min: number, max: number) => css`
+  width: clamp(${min}px, ${(max / screen.fullScreenWidth) * 100}vw, ${max}px);
+`;
+
 export const resetLink = css`
   color: inherit;
   text-decoration: none;
