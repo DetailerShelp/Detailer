@@ -10,6 +10,7 @@ import shorts from '@/common/svg-helper/icons/nav-icons/shorts.svg?react';
 import qrcode from '@/common/svg-helper/icons/nav-icons/qrcode.svg?react';
 import settings from '@/common/svg-helper/icons/nav-icons/settings.svg?react';
 import help from '@/common/svg-helper/icons/nav-icons/help.svg?react';
+import arrowLeft from '@/common/svg-helper/icons/arrow-left.svg?react';
 import close from '@/common/svg-helper/icons/close.svg?react';
 import trash from '@/common/svg-helper/icons/trash.svg?react';
 
@@ -35,6 +36,7 @@ export type ImageComponentsTypes =
   | 'qrcode'
   |'settings'
   | 'help'
+  | 'arrowLeft'
   | 'close'
   | 'trash';
 
@@ -51,6 +53,7 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   qrcode,
   settings,
   help,
+  arrowLeft
   close,
   trash,
 };
