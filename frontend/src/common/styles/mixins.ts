@@ -81,7 +81,7 @@ export const hoverActive = css`
 `;
 
 export const buttonHoverActive = css`
- @media (hover: hover) {
+  @media (hover: hover) {
     &:hover,
     &:active {
       transform: scale(0.95);
@@ -92,5 +92,12 @@ export const buttonHoverActive = css`
     &:active {
       transform: scale(0.95);
     }
+  }
+`;
+
+export const inputHoverActive = css`
+  &:hover,
+  &:active {
+    background-color: ${colors.whiteBackground};
   }
 `;
