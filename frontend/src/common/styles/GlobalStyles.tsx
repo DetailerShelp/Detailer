@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { colors, screen, transitions } from "@/common/styles/styleConstants";
+import { resetLink } from "./mixins";
 
 export const Container = styled("div")`
   max-width: calc(${screen.fullScreenWidth} + 25px * 2);
@@ -90,10 +91,10 @@ export const GlobalStyles = createGlobalStyle`
     transition: ${transitions.fastTransition};
   } 
 
-          a,
-          button {
-            cursor: pointer;
-          }
+  a,
+  button {
+    cursor: pointer;
+  } 
 
           a,
           button,
@@ -104,13 +105,8 @@ export const GlobalStyles = createGlobalStyle`
             transition: ${transitions.fastTransition};
           }
           a {
-            text-decoration: none;
+            ${resetLink};
             color: ${colors.blackTotal};
           }
 
-          /* button {
-            border: none;
-            background-color: transparent;
-            position: relative;
-          } */
-        `;
+`;

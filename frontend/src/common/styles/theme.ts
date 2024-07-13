@@ -4,6 +4,7 @@ export const lightTheme = {
   border: "rgba(238, 238, 238, 1)",
   alternateText: "rgba(210, 210, 210, 1)",
   borderColor: "rgb(184, 184, 184, 1)",
+  buttonActive: "rgba(75, 75, 75, 1)",
 
   mainText: "rgba(0, 0, 0, 1)",
   shadow: "rgba(0, 0, 0, 0.25)",
@@ -12,9 +13,11 @@ export const lightTheme = {
 export const darkTheme = {
   alternateBackground: "rgba(5, 5, 5, 1)",
   mainBackground: "rgba(15, 15, 15, 1)",
-  border: "rgba(130, 130, 130, 1)",
+  border: "rgba(50, 50, 50, 1)",
   alternateText: "rgba(100, 100, 100, 1)",
   borderColor: "rgb(115, 115, 115, 1)",
+  buttonActive: "rgba(200, 200, 200, 1)",
+
 
   mainText: "rgba(255, 255, 255, 1)",
   shadow: "rgba(255, 255, 255, 0.25)",
