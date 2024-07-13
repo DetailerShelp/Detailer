@@ -1,7 +1,8 @@
 import AuthReturn from "./AuthReturn";
-import { AuthInput, AuthInputWrapper, AuthLabel, AuthTitle } from "./styles";
+import { AuthInputWrapper, AuthLabel, AuthTitle } from "./styles";
 import { forgotUrl } from "./authLinks";
 import AuthButton from "./components/AuthButton";
+import { AuthInput } from "@/common/styles/tags/input/AuthInput";
 
 
 export default function ChangePassword() {
@@ -25,7 +26,7 @@ export default function ChangePassword() {
 
             <AuthInputWrapper>
                 <AuthLabel htmlFor="r-password" >Пароль(Повторно)</AuthLabel>
-                <AuthInput id="r-password" type="password" placeholder="--------" />
+                <AuthInput id="r-password" type="password" placeholder="--------"/>
             </AuthInputWrapper>
 
             <AuthButton title="Сменить пароль" clickFuntion={handleClick} />

@@ -1,6 +1,5 @@
 import { clampText, flexCenter } from "@/common/styles/mixins";
 import { borders, colors, fonts, screen, shadows, transitions } from "@/common/styles/styleConstants";
-import { ButtonWrapper } from "@/common/styles/tags/button/BlackWhiteButton";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -59,7 +58,7 @@ border-radius: ${borders.mediumBorderRadius};
 `;
 
 export const AuthTitle = styled('p')`
-${clampText(fonts.sizes.titleMobile, fonts.sizes.title)};
+${clampText(fonts.sizes.mainMobile, fonts.sizes.title)};
 font-weight: ${fonts.weights.semiBold};
 
 @media (max-width: ${screen.lMobileScreenWidth}) {

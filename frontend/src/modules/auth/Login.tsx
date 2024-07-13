@@ -1,6 +1,7 @@
 import { forgotUrl } from "./authLinks";
 import AuthButton from "./components/AuthButton";
-import { AuthInput, AuthInputWrapper, AuthLabel, AuthLink, AuthSeparator } from "./styles";
+import { AuthInputWrapper, AuthLabel, AuthLink, AuthSeparator } from "./styles";
+import { AuthInput } from "@/common/styles/tags/input/AuthInput";
 
 export default function Login() {
 
@@ -13,7 +14,7 @@ export default function Login() {
         <>
             <AuthInputWrapper>
                 <AuthLabel htmlFor="email" >Email</AuthLabel>
-                <AuthInput id="email" type="email" placeholder="user@gmail.com" required />
+                <AuthInput id="email" type="email" placeholder="user@gmail.com" />
             </AuthInputWrapper>
 
             <AuthInputWrapper>

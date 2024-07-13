@@ -4,16 +4,8 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import AuthSwitch from "./AuthSwitch";
 import { loginText, regText, SwitchTextObject } from "./switchText";
-import { loginUrl, regUrl } from "./authLinks";
-import styled from "styled-components";
-import { clampWidth } from "@/common/styles/mixins";
-
-// временно используется вместо logo
-const Block = styled('div')`
-${clampWidth(150, 360)};
-height: 30px;
-background-color: black;
-`;
+import { loginUrl, regUrl } from "./authLinks";;
+import AuthLogo from "./components/AuthLogo";
 
 export default function AuthPage() {
     const location = useLocation();
@@ -34,8 +26,7 @@ export default function AuthPage() {
         <AuthWrapper>
             <AuthContentWrapper>
                 <AuthForm>
-                    {/* <SvgHelper iconName="logo" width="360px" height="70px" /> */}
-                    <Block></Block>
+                    <AuthLogo />
                     <Outlet />
                 </AuthForm>
                 {isSwitchShow && <AuthSwitch obj={switchText} />}

@@ -1,5 +1,6 @@
 import AuthButton from "./components/AuthButton";
-import { AuthCheckBoxInput, AuthCheckBoxLabel, AuthCheckBoxWrapper, AuthInput, AuthInputWrapper, AuthLabel } from "./styles";
+import { AuthCheckBoxInput, AuthCheckBoxLabel, AuthCheckBoxWrapper, AuthInputWrapper, AuthLabel } from "./styles";
+import { AuthInput } from "@/common/styles/tags/input/AuthInput";
 
 export default function Reg() {
     // ToDo
@@ -15,8 +16,8 @@ export default function Reg() {
             </AuthInputWrapper>
 
             <AuthInputWrapper>
-                <AuthLabel id="password">Пароль</AuthLabel>
-                <AuthInput name="password" type="password" placeholder="********" />
+                <AuthLabel htmlFor="password">Пароль</AuthLabel>
+                <AuthInput id="password" type="password" placeholder="********" />
             </AuthInputWrapper>
 
             <AuthInputWrapper>
