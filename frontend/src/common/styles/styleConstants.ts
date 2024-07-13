@@ -55,6 +55,7 @@ export const colors = {
 
   //Black
   blackTotal: `${getColorName("mainText")}`,
+  blackActive: "rgb(75, 75, 75, 1)",
   shadow: `${getColorName("shadow")}`,
 
   red: "rgba(253, 0, 0, 1)",
@@ -74,6 +75,8 @@ export const borders = {
   mediumBorderRadius: "45px",
   bigBorderRadius: "60px",
   circleBorderRadius: "50%",
+
+  outline: `${colors.blackTotal} solid 2px`,
 };
 
 export const transitions = {
@@ -99,9 +102,9 @@ export const fonts = {
 
   // weight
   weights: {
+    bold: 700,
     semiBold: 600,
-    regular: 500,
-    medium: 400,
-    light: 300,
-  },
+    medium: 500,
+    regular: 400,
+  }
 };

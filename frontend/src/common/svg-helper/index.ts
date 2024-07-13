@@ -11,8 +11,11 @@ import qrcode from '@/common/svg-helper/icons/nav-icons/qrcode.svg?react';
 import settings from '@/common/svg-helper/icons/nav-icons/settings.svg?react';
 import help from '@/common/svg-helper/icons/nav-icons/help.svg?react';
 import arrowLeft from '@/common/svg-helper/icons/arrow-left.svg?react';
-
-
+import plus from '@/common/svg-helper/icons/plus.svg?react';
+import like from '@/common/svg-helper/icons/like.svg?react';
+import comment from '@/common/svg-helper/icons/comment.svg?react';
+import share from '@/common/svg-helper/icons/share.svg?react';
+import more from '@/common/svg-helper/icons/more.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -35,7 +38,12 @@ export type ImageComponentsTypes =
   | 'qrcode'
   |'settings'
   | 'help'
-  | 'arrowLeft';
+  | 'arrowLeft'
+  | 'plus'
+  | 'like'
+  | 'comment'
+  | 'share'
+  | 'more';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   logo,
@@ -50,5 +58,10 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   qrcode,
   settings,
   help,
-  arrowLeft
+  arrowLeft,
+  plus,
+  like,
+  comment,
+  share,
+  more,
 };
