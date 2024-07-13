@@ -1,5 +1,4 @@
-import { Global, css } from "@emotion/react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { colors, screen, transitions } from "@/common/styles/styleConstants";
 
 export const Container = styled("div")`
@@ -21,117 +20,92 @@ export const VisuallyHidden = styled("span")`
   overflow: hidden !important;
 `;
 
-export const GlobalStyles = () => {
-  return (
-    <>
-      <Global
-        styles={css`
-          *,
-          *::before,
-          *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
+export const GlobalStyles = createGlobalStyle`
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  } 
+  :where(ul, ol):where([class]) {
+    padding-left: 0;
+  } 
+  body,
+  :where(blockquote, figure):where([class]) {
+    margin: 0;
+  } 
+  :where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+    margin-block: 0;
+  } 
+  :where(dd[class]) {
+    margin-left: 0;
+  } 
+  :where(fieldset[class]) {
+    margin-left: 0;
+    padding: 0;
+    border: none;
+  } 
+  :where(ul[class]) {
+    list-style: none;
+  } 
+  p {
+    margin-block: 0;
+  } 
+  p:where(:not([class]):not(:last-child)) {
+    margin-bottom: var(--paragraphMarginBottom);
+  } 
+  img {
+    display: block;
+    max-width: 100%;
+  } 
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+  } 
+  html {
+    height: 100%;
+    scroll-behavior: smooth;
+  } 
+  body {
+    min-height: 100%;
+    line-height: 1.5;
+  } 
+  svg *[fill] {
+    fill: currentColor;
+  }
+  svg *[stroke] {
+    stroke: currentColor;
+  } 
+  svg * {
+    transition-property: fill, stroke;
+  } 
 
-          :where(ul, ol):where([class]) {
-            padding-left: 0;
-          }
+  body {
+    font-family: "Montserrat", sans-serif;
+    background-color: ${(props) => props.theme.mainBackground};
+    color: ${(props) => props.theme.mainText};
+    transition: ${transitions.fastTransition};
+  } 
 
-          body,
-          :where(blockquote, figure):where([class]) {
-            margin: 0;
-          }
+  a,
+  button {
+    cursor: pointer;
+  } 
 
-          :where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
-            margin-block: 0;
-          }
+  a,
+  button,
+  input,
+  textarea,
+  svg * {
+    user-select: none;
+    transition: ${transitions.fastTransition};
+  }
 
-          :where(dd[class]) {
-            margin-left: 0;
-          }
+  a {
+    color: ${colors.blackTotal};
+  } 
 
-          :where(fieldset[class]) {
-            margin-left: 0;
-            padding: 0;
-            border: none;
-          }
-
-          :where(ul[class]) {
-            list-style: none;
-          }
-
-          p {
-            margin-block: 0;
-          }
-
-          p:where(:not([class]):not(:last-child)) {
-            margin-bottom: var(--paragraphMarginBottom);
-          }
-
-          img {
-            display: block;
-            max-width: 100%;
-          }
-
-          input,
-          textarea,
-          select,
-          button {
-            font: inherit;
-          }
-
-          html {
-            height: 100%;
-            scroll-behavior: smooth;
-          }
-
-          body {
-            min-height: 100%;
-            line-height: 1.5;
-          }
-
-          svg *[fill] {
-            fill: currentColor;
-          }
-          svg *[stroke] {
-            stroke: currentColor;
-          }
-
-          svg * {
-            transition-property: fill, stroke;
-          }
-
-          body {
-            font-family: "Montserrat", sans-serif;
-            color: ${colors.blackTotal};
-            background-color: ${colors.whiteBackground};
-          }
-
-          a,
-          button {
-            cursor: pointer;
-          }
-
-          a,
-          button,
-          input,
-          textarea,
-          svg * {
-            user-select: none;
-            transition: ${transitions.fastTransition};
-          }
-          a {
-            color: ${colors.blackTotal};
-          }
-
-          /* button {
-            border: none;
-            background-color: transparent;
-            position: relative;
-          } */
-        `}
-      />
-    </>
-  );
-};
+`;
