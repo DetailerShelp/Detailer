@@ -1,6 +1,6 @@
 import { Global, css } from "@emotion/react";
 import styled from "styled-components";
-import { colors, screen, transitions } from "@/common/styles/styleConstants";
+import { borders, colors, screen, transitions } from "@/common/styles/styleConstants";
 
 export const Container = styled("div")`
   max-width: calc(${screen.fullScreenWidth} + 25px * 2);
@@ -110,7 +110,7 @@ export const GlobalStyles = () => {
 
           a,
           button {
-            cursor: pointer;
+            cursor: pointer;        
           }
 
           a,
@@ -121,15 +121,10 @@ export const GlobalStyles = () => {
             user-select: none;
             transition: ${transitions.fastTransition};
           }
+
           a {
             color: ${colors.blackTotal};
           }
-
-          /* button {
-            border: none;
-            background-color: transparent;
-            position: relative;
-          } */
         `}
       />
     </>

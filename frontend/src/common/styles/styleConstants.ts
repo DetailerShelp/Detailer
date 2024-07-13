@@ -53,6 +53,11 @@ export const colors = {
 
   //Black
   blackTotal: "rgba(0, 0, 0, 1)",
+  blackHover: "rgb(50, 50, 50, 1)",
+  blackActive: "rgb(75, 75, 75, 1)",
+
+
+  red: 'rgba(253, 0, 0, 1)',
 };
 
 export const shadows = {
@@ -69,6 +74,8 @@ export const borders = {
   bigBorderRadius: "60px",
   smallBorderRadius: "5px",
   circleBorderRadius: "50%",
+
+  outline: `${colors.blackTotal} solid 2px`,
 };
 
 export const transitions = {
@@ -80,17 +87,23 @@ export const transitions = {
 export const fonts = {
   // size
   sizes: {
-    title: "30px",
-    subTitle: "20px",
-    main: "18px",
-    small: "15px",
+    title: 30,
+    titleMobile: 22,
+    subTitle: 20,
+    subTitleMobile: 17,
+    main: 18,
+    mainMobile: 15,
+    small: 15,
+    smallMobile: 12,
+    extraSmall: 12,
+    extraSmallMobile: 10,
   },
 
   // weight
   weights: {
+    bold: 700,
     semiBold: 600,
-    regular: 500,
-    medium: 400,
-    light: 300
+    medium: 500,
+    regular: 400,
   }
 };
