@@ -1,6 +1,7 @@
 export const lightTheme = {
   alternateBackground: "rgba(255, 255, 255, 1)",
   mainBackground: "rgba(245, 245, 245, 1)",
+  modalBackground: "rgba(255, 255, 255, 1)",
   border: "rgba(238, 238, 238, 1)",
   alternateText: "rgba(210, 210, 210, 1)",
   borderColor: "rgb(184, 184, 184, 1)",
@@ -12,6 +13,7 @@ export const lightTheme = {
 export const darkTheme = {
   alternateBackground: "rgba(5, 5, 5, 1)",
   mainBackground: "rgba(15, 15, 15, 1)",
+  modalBackground: "rgba(30, 30, 30, 1)",
   border: "rgba(130, 130, 130, 1)",
   alternateText: "rgba(100, 100, 100, 1)",
   borderColor: "rgb(115, 115, 115, 1)",
@@ -26,5 +28,5 @@ export const getTheme = (themeName: string): any => {
 
 //TODO getTheme(...)
 export const getColorName = (colorName: string): string => {
-    return getTheme('dark')[colorName];
+    return getTheme('light')[colorName];
 }

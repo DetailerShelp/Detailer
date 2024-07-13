@@ -19,7 +19,7 @@ const ModalWrapper = styled('div') <{ zindex: number }>`
 
 const ModalContent = styled('div')`
   position: relative;
-  background: ${colors.whiteTotal};
+  background: ${colors.whiteModal};
   border-radius: 25px;
   height: fit-content;
   width: fit-content;

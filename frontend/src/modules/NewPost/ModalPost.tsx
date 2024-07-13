@@ -1,6 +1,6 @@
-import Modal from "../components/ui/Modal";
+import Modal from "../../common/components/ui/Modal";
 import Post from "./Post";
-import { DescriptionBlock, ModalPostContent, ModalPostHeader, ModalPostWrapper, PostMediaContent } from "./style";
+import { ButtonPostCancel, ButtonPostOk, ButtonsWrapper, ModalPostContent, ModalPostHeader, ModalPostWrapper } from "./style";
 
 interface ModalPostProps {
     isOpen: boolean;
@@ -19,11 +19,11 @@ const ModalPost = ({ isOpen, setOpen }: ModalPostProps) => {
                         Создать
                     </ModalPostHeader>
 
-                    <DescriptionBlock>
-                        Фото/видео
-                    </DescriptionBlock>
-
-                        <Post></Post>
+                    <Post></Post>
+                    <ButtonsWrapper>
+                        <ButtonPostCancel>Отмема</ButtonPostCancel>
+                        <ButtonPostOk>Опубликовать</ButtonPostOk>
+                    </ButtonsWrapper>
                 </ModalPostContent>
             </ModalPostWrapper>
         </Modal>

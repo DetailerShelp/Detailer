@@ -9,7 +9,7 @@ function App() {
   // };
 
   return (
-    <ThemeProvider theme={getTheme("dark")}>
+    <ThemeProvider theme={getTheme("light")}>
       <GlobalStyles />
       <RoutesProvider />
     </ThemeProvider>

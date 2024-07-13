@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const MediaFileDeleteButton = styled('div')`
   width: 25px;
   height: 25px;
-  color: ${colors.redTotal};
+  color: ${colors.red};
   pointer-events: auto;
   display: flex;
   align-items: center;

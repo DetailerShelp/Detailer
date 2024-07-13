@@ -53,7 +53,7 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   qrcode,
   settings,
   help,
-  arrowLeft
+  arrowLeft,
   close,
   trash,
 };

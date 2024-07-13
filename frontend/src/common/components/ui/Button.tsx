@@ -1,4 +1,4 @@
-import { mainFont, colors, transitions } from "@/common/styles/styleConstants";
+import { mainFont, colors, transitions, borders, fonts } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 export const DefaultButton = styled('button')`
@@ -19,4 +19,19 @@ export const DefaultButton = styled('button')`
     opacity: 0.5;
     cursor: pointer;
   }
+`;
+
+export const Button = styled('button')`
+border-radius: ${borders.bigBorderRadius};
+border: ${borders.borderBlack};
+color: ${colors.whiteTotal};
+font-size: ${fonts.sizes.subTitle};
+font-weight: ${fonts.weights.regular};
+background-color: ${colors.blackTotal};
+transition: ${transitions.fastTransition};
+
+&:hover {
+    background-color: ${colors.whiteTotal};
+    color: ${colors.blackTotal};
+}
 `;
