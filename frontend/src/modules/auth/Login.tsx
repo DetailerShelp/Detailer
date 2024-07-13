@@ -12,7 +12,7 @@ export default function Login() {
         <>
             <AuthInputWrapper>
                 <AuthLabel htmlFor="email" >Email</AuthLabel>
-                <AuthInput id="email" type="email" placeholder="user@gmail.com" />
+                <AuthInput id="email" type="email" placeholder="user@gmail.com" required />
             </AuthInputWrapper>
 
             <AuthInputWrapper>
@@ -20,7 +20,7 @@ export default function Login() {
                 <AuthInput id="password" type="password" placeholder="--------" />
             </AuthInputWrapper>
 
-            <AuthButton onClick={(e) => handleClick(e)}>Войти</AuthButton>
+            <AuthButton size={60} color="black" onClick={(e) => handleClick(e)}>Войти</AuthButton>
 
             <AuthSeparator></AuthSeparator>
 

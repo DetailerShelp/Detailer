@@ -26,7 +26,7 @@ export default function ForgotPassword() {
                 <AuthLabel htmlFor="confirm-code" >Код подтверждения</AuthLabel>
                 <AuthInput id="confirm-code" type='password' placeholder="--------" />
             </AuthInputWrapper>
-            <AuthButton onClick={(e) => handleClick(e)}>Отправить</AuthButton>
+            <AuthButton size={60} color="black" onClick={(e) => handleClick(e)}>Отправить</AuthButton>
         </>
     )
 }

@@ -104,6 +104,7 @@ export const GlobalStyles = createGlobalStyle`
             transition: ${transitions.fastTransition};
           }
           a {
+            text-decoration: none;
             color: ${colors.blackTotal};
           }
 

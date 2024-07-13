@@ -36,7 +36,7 @@ export default function Reg() {
                 </AuthCheckBoxLabel>
             </AuthCheckBoxWrapper>
 
-            <AuthButton onClick={(e) => handleClick(e)}>Зарегистрироваться</AuthButton>
+            <AuthButton size={60} color="black" onClick={(e) => handleClick(e)}>Зарегистрироваться</AuthButton>
         </>
     )
 }

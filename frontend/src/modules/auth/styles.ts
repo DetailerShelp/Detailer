@@ -1,5 +1,6 @@
-import { clampText, clampWidth, flexCenter } from "@/common/styles/mixins";
+import { clampText, flexCenter } from "@/common/styles/mixins";
 import { borders, colors, fonts, screen, shadows, transitions } from "@/common/styles/styleConstants";
+import { ButtonWrapper } from "@/common/styles/tags/button/BlackWhiteButton";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -93,7 +94,7 @@ margin-bottom: 40px;
 `;
 
 export const AuthLink = styled(Link)`
-${clampText(fonts.sizes.subTitleMobile, fonts.sizes.subTitle)};
+${clampText(fonts.sizes.mainMobile, fonts.sizes.main)};
 font-weight: ${fonts.weights.medium};
 transition: ${transitions.fastTransition};
 
@@ -194,25 +195,8 @@ font-weight: ${fonts.weights.regular};
 }
 `;
 
-export const AuthButton = styled('button')`
+export const AuthButton = styled(ButtonWrapper)`
 width: 100%;
-padding: 15px 0;
-border-radius: ${borders.bigBorderRadius};
-border: ${borders.borderBlack};
-color: ${colors.whiteTotal};
-${clampText(fonts.sizes.subTitleMobile, fonts.sizes.subTitle)};
-font-weight: ${fonts.weights.regular};
-background-color: ${colors.blackTotal};
-transition: ${transitions.fastTransition};
-
-&:hover {
-    background-color: ${colors.whiteTotal};
-    color: ${colors.blackTotal};
-}
-
-@media (max-width: ${screen.mobileScreenWidth}) {
-    padding: 10px 0;
-}
 `;
 
 export const AuthSeparator = styled('div')`
