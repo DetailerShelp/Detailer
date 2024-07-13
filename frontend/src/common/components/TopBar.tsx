@@ -7,6 +7,7 @@ import {
 } from "@/common/styles/styleConstants";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
+import { hover } from "@/common/styles/mixins";
 
 const TopBarHeader = styled("header")`
   position: fixed;
@@ -50,7 +51,7 @@ const TopBarInput = styled("input")`
     color: ${colors.grayAccent};
   }
 
-  &:hover {
+  ${hover} {
     background-color: ${colors.grayBorder};
   }
 
