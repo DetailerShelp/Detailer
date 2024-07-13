@@ -20,11 +20,11 @@ const TextAreaWrapper = styled('div') <{ isActive: boolean }>`
   border-width: 1px; 
   border-style: solid;
   border-color: ${(props) =>
-        props.isActive ? '#B8B8B8' : '#010101'};
+        props.isActive ? colors.grayAccent : colors.grayBorder};
   transition: ${transitions.mediumTransition};
   &:hover,
   &:focus {
-    border-color: #b43535;
+    border-color: ${colors.grayText};
   }
   overflow: hidden;
 `;
@@ -51,13 +51,14 @@ export const CustomTextArea = styled('textarea')`
   &.ant-input-disabled {
     background: none;
   }
+
   &::-webkit-scrollbar {
    width: 3px; /* Ширина скроллбара */
-   background-color: #D9D9D9; /* Цвет ползунка скроллбара */
+   background-color: ${colors.grayScrollBar}; /* Цвет ползунка скроллбара */
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #010101; /* Цвет ползунка скроллбара */
+    background-color: ${colors.blackThumb}; /* Цвет ползунка скроллбара */
     border-radius: 50px;
   }
 

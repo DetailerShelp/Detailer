@@ -1,12 +1,13 @@
 import { Button } from "@/common/components/ui/Button";
-import { borders, colors, fonts } from "@/common/styles/styleConstants";
+import { flexCenter } from "@/common/styles/mixins";
+import { borders, colors, fonts, transitions } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 export const ModalPostWrapper = styled('div')`
     width: 700px;
     max-height: 800px;
     padding: 35px 76px;
-    overflow-y: auto;
+    overflow-y: hidden;
 `
 
 //Возможно переместить overflow
@@ -63,4 +64,18 @@ export const ButtonPostCancel = styled(ButtonPostOk)`
     background-color: ${colors.blackTotal};
     color: ${colors.whiteTotal};
 }
+`
+
+export const LoaderWrapper = styled('div')`
+    ${flexCenter}
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: ${colors.grayBorder};
+    transition: ${transitions.mediumTransition};
+
+    &:hover{
+        opacity: 0.7;
+        cursor: pointer;
+    }
 `

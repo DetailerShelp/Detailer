@@ -53,10 +53,12 @@ export const colors = {
   grayBorder: `${getColorName("border")}`,
   grayText: `${getColorName("alternateText")}`,
   grayAccent: `${getColorName("borderColor")}`,
+  grayScrollBar: `${getColorName("scrollBarColor")}`,
   grayBackground: "rgba(217, 217, 217, 0.7)",
 
   //Black
   blackTotal: `${getColorName("mainText")}`,
+  blackThumb: `${getColorName("thumbColor")}`,
   shadow: `${getColorName("shadow")}`,
 
   red: "rgba(253, 0, 0, 1)",

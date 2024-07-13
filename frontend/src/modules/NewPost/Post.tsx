@@ -3,13 +3,23 @@ import DragAndDropUpload from "@/common/components/DraggerUploadFile";
 import { MediaImageUpload } from "@/common/components/media-viewer/media-image/MediaimageUpload";
 import { DescriptionBlock, PostContent, PostMediaContent } from "./style";
 import TextArea from "@/common/components/ui/TextArea";
+import Loader from "./Loader";
 
 const Post = () => {
     const [files, setFiles] = useState<File[]>([]);
 
+    //норм вот так?  или как то по другому ограничить количество загружаемых файлов?
     const handleChangeFiles = (file: File) => {
-        setFiles(currentFiles => [...currentFiles, file]);
+        setFiles(currentFiles => currentFiles.length < 10 ? [...currentFiles, file]:[...currentFiles]);
+        console.log(files.length)
     }
+
+    const deleteMedia = (id: number | string) => {
+        const tmp = files;
+        tmp.splice(Number(id), 1);
+        setFiles([...tmp]);
+    }
+
     return (
         <>
             <PostContent>
@@ -18,13 +28,19 @@ const Post = () => {
                 </DescriptionBlock>
                 <PostMediaContent>
                     {files.map((file, index) => (
-                        <MediaImageUpload id={index} url={URL.createObjectURL(file)}></MediaImageUpload>
+                        <MediaImageUpload 
+                            key={index}
+                            id={index} 
+                            url={URL.createObjectURL(file)}
+                            onDelete={(id)=>deleteMedia(id)}
+                        />
                     ))}
-                    <DragAndDropUpload onFile={handleChangeFiles} multiple={true}>
-                        <div style={{ height: '100px', width: '100px', border: '1px solid black', cursor: 'pointer' }}>Добавить элемент</div>
-                    </DragAndDropUpload>
+                    {files.length < 10 && <DragAndDropUpload onFile={handleChangeFiles} multiple={true}>
+                        <Loader />
+                    </DragAndDropUpload>}
                 </PostMediaContent>
             </PostContent>
+
             <PostContent>
                 <DescriptionBlock>
                     Описание

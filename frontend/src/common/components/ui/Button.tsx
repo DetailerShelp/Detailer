@@ -12,12 +12,10 @@ export const DefaultButton = styled('button')`
   //TODO подумать как меняется кнопка при клике и наведении 
   &:hover {
     opacity: 0.8;
-    cursor: pointer;
   }
 
   &:active {
     opacity: 0.5;
-    cursor: pointer;
   }
 `;
 

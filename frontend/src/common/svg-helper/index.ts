@@ -13,7 +13,7 @@ import help from '@/common/svg-helper/icons/nav-icons/help.svg?react';
 import arrowLeft from '@/common/svg-helper/icons/arrow-left.svg?react';
 import close from '@/common/svg-helper/icons/close.svg?react';
 import trash from '@/common/svg-helper/icons/trash.svg?react';
-
+import plus from '@/common/svg-helper/icons/plus.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -38,7 +38,8 @@ export type ImageComponentsTypes =
   | 'help'
   | 'arrowLeft'
   | 'close'
-  | 'trash';
+  | 'trash'
+  | 'plus';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   logo,
@@ -56,4 +57,5 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   arrowLeft,
   close,
   trash,
+  plus,
 };
