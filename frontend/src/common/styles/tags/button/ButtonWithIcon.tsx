@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borders } from "@/common/styles/styleConstants";
+import { borders, colors } from "@/common/styles/styleConstants";
 import { ImageComponentsTypes } from "@/common/svg-helper";
 import { FC } from "react";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
@@ -19,6 +19,7 @@ const ButtonWrapper = styled("button")<{ size: number }>`
 const ButtonIcon = styled(SvgHelper)`
   ${absCenter}
   z-index: 1;
+  color: ${colors.blackTotal};
 `;
 
 interface ButtonWithIconProps {

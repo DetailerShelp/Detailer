@@ -1,3 +1,5 @@
+import { getColorName, } from "@/common/styles/theme";
+
 export const screen = {
   fullScreenWidth: 1440,
 
@@ -43,25 +45,24 @@ export const device = {
 
 export const colors = {
   //White
-  whiteTotal: "rgba(255, 255, 255, 1)",
-  whiteBackground: "rgba(245, 245, 245, 1)",
+  whiteTotal: `${getColorName("alternateBackground")}`,
+  whiteBackground: `${getColorName("mainBackground")}`,
 
   //Gray
-  grayBorder: "rgba(238, 238, 238, 1)",
-  grayText: "rgba(210, 210, 210, 1)",
-  grayAccent: "rgb(184, 184, 184, 1)",
+  grayBorder: `${getColorName("border")}`,
+  grayText: `${getColorName("alternateText")}`,
+  grayAccent: `${getColorName("borderColor")}`,
 
   //Black
-  blackTotal: "rgba(0, 0, 0, 1)",
-  blackHover: "rgb(50, 50, 50, 1)",
+  blackTotal: `${getColorName("mainText")}`,
   blackActive: "rgb(75, 75, 75, 1)",
+  shadow: `${getColorName("shadow")}`,
 
-
-  red: 'rgba(253, 0, 0, 1)',
+  red: "rgba(253, 0, 0, 1)",
 };
 
 export const shadows = {
-  defaultShadow: "0 0 5px 0 rgba(0, 0, 0, 0.25)",
+  defaultShadow: `0 0 5px 0 ${colors.shadow}`,
 };
 
 export const borders = {
@@ -69,19 +70,19 @@ export const borders = {
   borderGrayAccent: `1px solid ${colors.grayAccent}`,
   borderBlack: `1px solid ${colors.blackTotal}`,
 
+  smallBorderRadius: "5px",
   defaultBorderRadius: "20px",
   mediumBorderRadius: "45px",
   bigBorderRadius: "60px",
-  smallBorderRadius: "5px",
   circleBorderRadius: "50%",
 
   outline: `${colors.blackTotal} solid 2px`,
 };
 
 export const transitions = {
-  mediumTransition: 'all 0.3s ease 0s',
-  fastTransition: 'all 0.2s ease 0s',
-  lowTransition: 'all 0.8s ease 0s',
+  fastTransition: "all 0.2s ease 0s",
+  mediumTransition: "all 0.3s ease 0s",
+  lowTransition: "all 0.8s ease 0s",
 };
 
 export const fonts = {
