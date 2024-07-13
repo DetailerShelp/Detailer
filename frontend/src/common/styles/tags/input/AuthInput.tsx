@@ -5,7 +5,7 @@ import { FC } from "react";
 
 const Input = styled("input")`
   height: 50px;
-  width: calc(50px * 6);
+  width: 100%;
   padding-inline: 25px;
   ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
   border: ${borders.borderGrayAccent};
@@ -26,7 +26,6 @@ const Input = styled("input")`
 
   @media ${device.mobile} {
     height: calc(50px / 1.2);
-    width: calc(50px * 4);
     padding-inline: 15px;
 
     ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)}
@@ -34,11 +33,11 @@ const Input = styled("input")`
 `;
 
 interface AuthInputProps {
-    id: string,
-    type: string,
-    placeholder: string,
+  id: string;
+  type: string;
+  placeholder: string;
 }
 
-export const AuthInput: FC<AuthInputProps> = ({id, type, placeholder}) => {
+export const AuthInput: FC<AuthInputProps> = ({ id, type, placeholder }) => {
   return <Input id={id} type={type} placeholder={placeholder} />;
 };
