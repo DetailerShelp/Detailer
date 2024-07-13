@@ -1,4 +1,5 @@
-import { AuthButton, AuthCheckBoxInput, AuthCheckBoxLabel, AuthCheckBoxWrapper, AuthInput, AuthInputWrapper, AuthLabel } from "./styles";
+import AuthButton from "./components/AuthButton";
+import { AuthCheckBoxInput, AuthCheckBoxLabel, AuthCheckBoxWrapper, AuthInput, AuthInputWrapper, AuthLabel } from "./styles";
 
 export default function Reg() {
     // ToDo
@@ -36,7 +37,7 @@ export default function Reg() {
                 </AuthCheckBoxLabel>
             </AuthCheckBoxWrapper>
 
-            <AuthButton size={60} color="black" onClick={(e) => handleClick(e)}>Зарегистрироваться</AuthButton>
+            <AuthButton title="Зарегистрироваться" clickFuntion={handleClick}/>
         </>
     )
 }

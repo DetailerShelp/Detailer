@@ -195,10 +195,6 @@ font-weight: ${fonts.weights.regular};
 }
 `;
 
-export const AuthButton = styled(ButtonWrapper)`
-width: 100%;
-`;
-
 export const AuthSeparator = styled('div')`
 margin: 35px 0;
 width: 100%;

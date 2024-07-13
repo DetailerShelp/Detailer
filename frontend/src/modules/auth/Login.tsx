@@ -1,5 +1,6 @@
 import { forgotUrl } from "./authLinks";
-import { AuthButton, AuthInput, AuthInputWrapper, AuthLabel, AuthLink, AuthSeparator } from "./styles";
+import AuthButton from "./components/AuthButton";
+import { AuthInput, AuthInputWrapper, AuthLabel, AuthLink, AuthSeparator } from "./styles";
 
 export default function Login() {
 
@@ -20,7 +21,7 @@ export default function Login() {
                 <AuthInput id="password" type="password" placeholder="--------" />
             </AuthInputWrapper>
 
-            <AuthButton size={60} color="black" onClick={(e) => handleClick(e)}>Войти</AuthButton>
+            <AuthButton title="Войти" clickFuntion={handleClick}/>
 
             <AuthSeparator></AuthSeparator>
 

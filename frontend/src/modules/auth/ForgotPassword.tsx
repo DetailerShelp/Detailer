@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import AuthReturn from './AuthReturn';
-import { AuthButton, AuthDescription, AuthInput, AuthInputWrapper, AuthLabel, AuthTitle } from './styles'
+import { AuthDescription, AuthInput, AuthInputWrapper, AuthLabel, AuthTitle } from './styles'
 import { changeUrl, loginUrl } from './authLinks';
+import AuthButton from './components/AuthButton';
 
 export default function ForgotPassword() {
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ export default function ForgotPassword() {
                 <AuthLabel htmlFor="confirm-code" >Код подтверждения</AuthLabel>
                 <AuthInput id="confirm-code" type='password' placeholder="--------" />
             </AuthInputWrapper>
-            <AuthButton size={60} color="black" onClick={(e) => handleClick(e)}>Отправить</AuthButton>
+            <AuthButton title="Отправить" clickFuntion={handleClick}/>
         </>
     )
 }
