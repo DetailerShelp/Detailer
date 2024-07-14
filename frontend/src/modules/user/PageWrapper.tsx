@@ -1,42 +1,90 @@
 import { TopBar } from "@/common/components/TopBar";
 import { NavPanel } from "@/common/components/navpanel/NavPanel";
 import { Container } from "@/common/styles/GlobalStyles";
+import React, { FC } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled("div")`
-  margin-top: 75px;
+  margin-top: 65px;
   padding-top: 25px;
+
+  display: flex;
+  justify-content: space-between;
 `;
 
 const WrapperInner = styled("div")`
+  width: 100%;
   display: grid;
   grid-template-areas:
     "a b c"
-    "a b d";
+    ". . d";
   gap: 25px;
 `;
 
 const NavigationWrapper = styled("div")`
   grid-area: "a";
-  position: fixed;
-  width: 100%;
-  max-width: 300px;
+  width: 300px;
 `;
 
-export const PageWrapper = () => {
+const FixedWrapper = styled("div")`
+  width: 100%;
+  position: fixed;
+  display: grid;
+  row-gap: 25px;
+`;
+
+const ContentWrapper = styled("div")`
+  grid-area: "b";
+  width: 550px;
+  background-color: white;
+  box-shadow: 0 0 5px 0 black;
+`;
+
+const WidgetsWrapper = styled("div")`
+  grid-area: "c";
+  width: 324px;
+`;
+
+interface PageProps {
+  content: React.ReactNode;
+  widgetOne: React.ReactNode;
+  widgetTwo: React.ReactNode;
+  widgetThree?: React.ReactNode;
+  widgetFour?: React.ReactNode;
+}
+
+export const PageWrapper: FC<PageProps> = ({
+  content,
+  widgetOne,
+  widgetTwo,
+  widgetThree,
+  widgetFour,
+}) => {
   return (
     <>
-    <TopBar />
+      <TopBar />
 
-    <Wrapper>
-      <Container>
-        <WrapperInner>
+      <Wrapper>
+        <Container>
+          <WrapperInner>
             <NavigationWrapper>
+              <FixedWrapper>
                 <NavPanel />
+              </FixedWrapper>
             </NavigationWrapper>
-        </WrapperInner>
-      </Container>
-    </Wrapper>
+            <ContentWrapper>{content}</ContentWrapper>
+
+            <WidgetsWrapper>
+              <FixedWrapper>
+                {widgetOne}
+                {widgetTwo}
+                {widgetThree}
+                {widgetFour}
+              </FixedWrapper>
+            </WidgetsWrapper>
+          </WrapperInner>
+        </Container>
+      </Wrapper>
     </>
   );
 };

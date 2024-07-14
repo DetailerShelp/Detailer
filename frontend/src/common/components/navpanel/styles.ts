@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { borders, colors, shadows } from "@/common/styles/styleConstants";
+import { borders, colors, fonts, shadows } from "@/common/styles/styleConstants";
 import { NavLink } from "react-router-dom";
-import { hoverActive, resetLink } from "@/common/styles/mixins";
+import { clampText, hoverActive, resetLink } from "@/common/styles/mixins";
 
 export const NavigationPanel = styled("nav")`
   width: 100%;
@@ -36,7 +36,7 @@ export const NavigationLink = styled(NavLink)`
   height: 50px;
   border-radius: ${borders.defaultBorderRadius};
 
-  font-size: 18px;
+  ${clampText(fonts.sizes.main, fonts.sizes.mainMobile)}
   color: ${colors.grayText};
 
   &.active {
