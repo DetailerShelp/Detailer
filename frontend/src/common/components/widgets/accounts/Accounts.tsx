@@ -1,6 +1,6 @@
 import { WidgetsWrapper } from "@/common/components/widgets/WidgetsWrapper";
 import { AccountsList } from "@/common/components/widgets/accounts/styles";
-import { AccountItem } from "./AccountItem";
+import { AccountItem } from "@/common/components/widgets/accounts/AccountItem";
 
 export const Accounts = () => {
   return (

@@ -5,7 +5,7 @@ import {
   CategoryLinkIconWrapper,
   CategoryLinkTitle,
   CategoryListItem,
-} from "./styles";
+} from "@/common/components/widgets/category/styles";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import styled from "styled-components";
 import { absCenter } from "@/common/styles/mixins";
