@@ -13,8 +13,8 @@ const DragAndDropUpload = ({ onFile, accept, multiple, children }: DragAndDropUp
     const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault();
         if (e.dataTransfer.files) {
-            Object.keys(e.dataTransfer.files).forEach((_, index) => {
-                onFile(e.dataTransfer.files[index] as File)
+            Array.from(e.dataTransfer.files).forEach((file) => {
+                onFile(file as File)
             })
         }
     };
@@ -25,9 +25,10 @@ const DragAndDropUpload = ({ onFile, accept, multiple, children }: DragAndDropUp
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
-            Object.keys(e.target.files).forEach((_, index) => {
-                onFile(e.target.files![index] as File)
+            Array.from(e.target.files).forEach((file) => {
+                onFile(file as File)
             })
+            e.target.value = '';
         }
     };
 

@@ -1,5 +1,5 @@
 import SvgHelper from "@/common/svg-helper/SvgHelper";
-import { LoaderWrapper } from "./style";
+import { LoaderWrapper } from "@/modules/NewPost/components/style";
 import { colors } from "@/common/styles/styleConstants";
 
 const Loader = () => {

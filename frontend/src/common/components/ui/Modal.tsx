@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { colors } from "@/common/styles/styleConstants";
+import { colors, transitions } from "@/common/styles/styleConstants";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { ModalProps } from "@/common/interfaces/Modal";
+import { useEffect, useState } from "react";
 
 const ModalWrapper = styled('div') <{ zindex: number }>`
   position: fixed;
@@ -17,12 +18,14 @@ const ModalWrapper = styled('div') <{ zindex: number }>`
   z-index: ${(props) => props.zindex};
 `;
 
-const ModalContent = styled('div')`
+const ModalContent = styled('div') <{ visible: boolean }>`
   position: relative;
   background: ${colors.whiteModal};
   border-radius: 25px;
   height: fit-content;
   width: fit-content;
+  transition: ${transitions.lowTransition};
+  transform: ${props => props.visible ? 'scale(1)' : 'scale(0.5)'};
 `;
 
 const CloseIcon = styled(SvgHelper)`
@@ -38,13 +41,24 @@ const CloseIcon = styled(SvgHelper)`
 `
 
 const Modal = ({ isOpen, onClose, closeIcon, children, zIndex }: ModalProps) => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsVisible(true);
+        }
+        else {
+            setIsVisible(false);
+        }
+    }, [isOpen]);
+    
     if (!isOpen) {
         return null;
     }
 
     return (
         <ModalWrapper onClick={onClose} tabIndex={-1} zindex={zIndex || 1}>
-            <ModalContent onClick={(e)=>e.stopPropagation()}>
+            <ModalContent onClick={(e) => e.stopPropagation()} visible={isVisible}>
                 {closeIcon && <CloseIcon iconName="close" onClick={onClose}></CloseIcon>}
                 {children}
             </ModalContent>

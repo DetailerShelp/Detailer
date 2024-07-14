@@ -1,6 +1,5 @@
 import { Button } from "@/common/components/ui/Button";
-import { flexCenter } from "@/common/styles/mixins";
-import { borders, colors, fonts, transitions } from "@/common/styles/styleConstants";
+import { borders, colors, fonts } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 export const ModalPostWrapper = styled('div')`
@@ -25,23 +24,6 @@ export const ModalPostHeader = styled('h1')`
     font-weight: 500;
 `
 
-export const DescriptionBlock = styled('h2')`
-padding: 0px;
-    margin: 0px 10px 15px;
-    font-size: 20px;
-    font-weight: 500;
-`
-
-export const PostContent = styled('div')`
-    width: 100%;
-`
-
-export const PostMediaContent = styled('div')`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-`
-
 export const ButtonsWrapper = styled('div')`
     width: 100%;
     display: flex;
@@ -60,22 +42,8 @@ export const ButtonPostCancel = styled(ButtonPostOk)`
     color: ${colors.blackTotal};
     background-color: ${colors.whiteTotal};
 
-&:hover {
-    background-color: ${colors.blackTotal};
-    color: ${colors.whiteTotal};
-}
-`
-
-export const LoaderWrapper = styled('div')`
-    ${flexCenter}
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-    background-color: ${colors.grayBorder};
-    transition: ${transitions.mediumTransition};
-
-    &:hover{
-        opacity: 0.7;
-        cursor: pointer;
+    &:hover {
+        background-color: ${colors.blackTotal};
+        color: ${colors.whiteTotal};
     }
 `
