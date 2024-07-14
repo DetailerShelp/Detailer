@@ -1,5 +1,7 @@
-import { forgotUrl } from "./authLinks";
-import { AuthButton, AuthInput, AuthInputWrapper, AuthLabel, AuthLink, AuthSeparator } from "./styles";
+import { forgotUrl } from "@/modules/auth/authLinks";
+import AuthButton from "@/modules/auth/components/AuthButton";
+import { AuthInputWrapper, AuthLabel, AuthLink, AuthSeparator } from "@/modules/auth/styles";
+import { AuthInput } from "@/common/styles/tags/input/AuthInput";
 
 export default function Login() {
 
@@ -20,7 +22,7 @@ export default function Login() {
                 <AuthInput id="password" type="password" placeholder="--------" />
             </AuthInputWrapper>
 
-            <AuthButton onClick={(e) => handleClick(e)}>Войти</AuthButton>
+            <AuthButton title="Войти" clickFuntion={handleClick}/>
 
             <AuthSeparator></AuthSeparator>
 

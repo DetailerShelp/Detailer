@@ -15,6 +15,10 @@ export const clampWidth = (min: number, max: number) => css`
   width: clamp(${min}px, ${(max / screen.fullScreenWidth) * 100}vw, ${max}px);
 `;
 
+export const clampHeight = (min: number, max: number) => css`
+  height: clamp(${min}px, ${(max / screen.fullScreenWidth) * 100}vw, ${max}px);
+`;
+
 export const resetLink = css`
   color: inherit;
   text-decoration: none;
