@@ -90,26 +90,22 @@ export const GlobalStyles = createGlobalStyle`
     transition: ${transitions.fastTransition};
   } 
 
-          a,
-          button {
-            cursor: pointer;
-          }
+  a,
+  button {
+    cursor: pointer;
+  } 
 
-          a,
-          button,
-          input,
-          textarea,
-          svg * {
-            user-select: none;
-            transition: ${transitions.fastTransition};
-          }
-          a {
-            color: ${colors.blackTotal};
-          }
+  a,
+  button,
+  input,
+  textarea,
+  svg * {
+    user-select: none;
+    transition: ${transitions.fastTransition};
+  }
 
-          /* button {
-            border: none;
-            background-color: transparent;
-            position: relative;
-          } */
-        `;
+  a {
+    color: ${colors.blackTotal};
+  } 
+
+`;

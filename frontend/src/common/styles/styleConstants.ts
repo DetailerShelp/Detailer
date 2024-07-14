@@ -55,7 +55,7 @@ export const colors = {
 
   //Black
   blackTotal: `${getColorName("mainText")}`,
-  blackActive: "rgb(75, 75, 75, 1)",
+  blackActive: `${getColorName("buttonActive")}`,
   shadow: `${getColorName("shadow")}`,
 
   red: "rgba(253, 0, 0, 1)",
