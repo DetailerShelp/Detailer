@@ -12,7 +12,11 @@ import settings from '@/common/svg-helper/icons/nav-icons/settings.svg?react';
 import help from '@/common/svg-helper/icons/nav-icons/help.svg?react';
 import arrowLeft from '@/common/svg-helper/icons/arrow-left.svg?react';
 import arrowRight from '@/common/svg-helper/icons/arrow-right.svg?react';
+import close from '@/common/svg-helper/icons/close.svg?react';
+import trash from '@/common/svg-helper/icons/trash.svg?react';
 import plus from '@/common/svg-helper/icons/plus.svg?react';
+import post from '@/common/svg-helper/icons/post.svg?react';
+import auto from '@/common/svg-helper/icons/auto.svg?react';
 import like from '@/common/svg-helper/icons/like.svg?react';
 import comment from '@/common/svg-helper/icons/comment.svg?react';
 import share from '@/common/svg-helper/icons/share.svg?react';
@@ -26,6 +30,7 @@ import chipTuning from '@/common/svg-helper/icons/category-icons/chip-tuning.svg
 import light from '@/common/svg-helper/icons/category-icons/light.svg?react';
 import tuning from '@/common/svg-helper/icons/category-icons/tuning.svg?react';
 import other from '@/common/svg-helper/icons/category-icons/other.svg?react';
+import adder from '@/common/svg-helper/icons/adder.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -55,6 +60,12 @@ export type ImageComponentsTypes =
   | 'comment'
   | 'share'
   | 'more'
+  | 'close'
+  | 'trash'
+  | 'plus'
+  | 'post'
+  | 'auto'
+  | 'adder'
   | 'detailing'
   | 'engine'
   | 'audio'
@@ -94,4 +105,9 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   light,
   tuning,
   other,
+  close,
+  trash,
+  post,
+  auto,
+  adder,
 };

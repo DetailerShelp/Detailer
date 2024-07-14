@@ -1,7 +1,7 @@
-import { GlobalStyles } from "@/common/styles/GlobalStyles"
-import RoutesProvider from "@/router/RoutesProvider"
-import { ThemeProvider } from "styled-components"
+import { GlobalStyles } from "@/common/styles/GlobalStyles";
 import { getTheme } from "@/common/styles/theme";
+import RoutesProvider from "@/router/RoutesProvider";
+import { ThemeProvider } from "styled-components";
 
 function App() {
   // const switchTheme = () => {

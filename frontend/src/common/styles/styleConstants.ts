@@ -47,15 +47,19 @@ export const colors = {
   //White
   whiteTotal: `${getColorName("alternateBackground")}`,
   whiteBackground: `${getColorName("mainBackground")}`,
+  whiteModal: `${getColorName("modalBackground")}`,
 
   //Gray
   grayBorder: `${getColorName("border")}`,
   grayText: `${getColorName("alternateText")}`,
   grayAccent: `${getColorName("borderColor")}`,
+  grayScrollBar: `${getColorName("scrollBarColor")}`,
+  grayBackground: "rgba(217, 217, 217, 0.7)",
 
   //Black
   blackTotal: `${getColorName("mainText")}`,
   blackActive: `${getColorName("buttonActive")}`,
+  blackThumb: `${getColorName("thumbColor")}`,
   shadow: `${getColorName("shadow")}`,
 
   red: "rgba(253, 0, 0, 1)",
@@ -89,6 +93,7 @@ export const fonts = {
   // size
   sizes: {
     title: 30,
+    titleModal: 25,
     titleMobile: 22,
     subTitle: 20,
     subTitleMobile: 17,
@@ -108,3 +113,6 @@ export const fonts = {
     regular: 400,
   }
 };
+
+
+export const mainFont = "'Montserrat', sans-serif";

@@ -91,8 +91,8 @@ export const GlobalStyles = createGlobalStyle`
     transition: ${transitions.fastTransition};
   } 
 
-  a,
-  button {
+  a:hover,
+  button:hover {
     cursor: pointer;
   } 
 
