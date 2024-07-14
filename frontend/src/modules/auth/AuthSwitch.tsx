@@ -1,5 +1,5 @@
-import { AuthSwitchLink, AuthSwitchWrapper } from './styles';
-import { SwitchTextObject } from './switchText';
+import { AuthSwitchLink, AuthSwitchWrapper } from '@/modules/auth/styles';
+import { SwitchTextObject } from '@/modules/auth/switchText';
 
 
 interface AuthSwitchProps {

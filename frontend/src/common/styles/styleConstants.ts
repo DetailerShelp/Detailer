@@ -58,6 +58,7 @@ export const colors = {
 
   //Black
   blackTotal: `${getColorName("mainText")}`,
+  blackActive: `${getColorName("buttonActive")}`,
   blackThumb: `${getColorName("thumbColor")}`,
   shadow: `${getColorName("shadow")}`,
 
@@ -78,6 +79,8 @@ export const borders = {
   mediumBorderRadius: "45px",
   bigBorderRadius: "60px",
   circleBorderRadius: "50%",
+
+  outline: `${colors.blackTotal} solid 2px`,
 };
 
 export const transitions = {
@@ -89,19 +92,25 @@ export const transitions = {
 export const fonts = {
   // size
   sizes: {
-    title: "30px",
-    subTitle: "20px",
-    main: "18px",
-    small: "15px",
+    title: 30,
+    titleMobile: 22,
+    subTitle: 20,
+    subTitleMobile: 17,
+    main: 18,
+    mainMobile: 15,
+    small: 15,
+    smallMobile: 12,
+    extraSmall: 12,
+    extraSmallMobile: 10,
   },
 
   // weight
   weights: {
+    bold: 700,
     semiBold: 600,
-    regular: 500,
-    medium: 400,
-    light: 300,
-  },
+    medium: 500,
+    regular: 400,
+  }
 };
 
 

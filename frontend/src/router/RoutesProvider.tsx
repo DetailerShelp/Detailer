@@ -7,7 +7,7 @@ import Login from "@/modules/auth/Login";
 import Reg from "@/modules/auth/Reg";
 
 export default function RoutesProvider() {
-    const authorizedUser = true;
+    const authorizedUser = false;
 
 
     // ToDo изменить elements по готовности

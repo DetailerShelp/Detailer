@@ -4,7 +4,19 @@ import { colors, screen } from "@/common/styles/styleConstants";
 //HELPER to use mixin with props in styled-components write: ${props => mixin(props.yourProps)}
 
 export const clampText = (min: number, max: number) => css`
-    font-size: clamp(${min}px, ${max / screen.fullScreenWidth * 100}vw, ${max}px);
+  font-size: clamp(
+    ${min}px,
+    ${(max / screen.fullScreenWidth) * 100}vw,
+    ${max}px
+  );
+`;
+
+export const clampWidth = (min: number, max: number) => css`
+  width: clamp(${min}px, ${(max / screen.fullScreenWidth) * 100}vw, ${max}px);
+`;
+
+export const clampHeight = (min: number, max: number) => css`
+  height: clamp(${min}px, ${(max / screen.fullScreenWidth) * 100}vw, ${max}px);
 `;
 
 export const resetLink = css`
@@ -36,12 +48,60 @@ export const square = (size: number) => css`
   aspect-ratio: 1;
 `;
 
-export const hoverActive = css`
-  &:hover {
-    background-color: ${colors.whiteBackground};
+export const hover = css`
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+
+    &:active {
+      @content;
+    }
   }
 
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+`;
+
+export const hoverActive = css`
+  @media (hover: hover) {
+    &:hover {
+      background-color: ${colors.whiteBackground};
+    }
+
+    &:active {
+      background-color: ${colors.grayBorder};
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: ${colors.grayBorder};
+    }
+  }
+`;
+
+export const buttonHoverActive = css`
+  @media (hover: hover) {
+    &:hover,
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+`;
+
+export const inputHoverActive = css`
+  &:hover,
   &:active {
-    background-color: ${colors.grayBorder};
+    background-color: ${colors.whiteBackground};
   }
 `;

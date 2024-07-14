@@ -15,8 +15,11 @@ import close from '@/common/svg-helper/icons/close.svg?react';
 import trash from '@/common/svg-helper/icons/trash.svg?react';
 import plus from '@/common/svg-helper/icons/plus.svg?react';
 import post from '@/common/svg-helper/icons/post.svg?react';
-import auto from '@/common/svg-helper/icons/auto.svg?react';
-
+import auto from '@/common/svg-helper/icons/auto.svg?react';import plus from '@/common/svg-helper/icons/plus.svg?react';
+import like from '@/common/svg-helper/icons/like.svg?react';
+import comment from '@/common/svg-helper/icons/comment.svg?react';
+import share from '@/common/svg-helper/icons/share.svg?react';
+import more from '@/common/svg-helper/icons/more.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -40,6 +43,11 @@ export type ImageComponentsTypes =
   |'settings'
   | 'help'
   | 'arrowLeft'
+  | 'plus'
+  | 'like'
+  | 'comment'
+  | 'share'
+  | 'more'
   | 'close'
   | 'trash'
   | 'plus'
@@ -60,6 +68,11 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   settings,
   help,
   arrowLeft,
+  plus,
+  like,
+  comment,
+  share,
+  more,,
   close,
   trash,
   plus,

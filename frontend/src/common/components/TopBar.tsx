@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import {
-  borders,
   colors,
+  device,
   shadows,
   transitions,
 } from "@/common/styles/styleConstants";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
+import { clampWidth, flexCenter } from "@/common/styles/mixins";
+import { SearchInput } from "@/common/styles/tags/input/SearchInput";
 
 const TopBarHeader = styled("header")`
   position: fixed;
@@ -24,65 +26,33 @@ const TopBarHeader = styled("header")`
   justify-content: space-between;
   column-gap: 50px;
   padding-inline: 50px;
+
+  @media ${device.mobile} {
+    height: 55px;
+    column-gap: 25px;
+    padding-inline: 25px;
+  }
 `;
 
 //TODO решить проблему с отображением логотипа
 const TopBarLogo = styled(SvgHelper)`
-  width: 150px;
+  ${clampWidth(100, 150)}
   height: 30px;
   padding-inline: 0;
-`;
-
-const TopBarForm = styled("form")`
-  position: relative;
-`;
-
-const TopBarInput = styled("input")`
-  width: 400px;
-  height: 40px;
-  padding: 10px 73px 10px 25px;
-  border: ${borders.borderGrayAccent};
-  border-radius: ${borders.bigBorderRadius};
-  background-color: transparent;
-  font-size: 18px;
-
-  &::placeholder {
-    color: ${colors.grayAccent};
-  }
-
-  &:hover {
-    background-color: ${colors.grayBorder};
-  }
-
-  &:focus {
-    border-color: ${colors.blackTotal};
-    background-color: ${colors.grayBorder};
-    outline: none;
-  }
-`;
-
-const TopBarSearch = styled(SvgHelper)`
-  position: absolute;
-  top: 50%;
-  right: 25px;
-  z-index: 1;
-  translate: 0 -50%;
-
-  width: 23px;
-  height: 23px;
-  color: ${colors.grayAccent};
 `;
 
 const TopBarList = styled("ul")`
   display: flex;
   align-items: center;
   column-gap: 25px;
+
+  @media ${device.mobile} {
+    column-gap: 15px;
+  }
 `;
 
 const TopBarItem = styled("li")`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flexCenter}
 `;
 
 export const TopBar = () => {
@@ -90,10 +60,7 @@ export const TopBar = () => {
     <TopBarHeader>
       <TopBarLogo iconName="logo" />
 
-      <TopBarForm>
-        <TopBarInput type="text" placeholder="Поиск" />
-        <TopBarSearch iconName="search" />
-      </TopBarForm>
+      <SearchInput />
 
       <TopBarList>
         <TopBarItem>
