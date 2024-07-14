@@ -1,15 +1,18 @@
-import AuthReturn from "./AuthReturn";
-import { AuthButton, AuthInput, AuthInputWrapper, AuthLabel, AuthTitle } from "./styles";
-import { forgotUrl } from "./authLinks";
+import { AuthInputWrapper, AuthLabel, AuthTitle } from "@/modules/auth/styles";
+import { AuthInput } from "@/common/styles/tags/input/AuthInput";
+import { forgotUrl } from "@/modules/auth/authLinks";
+import AuthReturn from "@/modules/auth/AuthReturn";
+import AuthButton from "@/modules/auth/components/AuthButton";
+
 
 export default function ChangePassword() {
 
     // ToDo
-    const handleClick = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
 
     }
-    
+
 
     return (
         <>
@@ -23,10 +26,10 @@ export default function ChangePassword() {
 
             <AuthInputWrapper>
                 <AuthLabel htmlFor="r-password" >Пароль(Повторно)</AuthLabel>
-                <AuthInput id="r-password" type="password" placeholder="--------" />
+                <AuthInput id="r-password" type="password" placeholder="--------"/>
             </AuthInputWrapper>
 
-            <AuthButton onClick={(e) => handleClick(e)}>Сменить пароль</AuthButton>
+            <AuthButton title="Сменить пароль" clickFuntion={handleClick} />
         </>
     )
 }

@@ -8,7 +8,7 @@ import Reg from "@/modules/auth/Reg";
 import { HomePage } from "@/modules/user/home/HomePage";
 
 export default function RoutesProvider() {
-    const authorizedUser = true;
+    const authorizedUser = false;
 
 
     // ToDo изменить elements по готовности
