@@ -21,16 +21,16 @@ export const DefaultButton = styled('button')`
 `;
 
 export const Button = styled('button')`
-border-radius: ${borders.bigBorderRadius};
-border: ${borders.borderBlack};
-color: ${colors.whiteTotal};
-${clampText(fonts.sizes.main, fonts.sizes.main)};
-font-weight: ${fonts.weights.regular};
-background-color: ${colors.blackTotal};
-transition: ${transitions.fastTransition};
+  border-radius: ${borders.bigBorderRadius};
+  border: ${borders.borderBlack};
+  color: ${colors.whiteTotal};
+  ${clampText(fonts.sizes.main, fonts.sizes.main)};
+  font-weight: ${fonts.weights.regular};
+  background-color: ${colors.blackTotal};
+  transition: ${transitions.fastTransition};
 
-&:hover {
-    background-color: ${colors.whiteTotal};
-    color: ${colors.blackTotal};
-}
+  &:hover {
+      background-color: ${colors.whiteTotal};
+      color: ${colors.blackTotal};
+  }
 `;

@@ -9,6 +9,8 @@ import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { clampWidth, flexCenter } from "@/common/styles/mixins";
 import { SearchInput } from "@/common/styles/tags/input/SearchInput";
+import ModalPost from "@/modules/NewPost/ModalPost";
+import { useState } from "react";
 
 const TopBarHeader = styled("header")`
   position: fixed;
@@ -56,14 +58,18 @@ const TopBarItem = styled("li")`
 `;
 
 export const TopBar = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <TopBarHeader>
+      <ModalPost isOpen={open} setOpen={setOpen}></ModalPost>
+
       <TopBarLogo iconName="logo" />
 
       <SearchInput />
 
       <TopBarList>
-        <TopBarItem>
+        <TopBarItem onClick={()=>setOpen(true)}>
           <ButtonWithIcon size={40} icon="create" title="Создать" />
         </TopBarItem>
 

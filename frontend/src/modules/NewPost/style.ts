@@ -1,10 +1,11 @@
 import { Button } from "@/common/components/ui/Button";
+import { clampText } from "@/common/styles/mixins";
 import { borders, colors, fonts } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 export const ModalPostWrapper = styled('div')`
     width: 700px;
-    max-height: 800px;
+    max-height: 850px;
     padding: 35px 76px;
     overflow-y: hidden;
 `
@@ -20,7 +21,7 @@ export const ModalPostContent = styled('div')`
 
 export const ModalPostHeader = styled('h1')`
     text-align: center;
-    font-size: 25px;
+    ${clampText(fonts.sizes.titleMobile, fonts.sizes.titleModal)};
     font-weight: ${fonts.weights.medium};
 `
 

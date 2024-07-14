@@ -93,6 +93,7 @@ export const fonts = {
   // size
   sizes: {
     title: 30,
+    titleModal: 25,
     titleMobile: 22,
     subTitle: 20,
     subTitleMobile: 17,

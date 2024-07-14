@@ -1,5 +1,5 @@
 import { DefaultButton } from "@/common/components/ui/Button"
-import { clampText, flexCenter, resetButton } from "@/common/styles/mixins"
+import { clampText, flexCenter, resetButton, square } from "@/common/styles/mixins"
 import { colors, fonts, transitions } from "@/common/styles/styleConstants"
 import styled from "styled-components"
 
@@ -39,8 +39,7 @@ export const PostMediaContent = styled('div')`
 export const LoaderWrapper = styled('button')`
     ${flexCenter}
     ${resetButton}
-    width: 100px;
-    height: 100px;
+    ${square(100)}
     border-radius: 10px;
     background-color: ${colors.grayBorder};
     transition: ${transitions.mediumTransition};

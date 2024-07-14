@@ -11,6 +11,7 @@ import {
     ModalPostHeader,
     ModalPostWrapper
 } from "@/modules/NewPost/style";
+import ModalConfirm from "@/common/components/ui/ModalConfirm";
 
 interface ModalPostProps {
     isOpen: boolean;
@@ -19,12 +20,32 @@ interface ModalPostProps {
 
 const ModalPost = ({ isOpen, setOpen }: ModalPostProps) => {
     const [moduleTab, setModuleTab] = useState(Tabs.POST);
+    const [openConf, setOpenConf] = useState(false);
+
+    const onCancel = () => {
+        setOpen(false);
+        setOpenConf(false);
+    };
+
+    const onOk = () => {
+        setOpenConf(false);
+    };
 
     const closeModal = () => {
-        setOpen(false);
-    }
+        setOpenConf(true);
+    };
 
     return <>
+        <ModalConfirm
+            isOpen={openConf}
+            zIndex={1005}
+            headerText={'Вы действительно хотите отменить создание поста? После закрытия данные не будут сохранены'}
+            okText="Отмена"
+            cancelText="Удалить"
+            onOk={onOk}
+            onCancel={onCancel}
+            style={{ borderRadius: '25px' }}
+        />
         <Modal isOpen={isOpen} onClose={closeModal} closeIcon={true} zIndex={1001}>
             <ModalPostWrapper>
                 <ModalPostContent>
