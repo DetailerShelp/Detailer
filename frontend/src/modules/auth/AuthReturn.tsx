@@ -1,5 +1,5 @@
 import SvgHelper from "@/common/svg-helper/SvgHelper";
-import { AuthBackLink } from "./styles";
+import { AuthBackLink } from "@/modules/auth/styles";
 
 interface AuthReturnProps {
     to: string

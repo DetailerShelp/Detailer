@@ -1,6 +1,6 @@
-import { forgotUrl } from "./authLinks";
-import AuthButton from "./components/AuthButton";
-import { AuthInputWrapper, AuthLabel, AuthLink, AuthSeparator } from "./styles";
+import { forgotUrl } from "@/modules/auth/authLinks";
+import AuthButton from "@/modules/auth/components/AuthButton";
+import { AuthInputWrapper, AuthLabel, AuthLink, AuthSeparator } from "@/modules/auth/styles";
 import { AuthInput } from "@/common/styles/tags/input/AuthInput";
 
 export default function Login() {

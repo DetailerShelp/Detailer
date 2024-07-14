@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import { AuthContentWrapper, AuthForm, AuthWrapper } from "./styles";
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import AuthSwitch from "./AuthSwitch";
-import { loginText, regText, SwitchTextObject } from "./switchText";
-import { loginUrl, regUrl } from "./authLinks";;
-import AuthLogo from "./components/AuthLogo";
+import AuthSwitch from "@/modules/auth/AuthSwitch";
+import { loginText, regText, SwitchTextObject } from "@/modules/auth/switchText";
+import { loginUrl, regUrl } from "@/modules/auth/authLinks";
+import AuthLogo from "@/modules/auth/components/AuthLogo";
+import { AuthContentWrapper, AuthForm, AuthWrapper } from "@/modules/auth/styles";
 
 export default function AuthPage() {
     const location = useLocation();

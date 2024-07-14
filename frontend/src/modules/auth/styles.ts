@@ -1,5 +1,5 @@
 import { clampText, flexCenter } from "@/common/styles/mixins";
-import { borders, colors, fonts, screen, shadows, transitions } from "@/common/styles/styleConstants";
+import { borders, colors, device, fonts, shadows, transitions } from "@/common/styles/styleConstants";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -15,7 +15,7 @@ display: flex;
 flex-direction: column;
 gap: 25px;
 
-@media (max-width: ${screen.mobileScreenWidth}) {
+@media ${device.mobile} {
     gap: 10px;
 }
 
@@ -36,22 +36,22 @@ box-shadow: ${shadows.defaultShadow};
 border: ${borders.defaultBorder};
 border-radius: ${borders.mediumBorderRadius};
 
-@media (max-width: ${screen.mobileScreenWidth}) {
+@media ${device.mobile} {
     width: 450px;
     padding: 40px 100px;
 }
 
-@media (max-width: ${screen.lMobileScreenWidth}) {
+@media ${device.mobileL} {
     width: 350px;
     padding: 20px 60px;
 }
 
-@media (max-width: ${screen.mMobileScreenWidth}) {
+@media ${device.mobileM} {
     width: 320px;
     padding: 20px 60px;
 }
 
-@media (max-width: ${screen.sMobileScreenWidth}) {
+@media ${device.mobileS} {
     width: 300px;
     padding: 20px 20px;
 }
@@ -61,11 +61,11 @@ export const AuthTitle = styled('p')`
 ${clampText(fonts.sizes.mainMobile, fonts.sizes.title)};
 font-weight: ${fonts.weights.semiBold};
 
-@media (max-width: ${screen.lMobileScreenWidth}) {
+@media ${device.mobileL} {
     margin-bottom: 15px;
 }
 
-@media (max-width: ${screen.sMobileScreenWidth}) {
+@media ${device.mobileS} {
     margin-bottom: 10px;
 }
 `;
@@ -76,17 +76,17 @@ ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)};
 font-weight: ${fonts.weights.medium};
 margin-bottom: 40px;
 
-@media (max-width: ${screen.mobileScreenWidth}) {
+@media ${device.mobile} {
     width: 330px;
     margin-bottom: 30px;
 }
 
-@media (max-width: ${screen.lMobileScreenWidth}) {
+@media ${device.mobileL} {
     width: 280px;
     margin-bottom: 25px;
 }
 
-@media (max-width: ${screen.sMobileScreenWidth}) {
+@media ${device.mobileS} {
     width: 250px;
     margin-bottom: 15px;
 }
@@ -110,15 +110,15 @@ gap: 6px;
 text-align: left;
 margin-bottom: 25px;
 
-@media (max-width: ${screen.mobileScreenWidth}) {
+@media ${device.mobile} {
     margin-bottom: 15px;
 }
 
-@media (max-width: ${screen.mMobileScreenWidth}) {
+@media ${device.mobileM} {
     margin-bottom: 10px;
 }
 
-@media (max-width: ${screen.sMobileScreenWidth}) {
+@media ${device.mobileS} {
     margin-bottom: 5px;
 }
 `;
@@ -137,15 +137,15 @@ color: ${colors.grayAccent};
 border: ${borders.borderGrayAccent};
 border-radius: 60px;
 
-@media (max-width: ${screen.mobileScreenWidth}) {
+@media ${device.mobile} {
     padding: 15px 18px;
 }
 
-@media (max-width: ${screen.mMobileScreenWidth}) {
+@media ${device.mobileM} {
     padding: 10px 12px;
 }
 
-@media (max-width: ${screen.sMobileScreenWidth}) {
+@media ${device.mobileS} {
     padding: 5px 8px;
 }
 `;
@@ -156,7 +156,7 @@ gap: 15px;
 text-align: left;
 margin-bottom: 28px;
 
-@media (max-width: ${screen.lMobileScreenWidth}) {
+@media ${device.mobileL} {
     gap: 10;
     margin-bottom: 15px;
 }
@@ -173,7 +173,7 @@ border: ${borders.borderGrayAccent};
     background: ${colors.blackTotal};
 }
 
-@media (max-width: ${screen.mobileScreenWidth}) {
+@media ${device.mobile} {
     width: 25px;
     height: 25px;
 }
@@ -185,11 +185,11 @@ width: 250px;
 ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)};
 font-weight: ${fonts.weights.regular};
 
-@media (max-width: ${screen.mobileScreenWidth}) {
+@media ${device.mobile} {
     width: 200px;
 }
 
-@media (max-width: ${screen.lMobileScreenWidth}) {
+@media ${device.mobileL} {
     width: 100%;
 }
 `;
@@ -199,7 +199,7 @@ margin: 35px 0;
 width: 100%;
 border: ${borders.borderGrayAccent};
 
-@media (max-width: ${screen.mobileScreenWidth}) {
+@media ${device.mobile} {
     margin: 10px 0;
 }
 `;
@@ -217,11 +217,11 @@ box-shadow: ${shadows.defaultShadow};
 border: ${borders.defaultBorder};
 border-radius: ${borders.mediumBorderRadius};
 
-@media (max-width: ${screen.mobileScreenWidth}) {
+@media ${device.mobile} {
     padding: 20px 0;
 }
 
-@media (max-width: ${screen.mMobileScreenWidth}) {
+@media ${device.mobileM} {
     padding: 15px 0;
 }
 `;
@@ -242,11 +242,11 @@ content: '';
 top: 65px;
 left: 20px;
 
-@media (max-width: ${screen.mobileScreenWidth}) {
+@media ${device.mobile} {
     top: 40px;
 }
 
-@media (max-width: ${screen.lMobileScreenWidth}) {
+@media ${device.mobileL} {
     top: 20px;
 }
 `;

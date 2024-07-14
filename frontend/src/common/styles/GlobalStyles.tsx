@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { colors, screen, transitions } from "@/common/styles/styleConstants";
-import { resetLink } from "./mixins";
+import { resetLink } from "@/common/styles/mixins";
 
 export const Container = styled("div")`
   max-width: calc(${screen.fullScreenWidth} + 25px * 2);

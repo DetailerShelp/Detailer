@@ -1,8 +1,8 @@
-import AuthReturn from "./AuthReturn";
-import { AuthInputWrapper, AuthLabel, AuthTitle } from "./styles";
-import { forgotUrl } from "./authLinks";
-import AuthButton from "./components/AuthButton";
+import { AuthInputWrapper, AuthLabel, AuthTitle } from "@/modules/auth/styles";
 import { AuthInput } from "@/common/styles/tags/input/AuthInput";
+import { forgotUrl } from "@/modules/auth/authLinks";
+import AuthReturn from "@/modules/auth/AuthReturn";
+import AuthButton from "@/modules/auth/components/AuthButton";
 
 
 export default function ChangePassword() {

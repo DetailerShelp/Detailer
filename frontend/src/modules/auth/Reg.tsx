@@ -1,5 +1,5 @@
-import AuthButton from "./components/AuthButton";
-import { AuthCheckBoxInput, AuthCheckBoxLabel, AuthCheckBoxWrapper, AuthInputWrapper, AuthLabel } from "./styles";
+import AuthButton from "@/modules/auth/components/AuthButton";
+import { AuthCheckBoxInput, AuthCheckBoxLabel, AuthCheckBoxWrapper, AuthInputWrapper, AuthLabel } from "@/modules/auth/styles";
 import { AuthInput } from "@/common/styles/tags/input/AuthInput";
 
 export default function Reg() {
