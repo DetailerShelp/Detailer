@@ -4,7 +4,7 @@ import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { TabButton, TabsWrapper } from "@/modules/NewPost/components/style";
 
 interface TabsMenuProps {
-    onSwap: (tabNum: number) => void;
+    onSwap: (tabNum: Tabs) => void;
 }
 
 const TabsMenu = ({ onSwap }: TabsMenuProps) => {

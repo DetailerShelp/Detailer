@@ -40,6 +40,7 @@ function App() {
         cancelText="Удалить"
         onOk={onOk}
         onCancel={onCancel}
+        style={{borderRadius: '25px'}}
       />
     </ThemeProvider>
   )

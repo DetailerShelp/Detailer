@@ -1,6 +1,6 @@
 import { DefaultButton } from "@/common/components/ui/Button"
-import { flexCenter, resetButton } from "@/common/styles/mixins"
-import { colors, transitions } from "@/common/styles/styleConstants"
+import { clampText, flexCenter, resetButton } from "@/common/styles/mixins"
+import { colors, fonts, transitions } from "@/common/styles/styleConstants"
 import styled from "styled-components"
 
 export const TabsWrapper = styled('div')`
@@ -16,15 +16,14 @@ export const TabButton = styled(DefaultButton) <{ isActive: boolean }>`
     color: ${props => props.isActive ? colors.blackTotal : colors.grayText};
     height: 50px;
     text-align: center;
-    font-size: 18px;
     border-bottom: ${props => props.isActive ? `2px solid ${colors.blackTotal}` : `2px solid ${colors.grayText}`};
 `
 
 export const DescriptionBlock = styled('h2')`
     padding: 0px;
     margin: 0px 10px 15px;
-    font-size: 20px;
-    font-weight: 500;
+    font-weight: ${fonts.weights.medium};
+    ${clampText(fonts.sizes.subTitleMobile, fonts.sizes.subTitle)};
 `
 
 export const PostContent = styled('div')`

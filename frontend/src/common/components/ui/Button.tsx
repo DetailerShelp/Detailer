@@ -1,11 +1,12 @@
+import { clampText } from "@/common/styles/mixins";
 import { mainFont, colors, transitions, borders, fonts } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 export const DefaultButton = styled('button')`
   all: unset;
   font-family: ${mainFont};
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: ${fonts.weights.medium};
+  ${clampText(fonts.sizes.main, fonts.sizes.main)};
   color: ${colors.whiteTotal};
   transition: ${transitions.mediumTransition};
 
@@ -23,7 +24,7 @@ export const Button = styled('button')`
 border-radius: ${borders.bigBorderRadius};
 border: ${borders.borderBlack};
 color: ${colors.whiteTotal};
-font-size: ${fonts.sizes.subTitle};
+${clampText(fonts.sizes.main, fonts.sizes.main)};
 font-weight: ${fonts.weights.regular};
 background-color: ${colors.blackTotal};
 transition: ${transitions.fastTransition};

@@ -7,7 +7,7 @@ const Loader = () => {
         <>
             <LoaderWrapper>
                 <SvgHelper 
-                    iconName="plus" 
+                    iconName="adder" 
                     height="56px" 
                     width="56px"
                     color={colors.grayAccent}

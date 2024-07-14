@@ -4,4 +4,5 @@ export interface ModalProps {
     closeIcon?: boolean;
     children?: React.ReactNode;
     zIndex?: number;
+    style?: React.CSSProperties;
 }

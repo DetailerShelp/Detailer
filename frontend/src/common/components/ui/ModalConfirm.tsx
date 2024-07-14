@@ -1,15 +1,18 @@
 import { FC } from 'react';
 import styled from "styled-components";
 import Modal from '@/common/components/ui/Modal';
-import { DefaultButton } from './Button';
+import { DefaultButton } from '@/common/components/ui/Button';
 import { ModalProps } from '@/common/interfaces/Modal';
+import { clampText, flexCenter } from '@/common/styles/mixins';
+import { fonts } from '@/common/styles/styleConstants';
 
-interface ModalConfirmProps extends ModalProps{
+interface ModalConfirmProps extends ModalProps {
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   headerText?: string;
   okText?: string;
   cancelText?: string;
+  style?: React.CSSProperties;
 }
 
 interface ModalContentProps {
@@ -27,10 +30,8 @@ const ModalWrapper = styled('div')`
 `;
 
 const ModalHeader = styled('div')`
-  margin: 25px 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 25px;
+  ${flexCenter};
 `;
 
 const OkButton = styled(DefaultButton)`
@@ -47,7 +48,7 @@ const CancelButton = styled(DefaultButton)`
   color: red;
 `;
 
-const ButtonInner = styled('div')<{ hasbuttons: boolean }>`
+const ButtonInner = styled('div') <{ hasbuttons: boolean }>`
   display: flex;
   justify-content: ${(props) => (props.hasbuttons ? 'space-between' : 'center')};
   align-items: center;
@@ -55,8 +56,8 @@ const ButtonInner = styled('div')<{ hasbuttons: boolean }>`
 
 const Header = styled('h1')`
   text-align: center;
-  font-size: 20px;
-  font-weight: 500;
+  ${clampText(fonts.sizes.mainMobile, fonts.sizes.titleMobile)};
+  font-weight: ${fonts.weights.medium};
   margin: 0;
 `;
 

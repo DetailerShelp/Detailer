@@ -21,7 +21,7 @@ export const ModalPostContent = styled('div')`
 export const ModalPostHeader = styled('h1')`
     text-align: center;
     font-size: 25px;
-    font-weight: 500;
+    font-weight: ${fonts.weights.medium};
 `
 
 export const ButtonsWrapper = styled('div')`
@@ -34,7 +34,6 @@ export const ButtonsWrapper = styled('div')`
 export const ButtonPostOk = styled(Button)`
     width: 240px;
     height: 40px;
-    font-size: ${fonts.sizes.small};
 `
 
 export const ButtonPostCancel = styled(ButtonPostOk)`
