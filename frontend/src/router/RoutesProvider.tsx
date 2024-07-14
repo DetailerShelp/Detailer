@@ -5,9 +5,10 @@ import ChangePassword from "@/modules/auth/ChangePassword";
 import ForgotPassword from "@/modules/auth/ForgotPassword";
 import Login from "@/modules/auth/Login";
 import Reg from "@/modules/auth/Reg";
+import { HomePage } from "@/modules/user/home/HomePage";
 
 export default function RoutesProvider() {
-    const authorizedUser = false;
+    const authorizedUser = true;
 
 
     // ToDo изменить elements по готовности
@@ -29,7 +30,7 @@ export default function RoutesProvider() {
     const authorizedProvider = createBrowserRouter(
         createRoutesFromElements(
             <>
-                <Route path="/" element={<NavPanel />}>
+                <Route path="/" element={<HomePage />}>
                     <Route path="user/" element={<div>UserLayout</div>} >
 
                     </Route>

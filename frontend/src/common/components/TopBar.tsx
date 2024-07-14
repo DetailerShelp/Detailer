@@ -18,7 +18,7 @@ const TopBarHeader = styled("header")`
   left: 0;
   z-index: 1000;
   width: 100%;
-  height: 75px;
+  height: 65px;
   transition: ${transitions.mediumTransition};
   background-color: ${colors.whiteTotal};
   box-shadow: ${shadows.defaultShadow};
