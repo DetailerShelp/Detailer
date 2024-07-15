@@ -1,4 +1,4 @@
-import { colors, mainFont, transitions } from '@/common/styles/styleConstants';
+import { borders, colors, mainFont, transitions } from '@/common/styles/styleConstants';
 import styled from 'styled-components';
 import {
     CSSProperties,
@@ -16,7 +16,7 @@ const TextAreaWrapper = styled('div') <{ isActive: boolean }>`
   padding: 15px;
   align-items: flex-start;
   align-self: stretch;
-  border-radius: 30px;
+  border-radius: ${borders.defaultBorderRadius};
   border-width: 1px; 
   border-style: solid;
   border-color: ${(props) =>
@@ -36,7 +36,7 @@ export const CustomTextArea = styled('textarea')`
   background-color: transparent;
   resize: none;
   outline: none;
-  border: none;
+  color: ${colors.blackTotal};
   font-size: 18px;
   line-height: 25px !important;
   padding-inline: 5px;
@@ -53,12 +53,12 @@ export const CustomTextArea = styled('textarea')`
   }
 
   &::-webkit-scrollbar {
-   width: 3px; /* Ширина скроллбара */
-   background-color: ${colors.grayScrollBar}; /* Цвет ползунка скроллбара */
+   width: 3px; 
+   background-color: ${colors.grayScrollBar}; 
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: ${colors.blackThumb}; /* Цвет ползунка скроллбара */
+    background-color: ${colors.blackThumb}; 
     border-radius: 50px;
   }
 

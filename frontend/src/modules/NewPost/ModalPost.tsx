@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Modal from "@/common/components/ui/Modal";
-import Post from "@/modules/NewPost/components/Post";
+import Post from "@/modules/NewPost/components/post/Post";
 import TabsMenu from "@/modules/NewPost/components/TabsMenu";
 import { Tabs } from "@/modules/NewPost/utils/Enums";
 import {
@@ -12,6 +12,7 @@ import {
     ModalPostWrapper
 } from "@/modules/NewPost/style";
 import ModalConfirm from "@/common/components/ui/ModalConfirm";
+import ShotrsUpload from "./components/shorts/ShortsUload";
 
 interface ModalPostProps {
     isOpen: boolean;
@@ -25,6 +26,7 @@ const ModalPost = ({ isOpen, setOpen }: ModalPostProps) => {
     const onCancel = () => {
         setOpen(false);
         setOpenConf(false);
+        setModuleTab(Tabs.POST);
     };
 
     const onOk = () => {
@@ -55,7 +57,7 @@ const ModalPost = ({ isOpen, setOpen }: ModalPostProps) => {
 
                     <TabsMenu onSwap={setModuleTab}></TabsMenu>
                     {moduleTab === Tabs.POST && <Post></Post>}
-                    {moduleTab === Tabs.SHORTS && <div style={{ height: '500px' }}>SHORTS</div>}
+                    {moduleTab === Tabs.SHORTS && <ShotrsUpload></ShotrsUpload>}
                     {moduleTab === Tabs.GARAGE && <div style={{ height: '500px' }}>GARAGE</div>}
 
                     <ButtonsWrapper>

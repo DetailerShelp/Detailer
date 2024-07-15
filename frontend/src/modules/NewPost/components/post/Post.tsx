@@ -1,7 +1,7 @@
 import { useState } from "react"
 import DragAndDropUpload from "@/common/components/DraggerUploadFile";
 import { MediaImageUpload } from "@/common/components/media-viewer/media-image/MediaimageUpload";
-import { DescriptionBlock, PostContent, PostMediaContent } from "@/modules/NewPost/components/style";
+import { DescriptionBlock, DescriptionTextArea, PostContent, PostMediaContent } from "@/modules/NewPost/components/post/style";
 import TextArea from "@/common/components/ui/TextArea";
 import Loader from "@/modules/NewPost/components/Loader";
 
@@ -9,7 +9,7 @@ const Post = () => {
     const [files, setFiles] = useState<File[]>([]);
 
     const handleChangeFiles = (file: File) => {
-        setFiles(currentFiles => currentFiles.length < 10 ? [...currentFiles, file]:currentFiles);
+        setFiles(currentFiles => currentFiles.length < 10 ? [...currentFiles, file] : currentFiles);
     }
 
     const deleteMedia = (id: number | string) => {
@@ -36,7 +36,7 @@ const Post = () => {
                     ))}
 
                     {files.length < 10 && <DragAndDropUpload onFile={handleChangeFiles} multiple={true}>
-                        <Loader />
+                        <Loader sizeIcon={56} />
                     </DragAndDropUpload>}
                 </PostMediaContent>
             </PostContent>
@@ -45,10 +45,13 @@ const Post = () => {
                 <DescriptionBlock>
                     Описание
                 </DescriptionBlock>
-                <TextArea
-                    textAreaPlaceholder='Добавить описание...'
-                    wrapperStyle={{ width: '548px', height: '215px' }}
-                />
+                <DescriptionTextArea>
+                    <TextArea
+                        textAreaPlaceholder='Добавить описание...'
+                        wrapperStyle={{ width: '100%', height: '100%' }}
+                    />
+                </DescriptionTextArea>
+
             </PostContent>
         </>
     )
