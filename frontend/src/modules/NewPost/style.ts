@@ -1,22 +1,33 @@
 import { Button } from "@/common/components/ui/Button";
-import { clampHeight, clampText, clampWidth } from "@/common/styles/mixins";
-import { borders, colors, fonts } from "@/common/styles/styleConstants";
+import { clampHeight, clampText, clampWidth, scrollBar } from "@/common/styles/mixins";
+import { borders, colors, device, fonts } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 export const ModalPostWrapper = styled('div')`
     ${clampWidth(500, 700)}
-    max-height: 850px;
-    padding: 35px 76px;
+    max-height: 90vh;
+    padding: 35px;
     overflow-y: hidden;
-`
 
-//Возможно переместить overflow
+    @media ${device.tablet} {
+        padding: 30px;
+    }
+
+`
 
 export const ModalPostContent = styled('div')`
     display: flex;
     flex-direction: column;
     gap: 25px;
     overflow-x: hidden;
+
+    @media ${device.desktop} {
+        gap: 20px
+    }
+
+    @media ${device.mobile} {
+        gap: 15px
+    }
 `
 
 export const ModalPostHeader = styled('h1')`
@@ -46,4 +57,26 @@ export const ButtonPostCancel = styled(ButtonPostOk)`
         background-color: ${colors.blackTotal};
         color: ${colors.whiteTotal};
     }
+`
+
+export const ContentWrapper = styled('div')`
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding-inline: 40px;
+    max-height: 65vh;
+    overflow-y: auto;
+
+     @media ${device.desktop} {
+        gap: 20px;
+        padding-inline: 30px;
+    }
+
+    @media ${device.tablet} {
+        gap: 15px;
+        padding-inline: 20px;
+        max-height: 60vh;
+    }
+
+    ${scrollBar}
 `

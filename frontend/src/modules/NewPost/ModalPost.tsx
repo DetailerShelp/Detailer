@@ -7,6 +7,7 @@ import {
     ButtonPostCancel,
     ButtonPostOk,
     ButtonsWrapper,
+    ContentWrapper,
     ModalPostContent,
     ModalPostHeader,
     ModalPostWrapper
@@ -54,11 +55,13 @@ const ModalPost = ({ isOpen, setOpen }: ModalPostProps) => {
                     <ModalPostHeader>
                         Создать
                     </ModalPostHeader>
-
-                    <TabsMenu onSwap={setModuleTab}></TabsMenu>
-                    {moduleTab === Tabs.POST && <Post></Post>}
-                    {moduleTab === Tabs.SHORTS && <ShotrsUpload></ShotrsUpload>}
-                    {moduleTab === Tabs.GARAGE && <div style={{ height: '500px' }}>GARAGE</div>}
+                    
+                    <ContentWrapper>
+                        <TabsMenu onSwap={setModuleTab}></TabsMenu>
+                        {moduleTab === Tabs.POST && <Post></Post>}
+                        {moduleTab === Tabs.SHORTS && <ShotrsUpload></ShotrsUpload>}
+                        {moduleTab === Tabs.GARAGE && <div style={{ height: '500px' }}>GARAGE</div>}
+                    </ContentWrapper>
 
                     <ButtonsWrapper>
                         <ButtonPostCancel>Отмема</ButtonPostCancel>

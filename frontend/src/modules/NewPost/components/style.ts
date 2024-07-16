@@ -1,5 +1,5 @@
 import { DefaultButton } from "@/common/components/ui/Button"
-import { clampHeight, flexCenter, resetButton, square } from "@/common/styles/mixins"
+import { clampHeight, flexCenter, resetButton } from "@/common/styles/mixins"
 import { colors, transitions } from "@/common/styles/styleConstants"
 import styled from "styled-components"
 
@@ -22,7 +22,8 @@ export const TabButton = styled(DefaultButton) <{ isActive: boolean }>`
 export const LoaderWrapper = styled('button')`
     ${flexCenter}
     ${resetButton}
-    ${square(100)}
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
     background-color: ${colors.grayBorder};
     transition: ${transitions.mediumTransition};

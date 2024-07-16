@@ -1,5 +1,5 @@
-import { clampHeight, clampText } from "@/common/styles/mixins"
-import { fonts } from "@/common/styles/styleConstants"
+import { clampHeight, clampText, square } from "@/common/styles/mixins"
+import { device, fonts } from "@/common/styles/styleConstants"
 import styled from "styled-components"
 
 export const DescriptionBlock = styled('h2')`
@@ -14,11 +14,39 @@ export const PostContent = styled('div')`
 `
 
 export const PostMediaContent = styled('div')`
-    display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 12px;
+    justify-content:center;
+    overflow: hidden;
+
+    @media ${device.desktop} {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media ${device.mobile}{
+        grid-template-columns: repeat(5, 1fr);
+        gap: 3px;
+    }
 `
 
 export const DescriptionTextArea = styled('div')`
-    ${clampHeight(50, 215)}
+    ${clampHeight(130, 215)}
+`
+
+export const MediaBlockWrapper = styled('div')`
+    ${square(100)}
+
+    @media ${device.desktop}{
+        ${square(85)}
+    }
+
+    @media ${device.tablet}{
+        ${square(70)}
+    }
+
+    @media ${device.mobile}{
+        ${square(60)}
+    }
 `

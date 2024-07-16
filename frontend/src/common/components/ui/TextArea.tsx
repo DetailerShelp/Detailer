@@ -10,6 +10,7 @@ import {
     useState,
     FocusEventHandler
 } from 'react';
+import { scrollBar } from '@/common/styles/mixins';
 
 const TextAreaWrapper = styled('div') <{ isActive: boolean }>`
   width: 100%;
@@ -52,19 +53,12 @@ export const CustomTextArea = styled('textarea')`
     background: none;
   }
 
+  ${scrollBar}
+
   &::-webkit-scrollbar {
    width: 3px; 
-   background-color: ${colors.grayScrollBar}; 
   }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: ${colors.blackThumb}; 
-    border-radius: 50px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    cursor: pointer;
-  }
 `;
 
 interface CustomTextAreaProps {

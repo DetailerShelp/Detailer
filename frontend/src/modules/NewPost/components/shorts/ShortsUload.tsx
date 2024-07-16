@@ -1,6 +1,13 @@
 import { useState } from "react";
-import { DescriptionBlock, DiscriptionWrapper, ShortsWrapper, VideoPosition, VideoWrapper } from "./style";
-import Loader from "../Loader";
+import { 
+    DescriptionBlock, 
+    DiscriptionTextArea, 
+    DiscriptionWrapper, 
+    ShortsWrapper, 
+    VideoPosition, 
+    VideoWrapper 
+} from "@/modules/NewPost/components/shorts/style";
+import Loader from "@/modules/NewPost/components/Loader";
 import TextArea from "@/common/components/ui/TextArea";
 import DragAndDropUpload from "@/common/components/DraggerUploadFile";
 
@@ -18,24 +25,26 @@ const ShotrsUpload = () => {
                     <DescriptionBlock>
                         Шортс
                     </DescriptionBlock>
-                    <VideoPosition>
-                        {!videoFile ? <DragAndDropUpload onFile={changeVideo} multiple={false} accept="video/mp4">
+                    {!videoFile ? <DragAndDropUpload onFile={changeVideo} multiple={false} accept="video/mp4">
+                        <VideoPosition>
                             <Loader
-                                styleWrapper={{ width: '240px', height: '490px', borderRadius: '20px' }}
+                                styleWrapper={{ borderRadius: '20px' }}
                                 sizeIcon={74}
                             />
-                        </DragAndDropUpload>
+                        </VideoPosition>
+                    </DragAndDropUpload>
                         : <p>{videoFile.name}</p>}
-                    </VideoPosition>
                 </VideoWrapper>
                 <DiscriptionWrapper>
                     <DescriptionBlock>
                         Описание
                     </DescriptionBlock>
-                    <TextArea
-                        textAreaPlaceholder="Добавить описание..."
-                        wrapperStyle={{ height: '100%' }}
-                    />
+                    <DiscriptionTextArea>
+                        <TextArea
+                            textAreaPlaceholder="Добавить описание..."
+                            wrapperStyle={{ height: '100%' }}
+                        />
+                    </DiscriptionTextArea>
                 </DiscriptionWrapper>
             </ShortsWrapper>
         </>

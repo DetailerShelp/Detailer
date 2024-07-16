@@ -37,6 +37,7 @@ const CloseIcon = styled(SvgHelper)`
         opacity: 0.8;
         cursor: pointer;
     }
+
 `
 
 const Modal = ({ isOpen, onClose, closeIcon, children, zIndex, style }: ModalProps) => {

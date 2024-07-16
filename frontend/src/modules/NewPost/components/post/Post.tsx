@@ -1,7 +1,13 @@
 import { useState } from "react"
 import DragAndDropUpload from "@/common/components/DraggerUploadFile";
 import { MediaImageUpload } from "@/common/components/media-viewer/media-image/MediaimageUpload";
-import { DescriptionBlock, DescriptionTextArea, PostContent, PostMediaContent } from "@/modules/NewPost/components/post/style";
+import { 
+    DescriptionBlock, 
+    DescriptionTextArea, 
+    MediaBlockWrapper, 
+    PostContent, 
+    PostMediaContent 
+} from "@/modules/NewPost/components/post/style";
 import TextArea from "@/common/components/ui/TextArea";
 import Loader from "@/modules/NewPost/components/Loader";
 
@@ -27,16 +33,20 @@ const Post = () => {
 
                 <PostMediaContent>
                     {files.map((file, index) => (
-                        <MediaImageUpload
-                            key={index}
-                            id={index}
-                            url={URL.createObjectURL(file)}
-                            onDelete={(id) => deleteMedia(id)}
-                        />
+                        <MediaBlockWrapper>
+                            <MediaImageUpload
+                                key={index}
+                                id={index}
+                                url={URL.createObjectURL(file)}
+                                onDelete={(id) => deleteMedia(id)}
+                            />
+                        </MediaBlockWrapper>
                     ))}
 
                     {files.length < 10 && <DragAndDropUpload onFile={handleChangeFiles} multiple={true}>
-                        <Loader sizeIcon={56} />
+                        <MediaBlockWrapper>
+                            <Loader sizeIcon={56} />
+                        </MediaBlockWrapper>
                     </DragAndDropUpload>}
                 </PostMediaContent>
             </PostContent>
@@ -51,7 +61,6 @@ const Post = () => {
                         wrapperStyle={{ width: '100%', height: '100%' }}
                     />
                 </DescriptionTextArea>
-
             </PostContent>
         </>
     )

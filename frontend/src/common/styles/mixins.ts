@@ -105,3 +105,21 @@ export const inputHoverActive = css`
     background-color: ${colors.whiteBackground};
   }
 `;
+
+
+export const scrollBar = css`
+  &::-webkit-scrollbar {
+      width: 5px; 
+      background-color: ${colors.grayScrollBar}; 
+      border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background-color: ${colors.blackThumb}; 
+      border-radius: 50px;
+  }
+
+    &::-webkit-scrollbar-thumb:hover {
+      cursor: pointer;
+    }
+`
