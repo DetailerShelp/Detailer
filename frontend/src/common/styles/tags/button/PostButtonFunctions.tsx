@@ -22,6 +22,7 @@ const Button = styled("button")`
   width: 35px;
   aspect-ratio: 1;
   border-radius: ${borders.circleBorderRadius};
+  color: ${colors.blackTotal};
   background-color: transparent;
   position: relative;
 

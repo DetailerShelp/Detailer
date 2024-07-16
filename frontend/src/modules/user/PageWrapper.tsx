@@ -1,10 +1,12 @@
 import { TopBar } from "@/common/components/TopBar";
 import { NavPanel } from "@/common/components/navpanel/NavPanel";
 import { Container } from "@/common/styles/GlobalStyles";
+import { clampWidth } from "@/common/styles/mixins";
+import { device } from "@/common/styles/styleConstants";
 import React, { FC } from "react";
 import styled from "styled-components";
 
-const Wrapper = styled("div")`
+const Wrapper = styled("body")`
   margin-top: 65px;
   padding-top: 25px;
 
@@ -15,10 +17,12 @@ const Wrapper = styled("div")`
 const WrapperInner = styled("div")`
   width: 100%;
   display: grid;
-  grid-template-areas:
-    "a b c"
-    ". . d";
+  grid-template-areas: "a b c";
   gap: 25px;
+
+  @media ${device.tablet} {
+    grid-template-areas: "a b";
+  }
 `;
 
 const NavigationWrapper = styled("div")`
@@ -34,15 +38,20 @@ const FixedWrapper = styled("div")`
 `;
 
 const ContentWrapper = styled("div")`
+  ${clampWidth(475, 550 )}
   grid-area: "b";
-  width: 550px;
-  background-color: white;
-  box-shadow: 0 0 5px 0 black;
 `;
 
 const WidgetsWrapper = styled("div")`
   grid-area: "c";
   width: 324px;
+
+  @media ${device.tablet} {
+    width: 300px;
+    grid-area: "a";
+    display: grid;
+    row-gap: 25px;
+  }
 `;
 
 interface PageProps {
