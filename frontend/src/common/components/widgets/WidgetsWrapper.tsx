@@ -1,12 +1,14 @@
 import {
   absCenter,
   clampText,
+  clampWidth,
   hoverActive,
   square,
 } from "@/common/styles/mixins";
 import {
   borders,
   colors,
+  device,
   fonts,
   shadows,
 } from "@/common/styles/styleConstants";
@@ -20,13 +22,16 @@ const WidgetWrapper = styled("div")`
   flex-direction: column;
   row-gap: 25px;
 
-  width: 100%;
-  max-width: 324px;
+  ${clampWidth(295, 324)}
   padding: 15px;
   background-color: ${colors.whiteTotal};
   border: ${borders.defaultBorder};
   border-radius: ${borders.defaultBorderRadius};
   box-shadow: ${shadows.defaultShadow};
+
+  @media ${device.tablet} {
+    width: 300px;
+  }
 `;
 
 const WidgetHeaderWrapper = styled("div")`

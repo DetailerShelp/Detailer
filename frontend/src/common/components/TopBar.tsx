@@ -26,12 +26,16 @@ const TopBarHeader = styled("header")`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  column-gap: 50px;
+  column-gap: 15px;
   padding-inline: 50px;
+
+
+  @media ${device.tablet} {
+    padding-inline: 25px;
+  }
 
   @media ${device.mobile} {
     height: 55px;
-    column-gap: 25px;
     padding-inline: 25px;
   }
 `;
@@ -48,8 +52,12 @@ const TopBarList = styled("ul")`
   align-items: center;
   column-gap: 25px;
 
-  @media ${device.mobile} {
+  @media ${device.tablet} {
     column-gap: 15px;
+  }
+
+  @media ${device.mobile} {
+    column-gap: 10px;
   }
 `;
 

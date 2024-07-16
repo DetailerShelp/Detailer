@@ -45,4 +45,5 @@ export const CategoryLinkIconWrapper = styled("div")`
 export const CategoryLinkTitle = styled("p")`
   text-align: center;
   ${clampText(fonts.sizes.extraSmall, fonts.sizes.extraSmallMobile)}
+  white-space: nowrap;
 `;

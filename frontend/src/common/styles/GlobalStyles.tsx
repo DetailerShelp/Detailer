@@ -5,7 +5,7 @@ import { resetLink } from "@/common/styles/mixins";
 export const Container = styled("div")`
   max-width: calc(${screen.fullScreenWidth} + 25px * 2);
   padding-inline: 25px;
-  margin-inline: auto;
+  margin: 0 auto;
 `;
 
 export const VisuallyHidden = styled("span")`

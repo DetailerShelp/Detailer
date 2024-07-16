@@ -34,6 +34,11 @@ const SearchIntInput = styled("input")`
     width: 300px;
     padding-inline: 15px 45px;
   }
+
+  @media ${device.mobile} {
+    height: 30px;
+    padding-block: 0;
+  }
 `;
 
 const SearchIcon = styled(SvgHelper)`
