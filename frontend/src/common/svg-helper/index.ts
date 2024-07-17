@@ -31,6 +31,12 @@ import light from '@/common/svg-helper/icons/category-icons/light.svg?react';
 import tuning from '@/common/svg-helper/icons/category-icons/tuning.svg?react';
 import other from '@/common/svg-helper/icons/category-icons/other.svg?react';
 import adder from '@/common/svg-helper/icons/adder.svg?react';
+import burger from '@/common/svg-helper/icons/burger.svg?react';
+import subscribe from '@/common/svg-helper/icons/dropdown-icons/subscribe.svg?react';
+import unsubscribe from '@/common/svg-helper/icons/dropdown-icons/unsubscribe.svg?react';
+import hide from '@/common/svg-helper/icons/dropdown-icons/hide.svg?react';
+import report from '@/common/svg-helper/icons/dropdown-icons/report.svg?react';
+
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -74,7 +80,12 @@ export type ImageComponentsTypes =
   | 'chipTuning'
   | 'light'
   | 'tuning'
-  | 'other';
+  | 'other'
+  | 'burger'
+  |'subscribe'
+  | 'unsubscribe'
+  | 'hide'
+  |'report';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   logo,
@@ -110,4 +121,9 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   post,
   auto,
   adder,
+  burger,
+  subscribe,
+  unsubscribe,
+  hide,
+  report,
 };

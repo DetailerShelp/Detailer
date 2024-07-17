@@ -49,6 +49,6 @@ export const AccountsAvatar = styled("img")`
 `;
 
 export const AccountsName = styled("p")`
-  ${clampText(fonts.sizes.extraSmall, fonts.sizes.extraSmallMobile)}
+  ${clampText(fonts.sizes.extraSmallMobile, fonts.sizes.extraSmall)}
   font-weight: ${fonts.weights.medium};
 `;

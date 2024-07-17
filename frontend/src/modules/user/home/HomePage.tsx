@@ -1,11 +1,13 @@
-import { PageWrapper } from "../PageWrapper";
+import { PageWrapper } from "@/modules/user/PageWrapper";
 import { Category } from "@/common/components/widgets/category/Category";
 import { Accounts } from "@/common/components/widgets/accounts/Accounts";
+import { Post } from "@/common/components/post/Post";
 
 export const HomePage = () => {
   return (
     <PageWrapper
-      content={<p>Post</p>}
+    // TODO Добавить посты
+      content={<Post />}
       widgetOne={<Category />}
       widgetTwo={<Accounts />}
     />
