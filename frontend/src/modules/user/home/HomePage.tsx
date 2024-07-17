@@ -1,4 +1,4 @@
-import { PageWrapper } from "../PageWrapper";
+import { PageWrapper } from "@/modules/user/PageWrapper";
 import { Category } from "@/common/components/widgets/category/Category";
 import { Accounts } from "@/common/components/widgets/accounts/Accounts";
 import { Post } from "@/common/components/post/Post";

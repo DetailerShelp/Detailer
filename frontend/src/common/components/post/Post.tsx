@@ -18,8 +18,9 @@ import { WhiteButtonWithIcon } from "@/common/styles/tags/button/WhiteButtonWith
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { useState } from "react";
 import { PostDropdownMenu } from "@/common/components/post/components/PostDropdownMenu";
-import { DropdownWrapper } from "../dropdown-menu/styles";
+import { DropdownWrapper } from "@/common/components/dropdown-menu/styles";
 
+// TODO Переделать структуру
 export const Post = () => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
   return (

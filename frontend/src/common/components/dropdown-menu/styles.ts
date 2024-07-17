@@ -4,7 +4,6 @@ import {
   colors,
   fonts,
   shadows,
-  transitions,
 } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
@@ -13,10 +12,6 @@ export const DropdownWrapper = styled("div")`
   flex-direction: column;
   align-items: center;
   position: relative;
-
-  transition: opacity 0.3s; 
-
-&:hover { opacity: 1; }
 `;
 
 export const DropdownList = styled("ul")`
@@ -25,12 +20,23 @@ export const DropdownList = styled("ul")`
   border-radius: ${borders.defaultBorderRadius};
   box-shadow: ${shadows.defaultShadow};
 
-
   position: absolute;
   top: 35px;
   left: 50%;
   translate: -50%;
   z-index: 1;
+
+  animation: shows .3s ease;
+
+  @keyframes shows {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 export const DropdownItem = styled("li")`

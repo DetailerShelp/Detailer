@@ -25,7 +25,7 @@ const ButtonIcon = styled(SvgHelper)`
 interface ButtonWithIconProps {
   size: number;
   icon: ImageComponentsTypes;
-  title?: string; // использовать всегда, кроме кнопок для выпадащего меню
+  title?: string; // использовать всегда, кроме кнопок для выпадающего меню
   click?: () => void;
 }
 

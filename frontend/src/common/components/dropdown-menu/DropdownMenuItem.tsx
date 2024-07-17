@@ -6,7 +6,7 @@ import { DropdownItem, DropdownLink } from "@/common/components/dropdown-menu/st
 interface DropdownMenuItemProps {
   icon: ImageComponentsTypes;
   title: string;
-  isRed?: false | boolean;
+  isRed?: boolean;
   link: string;
 }
 
