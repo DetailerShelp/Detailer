@@ -1,6 +1,5 @@
 import { useState } from "react"
 import DragAndDropUpload from "@/common/components/DraggerUploadFile";
-import { MediaImageUpload } from "@/common/components/media-viewer/media-image/MediaimageUpload";
 import { 
     DescriptionBlock, 
     DescriptionTextArea, 
@@ -10,6 +9,7 @@ import {
 } from "@/modules/NewPost/components/post/style";
 import TextArea from "@/common/components/ui/TextArea";
 import Loader from "@/modules/NewPost/components/Loader";
+import RenderMedia from "./RenderMedia";
 
 const Post = () => {
     const [files, setFiles] = useState<File[]>([]);
@@ -32,20 +32,11 @@ const Post = () => {
                 </DescriptionBlock>
 
                 <PostMediaContent>
-                    {files.map((file, index) => (
-                        <MediaBlockWrapper>
-                            <MediaImageUpload
-                                key={index}
-                                id={index}
-                                url={URL.createObjectURL(file)}
-                                onDelete={(id) => deleteMedia(id)}
-                            />
-                        </MediaBlockWrapper>
-                    ))}
+                    <RenderMedia MediaFiles={files} deleteMedia={deleteMedia}></RenderMedia>
 
-                    {files.length < 10 && <DragAndDropUpload onFile={handleChangeFiles} multiple={true}>
+                    {files.length < 10 &&  <DragAndDropUpload onFile={handleChangeFiles} multiple={true} accept="image/*, video/*">
                         <MediaBlockWrapper>
-                            <Loader sizeIcon={56} />
+                            <Loader sizeIcon={50} />
                         </MediaBlockWrapper>
                     </DragAndDropUpload>}
                 </PostMediaContent>

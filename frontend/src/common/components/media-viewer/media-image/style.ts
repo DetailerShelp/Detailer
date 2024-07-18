@@ -1,5 +1,5 @@
 import { flexCenter } from '@/common/styles/mixins';
-import { colors } from '@/common/styles/styleConstants';
+import { colors, device } from '@/common/styles/styleConstants';
 import styled from 'styled-components'
 
 export const MediaImageWrapper = styled('div')`
@@ -8,6 +8,19 @@ export const MediaImageWrapper = styled('div')`
   height: 100%;
   display: flex;
   flex-direction: column;
+
+  animation: shows .5s;
+
+  @keyframes shows {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
 `;
 
 export const StyledImageWrapper = styled('div')`
@@ -25,6 +38,11 @@ export const MediaDeleteWrapper = styled('div')`
   right: 7px;
   background-color: ${colors.grayBackground};
   border-radius: 50%;
+
+  @media ${device.mobile} {
+    top: 4px;
+    right: 4px;
+  }
 `;
 
 export const StyledImage = styled('img')`

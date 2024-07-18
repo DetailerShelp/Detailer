@@ -12,9 +12,9 @@ const ModalWrapper = styled('div') <{ zindex: number }>`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   overflow: auto;
   z-index: ${(props) => props.zindex};
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const ModalContent = styled('div') <{ visible: boolean }>`
@@ -32,7 +32,6 @@ const CloseIcon = styled(SvgHelper)`
     top: 30px;
     right: 30px;
 
-    //TODO обсудить стилизацию при наведении и клике
     &:hover{
         opacity: 0.8;
         cursor: pointer;
@@ -51,7 +50,7 @@ const Modal = ({ isOpen, onClose, closeIcon, children, zIndex, style }: ModalPro
             setIsVisible(false);
         }
     }, [isOpen]);
-    
+
     if (!isOpen) {
         return null;
     }

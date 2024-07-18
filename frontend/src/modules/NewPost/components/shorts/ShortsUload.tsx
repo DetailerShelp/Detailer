@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { 
-    DescriptionBlock, 
-    DiscriptionTextArea, 
-    DiscriptionWrapper, 
-    ShortsWrapper, 
-    VideoPosition, 
-    VideoWrapper 
+import {
+    DescriptionBlock,
+    DiscriptionTextArea,
+    DiscriptionWrapper,
+    ShortsWrapper,
+    VideoPosition,
+    VideoWrapper
 } from "@/modules/NewPost/components/shorts/style";
 import Loader from "@/modules/NewPost/components/Loader";
 import TextArea from "@/common/components/ui/TextArea";
@@ -32,8 +32,12 @@ const ShotrsUpload = () => {
                                 sizeIcon={74}
                             />
                         </VideoPosition>
-                    </DragAndDropUpload>
-                        : <p>{videoFile.name}</p>}
+                        </DragAndDropUpload>
+                        :
+                        <VideoPosition> 
+                            <video style={{width:"100%"}} src={URL.createObjectURL(videoFile)}></video>
+                        </VideoPosition>
+                    }
                 </VideoWrapper>
                 <DiscriptionWrapper>
                     <DescriptionBlock>
