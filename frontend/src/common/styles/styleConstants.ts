@@ -73,8 +73,11 @@ export const borders = {
   defaultBorder: `1px solid ${colors.grayBorder}`,
   borderGrayAccent: `1px solid ${colors.grayAccent}`,
   borderBlack: `1px solid ${colors.blackTotal}`,
+  boldBorderBlack: `3px solid ${colors.blackTotal}`,
+  avatarBorder: `3px solid ${colors.whiteTotal}`,
 
   smallBorderRadius: "5px",
+  thinBorderRadius: "15px",
   defaultBorderRadius: "20px",
   mediumBorderRadius: "45px",
   bigBorderRadius: "60px",

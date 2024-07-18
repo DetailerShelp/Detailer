@@ -15,9 +15,11 @@ import arrowRight from '@/common/svg-helper/icons/arrow-right.svg?react';
 import close from '@/common/svg-helper/icons/close.svg?react';
 import trash from '@/common/svg-helper/icons/trash.svg?react';
 import plus from '@/common/svg-helper/icons/plus.svg?react';
+import edit from '@/common/svg-helper/icons/edit.svg?react';
 import post from '@/common/svg-helper/icons/post.svg?react';
 import auto from '@/common/svg-helper/icons/auto.svg?react';
 import like from '@/common/svg-helper/icons/like.svg?react';
+import garage from '@/common/svg-helper/icons/garage.svg?react';
 import comment from '@/common/svg-helper/icons/comment.svg?react';
 import share from '@/common/svg-helper/icons/share.svg?react';
 import more from '@/common/svg-helper/icons/more.svg?react';
@@ -36,7 +38,9 @@ import subscribe from '@/common/svg-helper/icons/dropdown-icons/subscribe.svg?re
 import unsubscribe from '@/common/svg-helper/icons/dropdown-icons/unsubscribe.svg?react';
 import hide from '@/common/svg-helper/icons/dropdown-icons/hide.svg?react';
 import report from '@/common/svg-helper/icons/dropdown-icons/report.svg?react';
-
+import editProfile from '@/common/svg-helper/icons/dropdown-icons/edit-profile.svg?react';
+import info from '@/common/svg-helper/icons/dropdown-icons/info.svg?react';
+import quit from '@/common/svg-helper/icons/dropdown-icons/quit.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -57,12 +61,14 @@ export type ImageComponentsTypes =
   | 'messenger'
   | 'shorts'
   | 'qrcode'
-  |'settings'
+  | 'settings'
   | 'help'
   | 'arrowLeft'
   | 'arrowRight'
   | 'plus'
+  | 'edit'
   | 'like'
+  | 'garage'
   | 'comment'
   | 'share'
   | 'more'
@@ -82,10 +88,13 @@ export type ImageComponentsTypes =
   | 'tuning'
   | 'other'
   | 'burger'
-  |'subscribe'
+  | 'subscribe'
   | 'unsubscribe'
   | 'hide'
-  |'report';
+  | 'report'
+  | 'editProfile'
+  | 'info'
+  | 'quit';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   logo,
@@ -103,7 +112,9 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   arrowLeft,
   arrowRight,
   plus,
+  edit,
   like,
+  garage,
   comment,
   share,
   more,
@@ -126,4 +137,7 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   unsubscribe,
   hide,
   report,
+  editProfile,
+  info,
+  quit,
 };
