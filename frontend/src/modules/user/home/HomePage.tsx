@@ -1,15 +1,15 @@
-import { PageWrapper } from "@/modules/user/PageWrapper";
 import { Category } from "@/common/components/widgets/category/Category";
 import { Accounts } from "@/common/components/widgets/accounts/Accounts";
 import { Post } from "@/common/components/post/Post";
+import { PageContent } from "@/modules/user/PageContent";
 
 export const HomePage = () => {
   return (
-    <PageWrapper
+    <PageContent
     // TODO Добавить посты
       content={<Post />}
       widgetOne={<Category />}
-      widgetTwo={<Accounts />}
+      widgetTwo={<Accounts title="Популярные аккаунты" />}
     />
   );
 };
