@@ -12,6 +12,9 @@ export const ButtonWrapper = styled("button")<{ color: string; size: number }>`
   ${resetButton}
   ${flexCenter}
 
+  position: relative;
+  z-index: 10;
+
   height: ${(props) => props.size}px;
   width: calc(${(props) => props.size}px * 6);
   column-gap: 10px;

@@ -16,7 +16,7 @@ export const clampWidth = (min: number, max: number) => css`
 `;
 
 export const clampHeight = (min: number, max: number) => css`
-  height: clamp(${min}px, ${(max / screen.fullScreenWidth) * 100}vw, ${max}px);
+  height: clamp(${min}px, ${(max / 1024) * 100}vw, ${max}px);
 `;
 
 export const resetLink = css`
