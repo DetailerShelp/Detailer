@@ -15,6 +15,7 @@ import { HomePage } from "@/modules/user/home/HomePage";
 import { ProfilePage } from "@/modules/user/profile/ProfilePage";
 import { PageWrapper } from "@/modules/user/PageWrapper";
 import { MessengerPage } from "@/modules/user/messenger/MessengerPage";
+import ShortsPage from "@/modules/user/shorts/ShortsPage";
 
 export default function RoutesProvider() {
   const authorizedUser = true;
@@ -43,7 +44,7 @@ export default function RoutesProvider() {
           <Route path="home" element={<HomePage />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="messenger" element={<MessengerPage />} />
-          <Route path="shorts" element={<NavPanel />} />
+          <Route path="shorts" element={<ShortsPage />} />
           <Route path="saved" element={<NavPanel />} />
           <Route path="qrcode" element={<NavPanel />} />
           <Route path="settings" element={<NavPanel />} />
