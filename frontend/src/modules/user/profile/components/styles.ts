@@ -1,6 +1,7 @@
 import {
   clampHeight,
   clampText,
+  clampWidth,
   flexCenter,
   hoverActive,
   resetLink,
@@ -9,6 +10,7 @@ import {
 import {
   borders,
   colors,
+  device,
   fonts,
   shadows,
 } from "@/common/styles/styleConstants";
@@ -24,6 +26,14 @@ export const ProfileWrapper = styled("div")`
   display: flex;
   flex-direction: column;
   row-gap: 15px;
+
+  @media ${device.tablet} {
+    row-gap: 10px;
+  }
+
+  @media ${device.mobileM} {
+    row-gap: 5px;
+  }
 `;
 
 export const ProfileBackgroundWrapper = styled("div")`
@@ -44,7 +54,6 @@ export const ProfileBackgroundImage = styled("img")`
   object-fit: cover;
   object-position: center;
   border-radius: inherit;
-  margin-bottom: 50px;
 `;
 
 export const ProfileMoreWrapper = styled("div")`
@@ -52,6 +61,16 @@ export const ProfileMoreWrapper = styled("div")`
   top: 25px;
   right: 25px;
   z-index: 2;
+
+  @media ${device.tablet} {
+    top: 20px;
+    right: 20px;
+  }
+
+  @media ${device.mobileL} {
+    top: 15px;
+    right: 15px;
+  }
 `;
 
 export const ProfileButtonMoreWrapper = styled("div")`
@@ -70,49 +89,101 @@ export const ProfileUserHeaderWrapper = styled("div")`
   display: flex;
   align-items: center;
   column-gap: 15px;
+
+  @media ${device.tablet} {
+    left: 20px;
+    column-gap: 10px;
+  }
+
+  @media ${device.mobileL} {
+    left: 15px;
+    column-gap: 5px;
+  }
 `;
 
 export const ProfileUserAvatar = styled("img")`
   ${square(100)}
   border: ${borders.avatarBorder};
   border-radius: ${borders.circleBorderRadius};
+
+  @media ${device.mobile} {
+    ${square(85)}
+  }
 `;
 
 export const ProfileUserName = styled("h2")`
   font-weight: ${fonts.weights.medium};
   ${clampText(fonts.sizes.subTitleMobile, fonts.sizes.subTitle)}
   margin-block: auto 13px;
+
+  @media ${device.tablet} {
+    margin-block: auto 5px;
+  }
 `;
 
 export const ProfileUserDescription = styled("p")`
   margin-inline: 25px;
   ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)};
+
+  @media ${device.tablet} {
+    margin-inline: 20px;
+  }
+
+  @media ${device.mobileL} {
+    margin-inline: 15px;
+  }
 `;
 
 export const ProfileButtonsWrapper = styled("div")`
+  ${flexCenter}
   margin-inline: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  column-gap: 10px;
+  column-gap: 15px;
+
+  @media ${device.tablet} {
+    margin-inline: 20px;
+  }
+
+  @media ${device.mobileL} {
+    display: none;
+  }
+
+  @media ${device.mobileAbove} {
+    justify-content: space-between;
+  }
 `;
 
 export const ProfileRaitingList = styled("ul")`
   ${flexCenter}
   column-gap: 60px;
   margin-inline: 25px;
+
+  @media ${device.tablet} {
+    margin-inline: 20px;
+    column-gap: 50px;
+  }
+
+  @media ${device.mobileL} {
+    margin-inline: 15px;
+    column-gap: 20px;
+  }
+
+  @media ${device.mobileM} {
+    column-gap: 5px;
+  }
 `;
 
-export const ProfileRaitingItem = styled("li")``;
+export const ProfileRaitingItem = styled("li")`
+  ${clampWidth(85, 150)}
+`;
 
 export const ProfileRaitingLink = styled("a")`
   ${resetLink}
   ${flexCenter}
+  width: 100%;
   text-align: center;
   font-weight: ${fonts.weights.medium};
   ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)};
   border-radius: ${borders.thinBorderRadius};
-  padding-inline: 10px;
   ${hoverActive}
 `;
 
@@ -126,6 +197,10 @@ export const ProfileContentList = styled("ul")`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
+
+  @media ${device.mobileL} {
+    gap: 3px;
+  }
 `;
 
 export const ProfileContentItem = styled("li")`

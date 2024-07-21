@@ -2,6 +2,7 @@ import { clampText } from "@/common/styles/mixins";
 import {
   borders,
   colors,
+  device,
   fonts,
   shadows,
 } from "@/common/styles/styleConstants";
@@ -26,7 +27,7 @@ export const DropdownList = styled("ul")`
   translate: -50%;
   z-index: 1;
 
-  animation: shows .3s ease;
+  animation: shows 0.3s ease;
 
   @keyframes shows {
     from {
@@ -36,6 +37,13 @@ export const DropdownList = styled("ul")`
     to {
       opacity: 1;
     }
+  }
+
+  @media ${device.tablet} {
+    position: absolute;
+    top: 35px;
+    left: -150%;
+    z-index: 1;
   }
 `;
 
@@ -72,5 +80,9 @@ export const DropdownLink = styled("a")<{ isRed?: boolean }>`
 
   &:active {
     background-color: ${colors.grayBorder};
+  }
+
+  @media ${device.mobile} {
+    padding: 10px 15px;
   }
 `;

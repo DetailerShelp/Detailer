@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { clampText, flexCenter, hoverActive, square } from "@/common/styles/mixins";
-import { borders, colors, fonts, transitions } from "@/common/styles/styleConstants";
+import { borders, colors, device, fonts, transitions } from "@/common/styles/styleConstants";
 import { NavLink } from "react-router-dom";
 import { ImageComponentsTypes } from "@/common/svg-helper";
 import { FC } from "react";
@@ -63,6 +63,10 @@ const NavigationLink = styled(NavLink)`
 
 const NavigationIcon = styled(SvgHelper)`
   ${square(30)}
+
+  @media ${device.mobileL} {
+    ${square(25)}
+  }
 `;
 
 interface NavProfileLinkProps {

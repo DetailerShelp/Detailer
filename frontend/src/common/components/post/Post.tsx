@@ -3,6 +3,7 @@ import {
   PostBottomItem,
   PostBottomWrapper,
   PostDescription,
+  PostMenuSubsribeWrapper,
   PostMenuWrapper,
   PostPublication,
   PostTime,
@@ -32,7 +33,9 @@ export const Post = () => {
         </PostUserWrapper>
 
         <PostMenuWrapper>
-          <WhiteButtonWithIcon title="Подписаться" size={30} icon="plus" />
+          <PostMenuSubsribeWrapper>
+            <WhiteButtonWithIcon title="Подписаться" size={30} icon="plus" />
+          </PostMenuSubsribeWrapper>
           {/* //TODO Добавить плавное отображение dropdown */}
           <DropdownWrapper
             onMouseEnter={() => setDropdownOpen(true)}
