@@ -1,22 +1,21 @@
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import styled from "styled-components";
-import { colors } from "@/common/styles/styleConstants";
+import { borders, colors } from "@/common/styles/styleConstants";
+import { absCenter, flexCenter, square } from "../../mixins";
 
 const ControlsVideo = styled('button')`
-position: absolute;
-width: 100px;
-height: 100px;
+${square(100)}
 background-color: ${colors.blackTransparent};
 border: none;
-border-radius: 50%;
-top: calc(50% - 50px);
-left: calc(50% - 50px);
+border-radius: ${borders.circleBorderRadius};
+${flexCenter}
+${absCenter}
 `;
 
 export default function PlayVideoButton() {
     return (
         <ControlsVideo >
-            <SvgHelper width="30px" height="30px" iconName="play" color="white" />
+            <SvgHelper width="30px" height="30px" iconName="shorts" color="white" />
         </ControlsVideo>
     )
 }

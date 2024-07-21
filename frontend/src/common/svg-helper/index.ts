@@ -41,8 +41,6 @@ import report from '@/common/svg-helper/icons/dropdown-icons/report.svg?react';
 import editProfile from '@/common/svg-helper/icons/dropdown-icons/edit-profile.svg?react';
 import info from '@/common/svg-helper/icons/dropdown-icons/info.svg?react';
 import quit from '@/common/svg-helper/icons/dropdown-icons/quit.svg?react';
-import favourite from '@/common/svg-helper/icons/favourite.svg?react';
-import play from '@/common/svg-helper/icons/play.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -96,9 +94,7 @@ export type ImageComponentsTypes =
   | 'report'
   | 'editProfile'
   | 'info'
-  | 'quit'
-  | 'favourite'
-  | 'play';
+  | 'quit';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   logo,
@@ -144,6 +140,4 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   editProfile,
   info,
   quit,
-  favourite,
-  play,
 };

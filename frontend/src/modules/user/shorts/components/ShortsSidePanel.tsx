@@ -12,15 +12,15 @@ export default function ShortsSidePanel({video, setActiveVideo}: ShortsSidePanel
     return (
         <ShortsSidePanelWrapper>
             <ShortsFunctionsWrapper>
-                <ShortsButtonFunctions title="нравится" icon="like" count={likes} />
-                <ShortsButtonFunctions title="комментарии" icon="comment" count={comments} />
-                <ShortsButtonFunctions title="поделиться" icon="share" count={repost} />
-                <ShortsButtonFunctions title="избранное" icon="favourite" />
-                <ShortsButtonFunctions title="поделиться" icon="more" />
+                <ShortsButtonFunctions title="Нравится" icon="like" count={likes} />
+                <ShortsButtonFunctions title="Комментарии" icon="comment" count={comments} />
+                <ShortsButtonFunctions title="Поделиться" icon="share" count={repost} />
+                <ShortsButtonFunctions title="Избранное" icon="saved" />
+                <ShortsButtonFunctions title="Поделиться" icon="more" />
             </ShortsFunctionsWrapper>
             <ShortsFunctionsWrapper>
-                <ShortsButtonFunctions click={() => setActiveVideo((prev: any) => prev - 1)} title="предыдущее" icon="arrowLeft" />
-                <ShortsButtonFunctions click={() => setActiveVideo((prev: any) => prev + 1)} title="следующее" icon="arrowRight" />
+                <ShortsButtonFunctions click={() => setActiveVideo((prev: any) => prev - 1)} title="Предыдущее" icon="arrowLeft" />
+                <ShortsButtonFunctions click={() => setActiveVideo((prev: any) => prev + 1)} title="Следующее" icon="arrowRight" />
             </ShortsFunctionsWrapper>
         </ShortsSidePanelWrapper>
     )

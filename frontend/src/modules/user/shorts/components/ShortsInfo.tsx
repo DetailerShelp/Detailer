@@ -1,7 +1,7 @@
 import { ShortsInfoAuthor, ShortsInfoAvatar, ShortsInfoDescription, ShortsInfoProfile, ShortsInfoWrapper } from "@/modules/user/shorts/styles";
 import avatar from "@/common/images/avatar.png";
-import { BlackWhiteButton } from "@/common/styles/tags/button/BlackWhiteButton";
 import { videoLinks } from "@/modules/user/shorts/videos";
+import { WhiteButtonWithIcon } from "@/common/styles/tags/button/WhiteButtonWithIcon";
 
 interface ShortsInfoProps {
     activeVideo: number
@@ -18,7 +18,7 @@ export default function ShortsInfo({ activeVideo }: ShortsInfoProps) {
             <ShortsInfoDescription>
                 {description}
             </ShortsInfoDescription>
-            <BlackWhiteButton color={"white"} size={30} title="Подписаться" />
+            <WhiteButtonWithIcon title="Подписаться" size={30} icon="plus" />
         </ShortsInfoWrapper>
     )
 }

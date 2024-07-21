@@ -1,4 +1,4 @@
-import { clampText } from "@/common/styles/mixins";
+import { clampText, square } from "@/common/styles/mixins";
 import { borders, colors, device, fonts, shadows } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
@@ -89,8 +89,7 @@ margin-bottom: 15px;
 `;
 
 export const ShortsInfoAvatar = styled('img')`
-width: 50px;
-aspect-ratio: 1;
+${square(50)}
 `;
 
 export const ShortsInfoAuthor = styled('p')`
@@ -128,11 +127,10 @@ background: ${colors.whiteTotal};
 
 &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 10px;
-    height: 10px;
+    ${square(10)}
     margin: auto 0;
-    background: black;
-    border-radius: 50%;
+    background: ${colors.blackTotal};
+    border-radius: ${borders.circleBorderRadius};
     background-color: ${colors.whiteTotal};
 }
 `;
