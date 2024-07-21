@@ -66,16 +66,18 @@ interface ShortsButtonFunctionsProps {
   title: string;
   icon: ImageComponentsTypes;
   count?: number;
+  click?: () => void; 
 }
 
 export const ShortsButtonFunctions: FC<ShortsButtonFunctionsProps> = ({
   title,
   icon,
   count,
+  click
 }) => {
   return (
     <ButtonWrapper>
-      <Button title={title}>
+      <Button onClick={click}  title={title}>
         <ButtonIcon iconName={icon} />
       </Button>
       {!!count && <ButtonCount>{count}</ButtonCount>}
