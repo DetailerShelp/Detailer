@@ -31,6 +31,8 @@ import light from '@/common/svg-helper/icons/category-icons/light.svg?react';
 import tuning from '@/common/svg-helper/icons/category-icons/tuning.svg?react';
 import other from '@/common/svg-helper/icons/category-icons/other.svg?react';
 import adder from '@/common/svg-helper/icons/adder.svg?react';
+import favourite from '@/common/svg-helper/icons/favourite.svg?react';
+import play from '@/common/svg-helper/icons/play.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -74,7 +76,9 @@ export type ImageComponentsTypes =
   | 'chipTuning'
   | 'light'
   | 'tuning'
-  | 'other';
+  | 'favourite'
+  | 'other'
+  | 'play';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   logo,
@@ -110,4 +114,6 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   post,
   auto,
   adder,
+  favourite,
+  play,
 };

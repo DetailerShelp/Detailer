@@ -1,4 +1,4 @@
-import { Route, createBrowserRouter, createRoutesFromElements, Navigate, RouterProvider } from "react-router-dom";
+import { Route, createBrowserRouter, createRoutesFromElements, Navigate, RouterProvider, Outlet } from "react-router-dom";
 import { NavPanel } from "@/common/components/navpanel/NavPanel";
 import AuthPage from "@/modules/auth/AuthPage";
 import ChangePassword from "@/modules/auth/ChangePassword";
@@ -6,6 +6,7 @@ import ForgotPassword from "@/modules/auth/ForgotPassword";
 import Login from "@/modules/auth/Login";
 import Reg from "@/modules/auth/Reg";
 import { HomePage } from "@/modules/user/home/HomePage";
+import ShortsPage from "@/modules/user/shorts/ShortsPage";
 
 export default function RoutesProvider() {
     const authorizedUser = true;
@@ -30,15 +31,15 @@ export default function RoutesProvider() {
     const authorizedProvider = createBrowserRouter(
         createRoutesFromElements(
             <>
-                <Route path="/" element={<HomePage />}>
+                <Route path="/" element={<Outlet />}>
                     <Route path="user/" element={<div>UserLayout</div>} >
 
                     </Route>
 
-                    <Route path="home" element={<NavPanel />} />
+                    <Route path="home" element={<HomePage />} />
                     <Route path="profile" element={<NavPanel />} />
                     <Route path="messenger" element={<NavPanel />} />
-                    <Route path="shorts" element={<NavPanel />} />
+                    <Route path="shorts" element={<ShortsPage />} />
                     <Route path="saved" element={<NavPanel />} />
                     <Route path="qrcode" element={<NavPanel />} />
                     <Route path="settings" element={<NavPanel />} />

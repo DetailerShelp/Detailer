@@ -36,8 +36,6 @@ const FixedWrapper = styled("div")`
 const ContentWrapper = styled("div")`
   grid-area: "b";
   width: 550px;
-  background-color: white;
-  box-shadow: 0 0 5px 0 black;
 `;
 
 const WidgetsWrapper = styled("div")`

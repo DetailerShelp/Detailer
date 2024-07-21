@@ -62,6 +62,7 @@ export const colors = {
   blackThumb: `${getColorName("thumbColor")}`,
   shadow: `${getColorName("shadow")}`,
 
+  blackTransparent: "rgba(0, 0, 0, 0.5)",
   red: "rgba(253, 0, 0, 1)",
 };
 
