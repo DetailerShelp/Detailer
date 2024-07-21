@@ -29,13 +29,12 @@ const WrapperInner = styled("div")`
   }
 
   @media ${device.tablet} {
-    grid-template-areas:
-      "a b";
-      /* "c ."; */
+    grid-template-areas: "a b";
+    gap: 20px;
   }
 
   @media ${device.mobile} {
-    display: flex;
+    grid-template-areas: "b";
   }
 `;
 
@@ -48,10 +47,10 @@ const NavigationWrapper = styled("div")`
   }
 
   @media ${device.mobile} {
+    width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
-
   }
 `;
 
@@ -64,6 +63,7 @@ const ContentWrapper = styled("div")`
 
   @media ${device.mobile} {
     height: 300px;
+    display: none;
   }
 `;
 
@@ -72,7 +72,7 @@ const WidgetsWrapper = styled("div")`
   grid-area: "c";
 
   @media ${device.tablet} {
-    grid-area: "a";
+    display: none;
   }
 `;
 
@@ -81,8 +81,8 @@ const FixedWrapper = styled("div")`
   display: grid;
   row-gap: 25px;
 
-  @media ${device.tablet} {
-    position: relative
+  @media ${device.mobile} {
+    width: 100%;
   }
 `;
 
@@ -101,7 +101,6 @@ export const PageWrapper: FC<PageProps> = ({
   widgetThree,
   widgetFour,
 }) => {
-  const screenWidth = window.innerWidth;
   return (
     <>
       <TopBar />
@@ -112,14 +111,6 @@ export const PageWrapper: FC<PageProps> = ({
             <NavigationWrapper>
               <FixedWrapper>
                 <NavPanel />
-                {screenWidth.toString() <= device.tablet && (
-                  <>
-                    {widgetOne}
-                    {widgetTwo}
-                    {widgetThree}
-                    {widgetFour}
-                  </>
-                )}
               </FixedWrapper>
             </NavigationWrapper>
 

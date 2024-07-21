@@ -6,6 +6,10 @@ import { VisuallyHidden } from "@/common/styles/GlobalStyles";
 
 const SearchForm = styled("form")`
   position: relative;
+
+  @media ${device.mobile} {
+    display: none;
+  }
 `;
 
 const SearchIntInput = styled("input")`
@@ -33,11 +37,6 @@ const SearchIntInput = styled("input")`
   @media ${device.tablet} {
     width: 300px;
     padding-inline: 15px 45px;
-  }
-
-  @media ${device.mobile} {
-    height: 30px;
-    padding-block: 0;
   }
 `;
 

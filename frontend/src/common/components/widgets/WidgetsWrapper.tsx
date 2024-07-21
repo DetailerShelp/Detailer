@@ -8,7 +8,6 @@ import {
 import {
   borders,
   colors,
-  device,
   fonts,
   shadows,
 } from "@/common/styles/styleConstants";
@@ -28,10 +27,6 @@ const WidgetWrapper = styled("div")`
   border: ${borders.defaultBorder};
   border-radius: ${borders.defaultBorderRadius};
   box-shadow: ${shadows.defaultShadow};
-
-  @media ${device.tablet} {
-    width: 300px;
-  }
 `;
 
 const WidgetHeaderWrapper = styled("div")`

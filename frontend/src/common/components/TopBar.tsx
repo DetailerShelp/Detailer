@@ -36,7 +36,12 @@ const TopBarHeader = styled("header")`
 
   @media ${device.mobile} {
     height: 55px;
-    padding-inline: 25px;
+    padding-inline: 15px;
+  }
+
+  @media ${device.mobileM} {
+    height: 50px;
+    padding-inline: 10px; 
   }
 `;
 
@@ -57,6 +62,10 @@ const TopBarList = styled("ul")`
   }
 
   @media ${device.mobile} {
+    column-gap: 20px;
+  }
+
+  @media ${device.mobileM} {
     column-gap: 10px;
   }
 `;
