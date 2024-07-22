@@ -1,10 +1,27 @@
 import styled from "styled-components";
-import { clampText, flexCenter, hoverActive, square } from "@/common/styles/mixins";
-import { borders, colors, device, fonts, transitions } from "@/common/styles/styleConstants";
+import {
+  clampText,
+  flexCenter,
+  hoverActive,
+  square,
+} from "@/common/styles/mixins";
+import {
+  borders,
+  colors,
+  device,
+  fonts,
+  transitions,
+} from "@/common/styles/styleConstants";
 import { NavLink } from "react-router-dom";
 import { ImageComponentsTypes } from "@/common/svg-helper";
 import { FC } from "react";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
+
+export const NavigationList = styled("ul")`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 const NavigationItem = styled("li")`
   width: 100%;

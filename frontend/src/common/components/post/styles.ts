@@ -1,20 +1,11 @@
-import { clampText, square } from "@/common/styles/mixins";
-import {
-  borders,
-  colors,
-  device,
-  fonts,
-  shadows,
-} from "@/common/styles/styleConstants";
+import { clampText, square, styledWrapper } from "@/common/styles/mixins";
+import { borders, colors, device, fonts } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 export const PostWrapper = styled("div")`
-  width: 100%;
-  border: ${borders.defaultBorder};
-  border-radius: ${borders.defaultBorderRadius};
-  background-color: ${colors.whiteTotal};
-  box-shadow: ${shadows.defaultShadow};
+  ${styledWrapper}
 
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;

@@ -12,6 +12,8 @@ import settings from '@/common/svg-helper/icons/nav-icons/settings.svg?react';
 import help from '@/common/svg-helper/icons/nav-icons/help.svg?react';
 import arrowLeft from '@/common/svg-helper/icons/arrow-left.svg?react';
 import arrowRight from '@/common/svg-helper/icons/arrow-right.svg?react';
+import arrowUp from '@/common/svg-helper/icons/arrow-up.svg?react';
+import arrowDown from '@/common/svg-helper/icons/arrow-down.svg?react';
 import close from '@/common/svg-helper/icons/close.svg?react';
 import trash from '@/common/svg-helper/icons/trash.svg?react';
 import plus from '@/common/svg-helper/icons/plus.svg?react';
@@ -41,6 +43,18 @@ import report from '@/common/svg-helper/icons/dropdown-icons/report.svg?react';
 import editProfile from '@/common/svg-helper/icons/dropdown-icons/edit-profile.svg?react';
 import info from '@/common/svg-helper/icons/dropdown-icons/info.svg?react';
 import quit from '@/common/svg-helper/icons/dropdown-icons/quit.svg?react';
+import privacy from '@/common/svg-helper/icons/privacy.svg?react';
+import blockedProfile from '@/common/svg-helper/icons/blocked-profile.svg?react';
+import block from '@/common/svg-helper/icons/block.svg?react';
+import ublock from '@/common/svg-helper/icons/unblock.svg?react';
+import view from '@/common/svg-helper/icons/view.svg?react';
+import checkMark from '@/common/svg-helper/icons/check-mark.svg?react';
+import fone from '@/common/svg-helper/icons/fone.svg?react';
+import color from '@/common/svg-helper/icons/color.svg?react';
+
+
+
+
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -65,6 +79,8 @@ export type ImageComponentsTypes =
   | 'help'
   | 'arrowLeft'
   | 'arrowRight'
+  | 'arrowUp'
+  | 'arrowDown'
   | 'plus'
   | 'edit'
   | 'like'
@@ -94,7 +110,15 @@ export type ImageComponentsTypes =
   | 'report'
   | 'editProfile'
   | 'info'
-  | 'quit';
+  | 'quit'
+  | 'privacy'
+  | 'blockedProfile'
+  | 'block'
+  | 'ublock'
+  | 'view'
+  | 'checkMark'
+  | 'fone'
+  | 'color';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   logo,
@@ -111,6 +135,8 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   help,
   arrowLeft,
   arrowRight,
+  arrowUp,
+  arrowDown,
   plus,
   edit,
   like,
@@ -140,4 +166,12 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   editProfile,
   info,
   quit,
+  privacy,
+  blockedProfile,
+  block,
+  ublock,
+  view,
+  checkMark,
+  fone,
+  color,
 };

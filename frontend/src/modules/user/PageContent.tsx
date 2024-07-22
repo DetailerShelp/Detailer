@@ -1,11 +1,11 @@
 import { NavPanel } from "@/common/components/navpanel/NavPanel";
-import { Container } from "@/common/styles/GlobalStyles";
+import { Container, VisuallyHidden } from "@/common/styles/GlobalStyles";
 import { clampWidth } from "@/common/styles/mixins";
 import { device } from "@/common/styles/styleConstants";
 import React, { FC } from "react";
 import styled from "styled-components";
 
-const Wrapper = styled("div")`
+const Wrapper = styled("main")`
   margin-top: 65px;
   padding-top: 25px;
 
@@ -45,7 +45,7 @@ const WrapperInner = styled("div")`
   }
 `;
 
-const NavigationWrapper = styled("div")`
+const NavigationSection = styled("section")`
   ${clampWidth(200, 300)}
   grid-area: "a";
 
@@ -61,7 +61,7 @@ const NavigationWrapper = styled("div")`
   }
 `;
 
-const ContentWrapper = styled("div")`
+const ContentSection = styled("section")`
   ${clampWidth(450, 550)}
   max-width: 550px;
   grid-area: "b";
@@ -71,7 +71,7 @@ const ContentWrapper = styled("div")`
   }
 `;
 
-const WidgetsWrapper = styled("div")`
+const WidgetsSection = styled("section")`
   ${clampWidth(295, 324)}
   grid-area: "c";
 
@@ -92,8 +92,8 @@ const FixedWrapper = styled("div")`
 
 interface PageProps {
   content: React.ReactNode;
-  widgetOne: React.ReactNode;
-  widgetTwo: React.ReactNode;
+  widgetOne?: React.ReactNode;
+  widgetTwo?: React.ReactNode;
   widgetThree?: React.ReactNode;
   widgetFour?: React.ReactNode;
 }
@@ -109,21 +109,24 @@ export const PageContent: FC<PageProps> = ({
     <Wrapper>
         <Container>
           <WrapperInner>
-            <NavigationWrapper>
+            <NavigationSection>
               <FixedWrapper>
                 <NavPanel />
               </FixedWrapper>
-            </NavigationWrapper>
-            <ContentWrapper>{content}</ContentWrapper>
+            </NavigationSection>
+            <ContentSection>{content}</ContentSection>
 
-            <WidgetsWrapper>
+            <WidgetsSection>
+              <VisuallyHidden>
+                <h2>Виджеты</h2>
+              </VisuallyHidden>
               <FixedWrapper>
                 {widgetOne}
                 {widgetTwo}
                 {widgetThree}
                 {widgetFour}
               </FixedWrapper>
-            </WidgetsWrapper>
+            </WidgetsSection>
           </WrapperInner>
         </Container>
       </Wrapper>

@@ -15,6 +15,10 @@ import { HomePage } from "@/modules/user/home/HomePage";
 import { ProfilePage } from "@/modules/user/profile/ProfilePage";
 import { PageWrapper } from "@/modules/user/PageWrapper";
 import { MessengerPage } from "@/modules/user/messenger/MessengerPage";
+import { EditPage } from "@/modules/user/profile/pages/edit-profile/EditPage";
+import { HelpPage } from "@/modules/user/help/HelpPage";
+import { SettingsPage } from "@/modules/user/settings/SettingsPage";
+import { Profile } from "@/modules/user/profile/components/Profile";
 
 export default function RoutesProvider() {
   const authorizedUser = true;
@@ -39,15 +43,17 @@ export default function RoutesProvider() {
     createRoutesFromElements(
       <>
         <Route path="/" element={<PageWrapper />}>
-          <Route path="user/" element={<div>UserLayout</div>} />
           <Route path="home" element={<HomePage />} />
-          <Route path="profile" element={<ProfilePage />} />
+          <Route path="profile/" element={<ProfilePage />}>
+            <Route path="user/" element={<Profile />} />
+            <Route path="edit" element={<EditPage />} />
+          </Route>
           <Route path="messenger" element={<MessengerPage />} />
           <Route path="shorts" element={<NavPanel />} />
           <Route path="saved" element={<NavPanel />} />
           <Route path="qrcode" element={<NavPanel />} />
-          <Route path="settings" element={<NavPanel />} />
-          <Route path="help" element={<NavPanel />} />
+          <Route path="settings" element={<SettingsPage />} />
+          <Route path="help" element={<HelpPage />} />
         </Route>
         <Route path="error" element={<div>Error 404</div>} />
         <Route path="*" element={<Navigate to="/error" replace />} />
