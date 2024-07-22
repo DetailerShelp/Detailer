@@ -3,7 +3,7 @@ import { fonts } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 export const ShortsWrapper = styled('div')`
-    ${clampHeight(140, 550)}
+    ${clampHeight(290, 550)}
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -13,7 +13,7 @@ export const VideoWrapper = styled('div')`
 `
 
 export const VideoPosition = styled('div')`
-    ${clampHeight(100, 490)}
+    ${clampHeight(250, 490)}
     ${clampWidth(180, 240)}
     ${flexCenter}
 `

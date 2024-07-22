@@ -35,7 +35,7 @@ const ShotrsUpload = () => {
                         </DragAndDropUpload>
                         :
                         <VideoPosition> 
-                            <video style={{width:"100%"}} src={URL.createObjectURL(videoFile)}></video>
+                            
                         </VideoPosition>
                     }
                 </VideoWrapper>

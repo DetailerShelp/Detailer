@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borders, colors, transitions } from "@/common/styles/styleConstants";
+import { borders, colors, device, transitions } from "@/common/styles/styleConstants";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { ModalProps } from "@/common/interfaces/Modal";
 import { useEffect, useState } from "react";
@@ -12,7 +12,7 @@ const ModalWrapper = styled('div') <{ zindex: number }>`
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   z-index: ${(props) => props.zindex};
   background-color: rgba(0, 0, 0, 0.5);
 `;
@@ -25,6 +25,13 @@ const ModalContent = styled('div') <{ visible: boolean }>`
   width: fit-content;
   transition: ${transitions.lowTransition};
   transform: ${props => props.visible ? 'scale(1)' : 'scale(0.5)'};
+
+  /* @media ${device.mobileL} {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    transform: ${props => props.visible ? 'translateY(0px)' : 'translateY(200px)'};
+  } */
 `;
 
 const CloseIcon = styled(SvgHelper)`
@@ -44,9 +51,11 @@ const Modal = ({ isOpen, onClose, closeIcon, children, zIndex, style }: ModalPro
 
     useEffect(() => {
         if (isOpen) {
+            document.body.style.overflow = 'hudden';
             setIsVisible(true);
         }
         else {
+            document.body.style.overflow = 'auto';
             setIsVisible(false);
         }
     }, [isOpen]);
