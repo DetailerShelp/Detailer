@@ -7,7 +7,6 @@ import {
 import { FC, useMemo } from 'react';
 import { DeleteButton } from '@/common/components/media-viewer/media-delete/DeleteButton';
 
-
 export interface MediaImageUploadProps {
     url: string;
     id: string | number;

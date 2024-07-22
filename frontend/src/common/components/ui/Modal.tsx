@@ -38,7 +38,8 @@ const CloseIcon = styled(SvgHelper)`
     position: absolute;
     top: 30px;
     right: 30px;
-
+    z-index: 10;
+    
     &:hover{
         opacity: 0.8;
         cursor: pointer;

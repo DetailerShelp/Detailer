@@ -12,7 +12,6 @@ import styled from "styled-components";
 import { absCenter } from "@/common/styles/mixins";
 import { device } from "@/common/styles/styleConstants";
 
-
 const PlayButton = styled(SvgHelper)`
     ${absCenter}
 
@@ -36,7 +35,7 @@ export interface MediaVideoUploadProps {
 }
 
 const MediaVideoUpload = ({ url, id, onDelete }: MediaVideoUploadProps) => {
-    const imageUrl: string = useMemo(() => {
+    const videoUrl: string = useMemo(() => {
         return url;
     }, [url]);
 
@@ -53,7 +52,7 @@ const MediaVideoUpload = ({ url, id, onDelete }: MediaVideoUploadProps) => {
                 <DeleteButton onDelete={handleDelete} />
             </MediaDeleteWrapper>
             <StyledVideoWrapper>
-                <MediaVideoWrapper src={imageUrl}></MediaVideoWrapper>
+                <MediaVideoWrapper src={videoUrl}></MediaVideoWrapper>
             </StyledVideoWrapper>
         </MediaWrapper>
     )

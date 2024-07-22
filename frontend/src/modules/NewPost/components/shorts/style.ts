@@ -1,5 +1,5 @@
 import { clampHeight, clampText, clampWidth, flexCenter } from "@/common/styles/mixins";
-import { fonts } from "@/common/styles/styleConstants";
+import { borders, colors, fonts } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 export const ShortsWrapper = styled('div')`
@@ -16,6 +16,12 @@ export const VideoPosition = styled('div')`
     ${clampHeight(250, 490)}
     ${clampWidth(180, 240)}
     ${flexCenter}
+`
+
+export const VideoUploaded = styled(VideoPosition)`
+    background-color: ${colors.blackTotal};    
+    border: ${borders.borderGrayAccent};
+    border-radius: ${borders.defaultBorderRadius};
 `
 
 export const DescriptionBlock = styled('h2')`
