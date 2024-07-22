@@ -1,6 +1,7 @@
 import {
   absCenter,
   clampText,
+  clampWidth,
   hoverActive,
   square,
 } from "@/common/styles/mixins";
@@ -20,8 +21,7 @@ const WidgetWrapper = styled("div")`
   flex-direction: column;
   row-gap: 25px;
 
-  width: 100%;
-  max-width: 324px;
+  ${clampWidth(295, 324)}
   padding: 15px;
   background-color: ${colors.whiteTotal};
   border: ${borders.defaultBorder};

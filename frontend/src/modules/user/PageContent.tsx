@@ -5,52 +5,88 @@ import { device } from "@/common/styles/styleConstants";
 import React, { FC } from "react";
 import styled from "styled-components";
 
-const Wrapper = styled("body")`
+const Wrapper = styled("div")`
   margin-top: 65px;
   padding-top: 25px;
 
   display: flex;
+  align-items: center;
   justify-content: space-between;
+
+  @media ${device.mobile} {
+    margin-block: 55px;
+    padding-top: 15px;
+    height: 100%;
+  }
+
+  @media ${device.mobileM} {
+    margin-block: 50px;
+    padding-top: 10px;
+  }
 `;
 
 const WrapperInner = styled("div")`
   width: 100%;
   display: grid;
-  grid-template-areas: "a b c";
   gap: 25px;
+
+  @media ${device.tabletAbove} {
+    grid-template-areas: "a b c";
+  }
 
   @media ${device.tablet} {
     grid-template-areas: "a b";
+    gap: 20px;
+  }
+
+  @media ${device.mobile} {
+    grid-template-areas: "b";
+    gap: 0;
   }
 `;
 
 const NavigationWrapper = styled("div")`
+  ${clampWidth(200, 300)}
   grid-area: "a";
-  width: 300px;
-`;
 
-const FixedWrapper = styled("div")`
-  width: 100%;
-  position: fixed;
-  display: grid;
-  row-gap: 25px;
+  @media ${device.tablet} {
+    width: clamp(230px, 29.3vw, 300px);
+  }
+
+  @media ${device.mobile} {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
 `;
 
 const ContentWrapper = styled("div")`
-  ${clampWidth(475, 550 )}
+  ${clampWidth(450, 550)}
+  max-width: 550px;
   grid-area: "b";
-  z-index: 10;
+
+  @media ${device.mobile} {
+    width: 100%;
+  }
 `;
 
 const WidgetsWrapper = styled("div")`
+  ${clampWidth(295, 324)}
   grid-area: "c";
-  width: 324px;
 
   @media ${device.tablet} {
-    width: 300px;
-    grid-area: "a";
-    display: grid;
-    row-gap: 25px;
+    display: none;
+  }
+`;
+
+const FixedWrapper = styled("div")`
+  position: fixed;
+  display: grid;
+  row-gap: 25px;
+
+  @media ${device.mobile} {
+    width: 100%;
   }
 `;
 

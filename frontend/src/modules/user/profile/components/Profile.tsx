@@ -69,7 +69,7 @@ export const Profile = () => {
       <ProfileContentWrapper>
         <ProfileNavLinks />
         {/* TODO Добавить отображение определенного контента */}
-        <ProfileContentList>
+         <ProfileContentList>
             <ProfileContentItem>
                 <ProfileContentImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx6yT7oBWFeKJH-85mTe_LX8XL5RXw1mRFow&s" />
             </ProfileContentItem>

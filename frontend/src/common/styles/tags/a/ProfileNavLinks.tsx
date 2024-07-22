@@ -6,6 +6,7 @@ const ProfileNavList = styled("ul")`
   align-items: center;
   justify-content: space-between;
 `;
+
 export const ProfileNavLinks = () => {
   return (
     <ProfileNavList>

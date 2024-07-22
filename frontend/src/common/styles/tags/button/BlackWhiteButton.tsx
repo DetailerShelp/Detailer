@@ -13,7 +13,6 @@ export const ButtonWrapper = styled("button")<{ color: string; size: number }>`
   ${flexCenter}
 
   position: relative;
-  z-index: 10;
 
   height: ${(props) => props.size}px;
   width: calc(${(props) => props.size}px * 6);

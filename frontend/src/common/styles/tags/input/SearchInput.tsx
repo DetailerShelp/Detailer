@@ -6,6 +6,10 @@ import { VisuallyHidden } from "@/common/styles/GlobalStyles";
 
 const SearchForm = styled("form")`
   position: relative;
+
+  @media ${device.mobile} {
+    display: none;
+  }
 `;
 
 const SearchIntInput = styled("input")`
