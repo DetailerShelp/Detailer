@@ -106,7 +106,7 @@ export const fonts = {
     small: 15,
     smallMobile: 12,
     dropdown: 14, 
-    dropdownMobile: 11,
+    dropdownMobile: 12,
     extraSmall: 12,
     extraSmallMobile: 10,
   },

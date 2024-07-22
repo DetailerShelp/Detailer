@@ -1,11 +1,21 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { colors, screen, transitions } from "@/common/styles/styleConstants";
+import { colors, device, screen, transitions } from "@/common/styles/styleConstants";
 import { resetLink } from "@/common/styles/mixins";
 
 export const Container = styled("div")`
   max-width: calc(${screen.fullScreenWidth} + 25px * 2);
   padding-inline: 25px;
-  margin-inline: auto;
+  margin: 0 auto;
+
+  @media ${device.mobileL} {
+    max-width: calc(${screen.fullScreenWidth} + 10px * 2);
+    padding-inline: 10px;
+  }
+
+  @media ${device.mobileM} {
+    max-width: calc(${screen.fullScreenWidth} + 5px * 2);
+    padding-inline: 5px;
+  }
 `;
 
 export const VisuallyHidden = styled("span")`
