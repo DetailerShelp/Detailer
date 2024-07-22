@@ -25,12 +25,13 @@ const ButtonIcon = styled(SvgHelper)`
 interface ButtonWithIconProps {
   size: number;
   icon: ImageComponentsTypes;
-  title: string;
+  title?: string; // использовать всегда, кроме кнопок для выпадающего меню
+  click?: () => void;
 }
 
-export const ButtonWithIcon: FC<ButtonWithIconProps> = ({ size, icon, title }) => {
+export const ButtonWithIcon: FC<ButtonWithIconProps> = ({ size, icon, title, click }) => {
   return (
-    <ButtonWrapper size={size} title={title} >
+    <ButtonWrapper size={size} title={title} onClick={click} >
       <VisuallyHidden>{title}</VisuallyHidden>
       <ButtonIcon iconName={icon} />
     </ButtonWrapper>
