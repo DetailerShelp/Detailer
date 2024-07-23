@@ -15,6 +15,7 @@ import { HomePage } from "@/modules/user/home/HomePage";
 import { ProfilePage } from "@/modules/user/profile/ProfilePage";
 import { PageWrapper } from "@/modules/user/PageWrapper";
 import { MessengerPage } from "@/modules/user/messenger/MessengerPage";
+import ShortsPage from "@/modules/user/shorts/ShortsPage";
 import { EditPage } from "@/modules/user/profile/pages/edit-profile/EditPage";
 import { HelpPage } from "@/modules/user/help/HelpPage";
 import { SettingsPage } from "@/modules/user/settings/SettingsPage";
@@ -49,7 +50,7 @@ export default function RoutesProvider() {
             <Route path="edit" element={<EditPage />} />
           </Route>
           <Route path="messenger" element={<MessengerPage />} />
-          <Route path="shorts" element={<NavPanel />} />
+          <Route path="shorts" element={<ShortsPage />} />
           <Route path="saved" element={<NavPanel />} />
           <Route path="qrcode" element={<NavPanel />} />
           <Route path="settings" element={<SettingsPage />} />
