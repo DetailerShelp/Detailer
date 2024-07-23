@@ -13,9 +13,9 @@ import styled from "styled-components";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { square } from "@/common/styles/mixins";
 import { colors } from "@/common/styles/styleConstants";
-import { useState } from "react";
 import { SettingsNavLinks } from "@/common/styles/tags/a/SettingsNavLinks";
-// import { useState } from "react";
+import { useActions } from "@/store/actions";
+import { darkTheme, lightTheme } from "@/common/styles/theme";
 
 const SettingsSummaryIcon = styled(SvgHelper)<{ isActive: boolean }>`
   ${square(18)};
@@ -24,11 +24,19 @@ const SettingsSummaryIcon = styled(SvgHelper)<{ isActive: boolean }>`
 `;
 
 export const ViewSettings = () => {
-  const [theme, setTheme] = useState();
+  const { setTheme } = useActions();
+  const theme = localStorage.getItem("theme");
+
+  const handleChangeTheme = (theme: string) => {
+    setTheme(theme === "light" ? {theme: lightTheme} : {theme: darkTheme} );
+    localStorage.setItem("theme", theme);
+    document.location.reload();
+  };
 
   return (
+    //TODO добавить отслеживание открытия данной вкладки
     <SettingsItem>
-      <SettingsDetails>
+      <SettingsDetails open>
         <SettingSummary title="Внешний вид" icon="view" />
 
         <SettingsSummaryContent>
@@ -36,24 +44,37 @@ export const ViewSettings = () => {
             <SettingsSummaryItem>
               <SettingsSummaryItemTitle>Тема</SettingsSummaryItemTitle>
 
-              <SettingsSummaryItemThemeLink isActive={theme === 'light'} >
+              <SettingsSummaryItemThemeLink
+                isActive={theme === "light"}
+                onClick={() => handleChangeTheme("light")}
+              >
                 <p>Светлая</p>
-                <SettingsSummaryIcon iconName="checkMark" isActive={theme === 'light'} />
+                <SettingsSummaryIcon
+                  iconName="checkMark"
+                  isActive={theme === "light"}
+                />
               </SettingsSummaryItemThemeLink>
 
-              <SettingsSummaryItemThemeLink isActive={theme === 'dark'}>
+              <SettingsSummaryItemThemeLink
+                isActive={theme === "dark"}
+                onClick={() => handleChangeTheme("dark")}
+              >
                 <p>Темная</p>
-                <SettingsSummaryIcon iconName="checkMark" isActive={theme === 'dark'} />
+                <SettingsSummaryIcon
+                  iconName="checkMark"
+                  isActive={theme === "dark"}
+                />
               </SettingsSummaryItemThemeLink>
             </SettingsSummaryItem>
 
             <SettingsSummaryItem>
-              <SettingsSummaryItemTitle>Оформление чата</SettingsSummaryItemTitle>
-
-              <SettingsSummaryItemChatWrapper>dff</SettingsSummaryItemChatWrapper>
-
+              <SettingsSummaryItemTitle>
+                Оформление чата
+              </SettingsSummaryItemTitle>
+              <SettingsSummaryItemChatWrapper>
+                dff
+              </SettingsSummaryItemChatWrapper>
               <SettingsNavLinks />
-
               TODO
             </SettingsSummaryItem>
           </SettingsSummaryList>

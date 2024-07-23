@@ -11,7 +11,7 @@ import { transitions } from "@/common/styles/styleConstants";
 import { ImageComponentsTypes } from "@/common/svg-helper";
 
 const SettingsSummaryIcon = styled(SvgHelper)<{ isOpen: boolean }>`
-  ${square(18)}
+  ${square(20)}
   transform: ${(props) => props.isOpen && "rotate(-180deg)"};
   transition: ${transitions.fastTransition};
 `;

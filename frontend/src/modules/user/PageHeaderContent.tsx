@@ -1,5 +1,5 @@
 import { flexCenter, square } from "@/common/styles/mixins";
-import { borders, fonts } from "@/common/styles/styleConstants";
+import { borders, device, fonts } from "@/common/styles/styleConstants";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { FC } from "react";
 import styled from "styled-components";
@@ -10,6 +10,10 @@ const PageHeader = styled("header")`
   height: 50px;
   border-bottom: ${borders.defaultBorder};
   position: relative;
+
+  @media ${device.mobile} {
+    width: clamp(300px, 89vw, 548px);
+  }
 `;
 
 const PageHeaderButtonWrapper = styled("div")`
@@ -18,7 +22,6 @@ const PageHeaderButtonWrapper = styled("div")`
   left: 25px;
   translate: 0 -50%;
   ${flexCenter}
-  ${square(30)}
 `;
 
 const PageTitle = styled("h2")`
@@ -36,7 +39,7 @@ export const PageHeaderContent: FC<PageHeaderContentProps> = ({ title }) => {
     <PageHeader>
         {/* //TODO добавить кнопке onClick=(вернуться назад по routeName) */}
       <PageHeaderButtonWrapper>
-        <ButtonWithIcon size={30} title="" icon="arrowLeft" />
+        <ButtonWithIcon size={35} title="Назад" icon="arrowLeft" />
       </PageHeaderButtonWrapper>
       <PageTitle>{title}</PageTitle>
     </PageHeader>

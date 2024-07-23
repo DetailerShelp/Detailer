@@ -6,22 +6,18 @@ import React, { FC } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled("main")`
-  margin-top: 65px;
-  padding-top: 25px;
+  padding-top: 90px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   @media ${device.mobile} {
-    margin-block: 55px;
-    padding-top: 15px;
-    height: 100%;
+    padding-block: 70px;
   }
 
   @media ${device.mobileM} {
-    margin-block: 50px;
-    padding-top: 10px;
+    padding-block: 60px;
   }
 `;
 

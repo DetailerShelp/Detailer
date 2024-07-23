@@ -43,7 +43,6 @@ export const SettingsSummary = styled("summary")`
   align-items: center;
   justify-content: space-between;
   column-gap: 15px;
-  position: relative;
 
   transition: ${transitions.fastTransition};
   ${hoverActive}

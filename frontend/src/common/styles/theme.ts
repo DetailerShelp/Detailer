@@ -7,7 +7,7 @@ export const lightTheme = {
   borderColor: "rgba(184, 184, 184, 1)",
   buttonActive: "rgba(75, 75, 75, 1)",
   scrollBarColor: "rgba(217, 217, 217, 1)",
-  
+
   mainText: "rgba(0, 0, 0, 1)",
   shadow: "rgba(0, 0, 0, 0.25)",
   thumbColor: "rgba(85, 85, 85, 1)",
@@ -23,17 +23,16 @@ export const darkTheme = {
   scrollBarColor: "rgba(85, 85, 85, 1)",
   buttonActive: "rgba(200, 200, 200, 1)",
 
-
   mainText: "rgba(255, 255, 255, 1)",
   shadow: "rgba(255, 255, 255, 0.25)",
   thumbColor: "rgba(237, 237, 237, 1)",
 };
 
-export const getTheme = (themeName: string): any => {
+const getTheme = (themeName: string): any => {
   return themeName === "light" ? lightTheme : darkTheme;
 };
 
-//TODO getTheme(...)
 export const getColorName = (colorName: string): string => {
-    return getTheme('light')[colorName];
-}
+  const theme = localStorage.getItem("theme") || "light";
+  return getTheme(theme)[colorName];
+};
