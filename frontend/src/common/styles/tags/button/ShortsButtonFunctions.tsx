@@ -16,6 +16,7 @@ import {
 } from "@/common/styles/styleConstants";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { FC } from "react";
+import { normalizeCount } from "@/common/helpers/countHelpers";
 
 const ButtonWrapper = styled("div")`
   ${flexCenter}
@@ -80,7 +81,7 @@ export const ShortsButtonFunctions: FC<ShortsButtonFunctionsProps> = ({
       <Button onClick={click}  title={title}>
         <ButtonIcon iconName={icon} />
       </Button>
-      {!!count && <ButtonCount>{count}</ButtonCount>}
+      {!!count && <ButtonCount>{normalizeCount(count)}</ButtonCount>}
     </ButtonWrapper>
   );
 };
