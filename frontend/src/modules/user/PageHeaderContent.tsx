@@ -1,4 +1,4 @@
-import { flexCenter, square } from "@/common/styles/mixins";
+import { flexCenter } from "@/common/styles/mixins";
 import { borders, device, fonts } from "@/common/styles/styleConstants";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { FC } from "react";

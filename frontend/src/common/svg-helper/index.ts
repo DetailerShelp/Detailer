@@ -1,4 +1,7 @@
-import logo from '@/common/svg-helper/icons/logo.svg?react';
+import nameLogo from '@/common/svg-helper/icons/logo-icons/name-logo.svg?react';
+import lightCapLogo from '@/common/svg-helper/icons/logo-icons/light-cap-logo.svg?react';
+import lightLogo from '@/common/svg-helper/icons/logo-icons/light-logo.svg?react';
+import darkLogo from '@/common/svg-helper/icons/logo-icons/dark-logo.svg?react';
 import search from '@/common/svg-helper/icons/search.svg?react';
 import bell from '@/common/svg-helper/icons/bell.svg?react';
 import create from '@/common/svg-helper/icons/create.svg?react';
@@ -65,8 +68,11 @@ export type IconType = React.FunctionComponent<
 // type here name of icon.
 // in SvgHelper iconType prop you can see ts help with names from this union type
 export type ImageComponentsTypes =
-  | 'logo'
-  |'search'
+  | 'nameLogo'
+  | 'lightCapLogo'
+  | 'lightLogo'
+  | 'darkLogo'
+  | 'search'
   | 'bell'
   | 'create'
   | 'profile'
@@ -121,7 +127,10 @@ export type ImageComponentsTypes =
   | 'color';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
-  logo,
+  nameLogo, 
+  lightCapLogo,
+  lightLogo,
+  darkLogo,
   search, 
   bell,
   create,
