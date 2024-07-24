@@ -1,5 +1,10 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { colors, device, screen, transitions } from "@/common/styles/styleConstants";
+import {
+  colors,
+  device,
+  screen,
+  transitions,
+} from "@/common/styles/styleConstants";
 import { resetLink } from "@/common/styles/mixins";
 
 export const Container = styled("div")`
@@ -96,9 +101,8 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: "Montserrat", sans-serif;
-    background-color: ${(props) => props.theme.mainBackground};
-    color: ${(props) => props.theme.mainText};
-    transition: ${transitions.fastTransition};
+    background-color: ${colors.whiteBackground};
+    color: ${colors.blackTotal};
   } 
 
   a:hover,
