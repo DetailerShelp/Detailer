@@ -1,5 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { rememberReducer } from "redux-remember";
+import { rememberEnhancer, rememberReducer } from "redux-remember";
+
+const rememberedReducers = [
+  ""
+];
 
 const rootReducer = combineReducers({
 
@@ -8,9 +12,13 @@ const rootReducer = combineReducers({
 const rememberedReducer = rememberReducer(rootReducer);
 
 export const store = configureStore({
-    reducer: rememberedReducer,
+  reducer: rememberedReducer,
+  enhancers: (getDefaultEnhancer) =>
+    getDefaultEnhancer().concat(
+      rememberEnhancer(window.localStorage, rememberedReducers)
+    ),
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = typeof store;
-export type AppDispatch = AppStore['dispatch'];
+export type AppDispatch = AppStore["dispatch"];
