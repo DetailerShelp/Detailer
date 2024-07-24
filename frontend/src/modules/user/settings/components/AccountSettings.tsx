@@ -2,14 +2,10 @@ import {
   SettingsDetails,
   SettingsItem,
   SettingsSummaryContent,
-  SettingsSummaryItem,
-  SettingsSummaryItemContent,
-  SettingsSummaryItemContentLink,
-  SettingsSummaryItemContentPassword,
-  SettingsSummaryItemTitle,
   SettingsSummaryList,
 } from "@/modules/user/settings/components/styles";
 import { SettingSummary } from "@/modules/user/settings/components/SettingSummary";
+import { SummaryItem } from "@/modules/user/settings/components/SummaryItem";
 
 export const AccountSettings = () => {
   return (
@@ -19,44 +15,10 @@ export const AccountSettings = () => {
 
         <SettingsSummaryContent>
           <SettingsSummaryList>
-            <SettingsSummaryItem>
-              <SettingsSummaryItemTitle>
-                ID Пользователя
-              </SettingsSummaryItemTitle>
-
-              <SettingsSummaryItemContent>
-                #000000001
-              </SettingsSummaryItemContent>
-            </SettingsSummaryItem>
-
-            <SettingsSummaryItem>
-              <SettingsSummaryItemTitle>
-                Имя Пользователя
-              </SettingsSummaryItemTitle>
-
-              <SettingsSummaryItemContent>
-                Nagibator228
-              </SettingsSummaryItemContent>
-            </SettingsSummaryItem>
-
-            <SettingsSummaryItem>
-              <SettingsSummaryItemTitle>Email</SettingsSummaryItemTitle>
-
-              <SettingsSummaryItemContent>
-                nagibator228@gmail.com
-              </SettingsSummaryItemContent>
-            </SettingsSummaryItem>
-
-            <SettingsSummaryItem>
-              <SettingsSummaryItemTitle>Пароль</SettingsSummaryItemTitle>
-
-              <SettingsSummaryItemContentPassword>
-                • • • • • • • •{/* //TODO добавить link */}
-                <SettingsSummaryItemContentLink to={"/"}>
-                  Сменить пароль
-                </SettingsSummaryItemContentLink>
-              </SettingsSummaryItemContentPassword>
-            </SettingsSummaryItem>
+            <SummaryItem title="ID Пользователя" content="#000000001" />
+            <SummaryItem title="Имя Пользователя" content="Nagibator228" />
+            <SummaryItem title="Email" content="nagibator228@gmail.com" />
+            <SummaryItem title="Пароль" content="• • • • • • • •" link="/" />
           </SettingsSummaryList>
         </SettingsSummaryContent>
       </SettingsDetails>

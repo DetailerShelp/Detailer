@@ -28,11 +28,11 @@ export const darkTheme = {
   thumbColor: "rgba(237, 237, 237, 1)",
 };
 
-const getTheme = (themeName: string): any => {
-  return themeName === "light" ? lightTheme : darkTheme;
+export const getTheme = (): any => {
+  const theme = localStorage.getItem("theme") || "light";
+  return theme === "light" ? lightTheme : darkTheme;
 };
 
 export const getColorName = (colorName: string): string => {
-  const theme = localStorage.getItem("theme") || "light";
-  return getTheme(theme)[colorName];
+  return getTheme()[colorName];
 };

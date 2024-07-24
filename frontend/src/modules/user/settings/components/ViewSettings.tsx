@@ -14,8 +14,6 @@ import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { square } from "@/common/styles/mixins";
 import { colors } from "@/common/styles/styleConstants";
 import { SettingsNavLinks } from "@/common/styles/tags/a/SettingsNavLinks";
-import { useActions } from "@/store/actions";
-import { darkTheme, lightTheme } from "@/common/styles/theme";
 
 const SettingsSummaryIcon = styled(SvgHelper)<{ isActive: boolean }>`
   ${square(18)};
@@ -24,11 +22,9 @@ const SettingsSummaryIcon = styled(SvgHelper)<{ isActive: boolean }>`
 `;
 
 export const ViewSettings = () => {
-  const { setTheme } = useActions();
   const theme = localStorage.getItem("theme");
 
   const handleChangeTheme = (theme: string) => {
-    setTheme(theme === "light" ? {theme: lightTheme} : {theme: darkTheme} );
     localStorage.setItem("theme", theme);
     document.location.reload();
   };

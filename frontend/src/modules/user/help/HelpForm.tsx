@@ -1,6 +1,6 @@
 import { styledWrapper } from "@/common/styles/mixins";
 import styled from "styled-components";
-import { PageHeaderContent } from "../PageHeaderContent";
+import { PageHeaderContent } from "@/modules/user/PageHeaderContent";
 import { MultipleInput } from "@/common/styles/tags/textarea/MultipleInput";
 import { device } from "@/common/styles/styleConstants";
 

@@ -3,6 +3,7 @@ import { DropdownMenuItem } from "@/common/components/dropdown-menu/DropdownMenu
 
 export const ProfileDropdownMenu = () => {
   return (
+    // TODO: вынести linkи в константы
     <DropdownMenu>
         <DropdownMenuItem icon="editProfile" title="Редактировать профиль" link="/profile/edit" />
         <DropdownMenuItem icon="qrcode" title="QR-code Пользователя" link="/" />

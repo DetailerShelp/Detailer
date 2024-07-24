@@ -1,11 +1,9 @@
 import { GlobalStyles } from "@/common/styles/GlobalStyles";
 import RoutesProvider from "@/router/RoutesProvider";
 import { ThemeProvider } from "styled-components";
-import { useActions } from "@/store/actions";
+import { getTheme } from "@/common/styles/theme";
 
 function App() {
-  const {getTheme} = useActions();
-
   return (
     <ThemeProvider theme={getTheme()}>
       <GlobalStyles />

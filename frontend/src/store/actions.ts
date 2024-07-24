@@ -1,9 +1,8 @@
 import { bindActionCreators } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
-import { ThemeActions } from "@/store/reducers/themeSlice";
 
 const actions = {
-    ...ThemeActions,
+
 };
 
 
