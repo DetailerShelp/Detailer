@@ -37,7 +37,7 @@ const WidgetHeaderWrapper = styled("div")`
   padding-inline: 10px;
 `;
 
-const WidgetTitle = styled("p")`
+const WidgetTitle = styled("h3")`
   ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
   font-weight: ${fonts.weights.medium};
   text-align: start;

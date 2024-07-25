@@ -4,7 +4,6 @@ import {
   colors,
   device,
   fonts,
-  shadows,
 } from "@/common/styles/styleConstants";
 import { NavLink } from "react-router-dom";
 import {
@@ -13,14 +12,12 @@ import {
   flexCenter,
   hoverActive,
   resetLink,
+  styledWrapper,
 } from "@/common/styles/mixins";
 
 export const NavigationPanel = styled("nav")`
   ${clampWidth(200, 300)}
-  background-color: ${colors.whiteTotal};
-  border: ${borders.defaultBorder};
-  border-radius: ${borders.defaultBorderRadius};
-  box-shadow: ${shadows.defaultShadow};
+  ${styledWrapper}
 
   @media ${device.tablet} {
     width: clamp(230px, 29.3vw, 300px);
