@@ -41,6 +41,25 @@ import report from '@/common/svg-helper/icons/dropdown-icons/report.svg?react';
 import editProfile from '@/common/svg-helper/icons/dropdown-icons/edit-profile.svg?react';
 import info from '@/common/svg-helper/icons/dropdown-icons/info.svg?react';
 import quit from '@/common/svg-helper/icons/dropdown-icons/quit.svg?react';
+import createChat from '@/common/svg-helper/icons/createChat.svg?react';
+import mute from '@/common/svg-helper/icons/mute.svg?react';
+import pin from '@/common/svg-helper/icons/pin.svg?react';
+import sent from '@/common/svg-helper/icons/sent.svg?react';
+import read from '@/common/svg-helper/icons/read.svg?react';
+import clip from '@/common/svg-helper/icons/clip.svg?react';
+import emoticon from '@/common/svg-helper/icons/emoticon.svg?react';
+import sender from '@/common/svg-helper/icons/sender.svg?react';
+import answer from '@/common/svg-helper/icons/message-dropdown/answer.svg?react';
+import copy from '@/common/svg-helper/icons/message-dropdown/copy.svg?react';
+import editer from '@/common/svg-helper/icons/message-dropdown/editer.svg?react';
+import forward from '@/common/svg-helper/icons/message-dropdown/forward.svg?react';
+import pinMenu from '@/common/svg-helper/icons/message-dropdown/pin-menu.svg?react';
+import call from '@/common/svg-helper/icons/chat-dropdown/call.svg?react';
+import clear from '@/common/svg-helper/icons/chat-dropdown/clear.svg?react';
+import image from '@/common/svg-helper/icons/chat-dropdown/image.svg?react';
+import speaker from '@/common/svg-helper/icons/chat-dropdown/speaker.svg?react';
+
+
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -94,7 +113,24 @@ export type ImageComponentsTypes =
   | 'report'
   | 'editProfile'
   | 'info'
-  | 'quit';
+  | 'quit'
+  | 'createChat'
+  | 'mute'
+  | 'pin'
+  | 'read'
+  | 'sent'
+  | 'clip'
+  | 'emoticon'
+  | 'sender'
+  | 'forward'
+  | 'editer'
+  | 'copy'
+  | 'answer'
+  | 'pinMenu'
+  | 'speaker'
+  | 'image'
+  | 'clear'
+  | 'call';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   logo,
@@ -140,4 +176,21 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   editProfile,
   info,
   quit,
+  createChat,
+  mute,
+  pin,
+  read,
+  sent,
+  clip,
+  emoticon,
+  sender,
+  forward,
+  editer,
+  copy,
+  answer,
+  pinMenu,
+  call,
+  speaker,
+  image,
+  clear,
 };

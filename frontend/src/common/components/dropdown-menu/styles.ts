@@ -1,4 +1,4 @@
-import { clampText } from "@/common/styles/mixins";
+import { clampText, resetButton } from "@/common/styles/mixins";
 import {
   borders,
   colors,
@@ -25,7 +25,7 @@ export const DropdownList = styled("ul")`
   top: 35px;
   left: 50%;
   translate: -50%;
-  z-index: 1;
+  z-index: 10;
 
   animation: shows 0.3s ease;
 
@@ -56,6 +56,41 @@ export const DropdownItem = styled("li")`
 `;
 
 export const DropdownLink = styled("a")<{ isRed?: boolean }>`
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  padding: 10px 20px;
+
+  white-space: nowrap;
+  color: ${(props) => (props.isRed ? colors.red : colors.blackTotal)};
+  ${clampText(fonts.sizes.dropdownMobile, fonts.sizes.dropdown)}
+  border-radius: ${borders.defaultBorderRadius};
+
+  &.active {
+    color: ${colors.blackTotal};
+
+    svg * {
+      color: ${colors.blackTotal};
+    }
+  }
+
+  &:hover {
+    background-color: ${colors.whiteModal};
+  }
+
+  &:active {
+    background-color: ${colors.grayBorder};
+  }
+
+  @media ${device.mobile} {
+    padding: 10px 15px;
+  }
+`;
+
+
+export const DropdownButton = styled('button') <{ isRed?: boolean }>`
+  ${resetButton}
+  width: 100%;
   display: flex;
   align-items: center;
   column-gap: 10px;

@@ -55,6 +55,7 @@ export const colors = {
   grayAccent: `${getColorName("borderColor")}`,
   grayScrollBar: `${getColorName("scrollBarColor")}`,
   grayBackground: "rgba(217, 217, 217, 0.7)",
+  messageDefault: `rgba(255, 255, 255, 1)`, 
 
   //Black
   blackTotal: `${getColorName("mainText")}`,
@@ -64,6 +65,10 @@ export const colors = {
 
   blackTransparent: "rgba(0, 0, 0, 0.5)",
   red: "rgba(253, 0, 0, 1)",
+
+  //Blue
+  myMesActive: `rgba(0, 26, 255, 1)`, 
+  myMesDefault: `rgba(0, 117, 255, 1)`, 
 };
 
 export const shadows = {

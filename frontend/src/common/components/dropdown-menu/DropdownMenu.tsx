@@ -1,9 +1,15 @@
 import { DropdownList } from "@/common/components/dropdown-menu/styles";
+import { CSSProperties } from "styled-components";
 
-export const DropdownMenu = ({ children }: { children: React.ReactNode[] }) => {
+interface DropdownMenuProps {
+  children: React.ReactNode[];
+  style?: CSSProperties;
+}
+
+export const DropdownMenu = ({ children, style }:DropdownMenuProps ) => {
   return (
     <>
-      <DropdownList>{children}</DropdownList>
+      <DropdownList style={style}>{children}</DropdownList>
     </>
   );
 };
