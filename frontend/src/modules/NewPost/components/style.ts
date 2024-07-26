@@ -1,6 +1,6 @@
 import { DefaultButton } from "@/common/components/ui/Button"
 import { clampHeight, flexCenter, resetButton } from "@/common/styles/mixins"
-import { colors, transitions } from "@/common/styles/styleConstants"
+import { borders, colors, transitions } from "@/common/styles/styleConstants"
 import styled from "styled-components"
 
 export const TabsWrapper = styled('div')`
@@ -24,7 +24,7 @@ export const LoaderWrapper = styled('button')`
     ${resetButton}
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: ${borders.mediaBorderRadius};
     background-color: ${colors.grayBorder};
     transition: ${transitions.mediumTransition};
 

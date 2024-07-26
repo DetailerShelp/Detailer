@@ -50,7 +50,9 @@ export default function RoutesProvider() {
             <Route path="user/" element={<Profile />} />
             <Route path="edit" element={<EditPage />} />
           </Route>
-          <Route path="messenger" element={<MessengerPage />} />
+          <Route path="messenger" element={<MessengerPage />}>
+            <Route path="chat/:id" element={<Chat />} />
+          </Route>
           <Route path="shorts" element={<ShortsPage />} />
           <Route path="saved" element={<NavPanel />} />
           <Route path="qrcode" element={<NavPanel />} />

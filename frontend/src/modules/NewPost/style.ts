@@ -30,7 +30,7 @@ export const ModalPostContent = styled('div')`
     }
 `
 
-export const ModalPostHeader = styled('h1')`
+export const ModalPostHeader = styled('h2')`
     text-align: center;
     ${clampText(fonts.sizes.titleMobile, fonts.sizes.titleModal)};
     font-weight: ${fonts.weights.medium};

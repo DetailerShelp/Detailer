@@ -108,7 +108,7 @@ const MessageToolWrapper = styled('div')`
 
     &:hover{
         cursor: pointer;
-        background-color: #d6d4d4;
+        background-color: ${colors.grayBorder};
     }
 `
 

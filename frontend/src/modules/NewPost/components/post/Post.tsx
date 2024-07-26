@@ -9,7 +9,7 @@ import {
 } from "@/modules/NewPost/components/post/style";
 import TextArea from "@/common/components/ui/TextArea";
 import Loader from "@/modules/NewPost/components/Loader";
-import RenderMedia from "./RenderMedia";
+import RenderMedia from "@/modules/NewPost/components/post/RenderMedia";
 
 const Post = () => {
     const [files, setFiles] = useState<File[]>([]);

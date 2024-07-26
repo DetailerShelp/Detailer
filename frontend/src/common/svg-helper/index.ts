@@ -54,10 +54,6 @@ import view from '@/common/svg-helper/icons/view.svg?react';
 import checkMark from '@/common/svg-helper/icons/check-mark.svg?react';
 import fone from '@/common/svg-helper/icons/fone.svg?react';
 import color from '@/common/svg-helper/icons/color.svg?react';
-
-
-
-
 import createChat from '@/common/svg-helper/icons/createChat.svg?react';
 import mute from '@/common/svg-helper/icons/mute.svg?react';
 import pin from '@/common/svg-helper/icons/pin.svg?react';
@@ -143,7 +139,7 @@ export type ImageComponentsTypes =
   | 'view'
   | 'checkMark'
   | 'fone'
-  | 'color';
+  | 'color'
   | 'quit'
   | 'createChat'
   | 'mute'

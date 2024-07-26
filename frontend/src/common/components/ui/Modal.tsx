@@ -14,7 +14,7 @@ const ModalWrapper = styled('div') <{ zindex: number }>`
   height: 100%;
   overflow: hidden;
   z-index: ${(props) => props.zindex};
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${colors.blackTransparent};
 `;
 
 const ModalContent = styled('div') <{ visible: boolean }>`
@@ -52,7 +52,7 @@ const Modal = ({ isOpen, onClose, closeIcon, children, zIndex, style }: ModalPro
 
     useEffect(() => {
         if (isOpen) {
-            document.body.style.overflow = 'hudden';
+            document.body.style.overflow = 'hidden';
             setIsVisible(true);
         }
         else {

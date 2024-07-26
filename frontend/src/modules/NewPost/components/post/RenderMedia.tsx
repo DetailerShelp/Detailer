@@ -1,5 +1,5 @@
 import { MediaImageUpload } from "@/common/components/media-viewer/media-image/MediaimageUpload";
-import { MediaBlockWrapper } from "./style";
+import { MediaBlockWrapper } from "@/modules/NewPost/components/post/style";
 import MediaVideoUpload from "@/common/components/media-viewer/media-video/MediaVideoUpload";
 
 interface RenderMediaProps {

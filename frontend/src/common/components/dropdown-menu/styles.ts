@@ -55,39 +55,6 @@ export const DropdownItem = styled("li")`
   }
 `;
 
-export const DropdownLink = styled("a")<{ isRed?: boolean }>`
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
-  padding: 10px 20px;
-
-  white-space: nowrap;
-  color: ${(props) => (props.isRed ? colors.red : colors.blackTotal)};
-  ${clampText(fonts.sizes.dropdownMobile, fonts.sizes.dropdown)}
-  border-radius: ${borders.defaultBorderRadius};
-
-  &.active {
-    color: ${colors.blackTotal};
-
-    svg * {
-      color: ${colors.blackTotal};
-    }
-  }
-
-  &:hover {
-    background-color: ${colors.whiteModal};
-  }
-
-  &:active {
-    background-color: ${colors.grayBorder};
-  }
-
-  @media ${device.mobile} {
-    padding: 10px 15px;
-  }
-`;
-
-
 export const DropdownButton = styled('button') <{ isRed?: boolean }>`
   ${resetButton}
   width: 100%;

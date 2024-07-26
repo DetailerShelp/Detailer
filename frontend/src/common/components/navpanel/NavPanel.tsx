@@ -10,7 +10,7 @@ export const NavPanel = () => {
       <NavigationList>
         {window.innerWidth >= 768 ? (
           <>
-            <NavItem linkTo="/profile" name="Профиль" icon="profile" />
+            <NavItem linkTo="/profile/user" name="Профиль" icon="profile" />
             <NavItem linkTo="/home" name="Главная" icon="home" />
             <NavItem linkTo="/messenger" name="Мессенджер" icon="messenger" />
             <NavItem linkTo="/shorts" name="Шортсы" icon="shorts" />

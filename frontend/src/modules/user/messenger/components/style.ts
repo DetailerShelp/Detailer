@@ -1,5 +1,5 @@
-import { absCenter, flexCenter, square } from "@/common/styles/mixins";
-import { borders, colors, device, shadows } from "@/common/styles/styleConstants";
+import { flexCenter, square } from "@/common/styles/mixins";
+import { borders, colors, device, shadows, transitions } from "@/common/styles/styleConstants";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
@@ -41,10 +41,10 @@ export const PreviewChat = styled(NavLink)`
     height: 90px;
     padding: 15px 25px;
     gap: 15px;
-    transition: .5s;
+    transition: ${transitions.mediumTransition};
+
     &:hover{
-        cursor: pointer;
-        background-color: gray;
+        background-color: ${colors.grayBorder};
     }
 
     &:last-child{

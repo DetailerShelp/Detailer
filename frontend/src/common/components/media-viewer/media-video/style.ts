@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import { absCenter, flexCenter, square } from '@/common/styles/mixins';
 import { borders, colors, device } from '@/common/styles/styleConstants';
-import { DefaultButton } from "../../ui/Button";
+import { DefaultButton } from "@/common/components/ui/Button";
 
 export const MediaWrapper = styled('div')`
   position: relative;
@@ -29,7 +29,7 @@ export const StyledVideoWrapper = styled('div')`
   height: 100%;
   width: 100%;
   ${flexCenter}
-  border-radius: 10px;
+  border-radius: ${borders.mediaBorderRadius};
   overflow: hidden;
 `;
 
@@ -39,7 +39,7 @@ export const MediaDeleteWrapper = styled('div')`
   top: 7px;
   right: 7px;
   background-color: ${colors.grayBackground};
-  border-radius: 50%;
+  border-radius: ${borders.circleBorderRadius};
 
   @media ${device.mobile} {
     top: 4px;
@@ -57,7 +57,7 @@ export const PlayWrapper = styled(DefaultButton)`
     ${absCenter}
     background-color: ${colors.grayBackground};
     border-radius: ${borders.bigBorderRadius};
-    color: black;
+    color: ${colors.blackTotal};
     ${square(40)}
 
     @media ${device.desktop}{

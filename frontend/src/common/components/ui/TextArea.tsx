@@ -1,4 +1,4 @@
-import { borders, colors, fonts, mainFont, transitions } from '@/common/styles/styleConstants';
+import { borders, colors, fonts, transitions } from '@/common/styles/styleConstants';
 import styled from 'styled-components';
 import {
     CSSProperties,
@@ -40,10 +40,9 @@ export const CustomTextArea = styled('textarea')`
   line-height: 25px !important;
   padding-inline: 5px;
   min-height: 17px !important;
-  font-family: ${mainFont};
   overflow-x: hidden;
   resize: none;
-  
+
   &:focus {
     box-shadow: none;
   }

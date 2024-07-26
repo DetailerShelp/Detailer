@@ -118,13 +118,6 @@ export const styledWrapper = css`
   box-shadow: ${shadows.defaultShadow};
 `;
 
-export const styledWrapper = css`
-  background-color: ${colors.whiteTotal};
-  border: ${borders.defaultBorder};
-  border-radius: ${borders.defaultBorderRadius};
-  box-shadow: ${shadows.defaultShadow};
-`;
-
 
 export const scrollBar = css`
   &::-webkit-scrollbar {

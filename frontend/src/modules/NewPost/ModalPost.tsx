@@ -13,7 +13,7 @@ import {
     ModalPostWrapper
 } from "@/modules/NewPost/style";
 import ModalConfirm from "@/common/components/ui/ModalConfirm";
-import ShotrsUpload from "./components/shorts/ShortsUload";
+import ShotrsUpload from "@/modules/NewPost/components/shorts/ShortsUload";
 
 interface ModalPostProps {
     isOpen: boolean;
