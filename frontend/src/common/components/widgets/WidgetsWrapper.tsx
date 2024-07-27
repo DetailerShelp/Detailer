@@ -16,7 +16,7 @@ import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-const WidgetWrapper = styled("div")`
+export const WidgetWrapper = styled("div")`
   display: flex;
   flex-direction: column;
   row-gap: 25px;
@@ -29,7 +29,7 @@ const WidgetWrapper = styled("div")`
   box-shadow: ${shadows.defaultShadow};
 `;
 
-const WidgetHeaderWrapper = styled("div")`
+export const WidgetHeaderWrapper = styled("div")`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,7 +37,7 @@ const WidgetHeaderWrapper = styled("div")`
   padding-inline: 10px;
 `;
 
-const WidgetTitle = styled("h3")`
+export const WidgetTitle = styled("h3")`
   ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
   font-weight: ${fonts.weights.medium};
   text-align: start;

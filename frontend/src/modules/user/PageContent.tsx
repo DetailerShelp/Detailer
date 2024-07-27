@@ -76,10 +76,11 @@ const WidgetsSection = styled("section")`
   }
 `;
 
-const FixedWrapper = styled("div")`
+const FixedWrapper = styled("div")<{height?: number}>`
   position: fixed;
   display: grid;
   row-gap: 25px;
+  height: ${props => props.height}px;
 
   @media ${device.mobile} {
     width: 100%;
@@ -92,6 +93,7 @@ interface PageProps {
   widgetTwo?: React.ReactNode;
   widgetThree?: React.ReactNode;
   widgetFour?: React.ReactNode;
+  height?: number;
 }
 
 export const PageContent: FC<PageProps> = ({
@@ -100,6 +102,7 @@ export const PageContent: FC<PageProps> = ({
     widgetTwo,
     widgetThree,
     widgetFour,
+    height,
   }) => {
   return (
     <Wrapper>
@@ -116,7 +119,7 @@ export const PageContent: FC<PageProps> = ({
               <VisuallyHidden>
                 <h2>Виджеты</h2>
               </VisuallyHidden>
-              <FixedWrapper>
+              <FixedWrapper height={height}>
                 {widgetOne}
                 {widgetTwo}
                 {widgetThree}
