@@ -13,9 +13,10 @@ export const MessageWrapper = styled('div')`
     background-color: ${colors.messageDefault};
     border-radius: ${borders.defaultBorderRadius};
     border-bottom-left-radius: 0px;
-    padding: 10px 15px;
     margin-block: 10px;
     margin-inline: 20px auto;
+    padding-bottom: 5px;
+
 `
 
 export const MyMessageWrapper = styled('div') <{ isFocus: boolean }>`
@@ -28,9 +29,9 @@ export const MyMessageWrapper = styled('div') <{ isFocus: boolean }>`
     background-color: ${colors.myMesDefault};
     border-radius: ${borders.defaultBorderRadius};
     border-bottom-right-radius: 0px;
-    padding: 10px 15px;
     margin-block: 10px;
     margin-inline: auto 20px;
+    padding-bottom: 5px;
     transition: ${transitions.fastTransition};
 
     background-color: ${props => props.isFocus && colors.myMesActive};
@@ -46,10 +47,18 @@ export const MessageInfo = styled('div')`
     align-items: start;
     gap: 5px;
     width: fit-content;
-    margin-inline: auto 0;
+    margin-inline: auto 10px;
 `
 
 export const MessageTime = styled('span')`
     font-size: ${fonts.sizes.extraSmall}px;
     color: ${colors.grayText};
+`
+
+export const MessageText = styled('span')`
+    width: 100%;
+    display: inline-block;
+    padding: 3px 15px 0px;
+    box-sizing: border-box;
+    word-wrap: break-word;
 `

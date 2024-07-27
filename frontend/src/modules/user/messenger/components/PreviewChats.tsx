@@ -23,7 +23,7 @@ const PreviewChats = () => {
             </ChatToolWrapper>
 
             <ChatsWrapper>
-                <PreviewChat to={'/messenger/chat'}>
+                <PreviewChat to={'/messenger/chat/1'}>
                     <ChatAvatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvvLDufK1c995wXvLsyn_LMIreLZSxOTy7Rg&s" />
                     <TextInfoWrapper>
                         <h3>Nagibator</h3>

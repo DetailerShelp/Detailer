@@ -71,8 +71,7 @@ import call from '@/common/svg-helper/icons/chat-dropdown/call.svg?react';
 import clear from '@/common/svg-helper/icons/chat-dropdown/clear.svg?react';
 import image from '@/common/svg-helper/icons/chat-dropdown/image.svg?react';
 import speaker from '@/common/svg-helper/icons/chat-dropdown/speaker.svg?react';
-
-
+import fileLoader from '@/common/svg-helper/icons/fileLoader.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -157,7 +156,8 @@ export type ImageComponentsTypes =
   | 'speaker'
   | 'image'
   | 'clear'
-  | 'call';
+  | 'call'
+  | 'fileLoader';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   nameLogo, 
@@ -233,4 +233,5 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   speaker,
   image,
   clear,
+  fileLoader,
 };

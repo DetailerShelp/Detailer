@@ -1,18 +1,22 @@
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { useRef, useState } from "react";
-import { 
-    MessageContent, 
-    MessageTime, 
-    MessageInfo, 
-    MyMessageWrapper 
+import {
+    MessageContent,
+    MessageTime,
+    MessageInfo,
+    MyMessageWrapper,
+    MessageText
 } from "@/modules/user/messenger/components/messages/style";
 import MessageDropdownMenu from "@/modules/user/messenger/components/DropMenu/MessageDropdownMenu";
+import RenderMedia from "../render/RenderMedia";
 
 interface MessageProps {
-    text: string;
+    text?: string;
+    time: string;
+    media?: File;
 }
 
-const MyMessage = ({ text }: MessageProps) => {
+const MyMessage = ({ text, time, media }: MessageProps) => {
     const [focus, setFocus] = useState(false);
     const [dropdownIsOpen, setDropdownOpen] = useState(false);
     const MyMessage = useRef<HTMLDivElement>(null);
@@ -31,7 +35,7 @@ const MyMessage = ({ text }: MessageProps) => {
     };
 
     const handleCopy = () => {
-        navigator.clipboard.writeText(text)
+        navigator.clipboard.writeText(text || '')
     };
 
     return (
@@ -43,12 +47,15 @@ const MyMessage = ({ text }: MessageProps) => {
             isFocus={focus} >
 
             <MessageContent>
-                {text}
+                <RenderMedia media={media || undefined} withTitle={false} />
+                {text && <MessageText>
+                    {text}
+                </MessageText>}
             </MessageContent>
 
             <MessageInfo>
                 <MessageTime>
-                    22:16
+                    {time}
                 </MessageTime>
                 <SvgHelper iconName="sent" width="15" height="15" />
             </MessageInfo>

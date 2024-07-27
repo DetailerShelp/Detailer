@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { ChatAvatar } from "@/modules/user/messenger/components/style";
 import defaultAvatar from "@/common/images/avatar.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { flexCenter } from "@/common/styles/mixins";
 import TextArea from "@/common/components/ui/TextArea";
@@ -12,6 +12,11 @@ import image5 from "@/modules/user/messenger/components/image5.png"
 import Message from "@/modules/user/messenger/components/messages/Message";
 import MyMessage from "@/modules/user/messenger/components/messages/MyMessage";
 import ChatDropdownMenu from "@/modules/user/messenger/components/DropMenu/BurgerDropdownMenu";
+import { useAppSelector } from "@/common/hooks/useAppselector";
+import { useActions } from "@/store/actions";
+import DragAndDropUpload from "@/common/components/DraggerUploadFile";
+import Modal from "@/common/components/ui/Modal";
+import ModalMedia from "./modal/ModalMedia";
 
 const ChatWrapper = styled('div')`
     width: inherit;
@@ -126,6 +131,34 @@ const Chat = () => {
     const { id } = useParams();
     const [isMute, setIsMute] = useState(true);
     const [dropDownOpen, setDropdownOpen] = useState(false);
+    const [text, setText] = useState('');
+    const [modalOpen, setModalOpen] = useState(false);
+    const [media, setMedia] = useState<File>();
+
+    const storeChats = useAppSelector((state) => state.newChatReducer);
+    const currentChat = storeChats[id!];
+    const { addNewMessage, addNewMessageMedia } = useActions();
+
+    const scrollBottom = async () => {
+        await setTimeout(() => {
+            window.scrollTo({
+                top: document.documentElement.scrollHeight, // Прокрутка до конца страницы
+                behavior: 'smooth', // Плавная прокрутка
+            });
+        }, 100)
+    };
+
+    const handleNewMes = () => {
+        if (text.trim()) {
+            addNewMessage({ text: text, chatId: id! });
+            setText('');
+        }
+    };
+
+    const handleAddFile = (file: File) => {
+        setMedia(file);
+        setModalOpen(true);
+    };
 
     const navigate = useNavigate();
 
@@ -133,8 +166,20 @@ const Chat = () => {
         navigate(-1); // Возвращает на предыдущую страницу
     };
 
+    useEffect(() => {
+        scrollBottom();
+        console.log('112');
+    }, [storeChats[id!].messages]);
+
     return (
         <ChatWrapper>
+            <ModalMedia
+                chatId={id!}
+                modalOpen={modalOpen}
+                setModalOpen={setModalOpen}
+                media={media!}
+            />
+
             <TopHidden />
 
             <BackGroundImage src={image5} />
@@ -162,19 +207,35 @@ const Chat = () => {
             </NavInfoChat>
 
             <ChatMessageWrapper>
-                <Message></Message>
-                <MyMessage text="Всем привет"></MyMessage>
-                <MyMessage text="как дела"></MyMessage>
-                <MyMessage text="что делаешь"></MyMessage>
+                <button onClick={scrollBottom}>sdcsd</button>
+                {currentChat.messages.map((mes, index) => (
+                    mes.author === 'Ilia'
+                        ? <MyMessage
+                            key={index}
+                            text={mes.text}
+                            time={mes.createdAt}
+                            media={mes.media}
+                        />
+                        : <Message
+                            key={index}
+                            text={mes.text}
+                            time={mes.createdAt}
+                            media={mes.media}
+                        />
+                ))}
             </ChatMessageWrapper>
 
             <MessageWrapper>
-                <MessageToolWrapper>
-                    <MessageTool iconName="clip" />
-                </MessageToolWrapper>
+                <DragAndDropUpload onFile={handleAddFile} multiple={false}>
+                    <MessageToolWrapper>
+                        <MessageTool iconName="clip" />
+                    </MessageToolWrapper>
+                </DragAndDropUpload>
 
                 <MessageTextWrapper>
                     <TextArea
+                        value={text}
+                        setText={setText}
                         textAreaPlaceholder="Сообщение"
                         wrapperStyle={{ padding: '7px 10px', height: '100%' }}
                         style={{ height: '110%' }}
@@ -185,7 +246,7 @@ const Chat = () => {
                     <MessageTool iconName="emoticon" />
                 </MessageToolWrapper>
 
-                <MessageToolWrapper>
+                <MessageToolWrapper onClick={handleNewMes}>
                     <MessageTool iconName="sender" />
                 </MessageToolWrapper>
             </MessageWrapper>

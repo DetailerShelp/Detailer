@@ -1,22 +1,28 @@
-import { 
-    MessageContent, 
-    MessageInfo, 
-    MessageTime, 
-    MessageWrapper 
+import {
+    MessageContent,
+    MessageInfo,
+    MessageText,
+    MessageTime,
+    MessageWrapper
 } from "@/modules/user/messenger/components/messages/style";
 
 interface MessageProps {
+    text?: string;
+    time: string;
+    media?: File;
 }
 
-const Message = ({ }: MessageProps) => {
+const Message = ({ text, time, media }: MessageProps) => {
     return (
         <MessageWrapper >
             <MessageContent>
-                Так, это вообще изи, попробуй сам решить
+                {text && <MessageText>
+                    {text}
+                </MessageText>}
             </MessageContent>
             <MessageInfo>
                 <MessageTime>
-                    22:16
+                    {time}
                 </MessageTime>
             </MessageInfo>
         </MessageWrapper>
