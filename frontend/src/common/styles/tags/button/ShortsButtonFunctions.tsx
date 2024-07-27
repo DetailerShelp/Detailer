@@ -34,6 +34,7 @@ const Button = styled("button")`
 
   width: 60px;
   aspect-ratio: 1;
+  color: ${colors.blackTotal};
   border: ${borders.defaultBorder};
   border-radius: ${borders.circleBorderRadius};
   box-shadow: ${shadows.defaultShadow};

@@ -17,27 +17,35 @@ import {
   ProfileUserName,
   ProfileWrapper,
 } from "@/modules/user/profile/components/styles";
-import { ProfileItem } from "./ProfileItem";
+import { ProfileItem } from "@/modules/user/profile/components/ProfileItem";
 import { DropdownWrapper } from "@/common/components/dropdown-menu/styles";
 import { useState } from "react";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { ProfileDropdownMenu } from "@/modules/user/profile/components/ProfileDropdownMenu";
 import { ProfileNavLinks } from "@/common/styles/tags/a/ProfileNavLinks";
-import { UserMockData } from "@/store/reducers/users/types";
 import defaultAvatar from "@/common/images/avatar.png";
+import { User } from "@/store/reducers/user/types";
+import { authorizedUser } from "@/store/reducers/user/authorizedUser";
+import { useNavigate } from "react-router-dom";
 
+interface ProfileProps {
+  user?: User;
+}
 
-export const Profile = () => {
+export const Profile = ({ user }: ProfileProps) => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
-  const user = UserMockData[0];
-  const userSubscribers = !!user.subscribers ? user.subscribers.length : 0;
-  const userSubscribes = !!user.subscribes ? user.subscribes.length : 0;
 
+  const userSubscribers = !!user?.subscribers ? user?.subscribers.length : 0;
+  const userSubscribes = !!user?.subscribes ? user?.subscribes.length : 0;
+
+  const currentUserId = authorizedUser();
+  const isAdmin = user?.id == currentUserId;
+  const navigate = useNavigate();
 
   return (
     <ProfileWrapper>
       <ProfileBackgroundWrapper>
-        <ProfileBackgroundImage src={user.backgroundImg} />
+        <ProfileBackgroundImage src={user?.backgroundImg} />
 
         <ProfileMoreWrapper>
           <DropdownWrapper
@@ -52,12 +60,12 @@ export const Profile = () => {
         </ProfileMoreWrapper>
 
         <ProfileUserHeaderWrapper>
-          <ProfileUserAvatar src={user.avatarImg || defaultAvatar} />
-          <ProfileUserName>{user.username}</ProfileUserName>
+          <ProfileUserAvatar src={user?.avatarImg || defaultAvatar} />
+          <ProfileUserName>{user?.username}</ProfileUserName>
         </ProfileUserHeaderWrapper>
       </ProfileBackgroundWrapper>
 
-      <ProfileUserDescription>{user.description}</ProfileUserDescription>
+      <ProfileUserDescription>{user?.description}</ProfileUserDescription>
 
       <ProfileRaitingList>
         <ProfileItem title="Подписчики" count={userSubscribers} link="/" />
@@ -65,10 +73,22 @@ export const Profile = () => {
         <ProfileItem title="Публикации" count={-1} link="/" />
       </ProfileRaitingList>
 
-      <ProfileButtonsWrapper>
-        <WhiteButtonWithIcon size={40} title="Редактировать" icon="edit" />
-        <BlackWhiteButton size={40} title="Избранное" color="black" />
-      </ProfileButtonsWrapper>
+      {isAdmin ? (
+        <ProfileButtonsWrapper>
+          <WhiteButtonWithIcon
+            size={40}
+            title="Редактировать"
+            icon="edit"
+            click={() => navigate("/edit")}
+          />
+          <BlackWhiteButton size={40} title="Избранное" color="black" />
+        </ProfileButtonsWrapper>
+      ) : (
+        <ProfileButtonsWrapper>
+          <WhiteButtonWithIcon size={40} title="Подписаться" icon="plus" />
+          <BlackWhiteButton size={40} title="Написать" color="black" />
+        </ProfileButtonsWrapper>
+      )}
 
       <ProfileContentWrapper>
         <ProfileNavLinks />

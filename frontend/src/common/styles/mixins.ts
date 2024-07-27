@@ -1,5 +1,10 @@
 import { css } from "styled-components";
-import { colors, screen } from "@/common/styles/styleConstants";
+import {
+  borders,
+  colors,
+  screen,
+  shadows,
+} from "@/common/styles/styleConstants";
 
 //HELPER to use mixin with props in styled-components write: ${props => mixin(props.yourProps)}
 
@@ -104,4 +109,11 @@ export const inputHoverActive = css`
   &:active {
     background-color: ${colors.whiteBackground};
   }
+`;
+
+export const styledWrapper = css`
+  background-color: ${colors.whiteTotal};
+  border: ${borders.defaultBorder};
+  border-radius: ${borders.defaultBorderRadius};
+  box-shadow: ${shadows.defaultShadow};
 `;

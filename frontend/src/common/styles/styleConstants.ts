@@ -1,4 +1,4 @@
-import { getColorName, } from "@/common/styles/theme";
+import { getColorName } from "@/common/styles/theme";
 
 export const screen = {
   fullScreenWidth: 1440,
@@ -50,11 +50,11 @@ export const colors = {
   whiteModal: `${getColorName("modalBackground")}`,
 
   //Gray
+  // gray: `${getTheme()}`,
   grayBorder: `${getColorName("border")}`,
   grayText: `${getColorName("alternateText")}`,
   grayAccent: `${getColorName("borderColor")}`,
   grayScrollBar: `${getColorName("scrollBarColor")}`,
-  grayBackground: "rgba(217, 217, 217, 0.7)",
 
   //Black
   blackTotal: `${getColorName("mainText")}`,
@@ -62,7 +62,11 @@ export const colors = {
   blackThumb: `${getColorName("thumbColor")}`,
   shadow: `${getColorName("shadow")}`,
 
+  //Constant Colors
+  grayBackground: "rgba(217, 217, 217, 0.7)",
   blackTransparent: "rgba(0, 0, 0, 0.5)",
+  blue: "rgba(0, 117, 255, 1)",
+  darkBlue: "rgba(0, 26, 255, 1)",
   red: "rgba(253, 0, 0, 1)",
 };
 

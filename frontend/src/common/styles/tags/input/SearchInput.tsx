@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { borders, colors, device } from "@/common/styles/styleConstants";
-import { inputHoverActive, square } from "@/common/styles/mixins";
+import { borders, colors, device, fonts } from "@/common/styles/styleConstants";
+import { clampText, inputHoverActive, square } from "@/common/styles/mixins";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { VisuallyHidden } from "@/common/styles/GlobalStyles";
 
@@ -20,7 +20,7 @@ const SearchIntInput = styled("input")`
   border-radius: ${borders.bigBorderRadius};
   color: ${colors.blackTotal};
   background-color: transparent;
-  font-size: 18px;
+  ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
 
   &::placeholder {
     color: ${colors.grayAccent};

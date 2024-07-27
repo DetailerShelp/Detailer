@@ -1,16 +1,18 @@
-import { Accounts } from "@/common/components/widgets/accounts/Accounts";
-import { Profile } from "@/modules/user/profile/components/Profile";
 import { PageContent } from "@/modules/user/PageContent";
-import { UserMockData } from "@/store/reducers/users/types";
+import { Profile } from "@/modules/user/profile/components/Profile";
+import { useParams } from "react-router-dom";
+import { useGetUserByIdQuery } from "@/store/reducers/user/userApi";
+import { Accounts } from "@/common/components/widgets/accounts/Accounts";
 
 export const ProfilePage = () => {
-  const user = UserMockData[0];
+  const { userId } = useParams();
+  const { data } = useGetUserByIdQuery(Number(userId));
 
   return (
     <PageContent
-      content={<Profile />}
-      widgetOne={<Accounts title="Подписчики" user={user.subscribers} />}
-      widgetTwo={<Accounts title="Подписки" user={user.subscribes} />}
+      content={<Profile user={data} />}
+      widgetOne={<Accounts title="Подписчики" user={data?.subscribers} />}
+      widgetTwo={<Accounts title="Подписки" user={data?.subscribes} />}
     />
   );
 };
