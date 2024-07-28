@@ -1,8 +1,8 @@
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { AccountsAvatar } from "../widgets/accounts/styles";
-import { answers, Comment } from "./Comments"
 import { CommentAnswer, CommentAuthor, CommentAvatar, CommentInformation, CommentLikesCount, CommentLikesWrapper, CommentMessage, CommentThread, CommentTimeSending, CommentWrapper } from "./styles";
 import AnswersDropDown from "./AnswersDropDown";
+import { Comment } from "@/store/reducers/shorts/shortsApi";
 
 interface CommentItemProps {
     comment: Comment
@@ -10,7 +10,6 @@ interface CommentItemProps {
 
 export default function CommentItem({ comment }: CommentItemProps) {
     const { author, message, likes } = comment;
-    const answersToComment = answers.filter(ans => ans.parentId === comment.id)[0];
     
     return (
         <CommentThread>
@@ -30,7 +29,7 @@ export default function CommentItem({ comment }: CommentItemProps) {
                     <CommentLikesCount>{likes}</CommentLikesCount>
                 </CommentLikesWrapper>
             </CommentWrapper>
-            {answersToComment && <AnswersDropDown answerToComment={answersToComment} />}
+            {comment.answersCount && <AnswersDropDown parentId={comment.id} />}
         </CommentThread>
     )
 }

@@ -1,26 +1,30 @@
 import { AnswersDropDownBtn, AnswersDropDownWrapper, AnswersWrapper } from './styles'
 import { useState } from 'react';
 import CommentItem from './CommentItem';
-import { Answer } from './Comments';
+import { useGetAnswersQuery } from '@/store/reducers/shorts/shortsApi';
 
+// ToDo
 interface AnswersDropDownProps {
-  answerToComment: Answer
+  parentId: number
 }
 
-export default function AnswersDropDown({answerToComment}: AnswersDropDownProps) {
+export default function AnswersDropDown({ parentId }: AnswersDropDownProps) {
   const [showAnswers, setShowAnswers] = useState(false);
+  const { data } = useGetAnswersQuery(parentId);
 
   return (
     <>
-      <AnswersDropDownWrapper>
-        {!showAnswers && <AnswersDropDownBtn onClick={() => setShowAnswers(true)}>Посмотреть еще 2 ответа</AnswersDropDownBtn>}
-        {
-          showAnswers &&
-          <AnswersWrapper>
-            {answerToComment.comments.map((elem) => <CommentItem key={elem.id} comment={elem} />)}
-          </AnswersWrapper>
-        }
-      </AnswersDropDownWrapper >
+      {data &&
+        <AnswersDropDownWrapper>
+          {!showAnswers && <AnswersDropDownBtn onClick={() => setShowAnswers(true)}>Посмотреть еще {data.length} ответа</AnswersDropDownBtn>}
+          {
+            showAnswers &&
+            <AnswersWrapper>
+              {data.map((elem) => <CommentItem key={elem.id} comment={elem} />)}
+            </AnswersWrapper>
+          }
+        </AnswersDropDownWrapper >
+      }
     </>
   )
 }

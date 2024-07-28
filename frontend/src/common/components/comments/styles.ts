@@ -34,6 +34,7 @@ ${square(40)}
 `;
 
 export const CommentInformation = styled('div')`
+max-width: 190px;
 `;
 
 export const CommentAuthor = styled('p')`
