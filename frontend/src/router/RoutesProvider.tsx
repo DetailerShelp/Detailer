@@ -45,10 +45,8 @@ export default function RoutesProvider() {
       <>
         <Route path="/" element={<PageWrapper />}>
           <Route path="home" element={<HomePage />} />
-          <Route path="profile/" element={<ProfilePage />}>
-            <Route path="user/" element={<Profile />} />
-            <Route path="edit" element={<EditPage />} />
-          </Route>
+          <Route path="profile/:userId" element={<ProfilePage />} />
+          <Route path="edit" element={<EditPage />} />
           <Route path="messenger" element={<MessengerPage />} />
           <Route path="shorts" element={<ShortsPage />} />
           <Route path="saved" element={<NavPanel />} />

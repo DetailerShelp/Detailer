@@ -1,13 +1,18 @@
-import { Accounts } from "@/common/components/widgets/accounts/Accounts";
 import { PageContent } from "@/modules/user/PageContent";
-import { ProfileContent } from "@/modules/user/profile/components/ProfileContent";
+import { Profile } from "@/modules/user/profile/components/Profile";
+import { useParams } from "react-router-dom";
+import { useGetUserByIdQuery } from "@/store/reducers/user/userApi";
+import { Accounts } from "@/common/components/widgets/accounts/Accounts";
 
 export const ProfilePage = () => {
+  const { userId } = useParams();
+  const { data } = useGetUserByIdQuery(Number(userId));
+
   return (
     <PageContent
-      content={<ProfileContent />}
-      widgetOne={<Accounts title="Подписчики" />}
-      widgetTwo={<Accounts title="Подписки" />}
+      content={<Profile user={data} />}
+      widgetOne={<Accounts title="Подписчики" user={data?.subscribers} />}
+      widgetTwo={<Accounts title="Подписки" user={data?.subscribes} />}
     />
   );
 };

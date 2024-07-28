@@ -48,15 +48,17 @@ interface BlackWhiteButtonProps {
   color: "white" | "black";
   size: 30 | 40 | 50;
   title: string;
+  click?: () => void;
 }
 
 export const BlackWhiteButton: FC<BlackWhiteButtonProps> = ({
   color,
   size,
   title,
+  click
 }) => {
   return (
-    <ButtonWrapper color={color} size={size}>
+    <ButtonWrapper color={color} size={size} onClick={click}>
       {title}
     </ButtonWrapper>
   );

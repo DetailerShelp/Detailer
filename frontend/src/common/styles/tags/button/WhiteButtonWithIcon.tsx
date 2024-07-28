@@ -21,15 +21,17 @@ interface WhiteButtonProps {
   size: 30 | 40 | 50;
   title: string;
   icon: ImageComponentsTypes;
+  click?: () => void; // добавить обработчик клика для кнопки, если есть
 }
 
 export const WhiteButtonWithIcon: FC<WhiteButtonProps> = ({
   size,
   title,
   icon,
+  click
 }) => {
   return (
-    <ButtonWrapper color="white" size={size}>
+    <ButtonWrapper color="white" size={size} onClick={click}>
       {title}
       <ButtonIconWrapper size={size}>
         <ButtonIcon iconName={icon} />
