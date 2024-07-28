@@ -19,7 +19,6 @@ import ShortsPage from "@/modules/user/shorts/ShortsPage";
 import { EditPage } from "@/modules/user/profile/pages/edit-profile/EditPage";
 import { HelpPage } from "@/modules/user/help/HelpPage";
 import { SettingsPage } from "@/modules/user/settings/SettingsPage";
-import { Profile } from "@/modules/user/profile/components/Profile";
 
 export default function RoutesProvider() {
   const authorizedUser = true;
