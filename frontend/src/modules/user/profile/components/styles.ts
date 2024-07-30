@@ -192,27 +192,3 @@ export const ProfileContentWrapper = styled("div")`
   flex-direction: column;
   margin: 0 1px 5px;
 `;
-
-export const ProfileContentList = styled("ul")`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
-
-  @media ${device.mobileL} {
-    gap: 3px;
-  }
-`;
-
-export const ProfileContentItem = styled("li")`
-  width: 100%;
-  max-width: 178px;
-  aspect-ratio: 1;
-`;
-
-export const ProfileContentImage = styled("img")`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: ${borders.smallBorderRadius};
-`;

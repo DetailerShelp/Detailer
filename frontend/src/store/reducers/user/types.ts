@@ -1,3 +1,5 @@
+import { ShortPostInfo } from "@/store/reducers/post/types";
+
 export interface User {
     id: number;
     createdAt: string;
@@ -8,9 +10,11 @@ export interface User {
     description?: string;
     subscribers?: ShortUserInfo[];
     subscribes?: ShortUserInfo[];
-    publications?: object;
     isAuthorizedUser: boolean;
     isAdmin: boolean;
+    posts: ShortPostInfo[];
+    shorts?: ShortPostInfo[],
+    garage?: ShortPostInfo[],
 }
 
 export interface ShortUserInfo {
