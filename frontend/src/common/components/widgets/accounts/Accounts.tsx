@@ -21,7 +21,7 @@ export const Accounts: FC<AccountsProps> = ({ title, user }) => {
                 key={item.id}
                 name={item.username}
                 avatar={item.avatarImg}
-                link="/"
+                link={`/profile/${item.id}`}
               />
             ))}
           </AccountsList>

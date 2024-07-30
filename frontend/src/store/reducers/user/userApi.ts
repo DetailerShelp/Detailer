@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { User } from "./types";
+import { User } from "@/store/reducers/user/types";
 import { baseUrl } from "@/api/api";
 
 export const userApi = createApi({
@@ -8,13 +8,14 @@ export const userApi = createApi({
   tagTypes: ["User"],
   endpoints: (build) => ({
     getUsers: build.query<User[], void>({
-    query: () => ({
+      query: () => ({
         url: `/user`,
         method: "GET",
       }),
       providesTags: ["User"],
       transformResponse: (response: User[]) => response,
     }),
+
     getUserById: build.query<User, number>({
       query: (userId) => ({
         url: `/user/${userId}`,
@@ -26,4 +27,7 @@ export const userApi = createApi({
   }),
 });
 
-export const { useGetUsersQuery, useGetUserByIdQuery } = userApi;
+export const {
+  useGetUsersQuery,
+  useGetUserByIdQuery,
+} = userApi;
