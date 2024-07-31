@@ -5,7 +5,7 @@ import {
   screen,
   transitions,
 } from "@/common/styles/styleConstants";
-import { resetLink } from "@/common/styles/mixins";
+import { resetLink, scrollBar } from "@/common/styles/mixins";
 
 export const Container = styled("div")`
   max-width: calc(${screen.fullScreenWidth} + 25px * 2);
@@ -103,6 +103,9 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "Montserrat", sans-serif;
     background-color: ${colors.whiteBackground};
     color: ${colors.blackTotal};
+
+    scrollbar-color: ${colors.grayAccent};
+    scrollbar-width: thin;
   } 
 
   a:hover,
@@ -110,17 +113,18 @@ export const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   } 
 
-          a,
-          button,
-          input,
-          textarea,
-          svg * {
-            user-select: none;
-            transition: ${transitions.fastTransition};
-          }
-          a {
-            ${resetLink};
-            color: ${colors.blackTotal};
-          }
+  ${scrollBar}
 
+  a,
+  button,
+  input,
+  textarea,
+  svg * {
+    user-select: none;
+    transition: ${transitions.fastTransition};
+  }
+  a {
+    ${resetLink};
+    color: ${colors.blackTotal};
+  }
 `;

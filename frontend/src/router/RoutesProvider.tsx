@@ -19,7 +19,6 @@ import ShortsPage from "@/modules/user/shorts/ShortsPage";
 import { EditPage } from "@/modules/user/profile/pages/edit-profile/EditPage";
 import { HelpPage } from "@/modules/user/help/HelpPage";
 import { SettingsPage } from "@/modules/user/settings/SettingsPage";
-import { Profile } from "@/modules/user/profile/components/Profile";
 import Chat from "@/modules/user/messenger/components/Chat";
 
 export default function RoutesProvider() {
@@ -46,10 +45,8 @@ export default function RoutesProvider() {
       <>
         <Route path="/" element={<PageWrapper />}>
           <Route path="home" element={<HomePage />} />
-          <Route path="profile/" element={<ProfilePage />}>
-            <Route path="user/" element={<Profile />} />
-            <Route path="edit" element={<EditPage />} />
-          </Route>
+          <Route path="profile/:userId" element={<ProfilePage />} />
+          <Route path="edit" element={<EditPage />} />
           <Route path="messenger" element={<MessengerPage />}>
             <Route path="chat/:id" element={<Chat />} />
           </Route>

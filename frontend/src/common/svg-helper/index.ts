@@ -44,6 +44,9 @@ import unsubscribe from '@/common/svg-helper/icons/dropdown-icons/unsubscribe.sv
 import hide from '@/common/svg-helper/icons/dropdown-icons/hide.svg?react';
 import report from '@/common/svg-helper/icons/dropdown-icons/report.svg?react';
 import editProfile from '@/common/svg-helper/icons/dropdown-icons/edit-profile.svg?react';
+import reportProfile from '@/common/svg-helper/icons/dropdown-icons/report-profile.svg?react';
+import notificationsOn from '@/common/svg-helper/icons/dropdown-icons/notifications-on.svg?react';
+import notificationsOff from '@/common/svg-helper/icons/dropdown-icons/notifications-off.svg?react';
 import info from '@/common/svg-helper/icons/dropdown-icons/info.svg?react';
 import quit from '@/common/svg-helper/icons/dropdown-icons/quit.svg?react';
 import privacy from '@/common/svg-helper/icons/privacy.svg?react';
@@ -129,6 +132,9 @@ export type ImageComponentsTypes =
   | 'hide'
   | 'report'
   | 'editProfile'
+  | 'reportProfile'
+  | 'notificationsOn'
+  | 'notificationsOff'
   | 'info'
   | 'quit'
   | 'privacy'
@@ -139,6 +145,7 @@ export type ImageComponentsTypes =
   | 'checkMark'
   | 'fone'
   | 'color'
+  | 'camera'
   | 'quit'
   | 'createChat'
   | 'mute'
@@ -206,6 +213,9 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   hide,
   report,
   editProfile,
+  reportProfile,
+  notificationsOn,
+  notificationsOff,
   info,
   quit,
   privacy,
@@ -216,6 +226,7 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   checkMark,
   fone,
   color,
+  camera,
   createChat,
   mute,
   pin,

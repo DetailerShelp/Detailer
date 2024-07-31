@@ -55,11 +55,14 @@ export const colors = {
   grayText: `${getColorName("alternateText")}`,
   grayAccent: `${getColorName("borderColor")}`,
   grayScrollBar: `${getColorName("scrollBarColor")}`,
+  grayScrollBarHover: `${getColorName("scrollBarHover")}`,
+  grayScrollBarActive: `${getColorName("scrollBarActive")}`,
   messageDefault: `rgba(255, 255, 255, 1)`, 
 
   //Black
   blackTotal: `${getColorName("mainText")}`,
   blackActive: `${getColorName("buttonActive")}`,
+  blackBackground: `${getColorName("buttonBackground")}`,
   blackThumb: `${getColorName("thumbColor")}`,
   shadow: `${getColorName("shadow")}`,
 

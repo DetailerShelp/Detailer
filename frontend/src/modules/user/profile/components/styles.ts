@@ -77,7 +77,7 @@ export const ProfileButtonMoreWrapper = styled("div")`
   ${square(35)}
   ${flexCenter}
   border-radius: ${borders.circleBorderRadius};
-  background-color: ${colors.grayBackground};
+  background-color: ${colors.blackBackground};
 `;
 
 export const ProfileUserHeaderWrapper = styled("div")`
@@ -105,6 +105,8 @@ export const ProfileUserAvatar = styled("img")`
   ${square(100)}
   border: ${borders.avatarBorder};
   border-radius: ${borders.circleBorderRadius};
+  object-fit: cover;
+  object-position: center;
 
   @media ${device.mobile} {
     ${square(85)}

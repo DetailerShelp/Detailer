@@ -51,4 +51,9 @@ export const AccountsAvatar = styled("img")`
 export const AccountsName = styled("p")`
   ${clampText(fonts.sizes.extraSmallMobile, fonts.sizes.extraSmall)}
   font-weight: ${fonts.weights.medium};
+  width: 100%;
+  max-width: 90px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

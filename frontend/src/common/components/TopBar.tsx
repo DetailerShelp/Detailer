@@ -52,6 +52,7 @@ const TopBarHeader = styled("header")`
 const TopBarLogoLink = styled(NavLink)`
   ${resetLink}
   ${flexCenter}
+  margin-bottom: 3px;
 `;
 
 const TopBarLogoTitle = styled("h1")`
@@ -121,7 +122,7 @@ const TopBarItem = styled("li")`
 
 export const TopBar = () => {
   const [open, setOpen] = useState(false);
-  const theme = localStorage.getItem("theme");
+  const theme = localStorage.getItem("theme") || 'light';
 
   return (
     <TopBarHeader>

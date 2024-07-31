@@ -22,7 +22,7 @@ const SettingsSummaryIcon = styled(SvgHelper)<{ isActive: boolean }>`
 `;
 
 export const ViewSettings = () => {
-  const theme = localStorage.getItem("theme");
+  const theme = localStorage.getItem("theme") || 'light';
 
   const handleChangeTheme = (theme: string) => {
     localStorage.setItem("theme", theme);
