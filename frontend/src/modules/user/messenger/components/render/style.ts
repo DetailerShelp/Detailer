@@ -1,4 +1,4 @@
-import { clampText, flexCenter, resetButton, square } from "@/common/styles/mixins";
+import { clampText, flexCenter, square } from "@/common/styles/mixins";
 import { borders, colors, fonts } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 

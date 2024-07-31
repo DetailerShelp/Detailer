@@ -1,5 +1,14 @@
 import SvgHelper from "@/common/svg-helper/SvgHelper";
-import { FileIcon, FileInfo, FileWrapper, HeaderMedia, TextWrapper, TextWrapperSize, UploadImage, UploadVideo } from "./style";
+import { 
+    FileIcon, 
+    FileInfo, 
+    FileWrapper, 
+    HeaderMedia, 
+    TextWrapper, 
+    TextWrapperSize, 
+    UploadImage, 
+    UploadVideo 
+} from "@/modules/user/messenger/components/render/style";
 import styled from "styled-components";
 
 interface RenderMediaProps {
@@ -57,6 +66,7 @@ const RenderMedia = ({ media, withTitle }: RenderMediaProps) => {
                                     <FileIcon href={URL.createObjectURL(media)} download={media.name}>
                                         <IconLoader iconName="fileLoader" />
                                     </FileIcon>
+
                                     <FileInfo>
                                         <TextWrapper>
                                             {media.name}

@@ -6,7 +6,8 @@ import { newChatReducer } from "@/store/messenger/chatSlice";
 const rememberedReducers = [""];
 
 const rootReducer = combineReducers({
-  [userApi.reducerPath]: userApi.reducer,  newChatReducer,
+  [userApi.reducerPath]: userApi.reducer,  
+  newChatReducer,
 });
 
 const rememberedReducer = rememberReducer(rootReducer);

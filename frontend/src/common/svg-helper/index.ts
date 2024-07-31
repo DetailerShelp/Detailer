@@ -75,6 +75,7 @@ import clear from '@/common/svg-helper/icons/chat-dropdown/clear.svg?react';
 import image from '@/common/svg-helper/icons/chat-dropdown/image.svg?react';
 import speaker from '@/common/svg-helper/icons/chat-dropdown/speaker.svg?react';
 import fileLoader from '@/common/svg-helper/icons/fileLoader.svg?react';
+import camera from '@/common/svg-helper/icons/camera.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {

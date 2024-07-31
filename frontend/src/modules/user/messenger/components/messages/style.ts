@@ -38,11 +38,11 @@ export const MyMessageWrapper = styled('div') <{ isFocus: boolean }>`
 `
 
 
-export const MessageContent = styled('div')`
+export const MessageContentWrapper = styled('div')`
     
 `
 
-export const MessageInfo = styled('div')`
+export const MessageInfoWrapper = styled('div')`
     display: flex;
     align-items: start;
     gap: 5px;
@@ -61,4 +61,17 @@ export const MessageText = styled('span')`
     padding: 3px 15px 0px;
     box-sizing: border-box;
     word-wrap: break-word;
+`
+
+export const AnswerdMessageWrapper = styled('div')`
+    min-width: 200px;
+    width: fit-content;
+    padding-left: 10px;
+    margin: 0px 10px 5px 10px;
+
+    border-left: 2px solid white;
+
+    &:hover {
+        cursor: pointer;
+    }
 `

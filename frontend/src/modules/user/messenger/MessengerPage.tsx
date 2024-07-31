@@ -1,5 +1,5 @@
 import { PageContent } from "@/modules/user/PageContent";
-import ChatPage from "./components/ChatPage";
+import ChatPage from "@/modules/user/messenger/components/ChatPage";
 
 export const MessengerPage = () => {
   return (

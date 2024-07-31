@@ -1,6 +1,6 @@
 import {
-    MessageContent,
-    MessageInfo,
+    MessageContentWrapper,
+    MessageInfoWrapper,
     MessageText,
     MessageTime,
     MessageWrapper
@@ -15,16 +15,16 @@ interface MessageProps {
 const Message = ({ text, time, media }: MessageProps) => {
     return (
         <MessageWrapper >
-            <MessageContent>
+            <MessageContentWrapper>
                 {text && <MessageText>
                     {text}
                 </MessageText>}
-            </MessageContent>
-            <MessageInfo>
+            </MessageContentWrapper>
+            <MessageInfoWrapper>
                 <MessageTime>
                     {time}
                 </MessageTime>
-            </MessageInfo>
+            </MessageInfoWrapper>
         </MessageWrapper>
     )
 };

@@ -143,45 +143,20 @@ export const scrollBar = css`
   }
 `;
 
-export const scrollBar = css`
-  ::-webkit-scrollbar-track {
-    border-radius: ${borders.smallBorderRadius};
-    background-color: ${colors.whiteModal};
-  }
 
-  ::-webkit-scrollbar {
-    width: 10px;
-    background-color: ${colors.whiteModal};
-  }
+// export const scrollBar = css`
+//   &::-webkit-scrollbar {
+//       width: 5px; 
+//       background-color: ${colors.grayScrollBar}; 
+//       border-radius: 50px;
+//   }
 
-  ::-webkit-scrollbar-thumb {
-    border-radius: ${borders.smallBorderRadius};
-    background-color: ${colors.grayAccent};
+//   &::-webkit-scrollbar-thumb {
+//       background-color: ${colors.blackThumb}; 
+//       border-radius: 50px;
+//   }
 
-    &:hover {
-      background-color: ${colors.grayScrollBarHover};
-    }
-
-    &:active {
-      background-color: ${colors.grayScrollBarActive};
-    }
-  }
-`;
-
-
-export const scrollBar = css`
-  &::-webkit-scrollbar {
-      width: 5px; 
-      background-color: ${colors.grayScrollBar}; 
-      border-radius: 50px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-      background-color: ${colors.blackThumb}; 
-      border-radius: 50px;
-  }
-
-    &::-webkit-scrollbar-thumb:hover {
-      cursor: pointer;
-    }
-`
+//     &::-webkit-scrollbar-thumb:hover {
+//       cursor: pointer;
+//     }
+// `
