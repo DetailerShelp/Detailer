@@ -27,9 +27,9 @@ import {
   NavProfileButton,
   NavigationList,
 } from "@/common/styles/tags/button/NavProfileButton";
-import { ProfilePosts } from "@/modules/user/profile/components/ProfilePosts";
-import { ProfileShorts } from "@/modules/user/profile/components/ProfileShorts";
-import { ProfileGarage } from "@/modules/user/profile/components/ProfileGarage";
+import { ProfilePosts } from "@/modules/user/profile/components/publication/ProfilePosts";
+import { ProfileShorts } from "@/modules/user/profile/components/publication/ProfileShorts";
+import { ProfileGarage } from "@/modules/user/profile/components/publication/ProfileGarage";
 
 const defaultAvatar = '/images/avatar.svg';
 
