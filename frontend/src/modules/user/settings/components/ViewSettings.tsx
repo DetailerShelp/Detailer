@@ -23,8 +23,8 @@ const SettingsSummaryIcon = styled(SvgHelper)<{ isActive: boolean }>`
 `;
 
 export const ViewSettings = () => {
-  const [publicationPage, setPublicationPage] = useState("color");
-  const theme = localStorage.getItem("theme");
+  const [publicationPage, setPublicationPage] = useState('color');
+  const theme = localStorage.getItem("theme") || 'light';
 
   const handleChangeTheme = (theme: string) => {
     localStorage.setItem("theme", theme);

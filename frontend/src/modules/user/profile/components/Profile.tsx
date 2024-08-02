@@ -6,6 +6,7 @@ import {
   ProfileButtonMoreWrapper,
   ProfileButtonsWrapper,
   ProfileContentWrapper,
+  ProfileHideButtonWrapper,
   ProfileMoreWrapper,
   ProfileRaitingList,
   ProfileUserAvatar,
@@ -19,13 +20,18 @@ import { DropdownWrapper } from "@/common/components/dropdown-menu/styles";
 import { useState } from "react";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { ProfileDropdownMenu } from "@/modules/user/profile/components/ProfileDropdownMenu";
-import defaultAvatar from "@/common/images/avatar.png";
 import { User } from "@/store/reducers/user/types";
 import { authorizedUser } from "@/store/reducers/user/authorizedUser";
 import { useNavigate } from "react-router-dom";
-import { NavProfileButton, NavigationList } from "@/common/styles/tags/button/NavProfileButton";
+import {
+  NavProfileButton,
+  NavigationList,
+} from "@/common/styles/tags/button/NavProfileButton";
 import { ProfilePosts } from "@/modules/user/profile/components/ProfilePosts";
 import { ProfileShorts } from "@/modules/user/profile/components/ProfileShorts";
+import { ProfileGarage } from "@/modules/user/profile/components/ProfileGarage";
+
+const defaultAvatar = '/images/avatar.svg';
 
 interface ProfileProps {
   user?: User;
@@ -37,6 +43,10 @@ export const Profile = ({ user }: ProfileProps) => {
 
   const userSubscribers = !!user?.subscribers ? user?.subscribers.length : 0;
   const userSubscribes = !!user?.subscribes ? user?.subscribes.length : 0;
+  const posts = !!user?.posts ? user?.posts.length : 0;
+  const shorts = !!user?.shorts ? user?.shorts.length : 0;
+  const garage = !!user?.garage ? user?.garage.length : 0;
+  const userPosts = posts + shorts + garage;
 
   const currentUserId = authorizedUser();
   const isAdmin = user?.id == currentUserId;
@@ -70,22 +80,26 @@ export const Profile = ({ user }: ProfileProps) => {
       <ProfileRaitingList>
         <ProfileItem title="Подписчики" count={userSubscribers} link="/" />
         <ProfileItem title="Подписки" count={userSubscribes} link="/" />
-        <ProfileItem title="Публикации" count={-1} link="/" />
+        <ProfileItem title="Публикации" count={userPosts} link="/" />
       </ProfileRaitingList>
 
       {isAdmin ? (
         <ProfileButtonsWrapper>
-          <WhiteButtonWithIcon
-            size={40}
-            title="Редактировать"
-            icon="edit"
-            click={() => navigate("/edit")}
-          />
+          <ProfileHideButtonWrapper>
+            <WhiteButtonWithIcon
+              size={40}
+              title="Редактировать"
+              icon="edit"
+              click={() => navigate("/edit")}
+            />
+          </ProfileHideButtonWrapper>
           <BlackWhiteButton size={40} title="Избранное" color="black" />
         </ProfileButtonsWrapper>
       ) : (
         <ProfileButtonsWrapper>
-          <WhiteButtonWithIcon size={40} title="Подписаться" icon="plus" />
+          <ProfileHideButtonWrapper>
+            <WhiteButtonWithIcon size={40} title="Подписаться" icon="plus" />
+          </ProfileHideButtonWrapper>
           <BlackWhiteButton size={40} title="Написать" color="black" />
         </ProfileButtonsWrapper>
       )}
@@ -112,9 +126,24 @@ export const Profile = ({ user }: ProfileProps) => {
           />
         </NavigationList>
 
-        {publicationPage === "post" && <ProfilePosts post={user?.posts} />}
-        {publicationPage === "shorts" && <ProfileShorts />}
-        {publicationPage === "garage" && <div>Garage</div>}
+        {publicationPage === "post" && (
+          <ProfilePosts
+            isAuthorizedUser={user?.isAuthorizedUser}
+            post={user?.posts}
+          />
+        )}
+        {publicationPage === "shorts" && (
+          <ProfileShorts
+            isAuthorizedUser={user?.isAuthorizedUser}
+            shorts={user?.shorts}
+          />
+        )}
+        {publicationPage === "garage" && (
+          <ProfileGarage
+            isAuthorizedUser={user?.isAuthorizedUser}
+            garage={user?.garage}
+          />
+        )}
       </ProfileContentWrapper>
     </ProfileWrapper>
   );

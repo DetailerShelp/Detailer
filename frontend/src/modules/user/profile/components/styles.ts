@@ -77,7 +77,7 @@ export const ProfileButtonMoreWrapper = styled("div")`
   ${square(35)}
   ${flexCenter}
   border-radius: ${borders.circleBorderRadius};
-  background-color: ${colors.grayBackground};
+  background-color: ${colors.blackBackground};
 `;
 
 export const ProfileUserHeaderWrapper = styled("div")`
@@ -105,6 +105,8 @@ export const ProfileUserAvatar = styled("img")`
   ${square(100)}
   border: ${borders.avatarBorder};
   border-radius: ${borders.circleBorderRadius};
+  object-fit: cover;
+  object-position: center;
 
   @media ${device.mobile} {
     ${square(85)}
@@ -143,12 +145,14 @@ export const ProfileButtonsWrapper = styled("div")`
     margin-inline: 20px;
   }
 
-  @media ${device.mobileL} {
-    display: none;
-  }
-
   @media ${device.mobileAbove} {
     justify-content: space-between;
+  }
+`;
+
+export const ProfileHideButtonWrapper = styled("div")`
+  @media ${device.mobileL} {
+    display: none;
   }
 `;
 
@@ -190,5 +194,5 @@ export const ProfileRaitingLink = styled("a")`
 export const ProfileContentWrapper = styled("div")`
   display: flex;
   flex-direction: column;
-  margin: 0 1px 5px;
+  margin-inline: 1px;
 `;

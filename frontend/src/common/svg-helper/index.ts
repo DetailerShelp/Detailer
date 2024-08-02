@@ -57,10 +57,7 @@ import view from '@/common/svg-helper/icons/view.svg?react';
 import checkMark from '@/common/svg-helper/icons/check-mark.svg?react';
 import fone from '@/common/svg-helper/icons/fone.svg?react';
 import color from '@/common/svg-helper/icons/color.svg?react';
-
-
-
-
+import camera from '@/common/svg-helper/icons/camera.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -130,7 +127,8 @@ export type ImageComponentsTypes =
   | 'view'
   | 'checkMark'
   | 'fone'
-  | 'color';
+  | 'color'
+  | 'camera';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   nameLogo, 
@@ -192,4 +190,5 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   checkMark,
   fone,
   color,
+  camera,
 };
