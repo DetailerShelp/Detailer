@@ -34,15 +34,15 @@ const MyMessage = ({ text, time, media, chatId, mesId, answerMes, forwardMes }: 
         const { messages } = useDataMessageStore({ chatId: forwardMes.chatId });
         forwardMessages = messages.find(message => message.id === forwardMes.mesId);
     }
-    else{
+    else {
         forwardMessages = currentMessages.find(message => message.id === answerMes);
     };
 
-    const { 
-        setAnsweredMessage, 
-        deleteMessage, 
-        pinMessage, 
-        addForwardMessage 
+    const {
+        setAnsweredMessage,
+        deleteMessage,
+        pinMessage,
+        addForwardMessage
     } = useActions();
 
     const handleRightClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -51,11 +51,9 @@ const MyMessage = ({ text, time, media, chatId, mesId, answerMes, forwardMes }: 
         setDropdownOpen(true);
     };
 
-    const handleBlur = async () => {
-        await setTimeout(() => {
-            setFocus(false);
-            setDropdownOpen(false);
-        }, 100);
+    const handleBlur = () => {
+        setFocus(false);
+        console.log('clcick');
     };
 
     const handleCopy = () => {
@@ -63,31 +61,34 @@ const MyMessage = ({ text, time, media, chatId, mesId, answerMes, forwardMes }: 
     };
 
     const handleAnswer = async () => {
-        await setTimeout(() => {
-            setAnsweredMessage({ chatId: chatId, answeredMes: mesId });
-        }, 100);
+        setAnsweredMessage({ chatId: chatId, answeredMes: mesId });
+        setDropdownOpen(false);
     };
 
     const handleDelete = () => {
         deleteMessage({ chatId: chatId, mesId: mesId });
+        setDropdownOpen(false);
     };
 
     const handlePinMessage = () => {
         pinMessage({ chatId: chatId, mesId: mesId });
+        setDropdownOpen(false);
     };
 
     const handleForwardMessage = () => {
         addForwardMessage({ chatId: chatId, mesId: mesId });
         setOpenModal(true);
+        setDropdownOpen(false);
     };
 
-    const setOpen = ()=>{
+    const setOpen = () => {
         setOpenModal(false);
+        setDropdownOpen(false);
     };
 
     return (
         <>
-            <ModalAddMedia isOpen={openModal} setOpen={setOpen}/>
+            <ModalAddMedia isOpen={openModal} setOpen={setOpen} />
 
             <MyMessageWrapper
                 ref={MyMessage}
@@ -97,11 +98,11 @@ const MyMessage = ({ text, time, media, chatId, mesId, answerMes, forwardMes }: 
                 isFocus={focus}
                 onDoubleClick={handleAnswer}>
 
-                <ForwardMessage forwardMessages={forwardMessages}/>
+                <ForwardMessage forwardMessages={forwardMessages} />
 
-                <MessageContent text={text} media={media}/>
+                <MessageContent text={text} media={media} />
 
-                <MessageInfo time={time}/>
+                <MessageInfo time={time} />
 
                 <MessageDropdownMenu
                     isOpen={dropdownIsOpen}

@@ -84,7 +84,6 @@ const chatSlice = createSlice({
         setAnsweredMessage(state, action: PayloadAction<AnsweredMew>) {
             const { chatId, answeredMes } = action.payload;
             state.chats[chatId].answeredMessages = answeredMes;
-            console.log(state.chats[chatId]);
         },
 
         deleteMessage(state, action: PayloadAction<ChatMes>) {
