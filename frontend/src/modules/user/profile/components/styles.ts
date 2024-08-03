@@ -4,7 +4,7 @@ import {
   clampWidth,
   flexCenter,
   hoverActive,
-  resetLink,
+  resetButton,
   square,
 } from "@/common/styles/mixins";
 import {
@@ -54,6 +54,28 @@ export const ProfileBackgroundImage = styled("img")`
   object-fit: cover;
   object-position: center;
   border-radius: inherit;
+`;
+
+export const ProfileBackWrapper = styled("div")`
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  z-index: 2;
+
+  ${square(35)}
+  ${flexCenter}
+  border-radius: ${borders.circleBorderRadius};
+  background-color: ${colors.blackBackground};
+
+  @media ${device.tablet} {
+    top: 20px;
+    left: 20px;
+  }
+
+  @media ${device.mobileL} {
+    top: 15px;
+    left: 15px;
+  }
 `;
 
 export const ProfileMoreWrapper = styled("div")`
@@ -178,13 +200,14 @@ export const ProfileRaitingItem = styled("li")`
   ${clampWidth(85, 150)}
 `;
 
-export const ProfileRaitingLink = styled("a")`
-  ${resetLink}
+export const ProfileRaitingButton = styled("button")`
+  ${resetButton}
   ${flexCenter}
   width: 100%;
   text-align: center;
   font-weight: ${fonts.weights.medium};
   ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)};
+  color: ${colors.blackTotal};
   border-radius: ${borders.thinBorderRadius};
   ${hoverActive}
 `;

@@ -3,6 +3,7 @@ import { WhiteButtonWithIcon } from "@/common/styles/tags/button/WhiteButtonWith
 import {
   ProfileBackgroundImage,
   ProfileBackgroundWrapper,
+  ProfileBackWrapper,
   ProfileButtonMoreWrapper,
   ProfileButtonsWrapper,
   ProfileContentImage,
@@ -26,13 +27,14 @@ import { ProfileNavLinks } from "@/common/styles/tags/a/ProfileNavLinks";
 import defaultAvatar from "@/common/images/avatar.png";
 import { User } from "@/store/reducers/user/types";
 import { authorizedUser } from "@/store/reducers/user/authorizedUser";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface ProfileProps {
   user?: User;
+  url?: string;
 }
 
-export const Profile = ({ user }: ProfileProps) => {
+export const Profile = ({ user, url }: ProfileProps) => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
 
   const userSubscribers = !!user?.subscribers ? user?.subscribers.length : 0;
@@ -46,6 +48,17 @@ export const Profile = ({ user }: ProfileProps) => {
     <ProfileWrapper>
       <ProfileBackgroundWrapper>
         <ProfileBackgroundImage src={user?.backgroundImg} />
+
+        {!!url && (
+          <ProfileBackWrapper>
+            <ButtonWithIcon
+              icon="arrowLeft"
+              title="Назад"
+              size={35}
+              click={() => <Link to={url} />}
+            />
+          </ProfileBackWrapper>
+        )}
 
         <ProfileMoreWrapper>
           <DropdownWrapper
@@ -68,9 +81,9 @@ export const Profile = ({ user }: ProfileProps) => {
       <ProfileUserDescription>{user?.description}</ProfileUserDescription>
 
       <ProfileRaitingList>
-        <ProfileItem title="Подписчики" count={userSubscribers} link="/" />
-        <ProfileItem title="Подписки" count={userSubscribes} link="/" />
-        <ProfileItem title="Публикации" count={-1} link="/" />
+        <ProfileItem title="Подписчики" count={userSubscribers} />
+        <ProfileItem title="Подписки" count={userSubscribes} />
+        <ProfileItem title="Публикации" count={-1} />
       </ProfileRaitingList>
 
       {isAdmin ? (
