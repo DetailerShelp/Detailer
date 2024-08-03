@@ -9,7 +9,7 @@ export const MessageWrapper = styled('div')`
     width: fit-content;
     word-wrap: break-word;
     ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
-    color: ${colors.blackTotal};
+    color: ${colors.black};
     background-color: ${colors.messageDefault};
     border-radius: ${borders.defaultBorderRadius};
     border-bottom-left-radius: 0px;
@@ -25,7 +25,7 @@ export const MyMessageWrapper = styled('div') <{ isFocus: boolean }>`
     width: fit-content;
     word-wrap: break-word;
     ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
-    color: ${colors.whiteTotal};
+    color: ${colors.white};
     background-color: ${colors.myMesDefault};
     border-radius: ${borders.defaultBorderRadius};
     border-bottom-right-radius: 0px;

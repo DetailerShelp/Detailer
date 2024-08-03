@@ -1,4 +1,4 @@
-import { useAppSelector } from "@/common/hooks/useAppselector";
+import { useAppSelector } from "@/common/hooks/useAppSelector";
 
 interface useDataMessageStoreProps {
     chatId: number | string;

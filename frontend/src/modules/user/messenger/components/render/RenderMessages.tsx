@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Message from "@/modules/user/messenger/components/messages/Message";
 import MyMessage from "@/modules/user/messenger/components/messages/MyMessage";
-import { useAppSelector } from "@/common/hooks/useAppselector";
+import { useAppSelector } from "@/common/hooks/useAppSelector";
 import React, { useEffect, useRef } from "react";
 
 interface RenderMessagesProps {

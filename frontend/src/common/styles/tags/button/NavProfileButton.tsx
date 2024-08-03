@@ -3,6 +3,7 @@ import {
   clampText,
   flexCenter,
   hoverActive,
+  resetButton,
   square,
 } from "@/common/styles/mixins";
 import {
@@ -12,13 +13,14 @@ import {
   fonts,
   transitions,
 } from "@/common/styles/styleConstants";
-import { NavLink } from "react-router-dom";
 import { ImageComponentsTypes } from "@/common/svg-helper";
 import { FC } from "react";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 
 export const NavigationList = styled("ul")`
+  width: 100%;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 `;
@@ -28,7 +30,8 @@ const NavigationItem = styled("li")`
   ${flexCenter}
 `;
 
-const NavigationLink = styled(NavLink)`
+const NavigationButton = styled("button")<{ isActive: boolean }>`
+  ${resetButton}
   width: 100%;
   padding-block: 10px;
   border-top-left-radius: ${borders.defaultBorderRadius};
@@ -37,7 +40,7 @@ const NavigationLink = styled(NavLink)`
   column-gap: 10px;
   font-weight: ${fonts.weights.medium};
   ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)};
-  color: ${colors.grayText};
+  color: ${(props) => (props.isActive ? colors.blackTotal : colors.grayText)};
   position: relative;
 
   &::before,
@@ -53,26 +56,18 @@ const NavigationLink = styled(NavLink)`
   &::before {
     width: 100%;
     height: 2px;
-    background-color: ${colors.grayText};
+    background-color: ${(props) => !props.isActive && colors.grayText};
   }
 
   &::after {
-    width: 0;
+    width: ${(props) => (props.isActive ? "100%" : "0%")};
     height: 3px;
-    background-color: ${colors.blackTotal};
+    background-color: ${(props) => props.isActive && colors.blackTotal};
     transition: ${transitions.fastTransition};
   }
 
-  &.active {
-    color: ${colors.blackTotal};
-
-    &::after {
-      width: 100%;
-    }
-
-    svg * {
-      color: ${colors.blackTotal};
-    }
+  svg * {
+    color: ${(props) => (props.isActive ? colors.blackTotal : colors.grayText)};
   }
 
   ${hoverActive}
@@ -86,23 +81,25 @@ const NavigationIcon = styled(SvgHelper)`
   }
 `;
 
-interface NavProfileLinkProps {
-  link: string;
+interface NavProfileButtonProps {
+  isActive: boolean;
+  click: () => void;
   icon: ImageComponentsTypes;
   title: string;
 }
 
-export const NavProfileLink: FC<NavProfileLinkProps> = ({
-  link,
+export const NavProfileButton: FC<NavProfileButtonProps> = ({
+  isActive,
+  click,
   icon,
   title,
 }) => {
   return (
     <NavigationItem>
-      <NavigationLink to={link}>
+      <NavigationButton isActive={isActive} onClick={click}>
         <NavigationIcon iconName={icon} />
         {title}
-      </NavigationLink>
+      </NavigationButton>
     </NavigationItem>
   );
 };
