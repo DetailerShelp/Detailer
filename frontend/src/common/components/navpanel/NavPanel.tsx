@@ -28,7 +28,7 @@ export const NavPanel = () => {
             <NavItem linkTo="/search" name="Поиск" icon="search" />
             <NavItem linkTo="/messenger" name="Мессенджер" icon="messenger" />
             <NavItem linkTo="/shorts" name="Шортсы" icon="shorts" />
-            <NavItem linkTo="/profile" name="Профиль" icon="profile" />
+            <NavItem linkTo={`/profile/${userId}`} name="Профиль" icon="profile" />
           </>
         )}
       </NavigationList>
