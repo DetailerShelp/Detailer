@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { borders, colors, device, fonts } from "@/common/styles/styleConstants";
-import { clampText, inputHoverActive, scrollBar } from "@/common/styles/mixins";
+import { clampText, inputHoverActive } from "@/common/styles/mixins";
 import { VisuallyHidden } from "@/common/styles/GlobalStyles";
 import { FC } from "react";
 

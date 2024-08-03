@@ -67,11 +67,14 @@ export const colors = {
   shadow: `${getColorName("shadow")}`,
 
   //Constant Colors
+  white: "rgba(255, 255, 255, 1)",
+  black: "rgba(0, 0, 0, 1)",
   grayBackground: "rgba(217, 217, 217, 0.7)",
   blackTransparent: "rgba(0, 0, 0, 0.5)",
   blue: "rgba(0, 117, 255, 1)",
   darkBlue: "rgba(0, 26, 255, 1)",
   red: "rgba(253, 0, 0, 1)",
+  green: "rgba(4, 204, 0, 1)",
   
   //Blue
   myMesActive: `rgba(0, 26, 255, 1)`, 

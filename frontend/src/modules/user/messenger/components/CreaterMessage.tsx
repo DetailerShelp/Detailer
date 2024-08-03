@@ -7,7 +7,7 @@ import { useActions } from "@/store/actions";
 import { useState } from "react";
 import styled from "styled-components";
 import ModalMedia from "@/modules/user/messenger/components/modal/ModalMedia";
-import ForwardsMessage from "@/modules/user/messenger/components/ForwardsNessage";
+import ForwardsMessage from "@/modules/user/messenger/components/ForwardsMessage";
 
 interface CreaterMessageProps {
     id: number | string;

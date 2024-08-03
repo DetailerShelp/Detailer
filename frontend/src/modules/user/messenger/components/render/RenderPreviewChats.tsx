@@ -1,4 +1,4 @@
-import { useAppSelector } from "@/common/hooks/useAppselector";
+import { useAppSelector } from "@/common/hooks/useAppSelector";
 import { square } from "@/common/styles/mixins";
 import { borders, colors, transitions } from "@/common/styles/styleConstants";
 import { NavLink } from "react-router-dom";
