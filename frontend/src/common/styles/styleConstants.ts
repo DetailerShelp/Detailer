@@ -57,6 +57,7 @@ export const colors = {
   grayScrollBar: `${getColorName("scrollBarColor")}`,
   grayScrollBarHover: `${getColorName("scrollBarHover")}`,
   grayScrollBarActive: `${getColorName("scrollBarActive")}`,
+  messageDefault: `rgba(255, 255, 255, 1)`, 
 
   //Black
   blackTotal: `${getColorName("mainText")}`,
@@ -66,11 +67,18 @@ export const colors = {
   shadow: `${getColorName("shadow")}`,
 
   //Constant Colors
+  white: "rgba(255, 255, 255, 1)",
+  black: "rgba(0, 0, 0, 1)",
   grayBackground: "rgba(217, 217, 217, 0.7)",
   blackTransparent: "rgba(0, 0, 0, 0.5)",
   blue: "rgba(0, 117, 255, 1)",
   darkBlue: "rgba(0, 26, 255, 1)",
   red: "rgba(253, 0, 0, 1)",
+  green: "rgba(4, 204, 0, 1)",
+  
+  //Blue
+  myMesActive: `rgba(0, 26, 255, 1)`, 
+  myMesDefault: `rgba(0, 117, 255, 1)`, 
 };
 
 export const shadows = {
@@ -85,6 +93,7 @@ export const borders = {
   avatarBorder: `3px solid ${colors.whiteTotal}`,
 
   smallBorderRadius: "5px",
+  mediaBorderRadius: "10px",
   thinBorderRadius: "15px",
   defaultBorderRadius: "20px",
   mediumBorderRadius: "45px",

@@ -57,6 +57,24 @@ import view from '@/common/svg-helper/icons/view.svg?react';
 import checkMark from '@/common/svg-helper/icons/check-mark.svg?react';
 import fone from '@/common/svg-helper/icons/fone.svg?react';
 import color from '@/common/svg-helper/icons/color.svg?react';
+import createChat from '@/common/svg-helper/icons/createChat.svg?react';
+import mute from '@/common/svg-helper/icons/mute.svg?react';
+import pin from '@/common/svg-helper/icons/pin.svg?react';
+import sent from '@/common/svg-helper/icons/sent.svg?react';
+import read from '@/common/svg-helper/icons/read.svg?react';
+import clip from '@/common/svg-helper/icons/clip.svg?react';
+import emoticon from '@/common/svg-helper/icons/emoticon.svg?react';
+import sender from '@/common/svg-helper/icons/sender.svg?react';
+import answer from '@/common/svg-helper/icons/message-dropdown/answer.svg?react';
+import copy from '@/common/svg-helper/icons/message-dropdown/copy.svg?react';
+import editer from '@/common/svg-helper/icons/message-dropdown/editer.svg?react';
+import forward from '@/common/svg-helper/icons/message-dropdown/forward.svg?react';
+import pinMenu from '@/common/svg-helper/icons/message-dropdown/pin-menu.svg?react';
+import call from '@/common/svg-helper/icons/chat-dropdown/call.svg?react';
+import clear from '@/common/svg-helper/icons/chat-dropdown/clear.svg?react';
+import image from '@/common/svg-helper/icons/chat-dropdown/image.svg?react';
+import speaker from '@/common/svg-helper/icons/chat-dropdown/speaker.svg?react';
+import fileLoader from '@/common/svg-helper/icons/fileLoader.svg?react';
 import camera from '@/common/svg-helper/icons/camera.svg?react';
 
 export type IconType = React.FunctionComponent<
@@ -128,7 +146,26 @@ export type ImageComponentsTypes =
   | 'checkMark'
   | 'fone'
   | 'color'
-  | 'camera';
+  | 'camera'
+  | 'quit'
+  | 'createChat'
+  | 'mute'
+  | 'pin'
+  | 'read'
+  | 'sent'
+  | 'clip'
+  | 'emoticon'
+  | 'sender'
+  | 'forward'
+  | 'editer'
+  | 'copy'
+  | 'answer'
+  | 'pinMenu'
+  | 'speaker'
+  | 'image'
+  | 'clear'
+  | 'call'
+  | 'fileLoader';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   nameLogo, 
@@ -191,4 +228,22 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   fone,
   color,
   camera,
+  createChat,
+  mute,
+  pin,
+  read,
+  sent,
+  clip,
+  emoticon,
+  sender,
+  forward,
+  editer,
+  copy,
+  answer,
+  pinMenu,
+  call,
+  speaker,
+  image,
+  clear,
+  fileLoader,
 };

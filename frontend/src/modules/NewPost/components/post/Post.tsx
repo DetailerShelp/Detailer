@@ -1,15 +1,21 @@
 import { useState } from "react"
 import DragAndDropUpload from "@/common/components/DraggerUploadFile";
-import { MediaImageUpload } from "@/common/components/media-viewer/media-image/MediaimageUpload";
-import { DescriptionBlock, PostContent, PostMediaContent } from "@/modules/NewPost/components/style";
+import { 
+    DescriptionBlock, 
+    DescriptionTextArea, 
+    MediaBlockWrapper, 
+    PostContent, 
+    PostMediaContent 
+} from "@/modules/NewPost/components/post/style";
 import TextArea from "@/common/components/ui/TextArea";
 import Loader from "@/modules/NewPost/components/Loader";
+import RenderMedia from "@/modules/NewPost/components/post/RenderMedia";
 
 const Post = () => {
     const [files, setFiles] = useState<File[]>([]);
 
     const handleChangeFiles = (file: File) => {
-        setFiles(currentFiles => currentFiles.length < 10 ? [...currentFiles, file]:currentFiles);
+        setFiles(currentFiles => currentFiles.length < 10 ? [...currentFiles, file] : currentFiles);
     }
 
     const deleteMedia = (id: number | string) => {
@@ -26,17 +32,12 @@ const Post = () => {
                 </DescriptionBlock>
 
                 <PostMediaContent>
-                    {files.map((file, index) => (
-                        <MediaImageUpload
-                            key={index}
-                            id={index}
-                            url={URL.createObjectURL(file)}
-                            onDelete={(id) => deleteMedia(id)}
-                        />
-                    ))}
+                    <RenderMedia MediaFiles={files} deleteMedia={deleteMedia}></RenderMedia>
 
-                    {files.length < 10 && <DragAndDropUpload onFile={handleChangeFiles} multiple={true}>
-                        <Loader />
+                    {files.length < 10 &&  <DragAndDropUpload onFile={handleChangeFiles} multiple={true} accept="image/*, video/*">
+                        <MediaBlockWrapper>
+                            <Loader sizeIcon={50} />
+                        </MediaBlockWrapper>
                     </DragAndDropUpload>}
                 </PostMediaContent>
             </PostContent>
@@ -45,10 +46,12 @@ const Post = () => {
                 <DescriptionBlock>
                     Описание
                 </DescriptionBlock>
-                <TextArea
-                    textAreaPlaceholder='Добавить описание...'
-                    wrapperStyle={{ width: '548px', height: '215px' }}
-                />
+                <DescriptionTextArea>
+                    <TextArea
+                        textAreaPlaceholder='Добавить описание...'
+                        wrapperStyle={{ width: '100%', height: '100%' }}
+                    />
+                </DescriptionTextArea>
             </PostContent>
         </>
     )

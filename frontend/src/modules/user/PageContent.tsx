@@ -80,9 +80,11 @@ const FixedWrapper = styled("div")`
   position: fixed;
   display: grid;
   row-gap: 25px;
-
+  /* z-index: 10; */
+  
   @media ${device.mobile} {
     width: 100%;
+    bottom: 0px;
   }
 `;
 
