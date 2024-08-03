@@ -1,11 +1,13 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { rememberEnhancer, rememberReducer } from "redux-remember";
 import { userApi } from "@/store/reducers/user/userApi";
+import { newChatReducer } from "@/store/messenger/chatSlice";
 
 const rememberedReducers = [""];
 
 const rootReducer = combineReducers({
-  [userApi.reducerPath]: userApi.reducer,
+  [userApi.reducerPath]: userApi.reducer,  
+  newChatReducer,
 });
 
 const rememberedReducer = rememberReducer(rootReducer);

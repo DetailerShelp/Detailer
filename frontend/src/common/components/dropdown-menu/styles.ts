@@ -1,4 +1,4 @@
-import { clampText } from "@/common/styles/mixins";
+import { clampText, resetButton } from "@/common/styles/mixins";
 import {
   borders,
   colors,
@@ -25,7 +25,7 @@ export const DropdownList = styled("ul")`
   top: 35px;
   left: 50%;
   translate: -50%;
-  z-index: 1;
+  z-index: 10;
 
   animation: shows 0.3s ease;
 
@@ -55,7 +55,9 @@ export const DropdownItem = styled("li")`
   }
 `;
 
-export const DropdownLink = styled("a")<{ isRed?: boolean }>`
+export const DropdownButton = styled('button') <{ isRed?: boolean }>`
+  ${resetButton}
+  width: 100%;
   display: flex;
   align-items: center;
   column-gap: 10px;

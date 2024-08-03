@@ -6,7 +6,7 @@ export const DefaultButton = styled('button')`
   all: unset;
   font-family: ${mainFont};
   font-weight: ${fonts.weights.medium};
-  ${clampText(fonts.sizes.main, fonts.sizes.main)};
+  ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)};
   color: ${colors.whiteTotal};
   transition: ${transitions.mediumTransition};
 
@@ -24,7 +24,7 @@ export const Button = styled('button')`
   border-radius: ${borders.bigBorderRadius};
   border: ${borders.borderBlack};
   color: ${colors.whiteTotal};
-  ${clampText(fonts.sizes.main, fonts.sizes.main)};
+  ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)};
   font-weight: ${fonts.weights.regular};
   background-color: ${colors.blackTotal};
   transition: ${transitions.fastTransition};
