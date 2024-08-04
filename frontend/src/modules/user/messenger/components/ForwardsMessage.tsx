@@ -1,9 +1,10 @@
-import { useAppSelector } from "@/common/hooks/useAppSelector";
-import { colors } from "@/common/styles/styleConstants";
+import { borders, colors, device } from "@/common/styles/styleConstants";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { useActions } from "@/store/actions";
 import styled from "styled-components";
 import { sliceText } from "@/modules/user/messenger/components/helpers/sliceText";
+import { useAppSelector } from "@/common/hooks/useAppselector";
+import { flexCenter, resetButton } from "@/common/styles/mixins";
 
 interface ForwardsMessageProps {
     idChat: number | string;
@@ -20,12 +21,43 @@ const ForwardsMessageWrapper = styled('div')`
     bottom: 110px;
     background-color: ${colors.whiteTotal};
     z-index: 5;
+    border-bottom: ${borders.defaultBorder};
+
+    animation: showsDown 0.5s;
+
+    @keyframes showsDown {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @media ${device.mobile} {
+        bottom: 160px;
+    }
 `
 
 const ForwardsMessageInfo = styled('div')`
     max-width: 70%;
-    border-left: 2px solid blue;
+    border-left: ${borders.forwardMesBorder} ;
     padding-left: 10px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`
+
+const AuthorMessage = styled('span')`
+    color: ${colors.blue};
+`
+
+const ButtonClose = styled('button')`
+    ${resetButton}
+    ${flexCenter}
 `
 
 const ForwardsMessage = ({ idChat }: ForwardsMessageProps) => {
@@ -42,19 +74,23 @@ const ForwardsMessage = ({ idChat }: ForwardsMessageProps) => {
         return null;
     };
 
-    const { setAnsweredMessage } = useActions();
+    const { deleteForwardMessage } = useActions();
+
+    const handleDeleteForwards = () => {
+        deleteForwardMessage({ chatId: idChat })
+    };
 
     return (
         <ForwardsMessageWrapper>
             <ForwardsMessageInfo>
-                {forwardMes?.author}
+                <AuthorMessage>{forwardMes?.author}</AuthorMessage>
                 <br />
-                {sliceText({text:forwardMes.text, len: 40})}
+                <span>{forwardMes.text}</span>
             </ForwardsMessageInfo>
 
-            <button onClick={() => setAnsweredMessage({ chatId: idChat, answeredMes: undefined })}>
-                <SvgHelper iconName="close" height="16px" width="16px" />
-            </button>
+            <ButtonClose onClick={handleDeleteForwards}>
+                <SvgHelper iconName="close" height="25px" width="25px" />
+            </ButtonClose>
         </ForwardsMessageWrapper>
     )
 };

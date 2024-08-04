@@ -1,10 +1,10 @@
-import { useAppSelector } from "@/common/hooks/useAppSelector";
 import { square } from "@/common/styles/mixins";
 import { borders, colors, transitions } from "@/common/styles/styleConstants";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import MessageInfo from "@/modules/user/messenger/components/MessageInfo";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
+import { useAppSelector } from "@/common/hooks/useAppselector";
 
 export const ChatsWrapper = styled('div')`
     display: flex;
@@ -37,6 +37,15 @@ export const ChatAvatar = styled('img')`
 
 export const TextInfoWrapper = styled('div')`
     justify-self: start;
+    width: 100%;
+    overflow: hidden;
+`
+
+export const MessageText = styled('p')`
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
 
 interface RenderPreviewChatsProps {
@@ -56,9 +65,9 @@ const RenderPreviewChats = ({onClick}:RenderPreviewChatsProps) => {
                         <ChatAvatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvvLDufK1c995wXvLsyn_LMIreLZSxOTy7Rg&s" />
                         <TextInfoWrapper>
                             <h3>{chat.nameGroup ? chat.nameGroup : chat.participants[1]}</h3>
-                            <p>{chat.messages ? chat.messages[chat.messages.length - 1].text : ''}</p>
+                            <MessageText>{chat.messages ? chat.messages[chat.messages.length - 1].text : ''}</MessageText>
                         </TextInfoWrapper>
-                        <MessageInfo time="12:16" statusMessage={<SvgHelper iconName="sent" />} isPinned={true} />
+                        <MessageInfo time={chat.messages[chat.messages.length - 1].createdAt} statusMessage={<SvgHelper iconName="sent" height="20px"/>} isPinned={true} />
                     </PreviewChat>
                 );
             })}

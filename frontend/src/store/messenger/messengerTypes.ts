@@ -16,6 +16,7 @@ export interface IMessage {
     isUpdated?: boolean;
     answeredMessage?: number | string; //указатель на id сообщения на которое мы ответили
     forwardMessage?: IForwardMessage;
+    animated?: boolean;
 };
 
 export interface IChat {

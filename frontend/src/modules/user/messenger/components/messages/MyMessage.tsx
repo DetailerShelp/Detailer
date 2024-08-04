@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import {
     MyMessageWrapper,
 } from "@/modules/user/messenger/components/messages/style";
@@ -19,15 +19,29 @@ interface MessageProps {
     mesId: number | string;
     answerMes?: number | string;
     forwardMes?: IForwardMessage;
+    isFirst?: boolean;
+    isLast?: boolean;
 };
 
-const MyMessage = ({ text, time, media, chatId, mesId, answerMes, forwardMes }: MessageProps) => {
+const MyMessage = ({
+    text,
+    time,
+    media,
+    chatId,
+    mesId,
+    answerMes,
+    forwardMes,
+    isFirst,
+    isLast,
+}: MessageProps) => {
     const [focus, setFocus] = useState(false);
     const [dropdownIsOpen, setDropdownOpen] = useState(false);
     const [openModal, setOpenModal] = useState(false);
     const MyMessage = useRef<HTMLDivElement>(null);
+    const [x, setX] = useState(0);
+    const [y, setY] = useState(0);
 
-    const { messages: currentMessages } = useDataMessageStore({ chatId: chatId });
+    const { messages: currentMessages, pinnedMessage, isForward } = useDataMessageStore({ chatId: chatId });
 
     let forwardMessages;
     if (forwardMes) {
@@ -47,39 +61,43 @@ const MyMessage = ({ text, time, media, chatId, mesId, answerMes, forwardMes }: 
 
     const handleRightClick = (e: React.MouseEvent<HTMLDivElement>) => {
         e.preventDefault();
+        setX(e.clientX);
+        setY(e.clientY);
         setFocus(true);
         setDropdownOpen(true);
     };
 
     const handleBlur = () => {
         setFocus(false);
-        console.log('clcick');
+        setTimeout(() => {
+            setDropdownOpen(false);
+        }, 250);
     };
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText(text || '')
-    };
+    const handleCopy = useCallback(() => {
+        navigator.clipboard.writeText(text || '');
+    }, [text]);
 
-    const handleAnswer = async () => {
-        setAnsweredMessage({ chatId: chatId, answeredMes: mesId });
+    const handleAnswer = useCallback(() => {
+        setAnsweredMessage({ chatId, answeredMes: mesId });
         setDropdownOpen(false);
-    };
+    }, [chatId, mesId]);
 
-    const handleDelete = () => {
+    const handleDelete = useCallback(() => {
         deleteMessage({ chatId: chatId, mesId: mesId });
         setDropdownOpen(false);
-    };
+    }, [chatId, mesId]);
 
-    const handlePinMessage = () => {
+    const handlePinMessage = useCallback(() => {
         pinMessage({ chatId: chatId, mesId: mesId });
         setDropdownOpen(false);
-    };
+    }, [chatId, mesId]);
 
-    const handleForwardMessage = () => {
+    const handleForwardMessage = useCallback(() => {
         addForwardMessage({ chatId: chatId, mesId: mesId });
         setOpenModal(true);
         setDropdownOpen(false);
-    };
+    }, [chatId, mesId]);
 
     const setOpen = () => {
         setOpenModal(false);
@@ -96,7 +114,12 @@ const MyMessage = ({ text, time, media, chatId, mesId, answerMes, forwardMes }: 
                 onContextMenu={handleRightClick}
                 onBlur={handleBlur}
                 isFocus={focus}
-                onDoubleClick={handleAnswer}>
+                onDoubleClick={handleAnswer}
+                isFlex={(media || (text || '').length > 15 || forwardMessages) ? false : true}
+                style={{
+                    marginTop: isFirst && pinnedMessage ? '60px' : '0',
+                    marginBottom: isLast && isForward ? '60px' : '10px',
+                }}>
 
                 <ForwardMessage forwardMessages={forwardMessages} />
 
@@ -111,6 +134,8 @@ const MyMessage = ({ text, time, media, chatId, mesId, answerMes, forwardMes }: 
                     handleDelete={handleDelete}
                     handlePinMessage={handlePinMessage}
                     handleForwardMessage={handleForwardMessage}
+                    x={x}
+                    y={y}
                 />
             </MyMessageWrapper>
         </>

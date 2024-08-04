@@ -91,6 +91,7 @@ export const borders = {
   borderBlack: `1px solid ${colors.blackTotal}`,
   boldBorderBlack: `3px solid ${colors.blackTotal}`,
   avatarBorder: `3px solid ${colors.whiteTotal}`,
+  forwardMesBorder: `2px solid ${colors.blue}`,
 
   smallBorderRadius: "5px",
   mediaBorderRadius: "10px",

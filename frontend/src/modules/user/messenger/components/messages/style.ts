@@ -19,8 +19,9 @@ export const MessageWrapper = styled('div')`
 
 `
 
-export const MyMessageWrapper = styled('div') <{ isFocus: boolean }>`
-    position: relative;
+export const MyMessageWrapper = styled('div') <{ isFocus: boolean, isFlex: boolean}>`
+    display: ${props=>props.isFlex ? 'flex' : 'block'};
+    align-items: end;
     max-width: 300px;
     width: fit-content;
     word-wrap: break-word;
@@ -60,18 +61,26 @@ export const MessageText = styled('span')`
     display: inline-block;
     padding: 3px 15px 0px;
     box-sizing: border-box;
-    word-wrap: break-word;
 `
 
 export const AnswerdMessageWrapper = styled('div')`
     min-width: 200px;
-    width: fit-content;
-    padding-left: 10px;
-    margin: 0px 10px 5px 10px;
-
-    border-left: 2px solid white;
+    max-width: inherit;
+    overflow: hidden;
 
     &:hover {
         cursor: pointer;
     }
+`
+
+export const AnswerdMessageText = styled('div')`
+    min-width: 200px;
+    max-width: inherit;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-inline: 10px;
+    margin: 10px 10px 0px 15px;
+    border-left: 2px solid white;
 `
