@@ -9,7 +9,7 @@ import {
   ProfileGarageList,
   ProfileGarageStatus,
   ProfileGarageTitle,
-} from "@/modules/user/profile/components/publication/render/styes";
+} from "@/modules/user/profile/components/publication/render/styles";
 import styled from "styled-components";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 

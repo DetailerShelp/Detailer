@@ -7,10 +7,7 @@ import {
 } from "@/common/styles/styleConstants";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
-import {
-  flexCenter,
-  resetLink,
-} from "@/common/styles/mixins";
+import { flexCenter, resetLink } from "@/common/styles/mixins";
 import { SearchInput } from "@/common/styles/tags/input/SearchInput";
 import ModalPost from "@/modules/NewPost/ModalPost";
 import { useState } from "react";
@@ -98,6 +95,18 @@ const TopBarLogoText = styled(SvgHelper)<{ color: string | null }>`
     props.color === "light" ? `${colors.blackThumb}` : `${colors.blackTotal}`};
 `;
 
+const TopBarSearchWrapper = styled("div")`
+  width: 400px;
+
+  @media ${device.tablet} {
+    width: 300px;
+  }
+
+  @media ${device.mobile} {
+    display: none;
+  }
+`;
+
 const TopBarList = styled("ul")`
   display: flex;
   align-items: center;
@@ -122,7 +131,7 @@ const TopBarItem = styled("li")`
 
 export const TopBar = () => {
   const [open, setOpen] = useState(false);
-  const theme = localStorage.getItem("theme") || 'light';
+  const theme = localStorage.getItem("theme") || "light";
 
   return (
     <TopBarHeader>
@@ -141,7 +150,9 @@ export const TopBar = () => {
         </TopBarLogoTitle>
       </TopBarLogoLink>
 
-      <SearchInput />
+      <TopBarSearchWrapper>
+        <SearchInput />
+      </TopBarSearchWrapper>
 
       <TopBarList>
         <TopBarItem onClick={() => setOpen(true)}>
