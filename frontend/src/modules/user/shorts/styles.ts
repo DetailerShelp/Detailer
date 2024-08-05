@@ -1,6 +1,22 @@
+import { WidgetHeaderWrapper, WidgetTitle, WidgetWrapper } from "@/common/components/widgets/WidgetsWrapper";
 import { clampText, square } from "@/common/styles/mixins";
 import { borders, colors, device, fonts, shadows } from "@/common/styles/styleConstants";
 import styled from "styled-components";
+
+export const WidgetShortComments = styled(WidgetWrapper)`
+height: 100%;
+overflow-y: scroll;
+
+&::-webkit-scrollbar {
+    width: 0;
+}
+`;
+
+export const HeaderShortComments = styled(WidgetHeaderWrapper)``;
+
+export const TitleShortComments = styled(WidgetTitle)`
+margin-left: 10px;
+`;
 
 export const ShortsWrapper = styled('div')`
 display: flex;
@@ -74,6 +90,7 @@ gap: 25px;
 
 export const ShortsInfoWrapper = styled('div')`
 width: 100%;
+height: auto;
 max-width: 324px;
 padding: 15px 25px;
 background-color: ${colors.whiteTotal};
