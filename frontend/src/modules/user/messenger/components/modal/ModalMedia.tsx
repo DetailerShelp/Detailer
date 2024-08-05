@@ -3,11 +3,11 @@ import { useActions } from "@/store/actions";
 import { useState } from "react";
 import RenderMedia from "@/modules/user/messenger/components/render/RenderMedia";
 import { 
-    ButtonPostCancel, 
-    ButtonPostOk, 
     ButtonsWrapper, 
     ModalMediaWrapper 
 } from "@/modules/user/messenger/components/modal/style";
+import { BlackWhiteButton } from "@/common/styles/tags/button/BlackWhiteButton";
+import TextArea from "@/common/components/ui/TextArea";
 
 interface ModalMediaProps {
     chatId: number | string;
@@ -17,13 +17,13 @@ interface ModalMediaProps {
 };
 
 const ModalMedia = ({ chatId, modalOpen, media, setModalOpen }: ModalMediaProps) => {
-    if (!media) return null; // Если media нет, возвращаем null
+    if (!media) return null; 
 
     const [text, setText] = useState('');
     const { addNewMessageMedia } = useActions();
 
-    const handleChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setText(e.target.value);
+    const handleChangeText = (value: string) => {
+        setText(value);
     };
 
     const handleCancel = () => {
@@ -40,12 +40,15 @@ const ModalMedia = ({ chatId, modalOpen, media, setModalOpen }: ModalMediaProps)
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} zIndex={1001}>
             <ModalMediaWrapper>
                 <RenderMedia media={media} withTitle={true} />
-
-                <input type="text" placeholder="Подпись" onChange={handleChangeText} value={text}></input>
-
+                <TextArea
+                    textAreaPlaceholder="Подпись"
+                    value={text}
+                    setText={handleChangeText}
+                    wrapperStyle={{height:'60px'}}
+                />
                 <ButtonsWrapper>
-                    <ButtonPostCancel onClick={handleCancel}>Отмена</ButtonPostCancel>
-                    <ButtonPostOk onClick={handleOk}>Отправить</ButtonPostOk>
+                    <BlackWhiteButton color="white" title="Отмена" size={30} click={handleCancel}/>
+                    <BlackWhiteButton color="black" title="Отправить" size={30} click={handleOk}/>
                 </ButtonsWrapper>
             </ModalMediaWrapper>
         </Modal>

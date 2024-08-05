@@ -75,6 +75,7 @@ export const colors = {
   darkBlue: "rgba(0, 26, 255, 1)",
   red: "rgba(253, 0, 0, 1)",
   green: "rgba(4, 204, 0, 1)",
+  greyText: "rgba(217, 217, 217, 1)", 
   
   //Blue
   myMesActive: `rgba(0, 26, 255, 1)`, 

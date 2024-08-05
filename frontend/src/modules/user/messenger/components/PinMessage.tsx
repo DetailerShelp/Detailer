@@ -3,7 +3,6 @@ import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { useActions } from "@/store/actions";
 import styled from "styled-components";
 import useDataMessageStore from "@/modules/user/messenger/hooks/useDataMessageStore";
-import { sliceText } from "@/modules/user/messenger/components/helpers/sliceText";
 import { flexCenter, resetButton } from "@/common/styles/mixins";
 
 interface ForwardsMessageProps {
