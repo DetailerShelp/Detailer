@@ -44,7 +44,6 @@ const RenderMessages = memo(({ id }: RenderMessagesProps) => {
     return (
         <ChatMessageWrapper>
             {messages.map((mes, index) => {
-                console.log('123')
                 if (!messageRefs.current[mes.id]) {
                     messageRefs.current[mes.id] = React.createRef<HTMLDivElement>();
                 }

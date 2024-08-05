@@ -8,7 +8,7 @@ interface ForwardMessageProps {
 };
 
 const ForwardMessageText = styled('span')`
-    color: ${colors.grayText};
+    color: ${colors.gray};
 `
 
 const ForwardMessage = ({ forwardMessages }: ForwardMessageProps) => {

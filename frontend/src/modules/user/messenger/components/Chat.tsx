@@ -6,7 +6,7 @@ import image5 from "@/modules/user/messenger/components/image5.png"
 import NavigateInfoChat from "@/modules/user/messenger/components/NavigateInfoChat";
 import RenderMessages from "@/modules/user/messenger/components/render/RenderMessages";
 import CreaterMessage from "@/modules/user/messenger/components/CreaterMessage";
-import useDataMessageStore from "../hooks/useDataMessageStore";
+import useDataMessageStore from "@/modules/user/messenger/hooks/useDataMessageStore";
 
 const ChatWrapper = styled('div')`
     width: inherit;
