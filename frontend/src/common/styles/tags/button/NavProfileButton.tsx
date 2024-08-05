@@ -70,6 +70,12 @@ const NavigationButton = styled("button")<{ isActive: boolean }>`
     color: ${(props) => (props.isActive ? colors.blackTotal : colors.grayText)};
   }
 
+  span {
+    @media ${device.mobileM} {
+      display: none;
+    }
+  }
+
   ${hoverActive}
 `;
 
@@ -98,7 +104,7 @@ export const NavProfileButton: FC<NavProfileButtonProps> = ({
     <NavigationItem>
       <NavigationButton isActive={isActive} onClick={click}>
         <NavigationIcon iconName={icon} />
-        {title}
+        <span>{title}</span>
       </NavigationButton>
     </NavigationItem>
   );
