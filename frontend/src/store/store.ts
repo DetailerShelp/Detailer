@@ -7,7 +7,7 @@ import { shortsApi } from "./reducers/shorts/shortsApi";
 const rememberedReducers = [""];
 
 const rootReducer = combineReducers({
-  [userApi.reducerPath]: userApi.reducer,  
+  [userApi.reducerPath]: userApi.reducer,
   newChatReducer,
   [shortsApi.reducerPath]: shortsApi.reducer,
 });
@@ -18,10 +18,7 @@ export const store = configureStore({
   reducer: rememberedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
-      .concat(userApi.middleware),
-
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware()
+      .concat(userApi.middleware)
       .concat(shortsApi.middleware),
   enhancers: (getDefaultEnhancer) =>
     getDefaultEnhancer().concat(
