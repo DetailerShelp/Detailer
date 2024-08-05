@@ -34,7 +34,6 @@ import { ProfilePosts } from "@/modules/user/profile/components/publication/Prof
 import { ProfileShorts } from "@/modules/user/profile/components/publication/ProfileShorts";
 import { ProfileGarage } from "@/modules/user/profile/components/publication/ProfileGarage";
 import { ModalProfilesList } from "@/modules/user/profile/components/modal/ModalProfilesList";
-import { ModalProfileInfo } from "./modal/ModalProfileInfo";
 
 const defaultAvatar = "/images/avatar.svg";
 

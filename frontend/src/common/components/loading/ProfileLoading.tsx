@@ -20,7 +20,7 @@ import {
   square,
 } from "@/common/styles/mixins";
 import { NavigationList } from "@/common/styles/tags/button/NavProfileButton";
-import { ProfilePostItem, ProfilePostList } from "@/modules/user/profile/components/publication/render/styes";
+import { ProfilePostItem, ProfilePostList } from "@/modules/user/profile/components/publication/render/styles";
 
 const BackgroundImage = styled(ProfileBackgroungImageWrapper)`
   ${loadingGradient};

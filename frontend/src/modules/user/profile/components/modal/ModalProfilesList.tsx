@@ -7,7 +7,7 @@ import {
 import { AccountItem } from "@/common/components/widgets/accounts/AccountItem";
 import { SearchInput } from "@/common/styles/tags/input/SearchInput";
 import { ShortUserInfo } from "@/store/reducers/user/types";
-import { ProfileEmptyPublication } from "../ProfileEmptyPublication";
+import { ProfileEmptyPublication } from "@/modules/user/profile/components/ProfileEmptyPublication";
 
 interface ModalProfilesListProps {
   isOpen: boolean;

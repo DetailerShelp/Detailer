@@ -1,7 +1,16 @@
 import Modal from "@/common/components/modal/Modal";
 import { User } from "@/store/reducers/user/types";
-import { ProfileBackgroundImage, ProfileBackgroundWrapper, ProfileBackgroungImageWrapper, ProfileUserAvatar, ProfileUserName, ProfileWrapper } from "../styles";
-import { ModalProfileBackgroundImage, ModalProfileBackgroundWrapper, ModalProfileBackgroungImageWrapper, ModalProfileUserAvatarWrapper, ModalProfileWrapper } from "./styles";
+import {
+  ProfileBackgroundImage,
+  ProfileBackgroungImageWrapper,
+  ProfileUserAvatar,
+  ProfileUserName,
+} from "@/modules/user/profile/components/styles";
+import {
+  ModalProfileBackgroundWrapper,
+  ModalProfileUserAvatarWrapper,
+  ModalProfileWrapper,
+} from "@/modules/user/profile/components/modal/styles";
 
 const defaultAvatar = "/images/avatar.svg";
 
@@ -38,7 +47,6 @@ export const ModalProfileInfo = ({
         </ModalProfileBackgroundWrapper>
 
         <ProfileUserName>{user?.username}</ProfileUserName>
-
       </ModalProfileWrapper>
     </Modal>
   );
