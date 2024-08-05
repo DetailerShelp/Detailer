@@ -3,7 +3,7 @@ import {
   borders,
   colors,
   screen,
-  shadows,
+  shadows
 } from "@/common/styles/styleConstants";
 
 //HELPER to use mixin with props in styled-components write: ${props => mixin(props.yourProps)}
@@ -74,7 +74,7 @@ export const hover = css`
 export const hoverActive = css`
   @media (hover: hover) {
     &:hover {
-      background-color: ${colors.whiteBackground};
+      background-color: ${colors.grayButton};
     }
 
     &:active {
@@ -118,6 +118,41 @@ export const styledWrapper = css`
   box-shadow: ${shadows.defaultShadow};
 `;
 
+export const loadingGradient = css`
+  background: ${colors.loadingGradient};
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: ${colors.loadingGradient};
+    transform: rotate(180deg);
+    border-radius: inherit;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: loading;
+    animation-timing-function: ease;
+  }
+
+  @keyframes loading {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+`;
+
 export const scrollBar = css`
   ::-webkit-scrollbar-track {
     border-radius: ${borders.smallBorderRadius};
@@ -143,16 +178,15 @@ export const scrollBar = css`
   }
 `;
 
-
 // export const scrollBar = css`
 //   &::-webkit-scrollbar {
-//       width: 5px; 
-//       background-color: ${colors.grayScrollBar}; 
+//       width: 5px;
+//       background-color: ${colors.grayScrollBar};
 //       border-radius: 50px;
 //   }
 
 //   &::-webkit-scrollbar-thumb {
-//       background-color: ${colors.blackThumb}; 
+//       background-color: ${colors.blackThumb};
 //       border-radius: 50px;
 //   }
 

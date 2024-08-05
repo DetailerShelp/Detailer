@@ -43,7 +43,7 @@ export const ProfileBackgroundWrapper = styled("div")`
   border-radius: inherit;
 `;
 
-export const ProfileBackgroundImage = styled("img")`
+export const ProfileBackgroungImageWrapper = styled("div")`
   position: absolute;
   top: 0;
   left: 0;
@@ -51,6 +51,12 @@ export const ProfileBackgroundImage = styled("img")`
 
   width: inherit;
   ${clampHeight(165, 200)}
+  border-radius: inherit;
+`;
+
+export const ProfileBackgroundImage = styled("img")`
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   border-radius: inherit;
@@ -123,16 +129,22 @@ export const ProfileUserHeaderWrapper = styled("div")`
   }
 `;
 
-export const ProfileUserAvatar = styled("img")`
+export const ProfileUserAvatarWrapper = styled("div")`
   ${square(100)}
   border: ${borders.avatarBorder};
   border-radius: ${borders.circleBorderRadius};
-  object-fit: cover;
-  object-position: center;
 
   @media ${device.mobile} {
     ${square(85)}
   }
+`;
+
+export const ProfileUserAvatar = styled("img")`
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
 `;
 
 export const ProfileUserName = styled("h2")`

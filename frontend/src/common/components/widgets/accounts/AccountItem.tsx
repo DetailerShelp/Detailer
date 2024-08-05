@@ -11,12 +11,18 @@ interface AccountItemProps {
   avatar?: string;
   name: string;
   link: string;
+  click?: () => void;
 }
 
-export const AccountItem: FC<AccountItemProps> = ({ avatar, name, link }) => {
+export const AccountItem: FC<AccountItemProps> = ({
+  avatar,
+  name,
+  link,
+  click,
+}) => {
   return (
     <AccountsListItem>
-      <AccountsLink to={link}>
+      <AccountsLink onClick={click} to={link}>
         <AccountsAvatar
           src={!!avatar ? avatar : defaultAvatar}
           alt={`${name}'s avatar`}

@@ -50,7 +50,7 @@ export const colors = {
   whiteModal: `${getColorName("modalBackground")}`,
 
   //Gray
-  // gray: `${getTheme()}`,
+  grayButton: `${getColorName("buttonHover")}`,
   grayBorder: `${getColorName("border")}`,
   grayText: `${getColorName("alternateText")}`,
   grayAccent: `${getColorName("borderColor")}`,
@@ -65,6 +65,7 @@ export const colors = {
   blackBackground: `${getColorName("buttonBackground")}`,
   blackThumb: `${getColorName("thumbColor")}`,
   shadow: `${getColorName("shadow")}`,
+  loadingGradient: `${getColorName("loadingGradient")}`, 
 
   //Constant Colors
   white: "rgba(255, 255, 255, 1)",

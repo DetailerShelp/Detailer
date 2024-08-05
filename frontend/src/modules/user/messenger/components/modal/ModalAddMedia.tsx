@@ -1,4 +1,4 @@
-import Modal from "@/common/components/ui/Modal";
+import Modal from "@/common/components/modal/Modal";
 import RenderPreviewChats from "@/modules/user/messenger/components/render/RenderPreviewChats";
 
 interface ModalAddMediaProps {
