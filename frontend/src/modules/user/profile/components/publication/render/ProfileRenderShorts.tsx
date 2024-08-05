@@ -4,7 +4,7 @@ import {
   ProfilePostLink,
   ProfilePostList,
   ProfileShortsItem,
-} from "@/modules/user/profile/components/publication/render/styes";
+} from "@/modules/user/profile/components/publication/render/styles";
 import styled from "styled-components";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { colors, device } from "@/common/styles/styleConstants";

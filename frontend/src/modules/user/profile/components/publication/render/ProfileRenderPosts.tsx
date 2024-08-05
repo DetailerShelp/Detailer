@@ -4,7 +4,7 @@ import {
   ProfilePostItem,
   ProfilePostLink,
   ProfilePostList,
-} from "@/modules/user/profile/components/publication/render/styes";
+} from "@/modules/user/profile/components/publication/render/styles";
 
 interface ProfileRenderPostsProps {
   post?: ShortPostInfo[];

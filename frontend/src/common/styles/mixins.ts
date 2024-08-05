@@ -104,6 +104,24 @@ export const buttonHoverActive = css`
   }
 `;
 
+export const opacityHoverActive = css`
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      opacity: 0.5;
+    }
+  }
+`;
+
 export const inputHoverActive = css`
   &:hover,
   &:active {
@@ -177,20 +195,3 @@ export const scrollBar = css`
     }
   }
 `;
-
-// export const scrollBar = css`
-//   &::-webkit-scrollbar {
-//       width: 5px;
-//       background-color: ${colors.grayScrollBar};
-//       border-radius: 50px;
-//   }
-
-//   &::-webkit-scrollbar-thumb {
-//       background-color: ${colors.blackThumb};
-//       border-radius: 50px;
-//   }
-
-//     &::-webkit-scrollbar-thumb:hover {
-//       cursor: pointer;
-//     }
-// `

@@ -14,7 +14,7 @@ const PageHeader = styled("header")`
   position: relative;
 
   @media ${device.mobile} {
-    width: clamp(300px, 89vw, 548px);
+    width: clamp(308px, 91.33vw, 548px);
   }
 `;
 
@@ -24,6 +24,10 @@ const PageHeaderButtonWrapper = styled("div")`
   left: 25px;
   translate: 0 -50%;
   ${flexCenter}
+
+  @media ${device.mobileL} {
+    left: 15px;
+  }
 `;
 
 const PageTitle = styled("h2")`
@@ -38,11 +42,16 @@ interface PageHeaderContentProps {
 
 export const PageHeaderContent: FC<PageHeaderContentProps> = ({ title }) => {
   const navigate = useNavigate();
-  const userId = authorizedUser()
+  const userId = authorizedUser();
   return (
     <PageHeader>
       <PageHeaderButtonWrapper>
-        <ButtonWithIcon size={35} title="Назад" icon="arrowLeft" click={() => navigate(`/profile/${userId}`)} />
+        <ButtonWithIcon
+          size={35}
+          title="Назад"
+          icon="arrowLeft"
+          click={() => navigate(`/profile/${userId}`)}
+        />
       </PageHeaderButtonWrapper>
       <PageTitle>{title}</PageTitle>
     </PageHeader>
