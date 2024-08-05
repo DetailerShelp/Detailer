@@ -20,6 +20,8 @@ import { EditPage } from "@/modules/user/profile/pages/edit-profile/EditPage";
 import { HelpPage } from "@/modules/user/help/HelpPage";
 import { SettingsPage } from "@/modules/user/settings/SettingsPage";
 import Chat from "@/modules/user/messenger/components/Chat";
+import { LikedPage } from "@/modules/user/profile/pages/liked/LikedPage";
+import { SavedPage } from "@/modules/user/profile/pages/saved/SavedPage";
 
 export default function RoutesProvider() {
   const authorizedUser = true;
@@ -51,7 +53,8 @@ export default function RoutesProvider() {
             <Route path="chat/:id" element={<Chat />} />
           </Route>
           <Route path="shorts" element={<ShortsPage />} />
-          <Route path="saved" element={<NavPanel />} />
+          <Route path="saved" element={<SavedPage />} />
+          <Route path="liked" element={<LikedPage />} />
           <Route path="qrcode" element={<NavPanel />} />
           <Route path="settings" element={<SettingsPage />} />
           <Route path="help" element={<HelpPage />} />

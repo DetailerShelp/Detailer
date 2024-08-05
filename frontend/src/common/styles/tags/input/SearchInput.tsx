@@ -6,14 +6,10 @@ import { VisuallyHidden } from "@/common/styles/GlobalStyles";
 
 const SearchForm = styled("form")`
   position: relative;
-
-  @media ${device.mobile} {
-    display: none;
-  }
 `;
 
 const SearchIntInput = styled("input")`
-  width: 400px;
+  width: 100%;
   height: 40px;
   padding: 10px 73px 10px 25px;
   border: ${borders.borderGrayAccent};
@@ -35,7 +31,6 @@ const SearchIntInput = styled("input")`
   ${inputHoverActive}
 
   @media ${device.tablet} {
-    width: 300px;
     padding-inline: 15px 45px;
   }
 `;
@@ -57,13 +52,17 @@ const SearchIcon = styled(SvgHelper)`
   }
 `;
 
-export const SearchInput = () => {
+interface SearchInputProps {
+  placeholder?: string;
+}
+
+export const SearchInput = ({placeholder}: SearchInputProps) => {
   return (
     <SearchForm>
       <VisuallyHidden>
         <label htmlFor="search">Поиск</label>
       </VisuallyHidden>
-      <SearchIntInput id="search" placeholder="Поиск" type="text" />
+      <SearchIntInput id="search" placeholder={!!placeholder ? placeholder : "Поиск"} type="text" />
       <SearchIcon iconName="search" />
     </SearchForm>
   );

@@ -1,4 +1,11 @@
-import { clampText, clampWidth, flexCenter, hoverActive, square } from "@/common/styles/mixins";
+import {
+  clampText,
+  clampWidth,
+  flexCenter,
+  hoverActive,
+  opacityHoverActive,
+  square,
+} from "@/common/styles/mixins";
 import {
   borders,
   colors,
@@ -9,6 +16,7 @@ import {
 import styled from "styled-components";
 
 export const ProfilePostList = styled("ul")`
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
@@ -43,13 +51,7 @@ export const ProfilePostImage = styled("img")`
   border-radius: ${borders.smallBorderRadius};
   transition: ${transitions.fastTransition};
 
-  &:hover {
-    opacity: 0.7;
-  }
-
-  &:active {
-    opacity: 0.5;
-  }
+  ${opacityHoverActive}
 `;
 
 export const ProfileGarageList = styled("ul")`
