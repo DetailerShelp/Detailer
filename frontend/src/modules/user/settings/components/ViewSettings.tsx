@@ -13,7 +13,8 @@ import styled from "styled-components";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { square } from "@/common/styles/mixins";
 import { colors } from "@/common/styles/styleConstants";
-import { SettingsNavLinks } from "@/common/styles/tags/a/SettingsNavLinks";
+import { NavigationList, NavProfileButton } from "@/common/styles/tags/button/NavProfileButton";
+import { useState } from "react";
 
 const SettingsSummaryIcon = styled(SvgHelper)<{ isActive: boolean }>`
   ${square(18)};
@@ -22,7 +23,8 @@ const SettingsSummaryIcon = styled(SvgHelper)<{ isActive: boolean }>`
 `;
 
 export const ViewSettings = () => {
-  const theme = localStorage.getItem("theme");
+  const [publicationPage, setPublicationPage] = useState('color');
+  const theme = localStorage.getItem("theme") || 'light';
 
   const handleChangeTheme = (theme: string) => {
     localStorage.setItem("theme", theme);
@@ -70,7 +72,20 @@ export const ViewSettings = () => {
               <SettingsSummaryItemChatWrapper>
                 dff
               </SettingsSummaryItemChatWrapper>
-              <SettingsNavLinks />
+              <NavigationList>
+                <NavProfileButton
+                  isActive={publicationPage === "fone"}
+                  click={() => setPublicationPage("fone")}
+                  icon="fone"
+                  title="Фон"
+                />
+                <NavProfileButton
+                  isActive={publicationPage === "color"}
+                  click={() => setPublicationPage("color")}
+                  icon="color"
+                  title="Цвет"
+                />
+              </NavigationList>
               TODO
             </SettingsSummaryItem>
           </SettingsSummaryList>

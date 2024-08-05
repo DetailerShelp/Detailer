@@ -4,7 +4,7 @@ import Modal from '@/common/components/ui/Modal';
 import { DefaultButton } from '@/common/components/ui/Button';
 import { ModalProps } from '@/common/interfaces/Modal';
 import { clampText, flexCenter } from '@/common/styles/mixins';
-import { fonts } from '@/common/styles/styleConstants';
+import { colors, fonts } from '@/common/styles/styleConstants';
 
 interface ModalConfirmProps extends ModalProps {
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -38,14 +38,14 @@ const OkButton = styled(DefaultButton)`
   width: 180px;
   padding-block: 15px;
   text-align: center;
-  color: black
+  color: ${colors.blackTotal};
 `;
 
 const CancelButton = styled(DefaultButton)`
   width: 180px;
   padding-block: 15px;
   text-align: center;
-  color: red;
+  color: ${colors.red};
 `;
 
 const ButtonInner = styled('div') <{ hasbuttons: boolean }>`

@@ -5,8 +5,12 @@ export const lightTheme = {
   border: "rgba(238, 238, 238, 1)",
   alternateText: "rgba(210, 210, 210, 1)",
   borderColor: "rgba(184, 184, 184, 1)",
+  scrollBarHover: "rgba(175, 175, 175, 1)",
+  scrollBarActive: "rgba(160, 160, 160, 1)",
   buttonActive: "rgba(75, 75, 75, 1)",
+  buttonBackground: "rgba(255, 255, 255, 0.5)",
   scrollBarColor: "rgba(217, 217, 217, 1)",
+
 
   mainText: "rgba(0, 0, 0, 1)",
   shadow: "rgba(0, 0, 0, 0.25)",
@@ -20,8 +24,11 @@ export const darkTheme = {
   border: "rgba(50, 50, 50, 1)",
   alternateText: "rgba(100, 100, 100, 1)",
   borderColor: "rgba(115, 115, 115, 1)",
+  scrollBarHover: "rgba(130, 130, 130, 1)",
+  scrollBarActive: "rgba(140, 140, 140, 1)",
   scrollBarColor: "rgba(85, 85, 85, 1)",
   buttonActive: "rgba(200, 200, 200, 1)",
+  buttonBackground: "rgba(0, 0, 0, 0.5)",
 
   mainText: "rgba(255, 255, 255, 1)",
   shadow: "rgba(255, 255, 255, 0.25)",

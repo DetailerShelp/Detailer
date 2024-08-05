@@ -54,6 +54,7 @@ const NavigationSection = styled("section")`
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: 1000;
   }
 `;
 
@@ -80,10 +81,13 @@ const FixedWrapper = styled("div")<{height?: number}>`
   position: fixed;
   display: grid;
   row-gap: 25px;
+  /* z-index: 10; */
+  
   height: ${props => props.height}px;
 
   @media ${device.mobile} {
     width: 100%;
+    bottom: 0px;
   }
 `;
 

@@ -1,4 +1,4 @@
-import { colors, mainFont, transitions } from '@/common/styles/styleConstants';
+import { borders, colors, fonts, transitions } from '@/common/styles/styleConstants';
 import styled from 'styled-components';
 import {
     CSSProperties,
@@ -10,14 +10,15 @@ import {
     useState,
     FocusEventHandler
 } from 'react';
+import { clampText, scrollBar } from '@/common/styles/mixins';
 
 const TextAreaWrapper = styled('div') <{ isActive: boolean }>`
   width: 100%;
   padding: 15px;
   align-items: flex-start;
   align-self: stretch;
-  border-radius: 30px;
-  border-width: 1px; 
+  border-radius: ${borders.defaultBorderRadius};
+  border-width: 2px; 
   border-style: solid;
   border-color: ${(props) =>
         props.isActive ? colors.grayAccent : colors.grayBorder};
@@ -31,19 +32,17 @@ const TextAreaWrapper = styled('div') <{ isActive: boolean }>`
 
 export const CustomTextArea = styled('textarea')`
   width: 100%;
-  height: 100%;
   border: none;
   background-color: transparent;
-  resize: none;
   outline: none;
-  border: none;
-  font-size: 18px;
+  color: ${colors.blackTotal};
+  font-size: ${clampText(fonts.sizes.main, fonts.sizes.mainMobile)};
   line-height: 25px !important;
   padding-inline: 5px;
   min-height: 17px !important;
-  font-family: ${mainFont};
   overflow-x: hidden;
   resize: none;
+
   &:focus {
     box-shadow: none;
   }
@@ -52,19 +51,12 @@ export const CustomTextArea = styled('textarea')`
     background: none;
   }
 
+  ${scrollBar}
+
   &::-webkit-scrollbar {
-   width: 3px; /* Ширина скроллбара */
-   background-color: ${colors.grayScrollBar}; /* Цвет ползунка скроллбара */
+   width: 3px; 
   }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: ${colors.blackThumb}; /* Цвет ползунка скроллбара */
-    border-radius: 50px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    cursor: pointer;
-  }
 `;
 
 interface CustomTextAreaProps {

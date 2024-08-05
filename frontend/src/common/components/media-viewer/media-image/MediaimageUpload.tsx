@@ -6,7 +6,6 @@ import {
 } from '@/common/components/media-viewer/media-image/style';
 import { FC, useMemo } from 'react';
 import { DeleteButton } from '@/common/components/media-viewer/media-delete/DeleteButton';
-//   import { AnimationWrapper } from '@/common/components/selected-media-viewer/components/styles';
 
 export interface MediaImageUploadProps {
     url: string;

@@ -10,6 +10,7 @@ import {
 } from "@/common/styles/mixins";
 import { borders, colors, fonts } from "@/common/styles/styleConstants";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
+import { normalizeCount } from "@/common/helpers/countHelpers";
 
 const ButtonWrapper = styled("div")`
   ${flexCenter}
@@ -54,7 +55,7 @@ export const PostButtonFunctions: FC<PostButtonFunctionsProps> = ({
       <Button title={title}>
         <ButtonIcon iconName={icon} />
       </Button>
-      {!!count && <ButtonCount>{count}</ButtonCount>}
+      {!!count && <ButtonCount>{normalizeCount(count)}</ButtonCount>}
     </ButtonWrapper>
   );
 };

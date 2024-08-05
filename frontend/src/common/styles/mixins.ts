@@ -104,6 +104,24 @@ export const buttonHoverActive = css`
   }
 `;
 
+export const opacityHoverActive = css`
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      opacity: 0.5;
+    }
+  }
+`;
+
 export const inputHoverActive = css`
   &:hover,
   &:active {
@@ -116,4 +134,29 @@ export const styledWrapper = css`
   border: ${borders.defaultBorder};
   border-radius: ${borders.defaultBorderRadius};
   box-shadow: ${shadows.defaultShadow};
+`;
+
+export const scrollBar = css`
+  ::-webkit-scrollbar-track {
+    border-radius: ${borders.smallBorderRadius};
+    background-color: ${colors.whiteModal};
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    background-color: ${colors.whiteModal};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: ${borders.smallBorderRadius};
+    background-color: ${colors.grayAccent};
+
+    &:hover {
+      background-color: ${colors.grayScrollBarHover};
+    }
+
+    &:active {
+      background-color: ${colors.grayScrollBarActive};
+    }
+  }
 `;

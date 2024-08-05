@@ -5,10 +5,8 @@ import {
   ProfileBackgroundWrapper,
   ProfileButtonMoreWrapper,
   ProfileButtonsWrapper,
-  ProfileContentImage,
-  ProfileContentItem,
-  ProfileContentList,
   ProfileContentWrapper,
+  ProfileHideButtonWrapper,
   ProfileMoreWrapper,
   ProfileRaitingList,
   ProfileUserAvatar,
@@ -17,20 +15,47 @@ import {
   ProfileUserName,
   ProfileWrapper,
 } from "@/modules/user/profile/components/styles";
-import { ProfileItem } from "./ProfileItem";
+import { ProfileItem } from "@/modules/user/profile/components/ProfileItem";
 import { DropdownWrapper } from "@/common/components/dropdown-menu/styles";
 import { useState } from "react";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { ProfileDropdownMenu } from "@/modules/user/profile/components/ProfileDropdownMenu";
-import { ProfileNavLinks } from "@/common/styles/tags/a/ProfileNavLinks";
+import { User } from "@/store/reducers/user/types";
+import { authorizedUser } from "@/store/reducers/user/authorizedUser";
+import { useNavigate } from "react-router-dom";
+import {
+  NavProfileButton,
+  NavigationList,
+} from "@/common/styles/tags/button/NavProfileButton";
+import { ProfilePosts } from "@/modules/user/profile/components/publication/ProfilePosts";
+import { ProfileShorts } from "@/modules/user/profile/components/publication/ProfileShorts";
+import { ProfileGarage } from "@/modules/user/profile/components/publication/ProfileGarage";
 
-export const Profile = () => {
+const defaultAvatar = '/images/avatar.svg';
+
+interface ProfileProps {
+  user?: User;
+}
+
+export const Profile = ({ user }: ProfileProps) => {
+  const [publicationPage, setPublicationPage] = useState("post");
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
+
+  const userSubscribers = !!user?.subscribers ? user?.subscribers.length : 0;
+  const userSubscribes = !!user?.subscribes ? user?.subscribes.length : 0;
+  const posts = !!user?.posts ? user?.posts.length : 0;
+  const shorts = !!user?.shorts ? user?.shorts.length : 0;
+  const garage = !!user?.garage ? user?.garage.length : 0;
+  const userPosts = posts + shorts + garage;
+
+  const currentUserId = authorizedUser();
+  const isAdmin = user?.id == currentUserId;
+  const navigate = useNavigate();
 
   return (
     <ProfileWrapper>
       <ProfileBackgroundWrapper>
-        <ProfileBackgroundImage src="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg" />
+        <ProfileBackgroundImage src={user?.backgroundImg} />
 
         <ProfileMoreWrapper>
           <DropdownWrapper
@@ -45,48 +70,80 @@ export const Profile = () => {
         </ProfileMoreWrapper>
 
         <ProfileUserHeaderWrapper>
-          <ProfileUserAvatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvvLDufK1c995wXvLsyn_LMIreLZSxOTy7Rg&s" />
-          <ProfileUserName>Detailer</ProfileUserName>
+          <ProfileUserAvatar src={user?.avatarImg || defaultAvatar} />
+          <ProfileUserName>{user?.username}</ProfileUserName>
         </ProfileUserHeaderWrapper>
       </ProfileBackgroundWrapper>
 
-      <ProfileUserDescription>
-        Описание — композиционная форма, которую используют в литературоведении
-        и лингвистике для подробной характеристики предметов или явлений.
-      </ProfileUserDescription>
+      <ProfileUserDescription>{user?.description}</ProfileUserDescription>
 
       <ProfileRaitingList>
-        <ProfileItem title="Подписчики" count="52" />
-        <ProfileItem title="Подписки" count="48" />
-        <ProfileItem title="Публикации" count="128" />
+        <ProfileItem title="Подписчики" count={userSubscribers} link="/" />
+        <ProfileItem title="Подписки" count={userSubscribes} link="/" />
+        <ProfileItem title="Публикации" count={userPosts} link="/" />
       </ProfileRaitingList>
 
-      <ProfileButtonsWrapper>
-        <WhiteButtonWithIcon size={40} title="Редактировать" icon="edit" />
-        <BlackWhiteButton size={40} title="Избранное" color="black" />
-      </ProfileButtonsWrapper>
+      {isAdmin ? (
+        <ProfileButtonsWrapper>
+          <ProfileHideButtonWrapper>
+            <WhiteButtonWithIcon
+              size={40}
+              title="Редактировать"
+              icon="edit"
+              click={() => navigate("/edit")}
+            />
+          </ProfileHideButtonWrapper>
+          <BlackWhiteButton size={40} title="Избранное" color="black" />
+        </ProfileButtonsWrapper>
+      ) : (
+        <ProfileButtonsWrapper>
+          <ProfileHideButtonWrapper>
+            <WhiteButtonWithIcon size={40} title="Подписаться" icon="plus" />
+          </ProfileHideButtonWrapper>
+          <BlackWhiteButton size={40} title="Написать" color="black" />
+        </ProfileButtonsWrapper>
+      )}
 
       <ProfileContentWrapper>
-        <ProfileNavLinks />
-        {/* TODO Добавить отображение определенного контента */}
-         <ProfileContentList>
-            <ProfileContentItem>
-                <ProfileContentImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx6yT7oBWFeKJH-85mTe_LX8XL5RXw1mRFow&s" />
-            </ProfileContentItem>
+        <NavigationList>
+          <NavProfileButton
+            isActive={publicationPage === "post"}
+            click={() => setPublicationPage("post")}
+            icon="post"
+            title="Посты"
+          />
+          <NavProfileButton
+            isActive={publicationPage === "shorts"}
+            click={() => setPublicationPage("shorts")}
+            icon="shorts"
+            title="Шортсы"
+          />
+          <NavProfileButton
+            isActive={publicationPage === "garage"}
+            click={() => setPublicationPage("garage")}
+            icon="garage"
+            title="Гараж"
+          />
+        </NavigationList>
 
-            <ProfileContentItem>
-                <ProfileContentImage src="https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp" />
-            </ProfileContentItem>
-
-            <ProfileContentItem>
-                <ProfileContentImage src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvdG98ZW58MHx8MHx8fDA%3D" />
-            </ProfileContentItem>
-
-            <ProfileContentItem>
-                <ProfileContentImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx6yT7oBWFeKJH-85mTe_LX8XL5RXw1mRFow&s" />
-            </ProfileContentItem>
-        </ProfileContentList>
-        {/* <Outlet /> */}
+        {publicationPage === "post" && (
+          <ProfilePosts
+            isAuthorizedUser={user?.isAuthorizedUser}
+            post={user?.posts}
+          />
+        )}
+        {publicationPage === "shorts" && (
+          <ProfileShorts
+            isAuthorizedUser={user?.isAuthorizedUser}
+            shorts={user?.shorts}
+          />
+        )}
+        {publicationPage === "garage" && (
+          <ProfileGarage
+            isAuthorizedUser={user?.isAuthorizedUser}
+            garage={user?.garage}
+          />
+        )}
       </ProfileContentWrapper>
     </ProfileWrapper>
   );
