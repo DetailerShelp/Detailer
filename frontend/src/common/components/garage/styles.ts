@@ -101,7 +101,8 @@ export const GarageMarkWrapper = styled("div")`
 `;
 
 export const GarageMarkSubtitle = styled("h4")`
-display: flex;
+  display: flex;
+  align-items: center;
   ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)}
   font-weight: ${fonts.weights.medium};
   white-space: nowrap;
@@ -125,7 +126,7 @@ export const GarageMarkItem = styled("li")<{ color: string }>`
   }
 `;
 
-export const GarageButtonWrpper = styled("div")`
+export const GarageButtonWrapper = styled("div")`
   width: 100%;
   ${flexCenter}
   padding: 10px 25px 25px;

@@ -1,6 +1,6 @@
 import {
   GarageBottomWrapper,
-  GarageButtonWrpper,
+  GarageButtonWrapper,
   GarageContentWrapper,
   GarageMarkItem,
   GarageMarkList,
@@ -185,9 +185,9 @@ export const GarageLoading = () => {
 
       <LoadingTime />
 
-      <GarageButtonWrpper>
+      <GarageButtonWrapper>
         <LoadingWhiteBlackButton size={40} />
-      </GarageButtonWrpper>
+      </GarageButtonWrapper>
     </GarageWrapper>
   );
 };
