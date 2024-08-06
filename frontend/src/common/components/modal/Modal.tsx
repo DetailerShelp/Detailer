@@ -10,7 +10,7 @@ import { ModalProps } from "@/common/interfaces/Modal";
 import { useEffect, useState } from "react";
 import { flexCenter } from "@/common/styles/mixins";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
-import { ModalContentWrapper, ModalHeader, ModalWrapper } from "./styles";
+import { ModalContentWrapper, ModalHeader, ModalWrapper } from "@/common/components/modal/styles";
 
 const ModalSection = styled("section")<{ zindex: number }>`
   ${flexCenter}
