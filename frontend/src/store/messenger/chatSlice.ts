@@ -28,13 +28,15 @@ export interface Chats {
     chats: {
         [key: number | string]: IChat;
     }
+    idVREMENNO: number;
 };
 
 const initialState: Chats = {
     chats: {
         1: Mok,
         2: Mok1,
-    }
+    },
+    idVREMENNO: 20,
 };
 
 const chatSlice = createSlice({
@@ -45,15 +47,17 @@ const chatSlice = createSlice({
             const { text, chatId } = action.payload;
 
             const mes: IMessage = {
-                id: state.chats[chatId].messages.length,
+                id: state.idVREMENNO,
                 text: text,
                 author: "Ilia",
                 createdAt: "12:18",
                 answeredMessage: state.chats[chatId].answeredMessages,
                 forwardMessage: state.forwardMes,
+                animated: true,
             };
             state.chats[chatId].messages.push(mes);
             console.log(state.forwardMes?.chatId, mes);
+            state.idVREMENNO++;
 
             state.chats[chatId].answeredMessages = undefined;
             state.forwardMes = undefined;
@@ -72,7 +76,7 @@ const chatSlice = createSlice({
             state.chats[chatId].answeredMessages = undefined;
         },
 
-        addForwardMessage(state, action: PayloadAction<ChatMes>){
+        addForwardMessage(state, action: PayloadAction<ChatMes>) {
             const { chatId, mesId } = action.payload;
             state.forwardMes = {
                 chatId: chatId,
@@ -84,7 +88,14 @@ const chatSlice = createSlice({
         setAnsweredMessage(state, action: PayloadAction<AnsweredMew>) {
             const { chatId, answeredMes } = action.payload;
             state.chats[chatId].answeredMessages = answeredMes;
-            console.log(state.chats[chatId]);
+        },
+
+        deleteForwardMessage(state, action: PayloadAction<{ chatId?: number | string }>) {
+            const { chatId } = action.payload;
+            if (chatId) {
+                state.chats[chatId].answeredMessages = undefined;
+            }
+            state.forwardMes = undefined;
         },
 
         deleteMessage(state, action: PayloadAction<ChatMes>) {
@@ -104,13 +115,13 @@ const chatSlice = createSlice({
             state.chats[chatId].pinnedMessage = undefined;
         },
 
-        changeNotification(state, action: PayloadAction<{ chatId: number | string }>){
+        changeNotification(state, action: PayloadAction<{ chatId: number | string }>) {
             const { chatId } = action.payload;
             state.chats[chatId].notification = !state.chats[chatId].notification;
         },
 
-        changeTheme(state, action: PayloadAction<NewMesMedia>){
-            const {chatId, media} = action.payload;
+        changeTheme(state, action: PayloadAction<NewMesMedia>) {
+            const { chatId, media } = action.payload;
             state.chats[chatId].theme = URL.createObjectURL(media);
         },
     }

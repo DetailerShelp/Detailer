@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Message from "@/modules/user/messenger/components/messages/Message";
 import MyMessage from "@/modules/user/messenger/components/messages/MyMessage";
-import { useAppSelector } from "@/common/hooks/useAppSelector";
-import React, { useEffect, useRef } from "react";
+import React, { memo, useEffect, useRef } from "react";
+import useDataMessageStore from "@/modules/user/messenger/hooks/useDataMessageStore";
 
 interface RenderMessagesProps {
     id: string | number;
@@ -15,9 +15,8 @@ const ChatMessageWrapper = styled('div')`
     padding-block: 100px 120px;
 `;
 
-const RenderMessages = React.memo(({ id }: RenderMessagesProps) => {
-    const storeChats = useAppSelector((state) => state.newChatReducer);
-    const currentChat = storeChats.chats[id!];
+const RenderMessages = memo(({ id }: RenderMessagesProps) => {
+    const { messages } = useDataMessageStore({ chatId: id });
 
     const scrollToMessageId = 5;
 
@@ -41,10 +40,10 @@ const RenderMessages = React.memo(({ id }: RenderMessagesProps) => {
     //         });
     //     }
     // }
-
+    console.log('isForward');
     return (
         <ChatMessageWrapper>
-            {currentChat.messages.map((mes, index) => {
+            {messages.map((mes, index) => {
                 if (!messageRefs.current[mes.id]) {
                     messageRefs.current[mes.id] = React.createRef<HTMLDivElement>();
                 }
@@ -52,7 +51,7 @@ const RenderMessages = React.memo(({ id }: RenderMessagesProps) => {
                     <div key={mes.id} ref={messageRefs.current[mes.id]} >
                         {mes.author === 'Ilia'
                             ? <MyMessage
-                                key={index}
+                                key={mes.id}
                                 text={mes.text}
                                 time={mes.createdAt}
                                 media={mes.media}
@@ -60,9 +59,11 @@ const RenderMessages = React.memo(({ id }: RenderMessagesProps) => {
                                 mesId={mes.id}
                                 answerMes={mes.answeredMessage}
                                 forwardMes={mes.forwardMessage}
+                                isFirst={index === 0 ? true : false}
+                                isLast={index === messages.length - 1 ? true : false}
                             />
                             : <Message
-                                key={index}
+                                key={mes.id}
                                 text={mes.text}
                                 time={mes.createdAt}
                                 media={mes.media}

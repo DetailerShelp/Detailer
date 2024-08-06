@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from "styled-components";
-import Modal from '@/common/components/ui/Modal';
+import Modal from '@/common/components/modal/Modal';
 import { DefaultButton } from '@/common/components/ui/Button';
 import { ModalProps } from '@/common/interfaces/Modal';
 import { clampText, flexCenter } from '@/common/styles/mixins';

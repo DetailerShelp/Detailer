@@ -3,6 +3,8 @@ import { WhiteButtonWithIcon } from "@/common/styles/tags/button/WhiteButtonWith
 import {
   ProfileBackgroundImage,
   ProfileBackgroundWrapper,
+  ProfileBackgroungImageWrapper,
+  ProfileBackWrapper,
   ProfileButtonMoreWrapper,
   ProfileButtonsWrapper,
   ProfileContentWrapper,
@@ -10,6 +12,7 @@ import {
   ProfileMoreWrapper,
   ProfileRaitingList,
   ProfileUserAvatar,
+  ProfileUserAvatarWrapper,
   ProfileUserDescription,
   ProfileUserHeaderWrapper,
   ProfileUserName,
@@ -22,7 +25,7 @@ import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { ProfileDropdownMenu } from "@/modules/user/profile/components/ProfileDropdownMenu";
 import { User } from "@/store/reducers/user/types";
 import { authorizedUser } from "@/store/reducers/user/authorizedUser";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   NavProfileButton,
   NavigationList,
@@ -30,16 +33,21 @@ import {
 import { ProfilePosts } from "@/modules/user/profile/components/publication/ProfilePosts";
 import { ProfileShorts } from "@/modules/user/profile/components/publication/ProfileShorts";
 import { ProfileGarage } from "@/modules/user/profile/components/publication/ProfileGarage";
+import { ModalProfilesList } from "@/modules/user/profile/components/modal/ModalProfilesList";
 
-const defaultAvatar = '/images/avatar.svg';
+const defaultAvatar = "/images/avatar.svg";
 
 interface ProfileProps {
   user?: User;
+  url?: string;
 }
 
-export const Profile = ({ user }: ProfileProps) => {
+export const Profile = ({ user, url }: ProfileProps) => {
   const [publicationPage, setPublicationPage] = useState("post");
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
+
+  const [modalSubscribers, setModalSubscribers] = useState(false);
+  const [modalSubscribes, setModalSubscribes] = useState(false);
 
   const userSubscribers = !!user?.subscribers ? user?.subscribers.length : 0;
   const userSubscribes = !!user?.subscribes ? user?.subscribes.length : 0;
@@ -55,7 +63,20 @@ export const Profile = ({ user }: ProfileProps) => {
   return (
     <ProfileWrapper>
       <ProfileBackgroundWrapper>
-        <ProfileBackgroundImage src={user?.backgroundImg} />
+        <ProfileBackgroungImageWrapper>
+          <ProfileBackgroundImage src={user?.backgroundImg} />
+        </ProfileBackgroungImageWrapper>
+
+        {!!url && (
+          <ProfileBackWrapper>
+            <ButtonWithIcon
+              icon="arrowLeft"
+              title="Назад"
+              size={35}
+              click={() => <Link to={url} />}
+            />
+          </ProfileBackWrapper>
+        )}
 
         <ProfileMoreWrapper>
           <DropdownWrapper
@@ -70,18 +91,46 @@ export const Profile = ({ user }: ProfileProps) => {
         </ProfileMoreWrapper>
 
         <ProfileUserHeaderWrapper>
-          <ProfileUserAvatar src={user?.avatarImg || defaultAvatar} />
+          <ProfileUserAvatarWrapper>
+            <ProfileUserAvatar src={user?.avatarImg || defaultAvatar} />
+          </ProfileUserAvatarWrapper>
           <ProfileUserName>{user?.username}</ProfileUserName>
         </ProfileUserHeaderWrapper>
       </ProfileBackgroundWrapper>
 
-      <ProfileUserDescription>{user?.description}</ProfileUserDescription>
+      {!!user?.description && (
+        <ProfileUserDescription>{user?.description}</ProfileUserDescription>
+      )}
 
       <ProfileRaitingList>
-        <ProfileItem title="Подписчики" count={userSubscribers} link="/" />
-        <ProfileItem title="Подписки" count={userSubscribes} link="/" />
-        <ProfileItem title="Публикации" count={userPosts} link="/" />
+        <ProfileItem
+          title="Подписчики"
+          count={userSubscribers}
+          click={() => setModalSubscribers(true)}
+        />
+        <ProfileItem
+          title="Подписки"
+          count={userSubscribes}
+          click={() => setModalSubscribes(true)}
+        />
+        <ProfileItem title="Публикации" count={userPosts} />
       </ProfileRaitingList>
+
+      <ModalProfilesList
+        isOpen={modalSubscribers}
+        setOpen={setModalSubscribers}
+        title="Подписчики"
+        placeholder="подписчиков"
+        user={user?.subscribers}
+      />
+
+      <ModalProfilesList
+        isOpen={modalSubscribes}
+        setOpen={setModalSubscribes}
+        title="Подписки"
+        placeholder="подписок"
+        user={user?.subscribes}
+      />
 
       {isAdmin ? (
         <ProfileButtonsWrapper>

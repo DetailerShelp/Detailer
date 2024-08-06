@@ -1,3 +1,4 @@
+import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { ReactNode } from "react";
 import styled from "styled-components";
 
@@ -31,7 +32,7 @@ const MessageInfo = ({ statusMessage, time, isPinned }: MessageInfoProps) => {
                 {time}
             </FirstRow>
             <SecondRow>
-                {isPinned ? 'pin' : ''}
+                {isPinned ? <SvgHelper iconName="pin"/> : ''}
             </SecondRow>
         </MessageInfoWrapper>
     )

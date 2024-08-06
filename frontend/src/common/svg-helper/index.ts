@@ -77,6 +77,7 @@ import image from '@/common/svg-helper/icons/chat-dropdown/image.svg?react';
 import speaker from '@/common/svg-helper/icons/chat-dropdown/speaker.svg?react';
 import fileLoader from '@/common/svg-helper/icons/fileLoader.svg?react';
 import camera from '@/common/svg-helper/icons/camera.svg?react';
+import profileGroup from '@/common/svg-helper/icons/profile-group.svg?react';
 import calendar from '@/common/svg-helper/icons/garage-icons/calendar.svg?react';
 import engine from '@/common/svg-helper/icons/garage-icons/engine.svg?react';
 import transmission from '@/common/svg-helper/icons/garage-icons/transmission.svg?react';
@@ -177,6 +178,7 @@ export type ImageComponentsTypes =
   | 'clear'
   | 'call'
   | 'fileLoader'
+  | 'profileGroup'
   | 'calendar'
   | 'engine'
   | 'transmission'
@@ -268,6 +270,7 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   image,
   clear,
   fileLoader,
+  profileGroup,
   calendar,
   engine,
   transmission,
