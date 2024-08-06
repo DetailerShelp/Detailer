@@ -1,4 +1,4 @@
-import Modal from "@/common/components/ui/Modal";
+import Modal from "@/common/components/modal/Modal";
 import { useActions } from "@/store/actions";
 import { useState } from "react";
 import RenderMedia from "@/modules/user/messenger/components/render/RenderMedia";

@@ -1,4 +1,4 @@
-import Modal from "@/common/components/ui/Modal";
+import Modal from "@/common/components/modal/Modal";
 import RenderShortPreviewChats from "@/modules/user/messenger/components/render/RenderShortPreviewChats";
 import { HeaderText, ModalWrapper } from "@/modules/user/messenger/components/modal/style";
 
