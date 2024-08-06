@@ -33,8 +33,7 @@ export const ModalProfilesList = ({
       zIndex={1001}
     >
       <ModalSearchWrapper>
-        {/* //TODO SearchInput title */}
-        <SearchInput />
+        <SearchInput placeholder={placeholder} />
       </ModalSearchWrapper>
 
       <ModalScrollContentWrapper>

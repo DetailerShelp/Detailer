@@ -1,5 +1,5 @@
 import {
-  GarageBotomList,
+  GarageBottomList,
   GarageBottomItem,
   GarageBottomWrapper,
   GarageButtonWrpper,
@@ -21,7 +21,7 @@ import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { WhiteButtonWithIcon } from "@/common/styles/tags/button/WhiteButtonWithIcon";
 import { DropdownWrapper } from "@/common/components/dropdown-menu/styles";
 import { PostButtonFunctions } from "@/common/styles/tags/button/PostButtonFunctions";
-import { CharacterisiticsList } from "./components/CharacterisiticsList";
+import { CharacterisiticsList } from "@/common/components/garage/components/CharacterisiticsList";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { BlackWhiteButton } from "@/common/styles/tags/button/BlackWhiteButton";
 import { useState } from "react";
@@ -55,10 +55,13 @@ export const Garage = () => {
         </GarageMenuWrapper>
       </GarageTopBarWrapper>
 
-      <GaragePublication src="https://storge.pic2.me/upload/147/59ee4f19c270a.jpg" />
+      <GaragePublication
+        src="https://storge.pic2.me/upload/147/59ee4f19c270a.jpg"
+        alt="description"
+      />
 
       <GarageBottomWrapper>
-        <GarageBotomList>
+        <GarageBottomList>
           <GarageBottomItem>
             <PostButtonFunctions icon="like" title="Нравится" count={1583} />
           </GarageBottomItem>
@@ -74,7 +77,7 @@ export const Garage = () => {
           <GarageBottomItem>
             <PostButtonFunctions icon="share" title="Поделиться" />
           </GarageBottomItem>
-        </GarageBotomList>
+        </GarageBottomList>
 
         <PostButtonFunctions icon="saved" title="Сохранить" />
       </GarageBottomWrapper>

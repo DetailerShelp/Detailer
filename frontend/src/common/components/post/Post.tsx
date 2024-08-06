@@ -1,5 +1,5 @@
 import {
-  PostBotomList,
+  PostBottomList,
   PostBottomItem,
   PostBottomWrapper,
   PostDescription,
@@ -50,7 +50,7 @@ export const Post = () => {
       <PostPublication src="https://arte1.ru/images/detailed/1/10281.jpg" />
 
       <PostBottomWrapper>
-        <PostBotomList>
+        <PostBottomList>
           <PostBottomItem>
             <PostButtonFunctions icon="like" title="Нравится" count={52} />
           </PostBottomItem>
@@ -66,7 +66,7 @@ export const Post = () => {
           <PostBottomItem>
             <PostButtonFunctions icon="share" title="Поделиться" />
           </PostBottomItem>
-        </PostBotomList>
+        </PostBottomList>
 
         <PostButtonFunctions icon="saved" title="Сохранить" />
       </PostBottomWrapper>

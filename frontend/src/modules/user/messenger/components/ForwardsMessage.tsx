@@ -2,7 +2,7 @@ import { borders, colors, device } from "@/common/styles/styleConstants";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { useActions } from "@/store/actions";
 import styled from "styled-components";
-import { useAppSelector } from "@/common/hooks/useAppselector";
+import { useAppSelector } from "@/common/hooks/useAppSelector";
 import { flexCenter, resetButton } from "@/common/styles/mixins";
 
 interface ForwardsMessageProps {

@@ -17,10 +17,13 @@ import {
   clampWidth,
   flexCenter,
   loadingGradient,
-  square,
 } from "@/common/styles/mixins";
 import { NavigationList } from "@/common/styles/tags/button/NavProfileButton";
-import { ProfilePostItem, ProfilePostList } from "@/modules/user/profile/components/publication/render/styles";
+import {
+  ProfilePostItem,
+  ProfilePostList,
+} from "@/modules/user/profile/components/publication/render/styles";
+import { LoadingCircle, LoadingWhiteBlackButton } from "./styles";
 
 const BackgroundImage = styled(ProfileBackgroungImageWrapper)`
   ${loadingGradient};
@@ -69,17 +72,6 @@ const RaitingItem = styled(ProfileRaitingItem)`
   }
 `;
 
-const Button = styled("div")`
-  width: 100%;
-  height: 35px;
-  ${loadingGradient}
-  border-radius: ${borders.bigBorderRadius};
-
-  @media ${device.mobileM} {
-    height: 25px;
-  }
-`;
-
 const NavigationItem = styled("li")`
   width: 100%;
   height: 50px;
@@ -114,12 +106,6 @@ const NavigationButton = styled("div")`
   }
 `;
 
-const NavigationIcon = styled("div")`
-  ${square(30)}
-  border-radius: ${borders.circleBorderRadius};
-  ${loadingGradient}
-`;
-
 const PostItem = styled(ProfilePostItem)`
   margin-top: 1px;
   ${loadingGradient}
@@ -141,7 +127,6 @@ export const ProfileLoading = () => {
       <Description />
       <Description />
 
-
       <ProfileRaitingList>
         <RaitingItem />
         <RaitingItem />
@@ -149,25 +134,24 @@ export const ProfileLoading = () => {
       </ProfileRaitingList>
 
       <ProfileButtonsWrapper>
-        <Button />
-        <Button />
+        <LoadingWhiteBlackButton size={35} />
+        <LoadingWhiteBlackButton size={35} />
       </ProfileButtonsWrapper>
 
       <ProfileContentWrapper>
         <NavigationList>
           <NavigationItem>
-            <NavigationIcon />
+            <LoadingCircle size={30} />
             <NavigationButton />
           </NavigationItem>
 
           <NavigationItem>
-            <NavigationIcon />
+            <LoadingCircle size={30} />
             <NavigationButton />
           </NavigationItem>
 
           <NavigationItem>
-            <NavigationIcon />
-
+            <LoadingCircle size={30} />
             <NavigationButton />
           </NavigationItem>
         </NavigationList>

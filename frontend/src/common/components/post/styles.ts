@@ -71,7 +71,7 @@ export const PostBottomWrapper = styled("div")`
   }
 `;
 
-export const PostBotomList = styled("ul")`
+export const PostBottomList = styled("ul")`
   display: flex;
   align-items: center;
   column-gap: 30px;
@@ -105,16 +105,16 @@ export const PostDescription = styled("p")`
 `;
 
 export const PostTime = styled("time")`
-  font-size: 12px;
+  ${clampText(fonts.sizes.dropdownMobile, fonts.sizes.dropdown)}
   color: ${colors.grayAccent};
   text-align: start;
-  padding: 10px 25px 25px;
+  padding: 0px 25px 25px;
 
   @media ${device.tablet} {
-    padding: 10px 20px 15px;
+    padding: 0px 20px 15px;
   }
 
   @media ${device.mobileM} {
-    padding: 5px 10px 10px;
+    padding: 0px 10px 10px;
   }
 `;

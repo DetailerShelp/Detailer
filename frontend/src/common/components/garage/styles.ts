@@ -2,7 +2,7 @@ import { clampText, flexCenter } from "@/common/styles/mixins";
 import { colors, device, fonts } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 import {
-  PostBotomList,
+  PostBottomList,
   PostBottomItem,
   PostBottomWrapper,
   PostDescription,
@@ -34,7 +34,7 @@ export const GaragePublication = styled(PostPublication)``;
 
 export const GarageBottomWrapper = styled(PostBottomWrapper)``;
 
-export const GarageBotomList = styled(PostBotomList)``;
+export const GarageBottomList = styled(PostBottomList)``;
 
 export const GarageBottomItem = styled(PostBottomItem)``;
 
@@ -101,8 +101,10 @@ export const GarageMarkWrapper = styled("div")`
 `;
 
 export const GarageMarkSubtitle = styled("h4")`
+display: flex;
   ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)}
   font-weight: ${fonts.weights.medium};
+  white-space: nowrap;
   user-select: none;
 `;
 
