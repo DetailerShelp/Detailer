@@ -16,7 +16,7 @@ interface NavigateInfoChatProps {
 
 const NavInfoChat = styled('div')`
     display: grid;
-    grid-template-columns: 35px auto 80px;
+    grid-template-columns: 35px auto 90px;
     align-items: center;
     gap: 20px;
     position: fixed;
@@ -64,7 +64,9 @@ const NavigateInfoChat = ({ id }: NavigateInfoChatProps) => {
             </InfoChat>
 
             <NavChatTool>
-                <ButtonWithIcon icon="search" size={40} />
+                <div>
+                    <ButtonWithIcon icon="search" size={40} />
+                </div>
                 <div
                     style={{ position: 'relative' }}
                     onMouseEnter={() => setDropdownOpen(true)}

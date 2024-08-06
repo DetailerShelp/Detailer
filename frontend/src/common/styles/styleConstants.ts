@@ -76,6 +76,7 @@ export const colors = {
   darkBlue: "rgba(0, 26, 255, 1)",
   red: "rgba(253, 0, 0, 1)",
   green: "rgba(4, 204, 0, 1)",
+  gray: "rgba(217, 217, 217, 1)", 
   
   //Blue
   myMesActive: `rgba(0, 26, 255, 1)`, 
@@ -92,6 +93,7 @@ export const borders = {
   borderBlack: `1px solid ${colors.blackTotal}`,
   boldBorderBlack: `3px solid ${colors.blackTotal}`,
   avatarBorder: `3px solid ${colors.whiteTotal}`,
+  forwardMesBorder: `2px solid ${colors.blue}`,
 
   smallBorderRadius: "5px",
   mediaBorderRadius: "10px",

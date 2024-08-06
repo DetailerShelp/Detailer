@@ -1,10 +1,15 @@
 import { IMessage } from "@/store/messenger/messengerTypes";
-import { AnswerdMessageWrapper } from "@/modules/user/messenger/components/messages/style";
-import { sliceText } from "@/modules/user/messenger/components/helpers/sliceText";
+import { AnswerdMessageText, AnswerdMessageWrapper } from "@/modules/user/messenger/components/messages/style";
+import styled from "styled-components";
+import { colors } from "@/common/styles/styleConstants";
 
 interface ForwardMessageProps {
     forwardMessages?: IMessage
 };
+
+const ForwardMessageText = styled('span')`
+    color: ${colors.gray};
+`
 
 const ForwardMessage = ({ forwardMessages }: ForwardMessageProps) => {
     if (!forwardMessages) {
@@ -13,9 +18,11 @@ const ForwardMessage = ({ forwardMessages }: ForwardMessageProps) => {
 
     return (
         <AnswerdMessageWrapper>
-            {forwardMessages?.author}
-            <br />
-            {sliceText({text:forwardMessages.text})}
+            <AnswerdMessageText>
+                {forwardMessages?.author}
+                <br />
+                <ForwardMessageText>{forwardMessages.text}</ForwardMessageText>
+            </AnswerdMessageText>
         </AnswerdMessageWrapper>
     )
 };

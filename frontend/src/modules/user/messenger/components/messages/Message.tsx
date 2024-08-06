@@ -12,7 +12,7 @@ interface MessageProps {
     media?: File;
 }
 
-const Message = ({ text, time, media }: MessageProps) => {
+const Message = ({ text, time }: MessageProps) => {
     return (
         <MessageWrapper >
             <MessageContentWrapper>

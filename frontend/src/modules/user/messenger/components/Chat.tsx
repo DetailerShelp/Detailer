@@ -6,7 +6,7 @@ import image5 from "@/modules/user/messenger/components/image5.png"
 import NavigateInfoChat from "@/modules/user/messenger/components/NavigateInfoChat";
 import RenderMessages from "@/modules/user/messenger/components/render/RenderMessages";
 import CreaterMessage from "@/modules/user/messenger/components/CreaterMessage";
-import { useAppSelector } from "@/common/hooks/useAppSelector";
+import useDataMessageStore from "@/modules/user/messenger/hooks/useDataMessageStore";
 
 const ChatWrapper = styled('div')`
     width: inherit;
@@ -44,34 +44,33 @@ const BackGroundImage = styled('img')`
 const Chat = () => {
     const { id } = useParams();
 
-    if(!id){
+    if (!id) {
         return null;
     }
 
-    const storeChats = useAppSelector((state) => state.newChatReducer);
-    const currentChat = storeChats.chats[id];
+    const { messages, theme } = useDataMessageStore({ chatId: id });
 
-    const scrollBottom = async () => {
-        await setTimeout(() => {
+    const scrollBottom = () => {
+        setTimeout(() => {
             window.scrollTo({
-                top: document.documentElement.scrollHeight, 
-                behavior: 'smooth', 
+                top: document.documentElement.scrollHeight,
+                behavior: 'smooth',
             });
         }, 100)
     };
 
     useEffect(() => {
         scrollBottom();
-    }, [currentChat.messages]);
+    }, [messages]);
 
     return (
         <ChatWrapper>
             <TopHidden />
 
-            <NavigateInfoChat id={id}/>
-            <BackGroundImage src={currentChat.theme ? currentChat.theme : image5} />
-            <RenderMessages id={id}/>
-            <CreaterMessage id={id}/>
+            <NavigateInfoChat id={id} />
+            <BackGroundImage src={theme ? theme : image5} />
+            <RenderMessages id={id} />
+            <CreaterMessage id={id} />
 
             <BottomHidden />
         </ChatWrapper>

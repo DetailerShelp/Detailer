@@ -1,4 +1,4 @@
-import { useAppSelector } from "@/common/hooks/useAppSelector";
+import { useAppSelector } from "@/common/hooks/useAppselector";
 
 interface useDataMessageStoreProps {
     chatId: number | string;
@@ -15,6 +15,9 @@ const useDataMessageStore = ({ chatId, mesId }: useDataMessageStoreProps) => {
         forwardMes: storeChats.forwardMes,
         nameChat: currentChat.participants.length > 2 ? currentChat.nameGroup : currentChat.participants[1],
         currentMessage: currentChat.messages.find(message => message.id === mesId),
+        pinnedMessage: currentChat.pinnedMessage,
+        isForward: currentChat.answeredMessages || storeChats.forwardMes,
+        theme: currentChat.theme,
     }
 };
 

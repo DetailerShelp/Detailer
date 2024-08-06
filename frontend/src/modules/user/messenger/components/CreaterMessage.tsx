@@ -1,6 +1,6 @@
 import DragAndDropUpload from "@/common/components/DraggerUploadFile";
 import TextArea from "@/common/components/ui/TextArea";
-import { flexCenter, resetButton } from "@/common/styles/mixins";
+import { flexCenter, hoverActive, resetButton } from "@/common/styles/mixins";
 import { borders, colors, device } from "@/common/styles/styleConstants";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { useActions } from "@/store/actions";
@@ -39,9 +39,7 @@ const MessageToolWrapper = styled('button')`
     aspect-ratio: 1;
     border-radius: ${borders.circleBorderRadius};
 
-    &:hover{
-        background-color: ${colors.grayBorder};
-    }
+    ${hoverActive}
 `
 
 const MessageTool = styled(SvgHelper)`
