@@ -8,29 +8,29 @@ import {
   PostPublication,
   PostTime,
   PostTopBarWrapper,
-  PostUserAvatar,
-  PostUserName,
-  PostUserWrapper,
   PostWrapper,
 } from "@/common/components/post/styles";
 import { PostButtonFunctions } from "@/common/styles/tags/button/PostButtonFunctions";
-import defaultAvatar from "@/common/images/avatar.png";
 import { WhiteButtonWithIcon } from "@/common/styles/tags/button/WhiteButtonWithIcon";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { useState } from "react";
 import { PostDropdownMenu } from "@/common/components/post/components/PostDropdownMenu";
 import { DropdownWrapper } from "@/common/components/dropdown-menu/styles";
+import { authorizedUser } from "@/store/reducers/user/authorizedUser";
+import { useGetUserByIdQuery } from "@/store/reducers/user/userApi";
+import { ProfileLink } from "@/common/styles/tags/a/ProfileLink";
 
 // TODO Переделать структуру
 export const Post = () => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
+  
+  const userId = authorizedUser();
+  const { data } = useGetUserByIdQuery(Number(userId));
+
   return (
     <PostWrapper>
       <PostTopBarWrapper>
-        <PostUserWrapper>
-          <PostUserAvatar src={defaultAvatar} alt={`...'s avatar`} />
-          <PostUserName>Nagibator228</PostUserName>
-        </PostUserWrapper>
+      <ProfileLink user={data} />
 
         <PostMenuWrapper>
           <PostMenuSubsribeWrapper>
