@@ -1,7 +1,7 @@
-import { AnswersDropDownBtn, AnswersDropDownWrapper, AnswersWrapper } from './styles'
+import { AnswersDropDownBtn, AnswersDropDownWrapper, AnswersWrapper } from '@/common/components/comments/styles'
 import { useState } from 'react';
-import CommentItem from './CommentItem';
-import { useGetAnswersQuery } from '@/store/reducers/shorts/shortsApi';
+import CommentItem from '@/common/components/comments/CommentItem';
+import { useGetAnswersQuery } from '@/store/reducers/comments/comentsApi';
 
 // ToDo
 interface AnswersDropDownProps {
@@ -20,7 +20,7 @@ export default function AnswersDropDown({ parentId }: AnswersDropDownProps) {
           {
             showAnswers &&
             <AnswersWrapper>
-              {data.map((elem) => <CommentItem key={elem.id} comment={elem} />)}
+              {data.map((elem) => <CommentItem key={elem.id} isAnswer={true} comment={elem} />)}
             </AnswersWrapper>
           }
         </AnswersDropDownWrapper >

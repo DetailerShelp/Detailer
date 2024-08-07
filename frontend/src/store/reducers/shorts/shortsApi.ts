@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+// убрать
 const baseUrl = "https://66a61d7f23b29e17a1a1c4ea.mockapi.io/"
 
 export interface Comment {
@@ -13,16 +14,9 @@ export interface Comment {
 
 
 export const shortsApi = createApi({
-  reducerPath: 'pokemonApi',
+  reducerPath: 'shortsApi',
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
-  endpoints: (builder) => ({
-    getComments: builder.query<Comment[], void>({
-      query: () => `comments`,
-    }),
-    getAnswers: builder.query<Comment[], number>({
-      query: (id) => `answers?parentId=${id}`,
-    })
-  }),
+  endpoints: () => ({}),
 })
 
-export const { useGetCommentsQuery,useGetAnswersQuery } = shortsApi;
+export const {} = shortsApi;
