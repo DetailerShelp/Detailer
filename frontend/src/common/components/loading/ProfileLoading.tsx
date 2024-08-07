@@ -23,7 +23,7 @@ import {
   ProfilePostItem,
   ProfilePostList,
 } from "@/modules/user/profile/components/publication/render/styles";
-import { LoadingCircle, LoadingWhiteBlackButton } from "./styles";
+import { LoadingCircle, LoadingWhiteBlackButton } from "@/common/components/loading//styles";
 
 const BackgroundImage = styled(ProfileBackgroungImageWrapper)`
   ${loadingGradient};
