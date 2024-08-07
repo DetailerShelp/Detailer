@@ -25,7 +25,7 @@ export const LikedContent = ({ user }: LikedContentProps) => {
     <LikedSavedWrapper>
       <PageHeaderContent title="Отмеченное" />
       <LikedSavedSearchWrapper>
-        <SearchInput placeholder="Поиск отмеченного" />
+        <SearchInput placeholder="отмеченного" />
       </LikedSavedSearchWrapper>
 
       <LikedSavedContentWrapper>

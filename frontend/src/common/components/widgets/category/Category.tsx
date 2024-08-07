@@ -8,7 +8,7 @@ export const Category = () => {
     <WidgetsWrapper title="Категории">
       <CategoryList>
         <CategoryItem icon="detailing" title="Детейлинг" link="/" />
-        <CategoryItem icon="engine" title="Тех. часть" link="/" />
+        <CategoryItem icon="instruments" title="Тех. часть" link="/" />
         <CategoryItem icon="audio" title="Автозвук" link="/" />
         <CategoryItem icon="exhaust" title="Выхлоп" link="/" />
         <CategoryItem icon="wheel" title="Диски и шины" link="/" />
