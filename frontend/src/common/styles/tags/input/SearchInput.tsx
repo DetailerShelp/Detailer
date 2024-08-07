@@ -62,7 +62,7 @@ export const SearchInput = ({placeholder}: SearchInputProps) => {
       <VisuallyHidden>
         <label htmlFor="search">Поиск</label>
       </VisuallyHidden>
-      <SearchIntInput id="search" placeholder={!!placeholder ? placeholder : "Поиск"} type="text" />
+      <SearchIntInput id="search" placeholder={!!placeholder ? `Поиск ${placeholder}` : "Поиск"} type="text" />
       <SearchIcon iconName="search" />
     </SearchForm>
   );

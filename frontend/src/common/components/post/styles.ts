@@ -1,5 +1,5 @@
-import { clampText, square, styledWrapper } from "@/common/styles/mixins";
-import { borders, colors, device, fonts } from "@/common/styles/styleConstants";
+import { clampText, styledWrapper } from "@/common/styles/mixins";
+import { colors, device, fonts } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 export const PostWrapper = styled("div")`
@@ -8,6 +8,15 @@ export const PostWrapper = styled("div")`
   width: 100%;
   display: flex;
   flex-direction: column;
+  row-gap: 15px;
+
+  @media ${device.tablet} {
+    row-gap: 10px;
+  }
+
+  @media ${device.mobileM} {
+    row-gap: 5px;
+  }
 `;
 
 export const PostTopBarWrapper = styled("div")`
@@ -15,43 +24,15 @@ export const PostTopBarWrapper = styled("div")`
   align-items: center;
   justify-content: space-between;
   column-gap: 30px;
-  padding: 15px 25px;
+  padding: 15px 25px 0px;
 
   @media ${device.tablet} {
-    padding: 10px 20px;
+    padding: 10px 20px 0px;
   }
 
   @media ${device.mobileM} {
-    padding: 5px 10px;
+    padding: 5px 10px 0px;
   }
-`;
-
-export const PostUserWrapper = styled("div")`
-  display: flex;
-  align-items: center;
-  column-gap: 20px;
-
-  @media ${device.tablet} {
-    column-gap: 15px;
-  }
-
-  @media ${device.mobileM} {
-    column-gap: 10px;
-  }
-`;
-
-export const PostUserAvatar = styled("img")`
-  ${square(40)}
-  border-radius: ${borders.circleBorderRadius};
-
-  @media ${device.mobileM} {
-    ${square(35)}
-  }
-`;
-
-export const PostUserName = styled("p")`
-  ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
-  font-weight: ${fonts.weights.medium};
 `;
 
 export const PostMenuWrapper = styled("div")`
@@ -69,6 +50,9 @@ export const PostMenuSubsribeWrapper = styled("div")`
 export const PostPublication = styled("img")`
   width: 100%;
   aspect-ratio: 1;
+
+  object-fit: cover;
+  object-position: center;
 `;
 
 export const PostBottomWrapper = styled("div")`
@@ -76,18 +60,18 @@ export const PostBottomWrapper = styled("div")`
   align-items: center;
   justify-content: space-between;
   column-gap: 30px;
-  padding: 15px 25px;
+  padding-inline: 25px;
 
   @media ${device.tablet} {
-    padding: 10px 20px;
+    padding-inline: 20px;
   }
 
   @media ${device.mobileM} {
-    padding: 5px 10px;
+    padding-inline: 10px;
   }
 `;
 
-export const PostBotomList = styled("ul")`
+export const PostBottomList = styled("ul")`
   display: flex;
   align-items: center;
   column-gap: 30px;
@@ -108,8 +92,8 @@ export const PostBottomItem = styled("li")`
 `;
 
 export const PostDescription = styled("p")`
+  ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)}
   padding-inline: 25px;
-  font-size: 15px;
 
   @media ${device.tablet} {
     padding-inline: 20px;
@@ -121,16 +105,16 @@ export const PostDescription = styled("p")`
 `;
 
 export const PostTime = styled("time")`
-  font-size: 12px;
+  ${clampText(fonts.sizes.dropdownMobile, fonts.sizes.dropdown)}
   color: ${colors.grayAccent};
   text-align: start;
-  padding: 10px 25px 25px;
+  padding: 0px 25px 25px;
 
   @media ${device.tablet} {
-    padding: 10px 20px 15px;
+    padding: 0px 20px 15px;
   }
 
   @media ${device.mobileM} {
-    padding: 5px 10px 10px;
+    padding: 0px 10px 10px;
   }
 `;

@@ -20,8 +20,7 @@ export const ProfileWrapper = styled("div")`
   width: 100%;
   background-color: ${colors.whiteTotal};
   border: ${borders.defaultBorder};
-  border-top-left-radius: ${borders.defaultBorderRadius};
-  border-top-right-radius: ${borders.defaultBorderRadius};
+  border-radius: ${borders.defaultBorderRadius};
   box-shadow: ${shadows.defaultShadow};
   display: flex;
   flex-direction: column;

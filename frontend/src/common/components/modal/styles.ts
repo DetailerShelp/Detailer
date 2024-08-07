@@ -74,7 +74,8 @@ export const ModalButtonsWrapper = styled("div")`
 `;
 
 export const ModalSearchWrapper = styled("div")`
-  width: 100%;
+  margin-inline: auto;  
+  ${clampWidth(300, 400)}
 `;
 
 export const ModalScrollContentWrapper = styled("div")`

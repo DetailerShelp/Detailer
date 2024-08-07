@@ -27,7 +27,7 @@ export const SavedContent = ({ user }: SavedContentProps) => {
       <PageHeaderContent title="Сохраненное" />
 
       <LikedSavedSearchWrapper>
-        <SearchInput placeholder="Поиск сохраненного" />
+        <SearchInput placeholder="сохраненного" />
       </LikedSavedSearchWrapper>
 
       <LikedSavedContentWrapper>
