@@ -5,7 +5,6 @@ import {
   PostDescription,
   PostMenuSubsribeWrapper,
   PostMenuWrapper,
-  PostPublication,
   PostTime,
   PostTopBarWrapper,
   PostWrapper,
@@ -17,26 +16,29 @@ import { useState } from "react";
 import { PostDropdownMenu } from "@/common/components/post/components/PostDropdownMenu";
 import { DropdownWrapper } from "@/common/components/dropdown-menu/styles";
 import { authorizedUser } from "@/store/reducers/user/authorizedUser";
-import { useGetUserByIdQuery } from "@/store/reducers/user/userApi";
 import { ProfileLink } from "@/common/styles/tags/a/ProfileLink";
+import { PostInfo } from "@/store/reducers/post/types";
+import { PublicationSlider } from "../publicationSlider/PublicationSlider";
+
+interface PostProps {
+  post?: PostInfo;
+}
 
 // TODO Переделать структуру
-export const Post = () => {
+export const Post = ({ post }: PostProps) => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
-  
+
   const userId = authorizedUser();
-  const { data } = useGetUserByIdQuery(Number(userId));
 
   return (
     <PostWrapper>
       <PostTopBarWrapper>
-      <ProfileLink user={data} />
+        <ProfileLink user={post?.createdUser} />
 
         <PostMenuWrapper>
           <PostMenuSubsribeWrapper>
             <WhiteButtonWithIcon title="Подписаться" size={30} icon="plus" />
           </PostMenuSubsribeWrapper>
-          {/* //TODO Добавить плавное отображение dropdown */}
           <DropdownWrapper
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
@@ -47,19 +49,30 @@ export const Post = () => {
         </PostMenuWrapper>
       </PostTopBarWrapper>
 
-      <PostPublication src="https://arte1.ru/images/detailed/1/10281.jpg" />
+      {!!post?.publicationImg && (
+        <>
+          <PublicationSlider
+            imageVideo={post.publicationImg}
+            description={post.description}
+          />
+        </>
+      )}
 
       <PostBottomWrapper>
         <PostBottomList>
           <PostBottomItem>
-            <PostButtonFunctions icon="like" title="Нравится" count={52} />
+            <PostButtonFunctions
+              icon="like"
+              title="Нравится"
+              count={post?.likedUsers}
+            />
           </PostBottomItem>
 
           <PostBottomItem>
             <PostButtonFunctions
               icon="comment"
               title="Комментарии"
-              count={24}
+              count={post?.likedUsers}
             />
           </PostBottomItem>
 
@@ -71,12 +84,11 @@ export const Post = () => {
         <PostButtonFunctions icon="saved" title="Сохранить" />
       </PostBottomWrapper>
 
-      <PostDescription>
-        Описание — композиционная форма, которую используют в литературоведении
-        и лингвистике для подробной характеристики предметов или явлений.
-      </PostDescription>
+      {!!post?.description && (
+        <PostDescription>{post.description}</PostDescription>
+      )}
 
-      <PostTime>15 минут назад</PostTime>
+      <PostTime>{post?.createdAt}</PostTime>
     </PostWrapper>
   );
 };
