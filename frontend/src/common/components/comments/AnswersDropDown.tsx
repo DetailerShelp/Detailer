@@ -1,7 +1,7 @@
 import { AnswersDropDownBtn, AnswersDropDownWrapper, AnswersWrapper } from '@/common/components/comments/styles'
 import { useState } from 'react';
 import CommentItem from '@/common/components/comments/CommentItem';
-import { useGetAnswersQuery } from '@/store/reducers/comments/comentsApi';
+import { useGetAnswersQuery } from '@/store/reducers/comments/commentsApi';
 
 // ToDo
 interface AnswersDropDownProps {

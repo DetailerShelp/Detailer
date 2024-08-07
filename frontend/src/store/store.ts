@@ -4,7 +4,7 @@ import { userApi } from "@/store/reducers/user/userApi";
 import { newChatReducer } from "@/store/messenger/chatSlice";
 import { shortsApi } from "@/store/reducers/shorts/shortsApi";
 import { commentsReducer } from "@/store/reducers/comments/commentsSlice";
-import { commentsApi } from "@/store/reducers/comments/comentsApi";
+import { commentsApi } from "@/store/reducers/comments/commentsApi";
 import { answerWhomReducer } from "@/store/reducers/comments/answerWhomSlice";
 
 const rememberedReducers = [""];

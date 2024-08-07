@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Comment } from "@/store/reducers/comments/comentsApi"
+import { Comment } from "@/store/reducers/comments/commentsApi"
 
 export interface CommentWithAnswers {
     comment: Comment,
