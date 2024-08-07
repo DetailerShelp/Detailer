@@ -37,7 +37,7 @@ const RenderShortPreviewChats = ({ onClick }: RenderShortPreviewChatsProps) => {
                     </ShortPreviewChat>
                 );
             })}
-            
+
             <FooterWrapper>
                 <BlackWhiteButton color="white" title="Отмена" size={30} click={handleClose}/>
             </FooterWrapper>

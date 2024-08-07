@@ -18,6 +18,8 @@ const useDataMessageStore = ({ chatId, mesId }: useDataMessageStoreProps) => {
         pinnedMessage: currentChat.pinnedMessage,
         isForward: currentChat.answeredMessages || storeChats.forwardMes,
         theme: currentChat.theme,
+        editedMessage: currentChat.messages.find(mes => mes.id === currentChat.editedMessageId),
+        editedMessageId: currentChat.editedMessageId,
     }
 };
 

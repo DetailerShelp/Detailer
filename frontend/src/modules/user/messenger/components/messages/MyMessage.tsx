@@ -21,6 +21,7 @@ interface MessageProps {
     forwardMes?: IForwardMessage;
     isFirst?: boolean;
     isLast?: boolean;
+    isEdited?: boolean;
 };
 
 const MyMessage = ({
@@ -33,6 +34,7 @@ const MyMessage = ({
     forwardMes,
     isFirst,
     isLast,
+    isEdited,
 }: MessageProps) => {
     const [focus, setFocus] = useState(false);
     const [dropdownIsOpen, setDropdownOpen] = useState(false);
@@ -56,7 +58,8 @@ const MyMessage = ({
         setAnsweredMessage,
         deleteMessage,
         pinMessage,
-        addForwardMessage
+        addForwardMessage,
+        setEditedMessage,
     } = useActions();
 
     const handleRightClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -99,6 +102,10 @@ const MyMessage = ({
         setDropdownOpen(false);
     }, [chatId, mesId]);
 
+    const handleEdit = useCallback(() => {
+        setEditedMessage({ chatId: chatId, mesId: mesId });
+    }, [chatId, mesId]);
+
     const setOpen = () => {
         setOpenModal(false);
         setDropdownOpen(false);
@@ -124,8 +131,8 @@ const MyMessage = ({
                 <ForwardMessage forwardMessages={forwardMessages} />
 
                 <MessageContent text={text} media={media} />
-
-                <MessageInfo time={time} />
+                
+                <MessageInfo time={time} isEdited={isEdited} />
 
                 <MessageDropdownMenu
                     isOpen={dropdownIsOpen}
@@ -134,6 +141,7 @@ const MyMessage = ({
                     handleDelete={handleDelete}
                     handlePinMessage={handlePinMessage}
                     handleForwardMessage={handleForwardMessage}
+                    handleEdit={handleEdit}
                     x={x}
                     y={y}
                 />

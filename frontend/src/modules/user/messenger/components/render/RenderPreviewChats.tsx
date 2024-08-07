@@ -1,6 +1,6 @@
 import MessageInfo from "@/modules/user/messenger/components/MessageInfo";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
-import { useAppSelector } from "@/common/hooks/useAppSelector";
+import { useAppSelector } from "@/common/hooks/useAppSelector"
 import { 
     MessageText, 
     ChatAvatar, 

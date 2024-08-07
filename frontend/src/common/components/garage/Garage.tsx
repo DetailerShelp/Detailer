@@ -2,7 +2,7 @@ import {
   GarageBottomList,
   GarageBottomItem,
   GarageBottomWrapper,
-  GarageButtonWrpper,
+  GarageButtonWrapper,
   GarageCharcteristicTitle,
   GarageContentWrapper,
   GarageDescription,
@@ -119,9 +119,9 @@ export const Garage = () => {
 
       <GarageTime>15 минут назад</GarageTime>
 
-      <GarageButtonWrpper>
+      <GarageButtonWrapper>
         <BlackWhiteButton size={40} color="black" title="Написать сообщение" />
-      </GarageButtonWrpper>
+      </GarageButtonWrapper>
     </GarageWrapper>
   );
 };
