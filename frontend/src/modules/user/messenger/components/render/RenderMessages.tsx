@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Message from "@/modules/user/messenger/components/messages/Message";
 import MyMessage from "@/modules/user/messenger/components/messages/MyMessage";
 import React, { useCallback, useEffect, useRef } from "react";
-import { useAppSelector } from "@/common/hooks/useAppselector";
+import { useAppSelector } from "@/common/hooks/useAppSelector";
 
 interface RenderMessagesProps {
     id: string | number;

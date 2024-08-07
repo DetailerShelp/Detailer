@@ -1,5 +1,5 @@
 import { useActions } from "@/store/actions";
-import { useAppSelector } from "@/common/hooks/useAppselector";
+import { useAppSelector } from "@/common/hooks/useAppSelector";
 import EditMessage from "@/modules/user/messenger/components/extraInfo/components/EditMessage";
 import InfoBox from "@/modules/user/messenger/components/extraInfo/components/InfoBox";
 import { ForwardsMessageWrapper } from "@/modules/user/messenger/components/extraInfo/style";
