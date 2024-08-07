@@ -7,7 +7,7 @@ import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import defaultAvatar from "@/common/images/avatar.png";
-import PinMessage from "@/modules/user/messenger/components/PinMessage";
+import PinMessage from "@/modules/user/messenger/components/extraInfo/PinMessage";
 import useDataMessageStore from "@/modules/user/messenger/hooks/useDataMessageStore";
 
 interface NavigateInfoChatProps {
