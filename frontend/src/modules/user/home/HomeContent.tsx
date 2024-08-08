@@ -3,8 +3,7 @@ import { Post } from "@/common/components/post/Post";
 import { Garage } from "@/common/components/garage/Garage";
 import { GarageLoading } from "@/common/components/loading/GarageLoading";
 import { PostLoading } from "@/common/components/loading/PostLoading";
-import { useGetPostByIdQuery } from "@/store/reducers/post/postApi";
-
+import { useGetPostsQuery } from "@/store/reducers/post/postApi";
 
 const Wrapper = styled("div")`
   width: 100%;
@@ -13,11 +12,21 @@ const Wrapper = styled("div")`
   row-gap: 25px;
 `;
 export const HomeContent = () => {
-  const { data, isLoading } = useGetPostByIdQuery(1);
+  const { data, isLoading } = useGetPostsQuery();
 
   return (
     <Wrapper>
-      {isLoading ? <PostLoading /> : <Post post={data} />}
+      {isLoading ? (
+        <PostLoading />
+      ) : (
+        data?.map((item) =>
+          isLoading ? (
+            <PostLoading key={item.id} />
+          ) : (
+            <Post key={item.id} post={item} />
+          )
+        )
+      )}
       <Garage />
       <GarageLoading />
     </Wrapper>

@@ -55,10 +55,10 @@ export const PublicationSlider = ({
   description,
 }: PublicationSliderProps) => {
   const [currentCount, setCurrentCount] = useState(0);
-  const count = imageVideo.length || 0;
+  const count = imageVideo.length || 1;
   return (
     <PublicationWrapper>
-      {count !== 0 && (
+      {count !== 1 && (
         <PublicationCount>{`${currentCount + 1}/${count}`}</PublicationCount>
       )}
 

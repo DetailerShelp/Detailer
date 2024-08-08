@@ -2,7 +2,6 @@ import {
   PostBottomList,
   PostBottomItem,
   PostBottomWrapper,
-  PostDescription,
   PostMenuSubsribeWrapper,
   PostMenuWrapper,
   PostTime,
@@ -15,10 +14,10 @@ import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { useState } from "react";
 import { PostDropdownMenu } from "@/common/components/post/components/PostDropdownMenu";
 import { DropdownWrapper } from "@/common/components/dropdown-menu/styles";
-import { authorizedUser } from "@/store/reducers/user/authorizedUser";
 import { ProfileLink } from "@/common/styles/tags/a/ProfileLink";
 import { PostInfo } from "@/store/reducers/post/types";
-import { PublicationSlider } from "../publicationSlider/PublicationSlider";
+import { PublicationSlider } from "@/common/components/publicationSlider/PublicationSlider";
+import { MoreDescriptionButton } from "@/common/styles/tags/button/MoreDescriptionButton";
 
 interface PostProps {
   post?: PostInfo;
@@ -27,8 +26,6 @@ interface PostProps {
 // TODO Переделать структуру
 export const Post = ({ post }: PostProps) => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
-
-  const userId = authorizedUser();
 
   return (
     <PostWrapper>
@@ -84,9 +81,7 @@ export const Post = ({ post }: PostProps) => {
         <PostButtonFunctions icon="saved" title="Сохранить" />
       </PostBottomWrapper>
 
-      {!!post?.description && (
-        <PostDescription>{post.description}</PostDescription>
-      )}
+      <MoreDescriptionButton description={post?.description} />
 
       <PostTime>{post?.createdAt}</PostTime>
     </PostWrapper>
