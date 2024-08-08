@@ -8,7 +8,9 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import ModalMedia from "@/modules/user/messenger/components/modal/ModalMedia";
 import BottomSheet from "@/modules/user/messenger/components/extraInfo/BottomSheet";
-import useDataMessageStore from "../hooks/useDataMessageStore";
+import useDataMessageStore from "@/modules/user/messenger/hooks/useDataMessageStore";
+import data from '@emoji-mart/data'
+import Picker from '@emoji-mart/react'
 
 interface CreaterMessageProps {
     id: number | string;
@@ -53,13 +55,21 @@ const MessageTextWrapper = styled('div')`
     height: 60px;
 `
 
+const PickerWrapper = styled('div')`
+    position: absolute;
+    bottom: 60px;
+    right: 10px;
+    padding-bottom: 40px;
+`
+
 const CreaterMessage = ({ id }: CreaterMessageProps) => {
     const { editedMessage, editedMessageId } = useDataMessageStore({ chatId: id });
 
     const [text, setText] = useState<string>('');
     const [modalOpen, setModalOpen] = useState(false);
     const [media, setMedia] = useState<File>();
-
+    const [showPicker, setShowPicker] = useState(false);
+    
     const {
         addNewMessage,
         setTextMessage,
@@ -91,6 +101,11 @@ const CreaterMessage = ({ id }: CreaterMessageProps) => {
                 addNewMessage({ text: text, chatId: id });
                 setText('');
             }
+        setShowPicker(false);
+    };
+
+    const handleAddEmoji = (emoji: { native: string }) => {
+        setText(prev => prev + emoji.native);
     };
 
     const handleAddFile = (file: File) => {
@@ -111,7 +126,7 @@ const CreaterMessage = ({ id }: CreaterMessageProps) => {
 
             <MessageWrapper onSubmit={handleNewMes}>
                 <DragAndDropUpload onFile={handleAddFile} multiple={false}>
-                    <MessageToolWrapper>
+                    <MessageToolWrapper type="button">
                         <MessageTool iconName="clip" />
                     </MessageToolWrapper>
                 </DragAndDropUpload>
@@ -126,8 +141,16 @@ const CreaterMessage = ({ id }: CreaterMessageProps) => {
                     />
                 </MessageTextWrapper>
 
-                <MessageToolWrapper>
+                <MessageToolWrapper
+                    type="button"
+                    onMouseEnter={() => setShowPicker(true)}
+                    onMouseLeave={() => setShowPicker(false)}
+                >
                     <MessageTool iconName="emoticon" />
+
+                    <PickerWrapper>
+                        {showPicker && <Picker dats={data} onEmojiSelect={handleAddEmoji} theme='light'/>}
+                    </PickerWrapper>
                 </MessageToolWrapper>
 
                 <MessageToolWrapper type="submit">
