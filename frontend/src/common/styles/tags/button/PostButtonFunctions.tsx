@@ -14,7 +14,7 @@ import { normalizeCount } from "@/common/helpers/countHelpers";
 
 const ButtonWrapper = styled("div")`
   ${flexCenter}
-  column-gap: 10px;
+  column-gap: 5px;
 `;
 
 const Button = styled("button")`
@@ -34,7 +34,7 @@ const ButtonIcon = styled(SvgHelper)`
 `;
 
 const ButtonCount = styled("span")`
-  ${clampText(fonts.sizes.extraSmall, fonts.sizes.extraSmallMobile)}
+  ${clampText(fonts.sizes.dropdownMobile, fonts.sizes.dropdown)}
   color: ${colors.grayAccent};
   user-select: none;
 `;

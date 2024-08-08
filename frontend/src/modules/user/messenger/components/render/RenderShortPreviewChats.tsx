@@ -1,4 +1,4 @@
-import { useAppSelector } from "@/common/hooks/useAppselector"
+import { useAppSelector } from "@/common/hooks/useAppSelector"
 import { BlackWhiteButton } from "@/common/styles/tags/button/BlackWhiteButton"
 import { useActions } from "@/store/actions"
 import { 
@@ -37,7 +37,7 @@ const RenderShortPreviewChats = ({ onClick }: RenderShortPreviewChatsProps) => {
                     </ShortPreviewChat>
                 );
             })}
-            
+
             <FooterWrapper>
                 <BlackWhiteButton color="white" title="Отмена" size={30} click={handleClose}/>
             </FooterWrapper>

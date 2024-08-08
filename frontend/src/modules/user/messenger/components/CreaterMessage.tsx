@@ -4,10 +4,13 @@ import { flexCenter, hoverActive, resetButton } from "@/common/styles/mixins";
 import { borders, colors, device } from "@/common/styles/styleConstants";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { useActions } from "@/store/actions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import ModalMedia from "@/modules/user/messenger/components/modal/ModalMedia";
-import ForwardsMessage from "@/modules/user/messenger/components/ForwardsMessage";
+import BottomSheet from "@/modules/user/messenger/components/extraInfo/BottomSheet";
+import useDataMessageStore from "@/modules/user/messenger/hooks/useDataMessageStore";
+import data from '@emoji-mart/data'
+import Picker from '@emoji-mart/react'
 
 interface CreaterMessageProps {
     id: number | string;
@@ -52,20 +55,57 @@ const MessageTextWrapper = styled('div')`
     height: 60px;
 `
 
+const PickerWrapper = styled('div')`
+    position: absolute;
+    bottom: 60px;
+    right: 10px;
+    padding-bottom: 40px;
+`
+
 const CreaterMessage = ({ id }: CreaterMessageProps) => {
-    const [text, setText] = useState('');
+    const { editedMessage, editedMessageId } = useDataMessageStore({ chatId: id });
+
+    const [text, setText] = useState<string>('');
     const [modalOpen, setModalOpen] = useState(false);
     const [media, setMedia] = useState<File>();
+    const [showPicker, setShowPicker] = useState(false);
+    
+    const {
+        addNewMessage,
+        setTextMessage,
+        setEditedMessage,
+    } = useActions();
 
-    const { addNewMessage } = useActions();
+    useEffect(() => {
+        if (editedMessage) {
+            setText(editedMessage.text || '');
+        } else {
+            setText('');
+        }
+    }, [editedMessage?.text, editedMessageId])
 
     const handleNewMes = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (text.trim()) {
-            addNewMessage({ text: text, chatId: id! });
-            setText('');
-        }
+        if (text.trim())
+            if (editedMessage) {
+                if (text !== editedMessage.text) {
+                    setTextMessage({ text: text, chatId: id, mesId: editedMessageId })
+                }
+                else {
+                    setEditedMessage({ chatId: id, mesId: undefined });
+                }
+                setText('');
+            }
+            else {
+                addNewMessage({ text: text, chatId: id });
+                setText('');
+            }
+        setShowPicker(false);
+    };
+
+    const handleAddEmoji = (emoji: { native: string }) => {
+        setText(prev => prev + emoji.native);
     };
 
     const handleAddFile = (file: File) => {
@@ -82,11 +122,11 @@ const CreaterMessage = ({ id }: CreaterMessageProps) => {
                 media={media!}
             />
 
-            <ForwardsMessage idChat={id}/>
+            <BottomSheet idChat={id} />
 
             <MessageWrapper onSubmit={handleNewMes}>
                 <DragAndDropUpload onFile={handleAddFile} multiple={false}>
-                    <MessageToolWrapper>
+                    <MessageToolWrapper type="button">
                         <MessageTool iconName="clip" />
                     </MessageToolWrapper>
                 </DragAndDropUpload>
@@ -101,8 +141,16 @@ const CreaterMessage = ({ id }: CreaterMessageProps) => {
                     />
                 </MessageTextWrapper>
 
-                <MessageToolWrapper>
+                <MessageToolWrapper
+                    type="button"
+                    onMouseEnter={() => setShowPicker(true)}
+                    onMouseLeave={() => setShowPicker(false)}
+                >
                     <MessageTool iconName="emoticon" />
+
+                    <PickerWrapper>
+                        {showPicker && <Picker dats={data} onEmojiSelect={handleAddEmoji} theme='light'/>}
+                    </PickerWrapper>
                 </MessageToolWrapper>
 
                 <MessageToolWrapper type="submit">
