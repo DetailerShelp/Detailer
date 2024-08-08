@@ -1,6 +1,6 @@
 import { ShortsVideosWrapper, ShortsWrapper } from "@/modules/user/shorts/styles";
 import { useEffect, useRef, useState } from "react";
-import Short from "./Short";
+import Short from "@/modules/user/shorts/components/Short";
 import { videoLinks } from "@/modules/user/shorts/videos";
 import ShortsSidePanel from "@/modules/user/shorts/components/ShortsSidePanel";
 

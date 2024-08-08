@@ -1,19 +1,27 @@
 import SvgHelper from "@/common/svg-helper/SvgHelper";
-import { AccountsAvatar } from "../widgets/accounts/styles";
-import { CommentAnswer, CommentAuthor, CommentAvatar, CommentInformation, CommentLikesCount, CommentLikesWrapper, CommentMessage, CommentThread, CommentTimeSending, CommentWrapper } from "./styles";
-import AnswersDropDown from "./AnswersDropDown";
+import { AccountsAvatar } from "@/common/components/widgets/accounts/styles";
+import { CommentAnswer, CommentAuthor, CommentAvatar, CommentInformation, CommentLikesCount, CommentLikesWrapper, CommentMessage, CommentThread, CommentTimeSending, CommentWrapper } from "@/common/components/comments/styles";
+import AnswersDropDown from "@/common/components/comments/AnswersDropDown";
 import { Comment } from "@/store/reducers/shorts/shortsApi";
+import { useActions } from "@/store/actions";
 
 interface CommentItemProps {
-    comment: Comment
+    comment: Comment,
+    isAnswer: boolean
 }
 
-export default function CommentItem({ comment }: CommentItemProps) {
+export default function CommentItem({ comment, isAnswer }: CommentItemProps) {
     const { author, message, likes } = comment;
+    const { setAnswerWhom, resetAnswerWhom } = useActions();
+
+    const handleClickMessage = () => {
+        resetAnswerWhom();
+        setAnswerWhom(comment.author);
+    }
     
     return (
         <CommentThread>
-            <CommentWrapper>
+            <CommentWrapper onClick={() => isAnswer ? {} : handleClickMessage()}>
                 <CommentAvatar>
                     <AccountsAvatar />
                 </CommentAvatar>
@@ -29,7 +37,7 @@ export default function CommentItem({ comment }: CommentItemProps) {
                     <CommentLikesCount>{likes}</CommentLikesCount>
                 </CommentLikesWrapper>
             </CommentWrapper>
-            {comment.answersCount && <AnswersDropDown parentId={comment.id} />}
+            {!isAnswer && <AnswersDropDown parentId={comment.id} />}
         </CommentThread>
     )
 }
