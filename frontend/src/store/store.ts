@@ -5,12 +5,12 @@ import { newChatReducer } from "@/store/messenger/chatSlice";
 import { shortsApi } from "@/store/reducers/shorts/shortsApi";
 import { commentsReducer } from "@/store/reducers/comments/commentsSlice";
 import { commentsApi } from "@/store/reducers/comments/commentsApi";
-import { answerWhomReducer } from "@/store/reducers/comments/answerWhomSlice";
+import { newCommentReducer } from "./reducers/comments/newCommentSlice";
 
 const rememberedReducers = [""];
 
 const rootReducer = combineReducers({
-  answerWhomReducer,
+  newCommentReducer,
   commentsReducer,
   newChatReducer,
   [userApi.reducerPath]: userApi.reducer,

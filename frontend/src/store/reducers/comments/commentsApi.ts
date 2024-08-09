@@ -1,13 +1,14 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { NewCommentSlice } from './newCommentSlice';
 
 const baseUrl = "https://66a61d7f23b29e17a1a1c4ea.mockapi.io/"
 
-export interface Comment {
+export interface CommentType {
     id: number,
     author: string,
     message: string,
     likes: number,
-    answersCount?: number
+    answersCount?: number,
     parentId?: number
 }
 
@@ -15,33 +16,29 @@ export interface Comment {
 export const commentsApi = createApi({
     reducerPath: 'commentsApi',
     baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
+    tagTypes: ['CREATE'],
     endpoints: (builder) => ({
-        getComments: builder.query<Comment[], void>({
+        getComments: builder.query<CommentType[], void>({
             query: () => `comments`,
+            providesTags: ['CREATE']
         }),
-        getAnswers: builder.query<Comment[], number>({
+        getAnswers: builder.query<CommentType[], number>({
             query: (id) => `answers?parentId=${id}`,
+            providesTags: ['CREATE']
         }),
-        createComment: builder.mutation<void, Comment>({
-            query: (comment) => ({
-                url: `comments`,
+        createComment: builder.mutation<void, NewCommentSlice>({
+            query: ({isAnswer, comment}) => ({
+                url: `${isAnswer ? 'answers' : 'comments'}`,
                 method: 'POST',
                 body: comment
             }),
+            invalidatesTags: ['CREATE']
         }),
-        createAnswer: builder.mutation<void, Comment>({
-            query: (answer) => ({
-                url: `answers`,
-                method: 'POST',
-                body: answer
-            })
-        })
     }),
 })
 
 export const { 
     useGetCommentsQuery,
     useGetAnswersQuery,
-    useCreateAnswerMutation,
     useCreateCommentMutation,
 } = commentsApi;
