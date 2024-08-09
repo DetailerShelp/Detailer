@@ -50,13 +50,17 @@ const BottomSheet = ({ idChat }: ForwardsMessageProps) => {
         <ForwardsMessageWrapper>
             {forwardMes ?
                 <>
-                    <InfoBox title={forwardMes?.author} message={forwardMes?.text} />
-                    <CloseButton onClose={handleDeleteForwards}/>
+                    <InfoBox 
+                        title={forwardMes?.author} 
+                        message={forwardMes?.text} 
+                        mediaType={forwardMes.media?.type.split('/')[0]}
+                    />
+                    <CloseButton onClose={handleDeleteForwards} />
                 </>
                 :
                 <>
                     <EditMessage editMessage={editMessage} handleNewMedia={handleNewMedia} />
-                    <CloseButton onClose={handleCancelEdit}/>
+                    <CloseButton onClose={handleCancelEdit} />
                 </>}
         </ForwardsMessageWrapper>
     )

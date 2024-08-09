@@ -28,6 +28,7 @@ export interface IChat {
     answeredMessages?: number | string; //указатель на id сообщения на которое мы ответили
     pinnedMessage?: number | string; //закрепленное сообщение чата
     notification?: boolean; //включены выключены уведомления
+    speaker?: boolean;//включен или выключен звук
     theme?: string; //продумать как файл передаеся, только url его или полностью файл
     editedMessageId?: number | string;
 };

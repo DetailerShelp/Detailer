@@ -11,8 +11,13 @@ interface ChatDropdownMenuProps {
 const ChatDropdownMenu = ({ chatId }: ChatDropdownMenuProps) => {
     const loader = useRef<HTMLInputElement>(null);
 
-    const {currentChat} = useDataMessageStore({chatId: chatId});
-    const { clearChatMessages, changeNotification, changeTheme } = useActions();
+    const { currentChat } = useDataMessageStore({ chatId: chatId });
+    const {
+        clearChatMessages,
+        changeNotification,
+        changeTheme,
+        setSpeakeMesasges
+    } = useActions();
 
     const handleClear = () => {
         clearChatMessages({ chatId: chatId });
@@ -20,6 +25,10 @@ const ChatDropdownMenu = ({ chatId }: ChatDropdownMenuProps) => {
 
     const handleNotification = () => {
         changeNotification({ chatId: chatId });
+    };
+
+    const handleSetSpeaker = () => {
+        setSpeakeMesasges({ chatId: chatId });
     };
 
     const hadleTheme = () => {
@@ -31,7 +40,7 @@ const ChatDropdownMenu = ({ chatId }: ChatDropdownMenuProps) => {
     const handleChangeTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
             const file = e.target.files[0] as File;
-            changeTheme({chatId: chatId, media: file});
+            changeTheme({ chatId: chatId, media: file });
         };
     };
 
@@ -39,11 +48,15 @@ const ChatDropdownMenu = ({ chatId }: ChatDropdownMenuProps) => {
         <>
             <DropdownMenu style={{ top: '100%', zIndex: '10' }}>
                 <DropdownMenuItem
-                    icon="call"
-                    title={!currentChat.notification ? 'Включить уведомления' : 'Выключить уведомления'}
+                    icon={!currentChat.notification ? 'call' : 'notCall'}
+                    title={!currentChat.notification ? 'Включить уведомления' : 'Отключить уведомления'}
                     onClick={handleNotification}
                 />
-                <DropdownMenuItem icon="speaker" title="Включить звук" />
+                <DropdownMenuItem
+                    icon={!currentChat.speaker ? 'speaker' : 'notSpeaker'}
+                    title={!currentChat.speaker ? 'Включить звук' : 'Выключить звук'}
+                    onClick={handleSetSpeaker}
+                />
                 <DropdownMenuItem icon="image" title="Оформление чата" onClick={hadleTheme} />
                 <DropdownMenuItem icon="clear" title="Очистить историю" onClick={handleClear} />
                 <DropdownMenuItem icon="trash" title="Удалить чат" isRed={true} />

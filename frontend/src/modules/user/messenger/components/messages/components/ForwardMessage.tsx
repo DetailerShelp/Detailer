@@ -1,27 +1,30 @@
-import { IMessage } from "@/store/messenger/messengerTypes";
+import { IMessage } from "@/store/reducers/messenger/messengerTypes";
 import { AnswerdMessageText, AnswerdMessageWrapper } from "@/modules/user/messenger/components/messages/style";
-import styled from "styled-components";
 import { colors } from "@/common/styles/styleConstants";
+import TypeMedia from "@/modules/user/messenger/components/helpers/TypeMedia";
 
 interface ForwardMessageProps {
-    forwardMessages?: IMessage
+    forwardMessages?: IMessage;
+    isMine: boolean;
 };
 
-const ForwardMessageText = styled('span')`
-    color: ${colors.gray};
-`
-
-const ForwardMessage = ({ forwardMessages }: ForwardMessageProps) => {
+const ForwardMessage = ({ forwardMessages, isMine }: ForwardMessageProps) => {
     if (!forwardMessages) {
         return null;
     }
 
     return (
         <AnswerdMessageWrapper>
-            <AnswerdMessageText>
-                {forwardMessages?.author}
+            <AnswerdMessageText $isMine={isMine}>
+                <span style={{ color: isMine ? colors.white : colors.myMesDefault }}>{forwardMessages?.author}</span>
                 <br />
-                <ForwardMessageText>{forwardMessages.text}</ForwardMessageText>
+                <span style={{ color: isMine ? colors.gray : colors.black }}>
+                    {forwardMessages.media && !forwardMessages.text ?
+                        <TypeMedia mediaInfo={forwardMessages.media.type.split('/')[0]}/>
+                        :
+                        forwardMessages.text
+                    }
+                </span>
             </AnswerdMessageText>
         </AnswerdMessageWrapper>
     )
