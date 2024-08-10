@@ -57,7 +57,7 @@ export const colors = {
   grayScrollBar: `${getColorName("scrollBarColor")}`,
   grayScrollBarHover: `${getColorName("scrollBarHover")}`,
   grayScrollBarActive: `${getColorName("scrollBarActive")}`,
-  messageDefault: `rgba(255, 255, 255, 1)`, 
+  messageDefault: `rgba(255, 255, 255, 1)`,
 
   //Black
   blackTotal: `${getColorName("mainText")}`,
@@ -65,7 +65,7 @@ export const colors = {
   blackBackground: `${getColorName("buttonBackground")}`,
   blackThumb: `${getColorName("thumbColor")}`,
   shadow: `${getColorName("shadow")}`,
-  loadingGradient: `${getColorName("loadingGradient")}`, 
+  loadingGradient: `${getColorName("loadingGradient")}`,
 
   //Constant Colors
   white: "rgba(255, 255, 255, 1)",
@@ -76,11 +76,11 @@ export const colors = {
   darkBlue: "rgba(0, 26, 255, 1)",
   red: "rgba(253, 0, 0, 1)",
   green: "rgba(4, 204, 0, 1)",
-  gray: "rgba(217, 217, 217, 1)", 
-  
+  gray: "rgba(217, 217, 217, 1)",
+
   //Blue
-  myMesActive: `rgba(0, 26, 255, 1)`, 
-  myMesDefault: `rgba(0, 117, 255, 1)`, 
+  myMesActive: `rgba(0, 26, 255, 1)`,
+  myMesDefault: `rgba(0, 117, 255, 1)`,
 };
 
 export const shadows = {
@@ -124,7 +124,7 @@ export const fonts = {
     mainMobile: 15,
     small: 15,
     smallMobile: 12,
-    dropdown: 14, 
+    dropdown: 14,
     dropdownMobile: 12,
     extraSmall: 12,
     extraSmallMobile: 10,
@@ -136,8 +136,7 @@ export const fonts = {
     semiBold: 600,
     medium: 500,
     regular: 400,
-  }
+  },
 };
-
 
 export const mainFont = "'Montserrat', sans-serif";

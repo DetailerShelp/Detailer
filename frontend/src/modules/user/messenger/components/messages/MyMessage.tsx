@@ -2,7 +2,7 @@ import { useCallback, useRef, useState } from "react";
 import {
     MyMessageWrapper,
 } from "@/modules/user/messenger/components/messages/style";
-import MessageDropdownMenu from "@/modules/user/messenger/components/DropMenu/MessageDropdownMenu";
+import MessageDropdownMenu from "@/modules/user/messenger/components/dropMenu/MessageDropdownMenu";
 import { useActions } from "@/store/actions";
 import { IForwardMessage } from "@/store/messenger/messengerTypes";
 import useDataMessageStore from "@/modules/user/messenger/hooks/useDataMessageStore";
