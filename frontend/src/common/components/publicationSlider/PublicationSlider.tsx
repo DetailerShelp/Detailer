@@ -1,21 +1,39 @@
 import { clampText } from "@/common/styles/mixins";
-import { borders, colors, fonts } from "@/common/styles/styleConstants";
+import {
+  borders,
+  colors,
+  fonts,
+  transitions,
+} from "@/common/styles/styleConstants";
 import { PublicationArrowButton } from "@/common/styles/tags/button/PublicationArrowButton";
-import { useState } from "react";
+import { TouchEvent, useState } from "react";
 import styled from "styled-components";
 
-const PublicationWrapper = styled("ul")`
+const PublicationWrapper = styled("div")`
   width: 100%;
   aspect-ratio: 1;
   position: relative;
 `;
 
+const PublicationImagesWrapper = styled("div")`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+`;
+
 const PublicationImg = styled("img")`
   width: 100%;
-  aspect-ratio: 1;
+  height: 100%;
 
   object-fit: cover;
   object-position: center;
+
+  display: block;
+  flex-shrink: 0;
+  flex-grow: 0;
+
+  transition: ${transitions.mediumTransition};
 `;
 
 const PublicationArrowWrapper = styled("div")<{ arrow: string }>`
@@ -55,32 +73,64 @@ export const PublicationSlider = ({
   description,
 }: PublicationSliderProps) => {
   const [currentCount, setCurrentCount] = useState(0);
-  const count = imageVideo.length || 1;
+  const count = imageVideo?.length || 1;
+
+  const handlePrevCount = () => {
+    setCurrentCount((index) => (index === 0 ? 0 : index - 1));
+  };
+
+  const handleNextCount = () => {
+    setCurrentCount((index) => (index === count - 1 ? count - 1 : index + 1));
+  };
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    touchStartX = event.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+    touchEndX = event.changedTouches[0].clientX;
+
+    if (touchStartX > touchEndX + 40) {
+      handleNextCount();
+    } else if (touchStartX < touchEndX - 40) {
+      handlePrevCount();
+    }
+  };
+
   return (
     <PublicationWrapper>
+      <PublicationImagesWrapper
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        {imageVideo?.map((item, index) => (
+          <PublicationImg
+            key={index}
+            src={item}
+            alt={description}
+            style={{ translate: `${-100 * currentCount}%` }}
+          />
+        ))}
+      </PublicationImagesWrapper>
+
       {count !== 1 && (
         <PublicationCount>{`${currentCount + 1}/${count}`}</PublicationCount>
       )}
 
       {currentCount !== 0 && (
         <PublicationArrowWrapper arrow="left">
-          <PublicationArrowButton
-            title="Предыдущее"
-            click={() => setCurrentCount(currentCount - 1)}
-          />
+          <PublicationArrowButton title="Предыдущее" click={handlePrevCount} />
         </PublicationArrowWrapper>
       )}
 
       {currentCount !== count - 1 && (
         <PublicationArrowWrapper arrow="right">
-          <PublicationArrowButton
-            title="Следущее"
-            click={() => setCurrentCount(currentCount + 1)}
-          />
+          <PublicationArrowButton title="Следущее" click={handleNextCount} />
         </PublicationArrowWrapper>
       )}
-
-      <PublicationImg src={imageVideo[currentCount]} alt={description} />
     </PublicationWrapper>
   );
 };

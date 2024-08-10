@@ -5,7 +5,6 @@ import {
   PostBottomList,
   PostBottomItem,
   PostBottomWrapper,
-  PostDescription,
   PostMenuSubsribeWrapper,
   PostMenuWrapper,
   PostPublication,
@@ -90,7 +89,7 @@ export const GarageCharcteristicDescription = styled("p")`
   ${clampText(fonts.sizes.dropdownMobile, fonts.sizes.dropdown)}
 `;
 
-export const GarageDescription = styled(PostDescription)`
+export const GarageDescription = styled("p")`
   padding-inline: 0px;
 `;
 

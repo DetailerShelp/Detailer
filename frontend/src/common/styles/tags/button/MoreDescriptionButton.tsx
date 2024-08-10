@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { clampText, resetButton } from "@/common/styles/mixins";
+import { clampText, opacityHoverActive, resetButton } from "@/common/styles/mixins";
 import { colors, device, fonts } from "@/common/styles/styleConstants";
 import { useState } from "react";
 
@@ -25,13 +25,7 @@ const MoreButton = styled("button")`
   font-weight: ${fonts.weights.semiBold};
   color: ${colors.grayAccent};
 
-  &:hover {
-    color: ${colors.grayText};
-  }
-
-  &:active {
-    color: ${colors.grayBorder};
-  }
+  ${opacityHoverActive}
 `;
 
 export const Description = styled("p")`
