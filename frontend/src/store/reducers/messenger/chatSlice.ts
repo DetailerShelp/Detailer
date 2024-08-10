@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IChat, IForwardMessage, IMessage } from "@/store/messenger/messengerTypes";
+import { IChat, IForwardMessage, IMessage } from "@/store/reducers/messenger/messengerTypes";
 import { Mok, Mok1 } from "./Mok";
 
 export interface NewMes {
@@ -66,6 +66,13 @@ const chatSlice = createSlice({
             console.log(state.forwardMes?.chatId, mes);
             state.idVREMENNO++;
 
+            if (state.chats[chatId].speaker) {
+                const audio = new Audio('/sounds/call-new-message.mp3');
+                audio.play().catch(error => {
+                    console.error("Ошибка воспроизведения звука:", error);
+                });
+            }
+
             state.chats[chatId].answeredMessages = undefined;
             state.forwardMes = undefined;
         },
@@ -73,12 +80,22 @@ const chatSlice = createSlice({
         addNewMessageMedia(state, action: PayloadAction<NewMesMedia>) {
             const { text, chatId, media } = action.payload;
             const mes: IMessage = {
-                id: state.chats[chatId].messages.length,
+                id: state.idVREMENNO,
                 text: text,
                 author: "Ilia",
                 createdAt: "12:18",
                 media: media,
             };
+
+            state.idVREMENNO++;
+
+            if (state.chats[chatId].speaker) {
+                const audio = new Audio('/sounds/call-new-media.mp3');
+                audio.play().catch(error => {
+                    console.error("Ошибка воспроизведения звука:", error);
+                });
+            }
+
             state.chats[chatId].messages.push(mes);
             state.chats[chatId].answeredMessages = undefined;
         },
@@ -119,13 +136,18 @@ const chatSlice = createSlice({
         setMediaMessage(state, action: PayloadAction<EditMesMedia>) {
             const { chatId, media, mesId } = action.payload;
             state.chats[chatId].messages.some((mes) => {
-                if(mes.id === mesId){
+                if (mes.id === mesId) {
                     mes.media = media;
                     mes.isEdited = true;
                     return true;
                 };
             });
             state.chats[chatId].editedMessageId = undefined;
+        },
+
+        setSpeakeMesasges(state, action: PayloadAction<{ chatId: number | string }>) {
+            const {chatId} = action.payload;
+            state.chats[chatId].speaker = !state.chats[chatId].speaker;
         },
 
         deleteForwardMessage(state, action: PayloadAction<{ chatId?: number | string }>) {

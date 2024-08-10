@@ -77,13 +77,13 @@ const WidgetsSection = styled("section")`
   }
 `;
 
-const FixedWrapper = styled("div")<{height?: number}>`
+const FixedWrapper = styled("div")<{ height?: number }>`
   position: fixed;
   display: grid;
   row-gap: 25px;
   /* z-index: 10; */
-  
-  height: ${props => props.height}px;
+
+  height: ${(props) => props.height}px;
 
   @media ${device.mobile} {
     width: 100%;
@@ -101,37 +101,37 @@ interface PageProps {
 }
 
 export const PageContent: FC<PageProps> = ({
-    content,
-    widgetOne,
-    widgetTwo,
-    widgetThree,
-    widgetFour,
-    height,
-  }) => {
+  content,
+  widgetOne,
+  widgetTwo,
+  widgetThree,
+  widgetFour,
+  height,
+}) => {
   return (
     <Wrapper>
-        <Container>
-          <WrapperInner>
-            <NavigationSection>
-              <FixedWrapper>
-                <NavPanel />
-              </FixedWrapper>
-            </NavigationSection>
-            <ContentSection>{content}</ContentSection>
+      <Container>
+        <WrapperInner>
+          <NavigationSection>
+            <FixedWrapper>
+              <NavPanel />
+            </FixedWrapper>
+          </NavigationSection>
+          <ContentSection>{content}</ContentSection>
 
-            <WidgetsSection>
-              <VisuallyHidden>
-                <h2>Виджеты</h2>
-              </VisuallyHidden>
-              <FixedWrapper height={height}>
-                {widgetOne}
-                {widgetTwo}
-                {widgetThree}
-                {widgetFour}
-              </FixedWrapper>
-            </WidgetsSection>
-          </WrapperInner>
-        </Container>
-      </Wrapper>
-  )
-}
+          <WidgetsSection>
+            <VisuallyHidden>
+              <h2>Виджеты</h2>
+            </VisuallyHidden>
+            <FixedWrapper height={height}>
+              {widgetOne}
+              {widgetTwo}
+              {widgetThree}
+              {widgetFour}
+            </FixedWrapper>
+          </WidgetsSection>
+        </WrapperInner>
+      </Container>
+    </Wrapper>
+  );
+};

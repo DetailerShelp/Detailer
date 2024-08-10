@@ -28,6 +28,7 @@ import like from '@/common/svg-helper/icons/like.svg?react';
 import garage from '@/common/svg-helper/icons/garage.svg?react';
 import comment from '@/common/svg-helper/icons/comment.svg?react';
 import share from '@/common/svg-helper/icons/share.svg?react';
+import shareModal from '@/common/svg-helper/icons/share-modal.svg?react';
 import more from '@/common/svg-helper/icons/more.svg?react';
 import detailing from '@/common/svg-helper/icons/category-icons/detailing.svg?react';
 import instruments from '@/common/svg-helper/icons/category-icons/instruments.svg?react';
@@ -89,6 +90,10 @@ import garageSell from '@/common/svg-helper/icons/garage-icons/garage-sell.svg?r
 import garageSold from '@/common/svg-helper/icons/garage-icons/garage-sold.svg?react';
 import ruble from '@/common/svg-helper/icons/garage-icons/ruble.svg?react';
 import replace from '@/common/svg-helper/icons/replace.svg?react';
+import savePicture from '@/common/svg-helper/icons/message-dropdown/savePicture.svg?react';
+import notSpeaker from '@/common/svg-helper/icons/chat-dropdown/notSpeaker.svg?react';
+import notCall from '@/common/svg-helper/icons/chat-dropdown/notCall.svg?react';
+
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -125,6 +130,7 @@ export type ImageComponentsTypes =
   | 'garage'
   | 'comment'
   | 'share'
+  | 'shareModal'
   | 'more'
   | 'close'
   | 'trash'
@@ -190,7 +196,10 @@ export type ImageComponentsTypes =
   | 'garageOwn'
   | 'garageSell'
   | 'garageSold'
-  | 'ruble';
+  | 'ruble'
+  | 'savePicture'
+  | 'notSpeaker'
+  | 'notCall';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   nameLogo, 
@@ -219,6 +228,7 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   garage,
   comment,
   share,
+  shareModal,
   more,
   detailing,
   instruments,
@@ -284,4 +294,7 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   garageSold,
   ruble,
   replace,
+  savePicture,
+  notSpeaker,
+  notCall,
 };

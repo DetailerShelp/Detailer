@@ -12,7 +12,6 @@ export const ModalWrapper = styled("div")`
   height: 100%;
   max-height: 90vh;
   padding: 35px;
-  overflow-y: hidden;
 
   @media ${device.tablet} {
     padding: 30px;

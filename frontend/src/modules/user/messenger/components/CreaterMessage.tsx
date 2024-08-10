@@ -4,7 +4,7 @@ import { flexCenter, hoverActive, resetButton } from "@/common/styles/mixins";
 import { borders, colors, device } from "@/common/styles/styleConstants";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { useActions } from "@/store/actions";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import ModalMedia from "@/modules/user/messenger/components/modal/ModalMedia";
 import BottomSheet from "@/modules/user/messenger/components/extraInfo/BottomSheet";
@@ -69,7 +69,9 @@ const CreaterMessage = ({ id }: CreaterMessageProps) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [media, setMedia] = useState<File>();
     const [showPicker, setShowPicker] = useState(false);
-    
+
+    const textarea = useRef<HTMLTextAreaElement>(null);
+
     const {
         addNewMessage,
         setTextMessage,
@@ -105,7 +107,11 @@ const CreaterMessage = ({ id }: CreaterMessageProps) => {
     };
 
     const handleAddEmoji = (emoji: { native: string }) => {
-        setText(prev => prev + emoji.native);
+        if (textarea.current) {
+            const start = textarea.current.selectionStart;
+            const end = textarea.current.selectionEnd;
+            setText(prev => prev.slice(0, start) + emoji.native + prev.slice(end));
+        };
     };
 
     const handleAddFile = (file: File) => {
@@ -133,6 +139,7 @@ const CreaterMessage = ({ id }: CreaterMessageProps) => {
 
                 <MessageTextWrapper>
                     <TextArea
+                        ref={textarea}
                         value={text}
                         setText={setText}
                         textAreaPlaceholder="Сообщение"
@@ -149,7 +156,7 @@ const CreaterMessage = ({ id }: CreaterMessageProps) => {
                     <MessageTool iconName="emoticon" />
 
                     <PickerWrapper>
-                        {showPicker && <Picker dats={data} onEmojiSelect={handleAddEmoji} theme='light'/>}
+                        {showPicker && <Picker dats={data} onEmojiSelect={handleAddEmoji} theme='light' />}
                     </PickerWrapper>
                 </MessageToolWrapper>
 
