@@ -89,6 +89,10 @@ import garageSell from '@/common/svg-helper/icons/garage-icons/garage-sell.svg?r
 import garageSold from '@/common/svg-helper/icons/garage-icons/garage-sold.svg?react';
 import ruble from '@/common/svg-helper/icons/garage-icons/ruble.svg?react';
 import replace from '@/common/svg-helper/icons/replace.svg?react';
+import savePicture from '@/common/svg-helper/icons/message-dropdown/savePicture.svg?react';
+import notSpeaker from '@/common/svg-helper/icons/chat-dropdown/notSpeaker.svg?react';
+import notCall from '@/common/svg-helper/icons/chat-dropdown/notCall.svg?react';
+
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -190,7 +194,10 @@ export type ImageComponentsTypes =
   | 'garageOwn'
   | 'garageSell'
   | 'garageSold'
-  | 'ruble';
+  | 'ruble'
+  | 'savePicture'
+  | 'notSpeaker'
+  | 'notCall';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   nameLogo, 
@@ -284,4 +291,7 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   garageSold,
   ruble,
   replace,
+  savePicture,
+  notSpeaker,
+  notCall,
 };

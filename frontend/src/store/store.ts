@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { rememberEnhancer, rememberReducer } from "redux-remember";
 import { userApi } from "@/store/reducers/user/userApi";
-import { newChatReducer } from "@/store/messenger/chatSlice";
+import { newChatReducer } from "@/store/reducers/messenger/chatSlice";
 import { shortsApi } from "./reducers/shorts/shortsApi";
 import { commentsReducer } from "@/store/reducers/comments/commentsSlice";
 import { commentsApi } from "@/store/reducers/comments/commentsApi";

@@ -57,7 +57,6 @@ export const colors = {
   grayScrollBar: `${getColorName("scrollBarColor")}`,
   grayScrollBarHover: `${getColorName("scrollBarHover")}`,
   grayScrollBarActive: `${getColorName("scrollBarActive")}`,
-  messageDefault: `rgba(255, 255, 255, 1)`,
 
   //Black
   blackTotal: `${getColorName("mainText")}`,
@@ -77,10 +76,14 @@ export const colors = {
   red: "rgba(253, 0, 0, 1)",
   green: "rgba(4, 204, 0, 1)",
   gray: "rgba(217, 217, 217, 1)",
+  messageDefault: `rgba(255, 255, 255, 1)`, 
+  whiteActive: "rgba(238, 238, 238, 1)",
+  forwardMes: "rgba(238, 238, 238, 0.5)",
 
   //Blue
   myMesActive: `rgba(0, 26, 255, 1)`,
   myMesDefault: `rgba(0, 117, 255, 1)`,
+  forwardMyMes: `rgba(0, 26, 255, 0.1)`,
 };
 
 export const shadows = {
