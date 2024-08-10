@@ -40,6 +40,7 @@ max-width: 190px;
 export const CommentAuthor = styled('p')`
 font-size: ${fonts.sizes.extraSmall}px;
 font-weight: ${fonts.weights.semiBold};
+margin-right: 2px;
 `;
 
 export const CommentTimeSending = styled('span')`

@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Comment } from "@/store/reducers/comments/commentsApi"
+import { CommentType } from "@/store/reducers/comments/commentsApi"
 
 export interface CommentWithAnswers {
-    comment: Comment,
-    answers: Comment[]
+    comment: CommentType,
+    answers: CommentType[]
 }
 
 const initialState: CommentWithAnswers[] = []
