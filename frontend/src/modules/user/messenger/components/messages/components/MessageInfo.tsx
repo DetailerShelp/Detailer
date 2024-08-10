@@ -3,12 +3,14 @@ import { MessageInfoWrapper, MessageTime } from "@/modules/user/messenger/compon
 
 interface MessageInfoProps {
     time: string;
+    isEdited?: boolean;
 };
 
-const MessageInfo = ({time} : MessageInfoProps) => {
+const MessageInfo = ({time, isEdited} : MessageInfoProps) => {
     return (
         <MessageInfoWrapper>
             <MessageTime>
+                {isEdited ? 'изм. ' : ''}
                 {time}
             </MessageTime>
             <SvgHelper iconName="sent" width="15" height="15" />

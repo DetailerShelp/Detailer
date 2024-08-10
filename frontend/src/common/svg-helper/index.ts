@@ -88,6 +88,7 @@ import garageOwn from '@/common/svg-helper/icons/garage-icons/garage-own.svg?rea
 import garageSell from '@/common/svg-helper/icons/garage-icons/garage-sell.svg?react';
 import garageSold from '@/common/svg-helper/icons/garage-icons/garage-sold.svg?react';
 import ruble from '@/common/svg-helper/icons/garage-icons/ruble.svg?react';
+import replace from '@/common/svg-helper/icons/replace.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -179,6 +180,7 @@ export type ImageComponentsTypes =
   | 'call'
   | 'fileLoader'
   | 'profileGroup'
+  | 'replace'
   | 'calendar'
   | 'engine'
   | 'transmission'
@@ -281,4 +283,5 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   garageSell,
   garageSold,
   ruble,
+  replace,
 };

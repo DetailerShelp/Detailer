@@ -1,35 +1,40 @@
 import SvgHelper from "@/common/svg-helper/SvgHelper";
-import { AccountsAvatar } from "../widgets/accounts/styles";
-import { CommentAnswer, CommentAuthor, CommentAvatar, CommentInformation, CommentLikesCount, CommentLikesWrapper, CommentMessage, CommentThread, CommentTimeSending, CommentWrapper } from "./styles";
-import AnswersDropDown from "./AnswersDropDown";
-import { Comment } from "@/store/reducers/shorts/shortsApi";
+import { AccountsAvatar } from "@/common/components/widgets/accounts/styles";
+import { CommentAnswer, CommentAuthor, CommentAvatar, CommentInformation, CommentLikesCount, CommentLikesWrapper, CommentMessage, CommentTimeSending, CommentWrapper } from "@/common/components/comments/styles";
+import { normalizeCount } from "@/common/helpers/countHelpers";
 
 interface CommentItemProps {
-    comment: Comment
+    author: string,
+    likes: number,
+    onclick: () => void,
+    children: React.ReactNode
 }
 
-export default function CommentItem({ comment }: CommentItemProps) {
-    const { author, message, likes } = comment;
-    
+export default function CommentItem({ author, likes, children, onclick }: CommentItemProps) {
+
     return (
-        <CommentThread>
-            <CommentWrapper>
+            <CommentWrapper onClick={onclick}>
                 <CommentAvatar>
                     <AccountsAvatar />
                 </CommentAvatar>
                 <CommentInformation>
+
                     <CommentAuthor>
                         {author}<CommentTimeSending>5 минут назад</CommentTimeSending>
                     </CommentAuthor>
-                    <CommentMessage>{message}</CommentMessage>
+
+                    <CommentMessage>
+                        {children}
+                    </CommentMessage>
+
                     <CommentAnswer>Ответить</CommentAnswer>
                 </CommentInformation>
                 <CommentLikesWrapper>
                     <SvgHelper iconName="like" width="20px" height="20px" />
-                    <CommentLikesCount>{likes}</CommentLikesCount>
+                    <CommentLikesCount>
+                        {normalizeCount(likes)}
+                    </CommentLikesCount>
                 </CommentLikesWrapper>
             </CommentWrapper>
-            {comment.answersCount && <AnswersDropDown parentId={comment.id} />}
-        </CommentThread>
     )
 }

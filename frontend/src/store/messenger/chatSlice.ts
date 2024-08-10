@@ -13,6 +13,10 @@ export interface NewMesMedia {
     media: File;
 };
 
+export interface EditMesMedia extends NewMesMedia {
+    mesId: number | string;
+}
+
 export interface AnsweredMew {
     chatId: number | string;
     answeredMes: number | string | undefined;
@@ -21,6 +25,10 @@ export interface AnsweredMew {
 export interface ChatMes {
     chatId: number | string;
     mesId: number | string | undefined;
+};
+
+export interface EditMes extends ChatMes {
+    text?: string;
 };
 
 export interface Chats {
@@ -53,7 +61,6 @@ const chatSlice = createSlice({
                 createdAt: "12:18",
                 answeredMessage: state.chats[chatId].answeredMessages,
                 forwardMessage: state.forwardMes,
-                animated: true,
             };
             state.chats[chatId].messages.push(mes);
             console.log(state.forwardMes?.chatId, mes);
@@ -88,6 +95,37 @@ const chatSlice = createSlice({
         setAnsweredMessage(state, action: PayloadAction<AnsweredMew>) {
             const { chatId, answeredMes } = action.payload;
             state.chats[chatId].answeredMessages = answeredMes;
+            state.chats[chatId].editedMessageId = undefined;
+        },
+
+        setEditedMessage(state, action: PayloadAction<ChatMes>) {
+            const { chatId, mesId } = action.payload;
+            state.chats[chatId].editedMessageId = mesId;
+            state.chats[chatId].answeredMessages = undefined;
+        },
+
+        setTextMessage(state, action: PayloadAction<EditMes>) {
+            const { chatId, mesId, text } = action.payload;
+            state.chats[chatId].messages.some(mes => {
+                if (mes.id === mesId) {
+                    mes.text = text;
+                    mes.isEdited = true;
+                    return true;
+                };
+            });
+            state.chats[chatId].editedMessageId = undefined;
+        },
+
+        setMediaMessage(state, action: PayloadAction<EditMesMedia>) {
+            const { chatId, media, mesId } = action.payload;
+            state.chats[chatId].messages.some((mes) => {
+                if(mes.id === mesId){
+                    mes.media = media;
+                    mes.isEdited = true;
+                    return true;
+                };
+            });
+            state.chats[chatId].editedMessageId = undefined;
         },
 
         deleteForwardMessage(state, action: PayloadAction<{ chatId?: number | string }>) {

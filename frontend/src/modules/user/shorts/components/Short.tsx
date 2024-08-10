@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ShortVideo, ShortVideoWrapper } from '../styles'
+import { ShortVideo, ShortVideoWrapper } from '@/modules/user/shorts/styles';
 import ReactPlayer from 'react-player';
 import PlayVideoButton from '@/common/styles/tags/button/PlayVideoButton';
 import ShortVideoRange from '@/modules/user/shorts/components/ShortVideoRange';

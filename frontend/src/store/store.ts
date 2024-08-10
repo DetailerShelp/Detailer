@@ -2,15 +2,21 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { rememberEnhancer, rememberReducer } from "redux-remember";
 import { userApi } from "@/store/reducers/user/userApi";
 import { newChatReducer } from "@/store/messenger/chatSlice";
-import { shortsApi } from "@/store/reducers/shorts/shortsApi";
+import { shortsApi } from "./reducers/shorts/shortsApi";
+import { commentsReducer } from "@/store/reducers/comments/commentsSlice";
+import { commentsApi } from "@/store/reducers/comments/commentsApi";
+import { newCommentReducer } from "./reducers/comments/newCommentSlice";
 import { postApi } from "@/store/reducers/post/postApi";
 
 const rememberedReducers = [""];
 
 const rootReducer = combineReducers({
-  [userApi.reducerPath]: userApi.reducer,
-  [postApi.reducerPath]: postApi.reducer,
+  newCommentReducer,
+  commentsReducer,
   newChatReducer,
+  [userApi.reducerPath]: userApi.reducer,
+  [commentsApi.reducerPath]: commentsApi.reducer,
+  [postApi.reducerPath]: postApi.reducer,
   [shortsApi.reducerPath]: shortsApi.reducer,
 });
 
@@ -21,6 +27,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
       .concat(userApi.middleware)
+      .concat(commentsApi.middleware)
       .concat(postApi.middleware)
       .concat(shortsApi.middleware),
   enhancers: (getDefaultEnhancer) =>
