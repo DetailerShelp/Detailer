@@ -136,7 +136,8 @@ export const GarageLoading = () => {
       </GarageContentWrapper>
 
       <GarageContentWrapper>
-        <LoadingTitle /> <LoadingDescription />
+        <LoadingTitle /> 
+        <LoadingDescription />
         <LoadingDescription />
         <LoadingDescription />
       </GarageContentWrapper>

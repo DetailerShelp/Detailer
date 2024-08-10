@@ -1,17 +1,17 @@
-import { Comment } from "@/store/reducers/shorts/shortsApi"
-import CommentItem from "./CommentItem"
-import { CommentsWrapper } from "./styles"
+import { CommentType } from "@/store/reducers/comments/commentsApi"
+import { CommentsWrapper } from "@/common/components/comments/styles"
+import CommentParent from "./CommentParent"
 
 interface CommentsProps {
-    data: Comment[]
+    comments: CommentType[]
 }
 
-export default function Comments({data}: CommentsProps) {
+export default function Comments({comments}: CommentsProps) {
 
     return (
         <CommentsWrapper>
             {
-                data.map((comment) => <CommentItem key={comment.id} comment={comment} />)
+                comments.map((comment) => <CommentParent key={comment.id} comment={comment} />)
             }
         </CommentsWrapper>
     )
