@@ -91,19 +91,6 @@ export const PostBottomItem = styled("li")`
   column-gap: 10px;
 `;
 
-export const PostDescription = styled("p")`
-  ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)}
-  padding-inline: 25px;
-
-  @media ${device.tablet} {
-    padding-inline: 20px;
-  }
-
-  @media ${device.mobileM} {
-    padding-inline: 10px;
-  }
-`;
-
 export const PostTime = styled("time")`
   ${clampText(fonts.sizes.dropdownMobile, fonts.sizes.dropdown)}
   color: ${colors.grayAccent};

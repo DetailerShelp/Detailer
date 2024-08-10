@@ -8,7 +8,7 @@ interface MessageContentProps {
 
 const MessageContent = ({ text, media }: MessageContentProps) => {
     return (
-        <MessageContentWrapper>
+        <MessageContentWrapper $withMedia={!!media}>
             <RenderMedia media={media || undefined} withTitle={false} />
             {text && <MessageText>
                 {text}

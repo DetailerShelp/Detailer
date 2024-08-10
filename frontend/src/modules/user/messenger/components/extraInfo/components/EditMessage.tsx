@@ -1,6 +1,6 @@
 import DragAndDropUpload from "@/common/components/DraggerUploadFile";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
-import { IMessage } from "@/store/messenger/messengerTypes";
+import { IMessage } from "@/store/reducers/messenger/messengerTypes";
 import InfoBox from "@/modules/user/messenger/components/extraInfo/components/InfoBox";
 import { ReplaceMediaWrapper, ReplaceText } from "@/modules/user/messenger/components/extraInfo/style";
 

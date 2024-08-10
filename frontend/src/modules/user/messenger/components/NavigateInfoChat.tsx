@@ -1,7 +1,7 @@
 import { borders, colors } from "@/common/styles/styleConstants";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import styled from "styled-components";
-import ChatDropdownMenu from "@/modules/user/messenger/components/DropMenu/BurgerDropdownMenu";
+import ChatDropdownMenu from "@/modules/user/messenger/components/dropMenu/BurgerDropdownMenu";
 import { ChatAvatar } from "@/modules/user/messenger/components/style";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { useState } from "react";

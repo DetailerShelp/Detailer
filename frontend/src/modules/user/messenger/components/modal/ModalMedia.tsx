@@ -2,9 +2,9 @@ import Modal from "@/common/components/modal/Modal";
 import { useActions } from "@/store/actions";
 import { useState } from "react";
 import RenderMedia from "@/modules/user/messenger/components/render/RenderMedia";
-import { 
-    ButtonsWrapper, 
-    ModalMediaWrapper 
+import {
+    ButtonsWrapper,
+    ModalMediaWrapper
 } from "@/modules/user/messenger/components/modal/style";
 import { BlackWhiteButton } from "@/common/styles/tags/button/BlackWhiteButton";
 import TextArea from "@/common/components/ui/TextArea";
@@ -17,7 +17,7 @@ interface ModalMediaProps {
 };
 
 const ModalMedia = ({ chatId, modalOpen, media, setModalOpen }: ModalMediaProps) => {
-    if (!media) return null; 
+    if (!media) return null;
 
     const [text, setText] = useState('');
     const { addNewMessageMedia } = useActions();
@@ -31,7 +31,7 @@ const ModalMedia = ({ chatId, modalOpen, media, setModalOpen }: ModalMediaProps)
     };
 
     const handleOk = () => {
-        addNewMessageMedia({ text: text, chatId: chatId, media: media! });
+        addNewMessageMedia({ text: text.trim(), chatId: chatId, media: media! });
         setText('');
         setModalOpen(false);
     };
@@ -44,11 +44,11 @@ const ModalMedia = ({ chatId, modalOpen, media, setModalOpen }: ModalMediaProps)
                     textAreaPlaceholder="Подпись"
                     value={text}
                     setText={handleChangeText}
-                    wrapperStyle={{height:'60px'}}
+                    wrapperStyle={{ height: '60px' }}
                 />
                 <ButtonsWrapper>
-                    <BlackWhiteButton color="white" title="Отмена" size={30} click={handleCancel}/>
-                    <BlackWhiteButton color="black" title="Отправить" size={30} click={handleOk}/>
+                    <BlackWhiteButton color="white" title="Отмена" size={30} click={handleCancel} />
+                    <BlackWhiteButton color="black" title="Отправить" size={30} click={handleOk} />
                 </ButtonsWrapper>
             </ModalMediaWrapper>
         </Modal>
