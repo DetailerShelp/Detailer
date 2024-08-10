@@ -3,7 +3,7 @@ import ShortsInfo from "@/modules/user/shorts/components/ShortsInfo";
 import ShortsVideos from "@/modules/user/shorts/components/ShortsVideos";
 import { PageContent } from "@/modules/user/PageContent";
 import ShortComments from "@/modules/user/shorts/components/ShortComments";
-import { videoLinks } from "./videos";
+import { videoLinks } from "@/modules/user/shorts/videos";
 
 export default function ShortsPage() {
     const [activeVideo, setActiveVideo] = useState(0);

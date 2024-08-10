@@ -1,5 +1,5 @@
 import { WidgetHeaderWrapper, WidgetTitle, WidgetWrapper } from "@/common/components/widgets/WidgetsWrapper";
-import { absCenter, absHorizontally, absVertically, clampText, square } from "@/common/styles/mixins";
+import { absCenter, absVertically, clampText, square } from "@/common/styles/mixins";
 import { borders, colors, device, fonts, shadows } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
@@ -124,11 +124,6 @@ left: 50%;
 transform: translateX(-50%);
 bottom: 30px;
 `;
-
-// export const ShortVideoRangeContainer = styled('div')`
-// padding: 0 25px;
-// height: auto;
-// `;
 
 export const ShortVideoRangeInput = styled('input')`
 -webkit-appearance: none;
