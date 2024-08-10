@@ -1,5 +1,5 @@
 import { WidgetHeaderWrapper, WidgetTitle, WidgetWrapper } from "@/common/components/widgets/WidgetsWrapper";
-import { clampText, square } from "@/common/styles/mixins";
+import { absCenter, absHorizontally, absVertically, clampText, square } from "@/common/styles/mixins";
 import { borders, colors, device, fonts, shadows } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
@@ -37,16 +37,12 @@ gap: 35px;
 `;
 
 export const ShortsVideosWrapper = styled('div')`
-background-color: ${colors.blackTotal};
 width: 430px;
 height: inherit;
-overflow-x: hidden;
-overflow-y: hidden;
+overflow-y: scroll;
 position: relative;
 border: ${borders.borderGrayAccent};
 border-radius: ${borders.defaultBorderRadius};
-scroll-snap-type: y mandatory;
-scrollbar-width: none;
 
 &::-webkit-scrollbar { width: 0; }
 `;
@@ -58,6 +54,8 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 height: inherit;
+// Временно добавлено
+background: linear-gradient(90deg, #f179fe,#e17efc,#ca82ff,#c086fe,#b686fe);
 `;
 export const ShortVideo = styled('div')``;
 
@@ -72,7 +70,6 @@ align-items: center;
 font-size: 60px;
 margin-bottom: 10px;
 background-color: ${colors.blackTotal};
-scroll-snap-align: start;
 `;
 
 export const ShortsSidePanelWrapper = styled('div')`
@@ -122,32 +119,47 @@ font-weight: ${fonts.weights.regular};
 
 export const ShortVideoRangeWrapper = styled('div')`
 position: absolute;
-width: 100%;
-left: 0px;
+width: calc(100% - 20px);
+left: 50%;
+transform: translateX(-50%);
 bottom: 30px;
 `;
 
-
-export const ShortVideoRangeContainer = styled('div')`
-padding: 0 25px;
-height: auto;
-`;
+// export const ShortVideoRangeContainer = styled('div')`
+// padding: 0 25px;
+// height: auto;
+// `;
 
 export const ShortVideoRangeInput = styled('input')`
 -webkit-appearance: none;
 -moz-appearance: none;
 width: 100%;
-height: 2px;
+height: 4px;
+${absCenter}
 padding: 0;
 outline: none;
-background: ${colors.whiteTotal};
+background: ${colors.blackTransparent};
 
 &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    ${square(10)}
+    ${square(0)}
     margin: auto 0;
-    background: ${colors.blackTotal};
+    background: ${colors.whiteTotal};
     border-radius: ${borders.circleBorderRadius};
-    background-color: ${colors.whiteTotal};
 }
+`;
+
+export const ShortVideoRangeProgress = styled('div')`
+${absVertically}
+pointer-events: none;
+height: 4px;
+background-color: ${colors.whiteTotal};
+`;
+
+export const ShortVideoRangeCircle = styled('div')`
+${square(10)}
+${absVertically}
+pointer-events: none;
+border-radius: ${borders.circleBorderRadius};
+background-color: ${colors.whiteTotal};
 `;
