@@ -42,6 +42,20 @@ export const absCenter = css`
   translate: -50% -50%;
 `;
 
+export const absVertically = css`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+`;
+
+export const absHorizontally = css`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
 export const flexCenter = css`
   display: flex;
   justify-content: center;
