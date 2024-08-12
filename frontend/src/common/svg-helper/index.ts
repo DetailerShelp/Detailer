@@ -92,6 +92,11 @@ import replace from '@/common/svg-helper/icons/replace.svg?react';
 import savePicture from '@/common/svg-helper/icons/message-dropdown/savePicture.svg?react';
 import notSpeaker from '@/common/svg-helper/icons/chat-dropdown/notSpeaker.svg?react';
 import notCall from '@/common/svg-helper/icons/chat-dropdown/notCall.svg?react';
+import error from '@/common/svg-helper/icons/toasts/error.svg?react';
+import success from '@/common/svg-helper/icons/toasts/success.svg?react';
+import infoToast from '@/common/svg-helper/icons/toasts/info.svg?react';
+import warning from '@/common/svg-helper/icons/toasts/warning.svg?react';
+
 
 
 export type IconType = React.FunctionComponent<
@@ -197,7 +202,11 @@ export type ImageComponentsTypes =
   | 'ruble'
   | 'savePicture'
   | 'notSpeaker'
-  | 'notCall';
+  | 'notCall'
+  | 'warning'
+  | 'infoToast'
+  | 'success'
+  | 'error';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   nameLogo, 
@@ -294,4 +303,8 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   savePicture,
   notSpeaker,
   notCall,
+  warning,
+  infoToast,
+  success,
+  error,
 };

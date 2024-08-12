@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import defaultAvatar from "@/common/images/avatar.png";
 import PinMessage from "@/modules/user/messenger/components/extraInfo/PinMessage";
 import useDataMessageStore from "@/modules/user/messenger/hooks/useDataMessageStore";
+import { useToast } from "@/common/toast/toast-contex";
 
 interface NavigateInfoChatProps {
     id: number | string;
@@ -53,6 +54,8 @@ const NavigateInfoChat = ({ id }: NavigateInfoChatProps) => {
         navigate('/messenger');
     };
 
+    const toast = useToast();
+
     return (
         <NavInfoChat>
             <ButtonWithIcon icon="arrowLeft" size={40} click={handleBack} />
@@ -65,7 +68,7 @@ const NavigateInfoChat = ({ id }: NavigateInfoChatProps) => {
 
             <NavChatTool>
                 <div>
-                    <ButtonWithIcon icon="search" size={40} />
+                    <ButtonWithIcon icon="search" size={40} click={()=>toast?.success()}/>
                 </div>
                 <div
                     style={{ position: 'relative' }}
