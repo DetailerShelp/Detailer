@@ -34,6 +34,8 @@ import { ProfilePosts } from "@/modules/user/profile/components/publication/Prof
 import { ProfileShorts } from "@/modules/user/profile/components/publication/ProfileShorts";
 import { ProfileGarage } from "@/modules/user/profile/components/publication/ProfileGarage";
 import { ModalProfilesList } from "@/modules/user/profile/components/modal/ModalProfilesList";
+import { ModalProfileInfo } from "@/modules/user/profile/components/modal/ModalProfileInfo";
+import { ModalQR } from "@/common/components/modal/ModalQR";
 
 const defaultAvatar = "/images/avatar.svg";
 
@@ -45,6 +47,8 @@ interface ProfileProps {
 export const Profile = ({ user, url }: ProfileProps) => {
   const [publicationPage, setPublicationPage] = useState("post");
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
+  const [modalProfileInfo, setModalProfileInfo] = useState(false);
+  const [modalQR, setModalQR] = useState(false);
 
   const [modalSubscribers, setModalSubscribers] = useState(false);
   const [modalSubscribes, setModalSubscribes] = useState(false);
@@ -62,6 +66,21 @@ export const Profile = ({ user, url }: ProfileProps) => {
 
   return (
     <ProfileWrapper>
+        <ModalQR
+          isOpen={modalQR}
+          setOpen={setModalQR}
+          title="Пользователя"
+          userAvatar={user?.avatarImg}
+        />
+
+      {modalProfileInfo && (
+        <ModalProfileInfo
+          isOpen={modalProfileInfo}
+          setOpen={setModalProfileInfo}
+          title="Подробная информация"
+          // user={user}
+        />
+      )}
       <ProfileBackgroundWrapper>
         <ProfileBackgroungImageWrapper>
           <ProfileBackgroundImage src={user?.backgroundImg} />
@@ -86,7 +105,13 @@ export const Profile = ({ user, url }: ProfileProps) => {
             <ProfileButtonMoreWrapper>
               <ButtonWithIcon icon="burger" size={35} />
             </ProfileButtonMoreWrapper>
-            {dropdownIsOpen && <ProfileDropdownMenu />}
+            {dropdownIsOpen && (
+              <ProfileDropdownMenu
+                setDropdownOpen={setDropdownOpen}
+                setModalProfileInfo={setModalProfileInfo}
+                setModalQR={setModalQR}
+              />
+            )}
           </DropdownWrapper>
         </ProfileMoreWrapper>
 

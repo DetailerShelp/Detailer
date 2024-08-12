@@ -18,7 +18,6 @@ export const NavPanel = () => {
             <NavItem linkTo="/messenger" name="Мессенджер" icon="messenger" />
             <NavItem linkTo="/shorts" name="Шортсы" icon="shorts" />
             <NavItem linkTo="/saved" name="Сохраненное" icon="saved" />
-            <NavItem linkTo="/qrcode" name="QR-code" icon="qrcode" />
             <NavItem linkTo="/settings" name="Настройки" icon="settings" />
             <NavItem linkTo="/help" name="Поддержка" icon="help" />
           </>

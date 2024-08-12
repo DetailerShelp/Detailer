@@ -28,6 +28,7 @@ import like from '@/common/svg-helper/icons/like.svg?react';
 import garage from '@/common/svg-helper/icons/garage.svg?react';
 import comment from '@/common/svg-helper/icons/comment.svg?react';
 import share from '@/common/svg-helper/icons/share.svg?react';
+import shareModal from '@/common/svg-helper/icons/share-modal.svg?react';
 import more from '@/common/svg-helper/icons/more.svg?react';
 import detailing from '@/common/svg-helper/icons/category-icons/detailing.svg?react';
 import instruments from '@/common/svg-helper/icons/category-icons/instruments.svg?react';
@@ -129,6 +130,7 @@ export type ImageComponentsTypes =
   | 'garage'
   | 'comment'
   | 'share'
+  | 'shareModal'
   | 'more'
   | 'close'
   | 'trash'
@@ -226,6 +228,7 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   garage,
   comment,
   share,
+  shareModal,
   more,
   detailing,
   instruments,

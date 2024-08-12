@@ -18,6 +18,7 @@ import { ProfileLink } from "@/common/styles/tags/a/ProfileLink";
 import { PostInfo } from "@/store/reducers/post/types";
 import { PublicationSlider } from "@/common/components/publicationSlider/PublicationSlider";
 import { MoreDescriptionButton } from "@/common/styles/tags/button/MoreDescriptionButton";
+import { ModalQR } from "@/common/components/modal/ModalQR";
 
 interface PostProps {
   post?: PostInfo;
@@ -26,9 +27,16 @@ interface PostProps {
 // TODO Переделать структуру
 export const Post = ({ post }: PostProps) => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
+  const [modalQR, setModalQR] = useState(false);
 
   return (
     <PostWrapper>
+        <ModalQR
+          isOpen={modalQR}
+          setOpen={setModalQR}
+          title="Публикации"
+          userAvatar={post?.createdUser?.avatarImg}
+        />
       <PostTopBarWrapper>
         <ProfileLink user={post?.createdUser} />
 
@@ -41,7 +49,13 @@ export const Post = ({ post }: PostProps) => {
             onMouseLeave={() => setDropdownOpen(false)}
           >
             <ButtonWithIcon icon="burger" size={35} />
-            {dropdownIsOpen && <PostDropdownMenu />}
+            {dropdownIsOpen && (
+              <PostDropdownMenu
+                userId={post?.createdUser?.id}
+                setDropdownOpen={setDropdownOpen}
+                setModalQR={setModalQR}
+              />
+            )}
           </DropdownWrapper>
         </PostMenuWrapper>
       </PostTopBarWrapper>

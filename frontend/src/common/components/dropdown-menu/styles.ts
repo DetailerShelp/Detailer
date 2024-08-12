@@ -55,7 +55,7 @@ export const DropdownItem = styled("li")`
   }
 `;
 
-export const DropdownButton = styled('button') <{ isRed?: boolean }>`
+export const DropdownButton = styled("button")<{ isRed?: boolean }>`
   ${resetButton}
   width: 100%;
   display: flex;

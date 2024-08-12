@@ -23,7 +23,18 @@ import {
   ProfilePostItem,
   ProfilePostList,
 } from "@/modules/user/profile/components/publication/render/styles";
-import { LoadingCircle, LoadingWhiteBlackButton } from "@/common/components/loading//styles";
+import {
+  LoadingCircle,
+  LoadingWhiteBlackButton,
+} from "@/common/components/loading//styles";
+
+const Wrapper = styled(ProfileWrapper)`
+  width: 100%;
+
+  @media ${device.mobile} {
+    width: clamp(308px, 91.33vw, 548px);
+  }
+`;
 
 const BackgroundImage = styled(ProfileBackgroungImageWrapper)`
   ${loadingGradient};
@@ -31,10 +42,6 @@ const BackgroundImage = styled(ProfileBackgroungImageWrapper)`
   position: relative;
 
   width: 100%;
-
-  @media ${device.mobile} {
-    width: clamp(300px, 89vw, 548px);
-  }
 `;
 
 const UserAvatar = styled(ProfileUserAvatarWrapper)`
@@ -114,7 +121,7 @@ const PostItem = styled(ProfilePostItem)`
 
 export const ProfileLoading = () => {
   return (
-    <ProfileWrapper>
+    <Wrapper>
       <ProfileBackgroundWrapper>
         <BackgroundImage />
 
@@ -165,6 +172,6 @@ export const ProfileLoading = () => {
           <PostItem />
         </ProfilePostList>
       </ProfileContentWrapper>
-    </ProfileWrapper>
+    </Wrapper>
   );
 };
