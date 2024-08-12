@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { ToastContext } from "@/common/toast/toast-contex";
 import { ToastsWrapper } from "@/common/toast/style";
 import Toast from "@/common/toast/Toast";
-import { IToast, ToastInfo, ToastProviderProperties, ToastType } from "./interface";
+import { IToast, ToastInfo, ToastProviderProperties, ToastType } from "@/common/toast/interface";
 
 export const ToastProvider = ({ children }: ToastProviderProperties) => {
     const [toasts, setToasts] = useState<IToast[]>([]);
