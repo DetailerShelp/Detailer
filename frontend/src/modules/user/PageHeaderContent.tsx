@@ -1,8 +1,6 @@
 import { flexCenter } from "@/common/styles/mixins";
 import { borders, device, fonts } from "@/common/styles/styleConstants";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
-import { authorizedUser } from "@/store/reducers/user/authorizedUser";
-import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -40,9 +38,8 @@ interface PageHeaderContentProps {
   title: string;
 }
 
-export const PageHeaderContent: FC<PageHeaderContentProps> = ({ title }) => {
+export const PageHeaderContent = ({ title }: PageHeaderContentProps) => {
   const navigate = useNavigate();
-  const userId = authorizedUser();
   return (
     <PageHeader>
       <PageHeaderButtonWrapper>
@@ -50,7 +47,7 @@ export const PageHeaderContent: FC<PageHeaderContentProps> = ({ title }) => {
           size={35}
           title="Назад"
           icon="arrowLeft"
-          click={() => navigate(`/profile/${userId}`)}
+          click={() => navigate(-1)}
         />
       </PageHeaderButtonWrapper>
       <PageTitle>{title}</PageTitle>

@@ -7,12 +7,14 @@ interface ProfileDropdownMenuProps {
   setDropdownOpen: (_: boolean) => void;
   setModalProfileInfo: (_: boolean) => void;
   setModalQR: (_: boolean) => void;
+  setModalReport: (_: boolean) => void;
 }
 
 export const ProfileDropdownMenu = ({
   setDropdownOpen,
   setModalProfileInfo,
   setModalQR,
+  setModalReport,
 }: ProfileDropdownMenuProps) => {
   const { userId } = useParams();
   const currentUserId = authorizedUser();
@@ -26,6 +28,11 @@ export const ProfileDropdownMenu = ({
   const handleQRClick = () => {
     setDropdownOpen(false);
     setModalQR(true);
+  };
+
+  const handleReportClick = () => {
+    setDropdownOpen(false);
+    setModalReport(true);
   };
 
   return (
@@ -85,7 +92,7 @@ export const ProfileDropdownMenu = ({
           <DropdownMenuItem
             icon="reportProfile"
             title="Пожаловаться"
-            link="/help"
+            onClick={handleReportClick}
           />
           <DropdownMenuItem
             icon="block"

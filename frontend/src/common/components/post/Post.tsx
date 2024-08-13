@@ -19,6 +19,7 @@ import { PostInfo } from "@/store/reducers/post/types";
 import { PublicationSlider } from "@/common/components/publicationSlider/PublicationSlider";
 import { MoreDescriptionButton } from "@/common/styles/tags/button/MoreDescriptionButton";
 import { ModalQR } from "@/common/components/modal/ModalQR";
+import { ModalReport } from "@/common/components/modal/ModalReport";
 
 interface PostProps {
   post?: PostInfo;
@@ -28,15 +29,18 @@ interface PostProps {
 export const Post = ({ post }: PostProps) => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
   const [modalQR, setModalQR] = useState(false);
+  const [modalReport, setModalReport] = useState(false);
 
   return (
     <PostWrapper>
-        <ModalQR
-          isOpen={modalQR}
-          setOpen={setModalQR}
-          title="Публикации"
-          userAvatar={post?.createdUser?.avatarImg}
-        />
+      <ModalQR
+        isOpen={modalQR}
+        setOpen={setModalQR}
+        title="Публикации"
+        userAvatar={post?.createdUser?.avatarImg}
+      />
+
+      <ModalReport isOpen={modalReport} setOpen={setModalReport} />
       <PostTopBarWrapper>
         <ProfileLink user={post?.createdUser} />
 
@@ -54,6 +58,7 @@ export const Post = ({ post }: PostProps) => {
                 userId={post?.createdUser?.id}
                 setDropdownOpen={setDropdownOpen}
                 setModalQR={setModalQR}
+                setModalReport={setModalReport}
               />
             )}
           </DropdownWrapper>
