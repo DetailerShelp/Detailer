@@ -97,6 +97,9 @@ import error from '@/common/svg-helper/icons/toasts/error.svg?react';
 import success from '@/common/svg-helper/icons/toasts/success.svg?react';
 import infoToast from '@/common/svg-helper/icons/toasts/info.svg?react';
 import warning from '@/common/svg-helper/icons/toasts/warning.svg?react';
+import starDefault from '@/common/svg-helper/icons/star-default.svg?react';
+import starHalf from '@/common/svg-helper/icons/star-half.svg?react';
+import starActive from '@/common/svg-helper/icons/star-active.svg?react';
 
 
 
@@ -208,7 +211,10 @@ export type ImageComponentsTypes =
   | 'warning'
   | 'infoToast'
   | 'success'
-  | 'error';
+  | 'error'
+  | 'starDefault'
+  | 'starHalf' 
+  | 'starActive';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   nameLogo, 
@@ -310,4 +316,7 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   infoToast,
   success,
   error,
+  starDefault,
+  starHalf, 
+  starActive,
 };

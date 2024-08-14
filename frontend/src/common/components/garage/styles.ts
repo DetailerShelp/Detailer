@@ -96,7 +96,7 @@ export const GarageDescription = styled("p")`
 export const GarageMarkWrapper = styled("div")`
   display: flex;
   align-items: center;
-  row-gap: 10px;
+  column-gap: 10px;
 `;
 
 export const GarageMarkSubtitle = styled("h4")`

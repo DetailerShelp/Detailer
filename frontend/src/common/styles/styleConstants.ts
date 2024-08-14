@@ -75,6 +75,7 @@ export const colors = {
   darkBlue: "rgba(0, 26, 255, 1)",
   red: "rgba(253, 0, 0, 1)",
   green: "rgba(4, 204, 0, 1)",
+  yellow: "rgba(255, 188, 5, 1)",
   gray: "rgba(217, 217, 217, 1)",
   messageDefault: `rgba(255, 255, 255, 1)`, 
   whiteActive: "rgba(238, 238, 238, 1)",
