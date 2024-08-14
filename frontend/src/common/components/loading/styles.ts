@@ -2,8 +2,8 @@ import { loadingGradient } from "@/common/styles/mixins";
 import { borders, device } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
-export const LoadingCircle = styled("div")<{ size: number }>`
-  width: ${(props) => props.size}px;
+export const LoadingCircle = styled("div")<{ $size: number }>`
+  width: ${(props) => props.$size}px;
   aspect-ratio: 1;
   border-radius: ${borders.circleBorderRadius};
   ${loadingGradient}
@@ -67,14 +67,14 @@ export const LoadingTime = styled("time")`
   }
 `;
 
-export const LoadingWhiteBlackButton = styled("div")<{ size: number }>`
-  height: ${(props) => props.size}px;
-  width: calc(${(props) => props.size}px * 6);
+export const LoadingWhiteBlackButton = styled("div")<{ $size: number }>`
+  height: ${(props) => props.$size}px;
+  width: calc(${(props) => props.$size}px * 6);
   border-radius: ${borders.bigBorderRadius};
 
   @media ${device.mobile} {
-    height: calc(${(props) => props.size}px / 1.2);
-    width: calc(${(props) => props.size}px * 4);
+    height: calc(${(props) => props.$size}px / 1.2);
+    width: calc(${(props) => props.$size}px * 4);
   }
 
   ${loadingGradient}

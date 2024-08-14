@@ -16,10 +16,10 @@ import { colors } from "@/common/styles/styleConstants";
 import { NavigationList, NavProfileButton } from "@/common/styles/tags/button/NavProfileButton";
 import { useState } from "react";
 
-const SettingsSummaryIcon = styled(SvgHelper)<{ isActive: boolean }>`
+const SettingsSummaryIcon = styled(SvgHelper)<{ $isActive: boolean }>`
   ${square(18)};
   color: ${colors.blue};
-  display: ${(props) => !props.isActive && "none"};
+  display: ${(props) => !props.$isActive && "none"};
 `;
 
 export const ViewSettings = () => {
@@ -43,24 +43,24 @@ export const ViewSettings = () => {
               <SettingsSummaryItemTitle>Тема</SettingsSummaryItemTitle>
 
               <SettingsSummaryItemThemeLink
-                isActive={theme === "light"}
+                $isActive={theme === "light"}
                 onClick={() => handleChangeTheme("light")}
               >
                 <p>Светлая</p>
                 <SettingsSummaryIcon
                   iconName="checkMark"
-                  isActive={theme === "light"}
+                  $isActive={theme === "light"}
                 />
               </SettingsSummaryItemThemeLink>
 
               <SettingsSummaryItemThemeLink
-                isActive={theme === "dark"}
+                $isActive={theme === "dark"}
                 onClick={() => handleChangeTheme("dark")}
               >
                 <p>Темная</p>
                 <SettingsSummaryIcon
                   iconName="checkMark"
-                  isActive={theme === "dark"}
+                  $isActive={theme === "dark"}
                 />
               </SettingsSummaryItemThemeLink>
             </SettingsSummaryItem>

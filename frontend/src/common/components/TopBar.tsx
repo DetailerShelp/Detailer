@@ -87,12 +87,12 @@ const TopBarLogoIcon = styled(SvgHelper)`
   height: 30px;
 `;
 
-const TopBarLogoText = styled(SvgHelper)<{ color: string | null }>`
+const TopBarLogoText = styled(SvgHelper)<{ $color: string | null }>`
   margin-top: 5px;
   width: 100px;
   height: 25px;
   color: ${(props) =>
-    props.color === "light" ? `${colors.blackThumb}` : `${colors.blackTotal}`};
+    props.$color === "light" ? `${colors.blackThumb}` : `${colors.blackTotal}`};
 `;
 
 const TopBarSearchWrapper = styled("div")`
@@ -146,7 +146,7 @@ export const TopBar = () => {
               iconName={theme === "light" ? "lightLogo" : "darkLogo"}
             />
           </TopBarLogoWrapper>
-          <TopBarLogoText iconName="nameLogo" color={theme} />
+          <TopBarLogoText iconName="nameLogo" $color={theme} />
         </TopBarLogoTitle>
       </TopBarLogoLink>
 

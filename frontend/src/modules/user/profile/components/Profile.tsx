@@ -25,7 +25,7 @@ import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { ProfileDropdownMenu } from "@/modules/user/profile/components/ProfileDropdownMenu";
 import { User } from "@/store/reducers/user/types";
 import { authorizedUser } from "@/store/reducers/user/authorizedUser";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   NavProfileButton,
   NavigationList,
@@ -36,19 +36,20 @@ import { ProfileGarage } from "@/modules/user/profile/components/publication/Pro
 import { ModalProfilesList } from "@/modules/user/profile/components/modal/ModalProfilesList";
 import { ModalProfileInfo } from "@/modules/user/profile/components/modal/ModalProfileInfo";
 import { ModalQR } from "@/common/components/modal/ModalQR";
+import { ModalReport } from "@/common/components/modal/ModalReport";
 
 const defaultAvatar = "/images/avatar.svg";
 
 interface ProfileProps {
   user?: User;
-  url?: string;
 }
 
-export const Profile = ({ user, url }: ProfileProps) => {
+export const Profile = ({ user }: ProfileProps) => {
   const [publicationPage, setPublicationPage] = useState("post");
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
   const [modalProfileInfo, setModalProfileInfo] = useState(false);
   const [modalQR, setModalQR] = useState(false);
+  const [modalReport, setModalReport] = useState(false);
 
   const [modalSubscribers, setModalSubscribers] = useState(false);
   const [modalSubscribes, setModalSubscribes] = useState(false);
@@ -66,12 +67,16 @@ export const Profile = ({ user, url }: ProfileProps) => {
 
   return (
     <ProfileWrapper>
-        <ModalQR
-          isOpen={modalQR}
-          setOpen={setModalQR}
-          title="Пользователя"
-          userAvatar={user?.avatarImg}
-        />
+      <ModalQR
+        isOpen={modalQR}
+        setOpen={setModalQR}
+        title="Пользователя"
+        userAvatar={user?.avatarImg}
+      />
+
+      {user?.id !== currentUserId && (
+        <ModalReport isOpen={modalReport} setOpen={setModalReport} />
+      )}
 
       {modalProfileInfo && (
         <ModalProfileInfo
@@ -86,16 +91,14 @@ export const Profile = ({ user, url }: ProfileProps) => {
           <ProfileBackgroundImage src={user?.backgroundImg} />
         </ProfileBackgroungImageWrapper>
 
-        {!!url && (
-          <ProfileBackWrapper>
-            <ButtonWithIcon
-              icon="arrowLeft"
-              title="Назад"
-              size={35}
-              click={() => <Link to={url} />}
-            />
-          </ProfileBackWrapper>
-        )}
+        <ProfileBackWrapper>
+          <ButtonWithIcon
+            icon="arrowLeft"
+            title="Назад"
+            size={35}
+            click={() => navigate(-1)}
+          />
+        </ProfileBackWrapper>
 
         <ProfileMoreWrapper>
           <DropdownWrapper
@@ -110,6 +113,7 @@ export const Profile = ({ user, url }: ProfileProps) => {
                 setDropdownOpen={setDropdownOpen}
                 setModalProfileInfo={setModalProfileInfo}
                 setModalQR={setModalQR}
+                setModalReport={setModalReport}
               />
             )}
           </DropdownWrapper>

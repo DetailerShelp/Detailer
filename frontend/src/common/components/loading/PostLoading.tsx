@@ -23,10 +23,10 @@ export const PostLoading = () => {
         <ShortProfileInfoLoading />
         <PostMenuWrapper>
           <PostMenuSubsribeWrapper>
-            <LoadingWhiteBlackButton size={30} />
+            <LoadingWhiteBlackButton $size={30} />
           </PostMenuSubsribeWrapper>
 
-          <LoadingCircle size={30} />
+          <LoadingCircle $size={30} />
         </PostMenuWrapper>
       </PostTopBarWrapper>
 

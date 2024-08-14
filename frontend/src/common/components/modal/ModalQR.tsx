@@ -5,6 +5,8 @@ import { colors, device } from "@/common/styles/styleConstants";
 import { ModalQRButton } from "@/common/styles/tags/button/ModalQRButton";
 import styled from "styled-components";
 import { flexCenter } from "@/common/styles/mixins";
+import { useToast } from "@/common/toast/toast-contex";
+import { copyErrorLinkInfo, copyLinkInfo } from "@/common/toast/toastsMessages/copyToasts";
 
 const defaultAvatar = "/images/avatar.svg";
 
@@ -42,15 +44,18 @@ export const ModalQR = ({
   userAvatar,
 }: ModalQRProps) => {
   const currentUrl = window.location.href;
+  const toast = useToast();
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(currentUrl);
-    //   .then(() => {
-    //     alert("URL скопирован в буфер обмена!"); // Уведомление об успешном копировании
-    //   })
-    //   .catch((err) => {
-    //     console.error("Ошибка при копировании:", err);
-    //   });
+    const currentUrl = window.location.href;
+    
+    navigator.clipboard.writeText(currentUrl)
+      .then(() => {
+        toast?.success(copyLinkInfo);
+      })
+      .catch(() => {
+        toast?.error(copyErrorLinkInfo);
+      });
   };
 
   return (

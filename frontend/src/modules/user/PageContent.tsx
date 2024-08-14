@@ -77,13 +77,13 @@ const WidgetsSection = styled("section")`
   }
 `;
 
-const FixedWrapper = styled("div")<{ height?: number }>`
+const FixedWrapper = styled("div")<{ $height?: number }>`
   position: fixed;
   display: grid;
   row-gap: 25px;
   /* z-index: 10; */
 
-  height: ${(props) => props.height}px;
+  height: ${(props) => props.$height}px;
 
   @media ${device.mobile} {
     width: 100%;
@@ -123,7 +123,7 @@ export const PageContent: FC<PageProps> = ({
             <VisuallyHidden>
               <h2>Виджеты</h2>
             </VisuallyHidden>
-            <FixedWrapper height={height}>
+            <FixedWrapper $height={height}>
               {widgetOne}
               {widgetTwo}
               {widgetThree}

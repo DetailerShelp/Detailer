@@ -92,9 +92,7 @@ export const SettingsSummaryItemContent = styled("p")`
   ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)};
 `;
 
-export const SettingsSummaryItemContentPassword = styled(
-  SettingsSummaryItemContent
-)`
+export const SettingsSummaryItemContentPassword = styled(SettingsSummaryItemContent)`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -112,9 +110,9 @@ export const SettingsSummaryItemContentLink = styled(NavLink)`
   }
 `;
 
-export const SettingsSummaryItemThemeLink = styled("a")<{ isActive: boolean }>`
+export const SettingsSummaryItemThemeLink = styled("a")<{ $isActive: boolean }>`
   color: ${(props) =>
-    props.isActive ? `${colors.blackTotal}` : `${colors.grayAccent}`};
+    props.$isActive ? colors.blackTotal : colors.grayAccent};
   font-weight: ${fonts.weights.regular};
   ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)};
 

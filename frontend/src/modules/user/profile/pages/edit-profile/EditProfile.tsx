@@ -38,7 +38,7 @@ export const EditProfile = () => {
       </EditProfileHeader>
       <EditProfileContent>
         <EditProfileBackgroundWrapper>
-          <EditProfileButtonWrapper position="left">
+          <EditProfileButtonWrapper $position="left">
             <ButtonWithIcon
               size={35}
               icon="edit"
@@ -48,7 +48,7 @@ export const EditProfile = () => {
 
           <EditProfileBackgroundImage src={data?.backgroundImg} />
 
-          <EditProfileButtonWrapper position="right">
+          <EditProfileButtonWrapper $position="right">
             <ButtonWithIcon
               size={35}
               icon="trash"

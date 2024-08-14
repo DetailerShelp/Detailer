@@ -101,14 +101,14 @@ export const Garage = () => {
         </GarageMarkWrapper>
 
         <GarageMarkList>
-          <GarageMarkItem color="green">
+          <GarageMarkItem $color="green">
             <SvgHelper iconName="plus" />
             <GarageDescription>
               Комфорт, скорость, удобство, внешний вид
             </GarageDescription>
           </GarageMarkItem>
 
-          <GarageMarkItem color="red">
+          <GarageMarkItem $color="red">
             <SvgHelper iconName="minus" />
             <GarageDescription>Проходимость</GarageDescription>
           </GarageMarkItem>

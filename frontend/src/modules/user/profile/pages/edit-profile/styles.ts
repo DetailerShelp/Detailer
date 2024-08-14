@@ -69,11 +69,11 @@ export const EditProfileBackgroundImage = styled("img")`
   border-radius: ${borders.defaultBorderRadius};
 `;
 
-export const EditProfileButtonWrapper = styled("div")<{ position: string }>`
+export const EditProfileButtonWrapper = styled("div")<{ $position: string }>`
   position: absolute;
   top: 20px;
-  left: ${(props) => props.position === "left" && "20px"};
-  right: ${(props) => props.position === "right" && "20px"};
+  left: ${(props) => props.$position === "left" && "20px"};
+  right: ${(props) => props.$position === "right" && "20px"};
   z-index: 2;
 
   ${flexCenter}
@@ -83,14 +83,14 @@ export const EditProfileButtonWrapper = styled("div")<{ position: string }>`
 
   @media ${device.tablet} {
     top: 15px;
-    left: ${(props) => props.position === "left" && "15px"};
-    right: ${(props) => props.position === "right" && "15px"};
+    left: ${(props) => props.$position === "left" && "15px"};
+    right: ${(props) => props.$position === "right" && "15px"};
   }
 
   @media ${device.mobileL} {
     top: 10px;
-    left: ${(props) => props.position === "left" && "10px"};
-    right: ${(props) => props.position === "right" && "10px"};
+    left: ${(props) => props.$position === "left" && "10px"};
+    right: ${(props) => props.$position === "right" && "10px"};
   }
 `;
 
