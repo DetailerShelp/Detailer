@@ -21,6 +21,8 @@ export const ProfileWrapper = styled("div")`
   background-color: ${colors.whiteTotal};
   border: ${borders.defaultBorder};
   border-radius: ${borders.defaultBorderRadius};
+  border-bottom-left-radius: ${borders.mediaBorderRadius};
+  border-bottom-right-radius: ${borders.mediaBorderRadius};
   box-shadow: ${shadows.defaultShadow};
   display: flex;
   flex-direction: column;
@@ -58,7 +60,7 @@ export const ProfileBackgroundImage = styled("img")`
   height: 100%;
   object-fit: cover;
   object-position: center;
-  border-radius: inherit;
+  border-radius: ${borders.defaultBorderRadius};
 `;
 
 export const ProfileBackWrapper = styled("div")`

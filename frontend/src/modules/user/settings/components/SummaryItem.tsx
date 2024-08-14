@@ -5,7 +5,6 @@ import {
   SettingsSummaryItemContentPassword,
   SettingsSummaryItemTitle,
 } from "@/modules/user/settings/components/styles";
-import { FC } from "react";
 
 interface SettingsSummaryProps {
   title: string;
@@ -13,11 +12,11 @@ interface SettingsSummaryProps {
   link?: string;
 }
 
-export const SummaryItem: FC<SettingsSummaryProps> = ({
+export const SummaryItem = ({
   title,
   content,
   link,
-}) => {
+}: SettingsSummaryProps) => {
   return (
     <SettingsSummaryItem>
       <SettingsSummaryItemTitle>{title}</SettingsSummaryItemTitle>

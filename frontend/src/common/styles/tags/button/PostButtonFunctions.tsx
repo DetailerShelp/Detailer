@@ -1,5 +1,4 @@
 import { ImageComponentsTypes } from "@/common/svg-helper";
-import { FC } from "react";
 import styled from "styled-components";
 import {
   clampText,
@@ -45,11 +44,11 @@ interface PostButtonFunctionsProps {
   count?: number;
 }
 
-export const PostButtonFunctions: FC<PostButtonFunctionsProps> = ({
+export const PostButtonFunctions = ({
   title,
   icon,
   count,
-}) => {
+}: PostButtonFunctionsProps) => {
   return (
     <ButtonWrapper>
       <Button title={title}>

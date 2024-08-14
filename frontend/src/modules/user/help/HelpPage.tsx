@@ -1,5 +1,5 @@
-import { PageContent } from "../PageContent"
-import { HelpForm } from "./HelpForm"
+import { PageContent } from "@/modules/user/PageContent"
+import { HelpForm } from "@/modules/user/help/HelpForm"
 
 export const HelpPage = () => {
   return (

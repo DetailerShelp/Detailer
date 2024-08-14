@@ -1,12 +1,11 @@
 import styled from "styled-components";
 import { absCenter } from "@/common/styles/mixins";
-import { FC } from "react";
 import { ButtonWrapper } from "@/common/styles/tags/button/BlackWhiteButton";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { ImageComponentsTypes } from "@/common/svg-helper";
 
-const ButtonIconWrapper = styled("div")<{ size: number }>`
-  width: calc(${(props) => props.size}px / 3);
+const ButtonIconWrapper = styled("div")<{ $size: number }>`
+  width: calc(${(props) => props.$size}px / 3);
   aspect-ratio: 1;
   position: relative;
 `;
@@ -24,16 +23,16 @@ interface WhiteButtonProps {
   click?: () => void; // добавить обработчик клика для кнопки, если есть
 }
 
-export const WhiteButtonWithIcon: FC<WhiteButtonProps> = ({
+export const WhiteButtonWithIcon = ({
   size,
   title,
   icon,
   click
-}) => {
+}: WhiteButtonProps) => {
   return (
-    <ButtonWrapper color="white" size={size} onClick={click}>
+    <ButtonWrapper $color="white" $size={size} onClick={click}>
       {title}
-      <ButtonIconWrapper size={size}>
+      <ButtonIconWrapper $size={size}>
         <ButtonIcon iconName={icon} />
       </ButtonIconWrapper>
     </ButtonWrapper>

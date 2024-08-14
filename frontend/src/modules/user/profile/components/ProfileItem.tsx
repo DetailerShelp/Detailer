@@ -1,4 +1,3 @@
-import { FC } from "react";
 import {
   ProfileRaitingItem,
   ProfileRaitingButton,
@@ -11,7 +10,7 @@ interface ProfileItemProps {
   count: number;
 }
 
-export const ProfileItem: FC<ProfileItemProps> = ({ click, title, count }) => {
+export const ProfileItem = ({ click, title, count }: ProfileItemProps) => {
   return (
     <ProfileRaitingItem>
       <ProfileRaitingButton onClick={click}>

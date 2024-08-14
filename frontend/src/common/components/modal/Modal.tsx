@@ -12,7 +12,7 @@ import { flexCenter } from "@/common/styles/mixins";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { ModalContentWrapper, ModalHeader, ModalWrapper } from "@/common/components/modal/styles";
 
-const ModalSection = styled("section")<{ zindex: number }>`
+const ModalSection = styled("section")<{ $zindex: number }>`
   ${flexCenter}
   position: fixed;
   top: 0;
@@ -20,11 +20,11 @@ const ModalSection = styled("section")<{ zindex: number }>`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  z-index: ${(props) => props.zindex};
+  z-index: ${(props) => props.$zindex};
   background-color: ${colors.blackTransparent};
 `;
 
-const ModalContent = styled("div")<{ visible: boolean }>`
+const ModalContent = styled("div")<{ $visible: boolean }>`
   position: relative;
   background: ${colors.whiteModal};
   border-radius: ${borders.mediumBorderRadius};
@@ -32,7 +32,7 @@ const ModalContent = styled("div")<{ visible: boolean }>`
   height: fit-content;
   width: fit-content;
   transition: ${transitions.lowTransition};
-  transform: ${(props) => (props.visible ? "scale(1)" : "scale(0.5)")};
+  transform: ${(props) => (props.$visible ? "scale(1)" : "scale(0.5)")};
 
   @media ${device.mobileL} {
     border-radius: ${borders.defaultBorderRadius};
@@ -43,7 +43,7 @@ const ModalContent = styled("div")<{ visible: boolean }>`
     position: absolute;
     bottom: 0;
     transform: ${(props) =>
-    props.visible ? "translateY(0px)" : "translateY(200px)"};
+    props.$visible ? "translateY(0px)" : "translateY(200px)"};
   } */
 `;
 
@@ -100,10 +100,10 @@ const Modal = ({
   }
 
   return (
-    <ModalSection onClick={onClose} tabIndex={-1} zindex={zIndex || 1}>
+    <ModalSection onClick={onClose} tabIndex={-1} $zindex={zIndex || 1}>
       <ModalContent
         onClick={(e) => e.stopPropagation()}
-        visible={isVisible}
+        $visible={isVisible}
         style={style}
       >
         {closeIcon && (

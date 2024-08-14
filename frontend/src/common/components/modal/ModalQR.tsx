@@ -6,7 +6,7 @@ import { ModalQRButton } from "@/common/styles/tags/button/ModalQRButton";
 import styled from "styled-components";
 import { flexCenter } from "@/common/styles/mixins";
 import { useToast } from "@/common/toast/toast-contex";
-import { copyLinkInfo } from "@/common/toast/toastsMessages/copyToasts";
+import { copyErrorLinkInfo, copyLinkInfo } from "@/common/toast/toastsMessages/copyToasts";
 
 const defaultAvatar = "/images/avatar.svg";
 
@@ -47,8 +47,15 @@ export const ModalQR = ({
   const toast = useToast();
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(currentUrl);
-    toast?.success(copyLinkInfo);
+    const currentUrl = window.location.href;
+    
+    navigator.clipboard.writeText(currentUrl)
+      .then(() => {
+        toast?.success(copyLinkInfo);
+      })
+      .catch(() => {
+        toast?.error(copyErrorLinkInfo);
+      });
   };
 
   return (

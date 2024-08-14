@@ -7,7 +7,7 @@ import {
 } from "@/common/styles/styleConstants";
 import { clampText } from "@/common/styles/mixins";
 import { VisuallyHidden } from "@/common/styles/GlobalStyles";
-import { FC, useState } from "react";
+import { useState } from "react";
 
 const MultipleForm = styled("form")`
   display: flex;
@@ -21,16 +21,16 @@ export const MultipleLabel = styled("label")`
   margin-inline: 20px;
 `;
 
-const MultipleWrapper = styled("div")<{ isFocus: boolean }>`
+const MultipleWrapper = styled("div")<{ $isFocus: boolean; $height?: number }>`
   width: 100%;
-  height: 215px;
+  height: ${(props) => (!!props.$height ? props.$height : "215px")};
   padding: 15px 15px;
   border: ${borders.borderGrayAccent};
   border-radius: ${borders.defaultBorderRadius};
   background-color: ${(props) =>
-    props.isFocus ? colors.whiteBackground : "transparent"};
+    props.$isFocus ? colors.whiteBackground : "transparent"};
   border-color: ${(props) =>
-    props.isFocus ? colors.blackTotal : colors.grayAccent};
+    props.$isFocus ? colors.blackTotal : colors.grayAccent};
   transition: ${transitions.fastTransition};
 
   &:hover {
@@ -60,30 +60,30 @@ const MultipleTextarea = styled("textarea")`
 `;
 
 interface MultipleInputProps {
-  key: string;
   placeholder: string;
   title?: string;
+  height?: number;
 }
 
-export const MultipleInput: FC<MultipleInputProps> = ({
-  key,
+export const MultipleInput = ({
   placeholder,
   title,
-}) => {
+  height,
+}: MultipleInputProps) => {
   const [isFocus, setFocus] = useState(false);
   return (
     <MultipleForm>
       {!!title ? (
-        <MultipleLabel htmlFor={key}>{title}</MultipleLabel>
+        <MultipleLabel htmlFor={placeholder}>{title}</MultipleLabel>
       ) : (
         <VisuallyHidden>
-          <label htmlFor={key}>{placeholder}</label>
+          <label htmlFor={placeholder}>{placeholder}</label>
         </VisuallyHidden>
       )}
-      <MultipleWrapper isFocus={isFocus}>
+      <MultipleWrapper $isFocus={isFocus} $height={height}>
         <MultipleTextarea
-          id={key}
-          name={key}
+          id={placeholder}
+          name={placeholder}
           placeholder={placeholder}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
