@@ -12,7 +12,6 @@ import {
   shadows,
 } from "@/common/styles/styleConstants";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
-import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
@@ -63,7 +62,7 @@ interface WidgetsProps {
   children: React.ReactNode,
 }
 
-export const WidgetsWrapper: FC<WidgetsProps> = ({ title, link, children }) => {
+export const WidgetsWrapper= ({ title, link, children }: WidgetsProps) => {
   return (
     <WidgetWrapper>
       <WidgetHeaderWrapper>

@@ -136,7 +136,7 @@ export const ProfileGarageDescription = styled("p")`
   text-overflow: ellipsis;
 `;
 
-export const ProfileGarageStatus = styled("p")<{ color: string }>`
+export const ProfileGarageStatus = styled("p")<{ $color: string }>`
   ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)}
   font-weight: ${fonts.weights.medium};
   color: ${(props) => (props.color === "red" ? colors.red : colors.green)};

@@ -2,8 +2,10 @@ import { borders, colors, device } from "@/common/styles/styleConstants";
 import {
   ProfileBackgroundWrapper,
   ProfileBackgroungImageWrapper,
+  ProfileBackWrapper,
   ProfileButtonsWrapper,
   ProfileContentWrapper,
+  ProfileMoreWrapper,
   ProfileRaitingItem,
   ProfileRaitingList,
   ProfileUserAvatarWrapper,
@@ -17,6 +19,7 @@ import {
   clampWidth,
   flexCenter,
   loadingGradient,
+  square,
 } from "@/common/styles/mixins";
 import { NavigationList } from "@/common/styles/tags/button/NavProfileButton";
 import {
@@ -42,6 +45,17 @@ const BackgroundImage = styled(ProfileBackgroungImageWrapper)`
   position: relative;
 
   width: 100%;
+`;
+
+const LeftButton = styled(ProfileBackWrapper)`
+  ${square(35)}
+  border-radius: ${borders.circleBorderRadius};
+`;
+
+const RightButton = styled(ProfileMoreWrapper)`
+  ${square(35)}
+  border-radius: ${borders.circleBorderRadius};
+  background-color: ${colors.blackBackground};
 `;
 
 const UserAvatar = styled(ProfileUserAvatarWrapper)`
@@ -125,6 +139,10 @@ export const ProfileLoading = () => {
       <ProfileBackgroundWrapper>
         <BackgroundImage />
 
+        <LeftButton />
+
+        <RightButton />
+
         <ProfileUserHeaderWrapper>
           <UserAvatar />
           <UserName />
@@ -141,24 +159,24 @@ export const ProfileLoading = () => {
       </ProfileRaitingList>
 
       <ProfileButtonsWrapper>
-        <LoadingWhiteBlackButton size={35} />
-        <LoadingWhiteBlackButton size={35} />
+        <LoadingWhiteBlackButton $size={35} />
+        <LoadingWhiteBlackButton $size={35} />
       </ProfileButtonsWrapper>
 
       <ProfileContentWrapper>
         <NavigationList>
           <NavigationItem>
-            <LoadingCircle size={30} />
+            <LoadingCircle $size={30} />
             <NavigationButton />
           </NavigationItem>
 
           <NavigationItem>
-            <LoadingCircle size={30} />
+            <LoadingCircle $size={30} />
             <NavigationButton />
           </NavigationItem>
 
           <NavigationItem>
-            <LoadingCircle size={30} />
+            <LoadingCircle $size={30} />
             <NavigationButton />
           </NavigationItem>
         </NavigationList>

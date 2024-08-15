@@ -29,7 +29,7 @@ const Text = styled("p")`
 export const ShortProfileInfoLoading = () => {
   return (
     <Wrapper>
-      <LoadingCircle size={35} />
+      <LoadingCircle $size={35} />
       <Text />
     </Wrapper>
   );

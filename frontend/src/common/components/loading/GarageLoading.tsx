@@ -69,10 +69,10 @@ export const GarageLoading = () => {
         <ShortProfileInfoLoading />
         <GarageMenuWrapper>
           <GarageMenuSubsribeWrapper>
-            <LoadingWhiteBlackButton size={30} />
+            <LoadingWhiteBlackButton $size={30} />
           </GarageMenuSubsribeWrapper>
 
-          <LoadingCircle size={30} />
+          <LoadingCircle $size={30} />
         </GarageMenuWrapper>
       </GarageTopBarWrapper>
 
@@ -86,7 +86,7 @@ export const GarageLoading = () => {
         <LoadingTitle />
         <List>
           <Item>
-            <LoadingCircle size={30} />
+            <LoadingCircle $size={30} />
             <ItemWrapper>
               <ItemTitle />
               <ItemDescription />
@@ -94,7 +94,7 @@ export const GarageLoading = () => {
           </Item>
 
           <Item>
-            <LoadingCircle size={30} />
+            <LoadingCircle $size={30} />
             <ItemWrapper>
               <ItemTitle />
               <ItemDescription />
@@ -102,7 +102,7 @@ export const GarageLoading = () => {
           </Item>
 
           <Item>
-            <LoadingCircle size={30} />
+            <LoadingCircle $size={30} />
             <ItemWrapper>
               <ItemTitle />
               <ItemDescription />
@@ -110,7 +110,7 @@ export const GarageLoading = () => {
           </Item>
 
           <Item>
-            <LoadingCircle size={30} />
+            <LoadingCircle $size={30} />
             <ItemWrapper>
               <ItemTitle />
               <ItemDescription />
@@ -118,7 +118,7 @@ export const GarageLoading = () => {
           </Item>
 
           <Item>
-            <LoadingCircle size={30} />
+            <LoadingCircle $size={30} />
             <ItemWrapper>
               <ItemTitle />
               <ItemDescription />
@@ -126,7 +126,7 @@ export const GarageLoading = () => {
           </Item>
 
           <Item>
-            <LoadingCircle size={30} />
+            <LoadingCircle $size={30} />
             <ItemWrapper>
               <ItemTitle />
               <ItemDescription />
@@ -151,13 +151,13 @@ export const GarageLoading = () => {
         </GarageMarkWrapper>
 
         <GarageMarkList>
-          <GarageMarkItem color="green">
-            <LoadingCircle size={30} />
+          <GarageMarkItem $color="green">
+            <LoadingCircle $size={30} />
             <LoadingDescription />
           </GarageMarkItem>
 
-          <GarageMarkItem color="red">
-            <LoadingCircle size={30} />
+          <GarageMarkItem $color="red">
+            <LoadingCircle $size={30} />
             <LoadingDescription />
           </GarageMarkItem>
         </GarageMarkList>
@@ -167,7 +167,7 @@ export const GarageLoading = () => {
         <LoadingTitle />
         <List>
           <Item>
-            <LoadingCircle size={30} />
+            <LoadingCircle $size={30} />
             <ItemWrapper>
               <ItemTitle />
               <ItemDescription />
@@ -175,7 +175,7 @@ export const GarageLoading = () => {
           </Item>
 
           <Item>
-            <LoadingCircle size={30} />
+            <LoadingCircle $size={30} />
             <ItemWrapper>
               <ItemTitle />
               <ItemDescription />
@@ -187,7 +187,7 @@ export const GarageLoading = () => {
       <LoadingTime />
 
       <GarageButtonWrapper>
-        <LoadingWhiteBlackButton size={40} />
+        <LoadingWhiteBlackButton $size={40} />
       </GarageButtonWrapper>
     </GarageWrapper>
   );

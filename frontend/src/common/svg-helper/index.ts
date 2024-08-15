@@ -93,6 +93,15 @@ import replace from '@/common/svg-helper/icons/replace.svg?react';
 import savePicture from '@/common/svg-helper/icons/message-dropdown/savePicture.svg?react';
 import notSpeaker from '@/common/svg-helper/icons/chat-dropdown/notSpeaker.svg?react';
 import notCall from '@/common/svg-helper/icons/chat-dropdown/notCall.svg?react';
+import error from '@/common/svg-helper/icons/toasts/error.svg?react';
+import success from '@/common/svg-helper/icons/toasts/success.svg?react';
+import infoToast from '@/common/svg-helper/icons/toasts/info.svg?react';
+import warning from '@/common/svg-helper/icons/toasts/warning.svg?react';
+import starDefault from '@/common/svg-helper/icons/star-default.svg?react';
+import starHalf from '@/common/svg-helper/icons/star-half.svg?react';
+import starActive from '@/common/svg-helper/icons/star-active.svg?react';
+
+
 import soundOn from '@/common/svg-helper/icons/sound-on.svg?react';
 import soundOff from '@/common/svg-helper/icons/sound-off.svg?react';
 
@@ -201,6 +210,13 @@ export type ImageComponentsTypes =
   | 'savePicture'
   | 'notSpeaker'
   | 'notCall'
+  | 'warning'
+  | 'infoToast'
+  | 'success'
+  | 'error'
+  | 'starDefault'
+  | 'starHalf' 
+  | 'starActive'
   | 'soundOn'
   | 'soundOff';
 
@@ -300,6 +316,13 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   savePicture,
   notSpeaker,
   notCall,
+  warning,
+  infoToast,
+  success,
+  error,
+  starDefault,
+  starHalf, 
+  starActive,
   soundOn,
   soundOff
 };

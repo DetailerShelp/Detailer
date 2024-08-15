@@ -55,7 +55,7 @@ export const DropdownItem = styled("li")`
   }
 `;
 
-export const DropdownButton = styled("button")<{ isRed?: boolean }>`
+export const DropdownButton = styled("button")<{ $isRed?: boolean }>`
   ${resetButton}
   width: 100%;
   display: flex;
@@ -64,7 +64,7 @@ export const DropdownButton = styled("button")<{ isRed?: boolean }>`
   padding: 10px 20px;
 
   white-space: nowrap;
-  color: ${(props) => (props.isRed ? colors.red : colors.blackTotal)};
+  color: ${(props) => (props.$isRed ? colors.red : colors.blackTotal)};
   ${clampText(fonts.sizes.dropdownMobile, fonts.sizes.dropdown)}
   border-radius: ${borders.defaultBorderRadius};
 

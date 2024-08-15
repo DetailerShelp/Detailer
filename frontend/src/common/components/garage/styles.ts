@@ -96,7 +96,7 @@ export const GarageDescription = styled("p")`
 export const GarageMarkWrapper = styled("div")`
   display: flex;
   align-items: center;
-  row-gap: 10px;
+  column-gap: 10px;
 `;
 
 export const GarageMarkSubtitle = styled("h4")`
@@ -114,14 +114,14 @@ export const GarageMarkList = styled("ul")`
   row-gap: 10px;
 `;
 
-export const GarageMarkItem = styled("li")<{ color: string }>`
+export const GarageMarkItem = styled("li")<{ $color: string }>`
   display: flex;
   align-items: center;
   justify-content: start;
   column-gap: 10px;
 
   svg * {
-    color: ${(props) => (props.color === "green" ? colors.green : colors.red)};
+    color: ${(props) => (props.$color === "green" ? colors.green : colors.red)};
   }
 `;
 

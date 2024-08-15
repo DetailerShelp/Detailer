@@ -36,16 +36,16 @@ const PublicationImg = styled("img")`
   transition: ${transitions.mediumTransition};
 `;
 
-const PublicationArrowWrapper = styled("div")<{ arrow: string }>`
+const PublicationArrowWrapper = styled("div")<{ $arrow: string }>`
   position: absolute;
   top: 0;
-  left: ${(props) => props.arrow === "left" && 0};
-  right: ${(props) => props.arrow === "right" && 0};
+  left: ${(props) => props.$arrow === "left" && 0};
+  right: ${(props) => props.$arrow === "right" && 0};
   z-index: 1;
   width: 50px;
   height: 100%;
 
-  transform: ${(props) => props.arrow === "right" && "rotate(180deg)"};
+  transform: ${(props) => props.$arrow === "right" && "rotate(180deg)"};
 `;
 
 const PublicationCount = styled("span")`
@@ -121,13 +121,13 @@ export const PublicationSlider = ({
       )}
 
       {currentCount !== 0 && (
-        <PublicationArrowWrapper arrow="left">
+        <PublicationArrowWrapper $arrow="left">
           <PublicationArrowButton title="Предыдущее" click={handlePrevCount} />
         </PublicationArrowWrapper>
       )}
 
       {currentCount !== count - 1 && (
-        <PublicationArrowWrapper arrow="right">
+        <PublicationArrowWrapper $arrow="right">
           <PublicationArrowButton title="Следущее" click={handleNextCount} />
         </PublicationArrowWrapper>
       )}

@@ -15,7 +15,6 @@ import {
   shadows,
 } from "@/common/styles/styleConstants";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
-import { FC } from "react";
 import { normalizeCount } from "@/common/helpers/countHelpers";
 
 const ButtonWrapper = styled("div")`
@@ -71,12 +70,12 @@ interface ShortsButtonFunctionsProps {
   click?: () => void; 
 }
 
-export const ShortsButtonFunctions: FC<ShortsButtonFunctionsProps> = ({
+export const ShortsButtonFunctions = ({
   title,
   icon,
   count,
   click
-}) => {
+}: ShortsButtonFunctionsProps) => {
   return (
     <ButtonWrapper>
       <Button onClick={click}  title={title}>

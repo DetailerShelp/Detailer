@@ -41,7 +41,7 @@ export const ProfileRenderGarage = ({ garage }: ProfileRenderGarageProps) => {
                     </ProfileGarageDescription>
 
                     <ProfileGarageStatus
-                      color={item.status === "Владеет" ? "green" : "red"}
+                      $color={item.status === "Владеет" ? "green" : "red"}
                     >
                       {item.status}
                     </ProfileGarageStatus>

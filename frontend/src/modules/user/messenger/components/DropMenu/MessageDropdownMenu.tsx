@@ -1,5 +1,7 @@
 import { DropdownMenu } from "@/common/components/dropdown-menu/DropdownMenu";
 import { DropdownMenuItem } from "@/common/components/dropdown-menu/DropdownMenuItem";
+import { useToast } from "@/common/toast/toast-contex";
+import { copySucces, deleteSucces } from "@/common/toast/toastsMessages/messengerToasts";
 import { useActions } from "@/store/actions";
 import { useCallback, useRef } from "react";
 
@@ -43,8 +45,11 @@ const MessageDropdownMenu = ({
     setEditedMessage,
   } = useActions();
 
+  const toast = useToast();
+
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(text || '');
+    toast?.success(copySucces);
   }, [text]);
 
   const handleAnswer = useCallback(() => {
@@ -55,6 +60,7 @@ const MessageDropdownMenu = ({
   const handleDelete = useCallback(() => {
     deleteMessage({ chatId: chatId, mesId: mesId });
     setDropdownOpen(false);
+    toast?.success(deleteSucces);
   }, [chatId, mesId]);
 
   const handlePinMessage = useCallback(() => {

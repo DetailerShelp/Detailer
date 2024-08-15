@@ -29,9 +29,12 @@ import { GarageDropdownMenu } from "@/common/components/garage/components/Garage
 import { ProfileLink } from "@/common/styles/tags/a/ProfileLink";
 import { authorizedUser } from "@/store/reducers/user/authorizedUser";
 import { useGetUserByIdQuery } from "@/store/reducers/user/userApi";
+import { StarRaiting } from "@/common/components/StarRaiting";
 
 export const Garage = () => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
+  const [stars, setStars] = useState(3.5);
+
 
   const userId = authorizedUser();
   const { data } = useGetUserByIdQuery(Number(userId));
@@ -98,17 +101,18 @@ export const Garage = () => {
 
         <GarageMarkWrapper>
           <GarageMarkSubtitle>Оценка владельца:</GarageMarkSubtitle>
+          <StarRaiting stars={stars} setStars={setStars} isActive={false} />
         </GarageMarkWrapper>
 
         <GarageMarkList>
-          <GarageMarkItem color="green">
+          <GarageMarkItem $color="green">
             <SvgHelper iconName="plus" />
             <GarageDescription>
               Комфорт, скорость, удобство, внешний вид
             </GarageDescription>
           </GarageMarkItem>
 
-          <GarageMarkItem color="red">
+          <GarageMarkItem $color="red">
             <SvgHelper iconName="minus" />
             <GarageDescription>Проходимость</GarageDescription>
           </GarageMarkItem>

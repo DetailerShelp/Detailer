@@ -50,6 +50,13 @@ const Chat = () => {
 
     const { messages, theme } = useDataMessageStore({ chatId: id });
 
+    useEffect(() => {
+        window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: 'instant',
+        });
+    }, [])
+
     const scrollBottom = () => {
         setTimeout(() => {
             window.scrollTo({
