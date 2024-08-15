@@ -102,6 +102,8 @@ import starHalf from '@/common/svg-helper/icons/star-half.svg?react';
 import starActive from '@/common/svg-helper/icons/star-active.svg?react';
 
 
+import soundOn from '@/common/svg-helper/icons/sound-on.svg?react';
+import soundOff from '@/common/svg-helper/icons/sound-off.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -214,7 +216,9 @@ export type ImageComponentsTypes =
   | 'error'
   | 'starDefault'
   | 'starHalf' 
-  | 'starActive';
+  | 'starActive'
+  | 'soundOn'
+  | 'soundOff';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   nameLogo, 
@@ -319,4 +323,6 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   starDefault,
   starHalf, 
   starActive,
+  soundOn,
+  soundOff
 };

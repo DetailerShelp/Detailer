@@ -3,6 +3,7 @@ import { ShortVideo, ShortVideoWrapper } from '@/modules/user/shorts/styles';
 import ReactPlayer from 'react-player';
 import PlayVideoButton from '@/common/styles/tags/button/PlayVideoButton';
 import ShortVideoRange from '@/modules/user/shorts/components/ShortVideoRange';
+import ShortVideoMixer from '@/modules/user/shorts/components/ShortVideoMixer';
 
 interface ShortProps {
     id: number,
@@ -28,6 +29,9 @@ export default function Short({ id, video, activeVideo }: ShortProps) {
         setProgressVideo(Number(value));
     }
 
+    const [soundValue, setSoundValue] = useState(100);
+    const [isMixer, setIsMixer] = useState(false);
+
     return (
         <ShortVideoWrapper>
             <ShortVideo onClick={() => setIsPlaying(prev => !prev)}>
@@ -35,6 +39,7 @@ export default function Short({ id, video, activeVideo }: ShortProps) {
                     ref={playerRef}
                     onReady={(reactPlayer) => setMaxDuration(reactPlayer.getDuration())}
                     onProgress={(reactPlayer) => setProgressVideo(reactPlayer.playedSeconds)}
+                    volume={soundValue / 100}
                     url={video}
                     loop={true}
                     width={'100%'}
@@ -54,6 +59,8 @@ export default function Short({ id, video, activeVideo }: ShortProps) {
                 progressVideo={progressVideo}
                 handleChangeTimeCode={handleChangeTimeCode}
             />
+
+            <ShortVideoMixer isMixer={isMixer} setIsMixer={setIsMixer} soundValue={soundValue} setSoundValue={setSoundValue} />
         </ShortVideoWrapper>
     )
 }
