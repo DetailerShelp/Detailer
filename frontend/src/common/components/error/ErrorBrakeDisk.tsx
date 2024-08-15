@@ -32,6 +32,7 @@ const DiskImg = styled("img")`
   width: 75%;
   aspect-ratio: 1;
   z-index: 1;
+  border-radius: ${borders.circleBorderRadius};
 
   animation: 7s linear 0s normal none infinite running disk;
   -webkit-animation: 7s linear 0s normal none infinite running disk;
