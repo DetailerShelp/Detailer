@@ -21,6 +21,7 @@ import { SettingsPage } from "@/modules/user/settings/SettingsPage";
 import Chat from "@/modules/user/messenger/components/Chat";
 import { LikedPage } from "@/modules/user/profile/pages/liked/LikedPage";
 import { SavedPage } from "@/modules/user/profile/pages/saved/SavedPage";
+import { ErrorPage } from "@/common/components/error/ErrorPage";
 
 export default function RoutesProvider() {
   const authorizedUser = true;
@@ -57,7 +58,7 @@ export default function RoutesProvider() {
           <Route path="settings" element={<SettingsPage />} />
           <Route path="help" element={<HelpPage />} />
         </Route>
-        <Route path="error" element={<div>Error 404</div>} />
+        <Route path="error" element={<ErrorPage />} />
         <Route path="*" element={<Navigate to="/error" replace />} />
         {/* на страницу Error можно будет вернуться на главную страницу */}
       </>

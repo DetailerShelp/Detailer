@@ -6,13 +6,11 @@ import {
   transitions,
 } from "@/common/styles/styleConstants";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
-import SvgHelper from "@/common/svg-helper/SvgHelper";
-import { flexCenter, resetLink } from "@/common/styles/mixins";
+import { flexCenter } from "@/common/styles/mixins";
 import { SearchInput } from "@/common/styles/tags/input/SearchInput";
 import ModalPost from "@/modules/NewPost/ModalPost";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { VisuallyHidden } from "@/common/styles/GlobalStyles";
+import { Logo } from "@/common/components/Logo";
 
 const TopBarHeader = styled("header")`
   position: fixed;
@@ -44,55 +42,6 @@ const TopBarHeader = styled("header")`
     height: 50px;
     padding-inline: 10px;
   }
-`;
-
-const TopBarLogoLink = styled(NavLink)`
-  ${resetLink}
-  ${flexCenter}
-  margin-bottom: 3px;
-`;
-
-const TopBarLogoTitle = styled("h1")`
-  width: 132px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  position: relative;
-`;
-
-const TopBarLogoWrapper = styled("div")`
-  ${flexCenter}
-  position: absolute;
-  left: 0;
-  top: 50%;
-  translate: 0 -50%;
-  z-index: 1;
-  width: 30px;
-  height: 30px;
-`;
-
-const TopBarLogoIconCap = styled(SvgHelper)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 6.95px;
-  height: 18.75px;
-  color: ${colors.blackThumb};
-`;
-
-const TopBarLogoIcon = styled(SvgHelper)`
-  width: 30px;
-  height: 30px;
-`;
-
-const TopBarLogoText = styled(SvgHelper)<{ $color: string | null }>`
-  margin-top: 5px;
-  width: 100px;
-  height: 25px;
-  color: ${(props) =>
-    props.$color === "light" ? `${colors.blackThumb}` : `${colors.blackTotal}`};
 `;
 
 const TopBarSearchWrapper = styled("div")`
@@ -131,24 +80,12 @@ const TopBarItem = styled("li")`
 
 export const TopBar = () => {
   const [open, setOpen] = useState(false);
-  const theme = localStorage.getItem("theme") || "light";
 
   return (
     <TopBarHeader>
       <ModalPost isOpen={open} setOpen={setOpen}></ModalPost>
 
-      <TopBarLogoLink to="/home">
-        <TopBarLogoTitle>
-          <VisuallyHidden>Detailer</VisuallyHidden>
-          <TopBarLogoWrapper>
-            {theme === "light" && <TopBarLogoIconCap iconName="lightCapLogo" />}
-            <TopBarLogoIcon
-              iconName={theme === "light" ? "lightLogo" : "darkLogo"}
-            />
-          </TopBarLogoWrapper>
-          <TopBarLogoText iconName="nameLogo" $color={theme} />
-        </TopBarLogoTitle>
-      </TopBarLogoLink>
+     <Logo />
 
       <TopBarSearchWrapper>
         <SearchInput />
