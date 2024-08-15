@@ -4,7 +4,7 @@ import {
   clampWidth,
   flexCenter,
   hoverActive,
-  resetLink,
+  resetButton,
   square,
 } from "@/common/styles/mixins";
 import {
@@ -20,8 +20,9 @@ export const ProfileWrapper = styled("div")`
   width: 100%;
   background-color: ${colors.whiteTotal};
   border: ${borders.defaultBorder};
-  border-top-left-radius: ${borders.defaultBorderRadius};
-  border-top-right-radius: ${borders.defaultBorderRadius};
+  border-radius: ${borders.defaultBorderRadius};
+  border-bottom-left-radius: ${borders.mediaBorderRadius};
+  border-bottom-right-radius: ${borders.mediaBorderRadius};
   box-shadow: ${shadows.defaultShadow};
   display: flex;
   flex-direction: column;
@@ -43,7 +44,7 @@ export const ProfileBackgroundWrapper = styled("div")`
   border-radius: inherit;
 `;
 
-export const ProfileBackgroundImage = styled("img")`
+export const ProfileBackgroungImageWrapper = styled("div")`
   position: absolute;
   top: 0;
   left: 0;
@@ -51,9 +52,37 @@ export const ProfileBackgroundImage = styled("img")`
 
   width: inherit;
   ${clampHeight(165, 200)}
+  border-radius: inherit;
+`;
+
+export const ProfileBackgroundImage = styled("img")`
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
-  border-radius: inherit;
+  border-radius: ${borders.defaultBorderRadius};
+`;
+
+export const ProfileBackWrapper = styled("div")`
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  z-index: 2;
+
+  ${square(35)}
+  ${flexCenter}
+  border-radius: ${borders.circleBorderRadius};
+  background-color: ${colors.blackBackground};
+
+  @media ${device.tablet} {
+    top: 20px;
+    left: 20px;
+  }
+
+  @media ${device.mobileL} {
+    top: 15px;
+    left: 15px;
+  }
 `;
 
 export const ProfileMoreWrapper = styled("div")`
@@ -101,16 +130,22 @@ export const ProfileUserHeaderWrapper = styled("div")`
   }
 `;
 
-export const ProfileUserAvatar = styled("img")`
+export const ProfileUserAvatarWrapper = styled("div")`
   ${square(100)}
   border: ${borders.avatarBorder};
   border-radius: ${borders.circleBorderRadius};
-  object-fit: cover;
-  object-position: center;
 
   @media ${device.mobile} {
     ${square(85)}
   }
+`;
+
+export const ProfileUserAvatar = styled("img")`
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
 `;
 
 export const ProfileUserName = styled("h2")`
@@ -180,13 +215,14 @@ export const ProfileRaitingItem = styled("li")`
   ${clampWidth(85, 150)}
 `;
 
-export const ProfileRaitingLink = styled("a")`
-  ${resetLink}
+export const ProfileRaitingButton = styled("button")`
+  ${resetButton}
   ${flexCenter}
   width: 100%;
   text-align: center;
   font-weight: ${fonts.weights.medium};
   ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)};
+  color: ${colors.blackTotal};
   border-radius: ${borders.thinBorderRadius};
   ${hoverActive}
 `;

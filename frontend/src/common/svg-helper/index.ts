@@ -20,6 +20,7 @@ import arrowDown from '@/common/svg-helper/icons/arrow-down.svg?react';
 import close from '@/common/svg-helper/icons/close.svg?react';
 import trash from '@/common/svg-helper/icons/trash.svg?react';
 import plus from '@/common/svg-helper/icons/plus.svg?react';
+import minus from '@/common/svg-helper/icons/minus.svg?react';
 import edit from '@/common/svg-helper/icons/edit.svg?react';
 import post from '@/common/svg-helper/icons/post.svg?react';
 import auto from '@/common/svg-helper/icons/auto.svg?react';
@@ -27,9 +28,10 @@ import like from '@/common/svg-helper/icons/like.svg?react';
 import garage from '@/common/svg-helper/icons/garage.svg?react';
 import comment from '@/common/svg-helper/icons/comment.svg?react';
 import share from '@/common/svg-helper/icons/share.svg?react';
+import shareModal from '@/common/svg-helper/icons/share-modal.svg?react';
 import more from '@/common/svg-helper/icons/more.svg?react';
 import detailing from '@/common/svg-helper/icons/category-icons/detailing.svg?react';
-import engine from '@/common/svg-helper/icons/category-icons/engine.svg?react';
+import instruments from '@/common/svg-helper/icons/category-icons/instruments.svg?react';
 import audio from '@/common/svg-helper/icons/category-icons/audio.svg?react';
 import exhaust from '@/common/svg-helper/icons/category-icons/exhaust.svg?react';
 import wheel from '@/common/svg-helper/icons/category-icons/wheel.svg?react';
@@ -76,6 +78,26 @@ import image from '@/common/svg-helper/icons/chat-dropdown/image.svg?react';
 import speaker from '@/common/svg-helper/icons/chat-dropdown/speaker.svg?react';
 import fileLoader from '@/common/svg-helper/icons/fileLoader.svg?react';
 import camera from '@/common/svg-helper/icons/camera.svg?react';
+import profileGroup from '@/common/svg-helper/icons/profile-group.svg?react';
+import calendar from '@/common/svg-helper/icons/garage-icons/calendar.svg?react';
+import engine from '@/common/svg-helper/icons/garage-icons/engine.svg?react';
+import transmission from '@/common/svg-helper/icons/garage-icons/transmission.svg?react';
+import driveUnit from '@/common/svg-helper/icons/garage-icons/drive-unit.svg?react';
+import steeringWheel from '@/common/svg-helper/icons/garage-icons/steering-wheel.svg?react';
+import carColor from '@/common/svg-helper/icons/garage-icons/car-color.svg?react';
+import garageOwn from '@/common/svg-helper/icons/garage-icons/garage-own.svg?react';
+import garageSell from '@/common/svg-helper/icons/garage-icons/garage-sell.svg?react';
+import garageSold from '@/common/svg-helper/icons/garage-icons/garage-sold.svg?react';
+import ruble from '@/common/svg-helper/icons/garage-icons/ruble.svg?react';
+import replace from '@/common/svg-helper/icons/replace.svg?react';
+import savePicture from '@/common/svg-helper/icons/message-dropdown/savePicture.svg?react';
+import notSpeaker from '@/common/svg-helper/icons/chat-dropdown/notSpeaker.svg?react';
+import notCall from '@/common/svg-helper/icons/chat-dropdown/notCall.svg?react';
+import error from '@/common/svg-helper/icons/toasts/error.svg?react';
+import success from '@/common/svg-helper/icons/toasts/success.svg?react';
+import infoToast from '@/common/svg-helper/icons/toasts/info.svg?react';
+import warning from '@/common/svg-helper/icons/toasts/warning.svg?react';
+import four from '@/common/svg-helper/icons/four.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -106,20 +128,21 @@ export type ImageComponentsTypes =
   | 'arrowUp'
   | 'arrowDown'
   | 'plus'
+  | 'minus'
   | 'edit'
   | 'like'
   | 'garage'
   | 'comment'
   | 'share'
+  | 'shareModal'
   | 'more'
   | 'close'
   | 'trash'
-  | 'plus'
   | 'post'
   | 'auto'
   | 'adder'
   | 'detailing'
-  | 'engine'
+  | 'instruments'
   | 'audio'
   | 'exhaust'
   | 'wheel'
@@ -165,7 +188,27 @@ export type ImageComponentsTypes =
   | 'image'
   | 'clear'
   | 'call'
-  | 'fileLoader';
+  | 'fileLoader'
+  | 'profileGroup'
+  | 'replace'
+  | 'calendar'
+  | 'engine'
+  | 'transmission'
+  | 'driveUnit'
+  | 'steeringWheel'
+  | 'carColor'
+  | 'garageOwn'
+  | 'garageSell'
+  | 'garageSold'
+  | 'ruble'
+  | 'savePicture'
+  | 'notSpeaker'
+  | 'notCall'
+  | 'warning'
+  | 'infoToast'
+  | 'success'
+  | 'error'
+  | 'four';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   nameLogo, 
@@ -188,14 +231,16 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   arrowUp,
   arrowDown,
   plus,
+  minus,
   edit,
   like,
   garage,
   comment,
   share,
+  shareModal,
   more,
   detailing,
-  engine,
+  instruments,
   audio,
   exhaust,
   wheel,
@@ -246,4 +291,24 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   image,
   clear,
   fileLoader,
+  profileGroup,
+  calendar,
+  engine,
+  transmission,
+  driveUnit,
+  steeringWheel,
+  carColor,
+  garageOwn,
+  garageSell,
+  garageSold,
+  ruble,
+  replace,
+  savePicture,
+  notSpeaker,
+  notCall,
+  warning,
+  infoToast,
+  success,
+  error,
+  four,
 };

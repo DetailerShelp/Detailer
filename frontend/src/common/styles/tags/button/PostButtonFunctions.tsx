@@ -1,5 +1,4 @@
 import { ImageComponentsTypes } from "@/common/svg-helper";
-import { FC } from "react";
 import styled from "styled-components";
 import {
   clampText,
@@ -14,7 +13,7 @@ import { normalizeCount } from "@/common/helpers/countHelpers";
 
 const ButtonWrapper = styled("div")`
   ${flexCenter}
-  column-gap: 10px;
+  column-gap: 5px;
 `;
 
 const Button = styled("button")`
@@ -34,7 +33,7 @@ const ButtonIcon = styled(SvgHelper)`
 `;
 
 const ButtonCount = styled("span")`
-  ${clampText(fonts.sizes.extraSmall, fonts.sizes.extraSmallMobile)}
+  ${clampText(fonts.sizes.dropdownMobile, fonts.sizes.dropdown)}
   color: ${colors.grayAccent};
   user-select: none;
 `;
@@ -45,11 +44,11 @@ interface PostButtonFunctionsProps {
   count?: number;
 }
 
-export const PostButtonFunctions: FC<PostButtonFunctionsProps> = ({
+export const PostButtonFunctions = ({
   title,
   icon,
   count,
-}) => {
+}: PostButtonFunctionsProps) => {
   return (
     <ButtonWrapper>
       <Button title={title}>

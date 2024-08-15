@@ -1,7 +1,6 @@
 import { WidgetsWrapper } from "@/common/components/widgets/WidgetsWrapper";
 import { AccountsList } from "@/common/components/widgets/accounts/styles";
 import { AccountItem } from "@/common/components/widgets/accounts/AccountItem";
-import { FC } from "react";
 import { ShortUserInfo } from "@/store/reducers/user/types";
 
 //TODO AccountsProps
@@ -10,7 +9,7 @@ interface AccountsProps {
   user?: ShortUserInfo[];
 }
 
-export const Accounts: FC<AccountsProps> = ({ title, user }) => {
+export const Accounts = ({ title, user }: AccountsProps) => {
   return (
     <>
       {user?.length !== 0 && (

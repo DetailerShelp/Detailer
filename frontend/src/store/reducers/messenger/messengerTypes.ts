@@ -1,6 +1,6 @@
 // import { User } from "@/common/interfaces/User";
 
-{'TODO доделать интерфейс'}
+{ 'TODO доделать интерфейс' }
 
 export interface IForwardMessage {
     chatId: number | string;
@@ -13,9 +13,9 @@ export interface IMessage {
     author: string; //временно
     createdAt: string; //временно
     media?: File; //продумать как файл передаеся, только url его или полностью файл
-    isUpdated?: boolean;
     answeredMessage?: number | string; //указатель на id сообщения на которое мы ответили
     forwardMessage?: IForwardMessage;
+    isEdited?: boolean;
 };
 
 export interface IChat {
@@ -28,5 +28,7 @@ export interface IChat {
     answeredMessages?: number | string; //указатель на id сообщения на которое мы ответили
     pinnedMessage?: number | string; //закрепленное сообщение чата
     notification?: boolean; //включены выключены уведомления
+    speaker?: boolean;//включен или выключен звук
     theme?: string; //продумать как файл передаеся, только url его или полностью файл
+    editedMessageId?: number | string;
 };

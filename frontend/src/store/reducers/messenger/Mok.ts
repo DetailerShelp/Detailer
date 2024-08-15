@@ -47,6 +47,7 @@ export const AnswerAnswer7: IMessage = {
     text: "I am too)7q qrfqref erfeferxwfcer ervgergtregert rvtgertgrtg vrtgrtgv ertvertherythehverth rtvherth",
     author: 'Artem',
     createdAt: '12:19',
+    answeredMessage: 1,
 };
 
 export const AnswerAnswer8: IMessage = {
@@ -72,7 +73,7 @@ export const AnswerAnswer10: IMessage = {
 };
 
 export const AnswerAnswer11: IMessage = {
-    id:11,
+    id: 11,
     text: "I am too)11 er er f er f werg  tg wtg 3 g 3gt ",
     author: 'Ilia',
     createdAt: '12:19',
@@ -96,10 +97,12 @@ export const Mok: IChat = {
     id: 1,
     messages: [Hello, HowAreYou, Answer, AnswerAnswer, AnswerAnswer5, AnswerAnswer6, AnswerAnswer7, AnswerAnswer8, AnswerAnswer9, AnswerAnswer10, AnswerAnswer11, AnswerAnswer12, AnswerAnswer13],
     participants: ['ilia', 'Artem'],
+    speaker: true,
 }
 
 export const Mok1: IChat = {
-    id: 1,
+    id: 2,
     messages: [Hello, HowAreYou, Answer, AnswerAnswer, AnswerAnswer5, AnswerAnswer6, AnswerAnswer7, AnswerAnswer8, AnswerAnswer9, AnswerAnswer10, AnswerAnswer11, AnswerAnswer12, AnswerAnswer13],
     participants: ['ilia', 'Jaroslav'],
+    speaker: true,
 }

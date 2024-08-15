@@ -7,8 +7,9 @@ import SvgHelper from "@/common/svg-helper/SvgHelper";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import defaultAvatar from "@/common/images/avatar.png";
-import PinMessage from "@/modules/user/messenger/components/PinMessage";
+import PinMessage from "@/modules/user/messenger/components/extraInfo/PinMessage";
 import useDataMessageStore from "@/modules/user/messenger/hooks/useDataMessageStore";
+import { useToast } from "@/common/toast/toast-contex";
 
 interface NavigateInfoChatProps {
     id: number | string;
@@ -16,7 +17,7 @@ interface NavigateInfoChatProps {
 
 const NavInfoChat = styled('div')`
     display: grid;
-    grid-template-columns: 35px auto 80px;
+    grid-template-columns: 35px auto 90px;
     align-items: center;
     gap: 20px;
     position: fixed;
@@ -53,6 +54,8 @@ const NavigateInfoChat = ({ id }: NavigateInfoChatProps) => {
         navigate('/messenger');
     };
 
+    const toast = useToast();
+
     return (
         <NavInfoChat>
             <ButtonWithIcon icon="arrowLeft" size={40} click={handleBack} />
@@ -64,7 +67,9 @@ const NavigateInfoChat = ({ id }: NavigateInfoChatProps) => {
             </InfoChat>
 
             <NavChatTool>
-                <ButtonWithIcon icon="search" size={40} />
+                <div>
+                    <ButtonWithIcon icon="search" size={40} click={()=>toast?.success()}/>
+                </div>
                 <div
                     style={{ position: 'relative' }}
                     onMouseEnter={() => setDropdownOpen(true)}

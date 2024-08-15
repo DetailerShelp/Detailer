@@ -5,7 +5,6 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import { NavPanel } from "@/common/components/navpanel/NavPanel";
 import AuthPage from "@/modules/auth/AuthPage";
 import ChangePassword from "@/modules/auth/ChangePassword";
 import ForgotPassword from "@/modules/auth/ForgotPassword";
@@ -56,7 +55,6 @@ export default function RoutesProvider() {
           <Route path="shorts" element={<ShortsPage />} />
           <Route path="saved" element={<SavedPage />} />
           <Route path="liked" element={<LikedPage />} />
-          <Route path="qrcode" element={<NavPanel />} />
           <Route path="settings" element={<SettingsPage />} />
           <Route path="help" element={<HelpPage />} />
         </Route>

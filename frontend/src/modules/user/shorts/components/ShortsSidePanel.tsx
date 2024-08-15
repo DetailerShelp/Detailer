@@ -1,14 +1,24 @@
 import { ShortsFunctionsWrapper, ShortsSidePanelWrapper } from '@/modules/user/shorts/styles';
 import { ShortsButtonFunctions } from '@/common/styles/tags/button/ShortsButtonFunctions';
-import { VideoLinksType } from '@/modules/user/shorts/videos';
+import { videoLinks, VideoLinksType } from '@/modules/user/shorts/videos';
 
 interface ShortsSidePanelProps {
     video: VideoLinksType,
-    setActiveVideo: (arg: any) => void
+    activeVideo: number,
+    setActiveVideo: (arg: number) => void
 }
 
-export default function ShortsSidePanel({video, setActiveVideo}: ShortsSidePanelProps) {
+export default function ShortsSidePanel({video, activeVideo, setActiveVideo}: ShortsSidePanelProps) {
     const {likes, repost, comments} = video;
+
+    const handleClick = (value: number) => {
+        if (value < 0 || value > videoLinks.length - 1) {
+            setActiveVideo(activeVideo);
+        } else {
+            setActiveVideo(value);
+        }
+    }
+
     return (
         <ShortsSidePanelWrapper>
             <ShortsFunctionsWrapper>
@@ -19,8 +29,8 @@ export default function ShortsSidePanel({video, setActiveVideo}: ShortsSidePanel
                 <ShortsButtonFunctions title="Поделиться" icon="more" />
             </ShortsFunctionsWrapper>
             <ShortsFunctionsWrapper>
-                <ShortsButtonFunctions click={() => setActiveVideo((prev: any) => prev - 1)} title="Предыдущее" icon="arrowLeft" />
-                <ShortsButtonFunctions click={() => setActiveVideo((prev: any) => prev + 1)} title="Следующее" icon="arrowRight" />
+                <ShortsButtonFunctions click={() => handleClick(activeVideo - 1)} title="Предыдущее" icon="arrowUp" />
+                <ShortsButtonFunctions click={() => handleClick(activeVideo + 1)} title="Следующее" icon="arrowDown" />
             </ShortsFunctionsWrapper>
         </ShortsSidePanelWrapper>
     )

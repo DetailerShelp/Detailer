@@ -4,19 +4,24 @@ import {
   AccountsListItem,
   AccountsName,
 } from "@/common/components/widgets/accounts/styles";
-import { FC } from "react";
 import defaultAvatar from "@/common/images/avatar.png";
 
 interface AccountItemProps {
   avatar?: string;
   name: string;
   link: string;
+  click?: () => void;
 }
 
-export const AccountItem: FC<AccountItemProps> = ({ avatar, name, link }) => {
+export const AccountItem = ({
+  avatar,
+  name,
+  link,
+  click,
+}: AccountItemProps) => {
   return (
     <AccountsListItem>
-      <AccountsLink to={link}>
+      <AccountsLink onClick={click} to={link}>
         <AccountsAvatar
           src={!!avatar ? avatar : defaultAvatar}
           alt={`${name}'s avatar`}

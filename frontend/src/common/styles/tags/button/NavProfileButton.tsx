@@ -14,7 +14,6 @@ import {
   transitions,
 } from "@/common/styles/styleConstants";
 import { ImageComponentsTypes } from "@/common/svg-helper";
-import { FC } from "react";
 import SvgHelper from "@/common/svg-helper/SvgHelper";
 
 export const NavigationList = styled("ul")`
@@ -30,7 +29,7 @@ const NavigationItem = styled("li")`
   ${flexCenter}
 `;
 
-const NavigationButton = styled("button")<{ isActive: boolean }>`
+const NavigationButton = styled("button")<{ $isActive: boolean }>`
   ${resetButton}
   width: 100%;
   padding-block: 10px;
@@ -40,7 +39,7 @@ const NavigationButton = styled("button")<{ isActive: boolean }>`
   column-gap: 10px;
   font-weight: ${fonts.weights.medium};
   ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)};
-  color: ${(props) => (props.isActive ? colors.blackTotal : colors.grayText)};
+  color: ${(props) => (props.$isActive ? colors.blackTotal : colors.grayText)};
   position: relative;
 
   &::before,
@@ -56,18 +55,18 @@ const NavigationButton = styled("button")<{ isActive: boolean }>`
   &::before {
     width: 100%;
     height: 2px;
-    background-color: ${(props) => !props.isActive && colors.grayText};
+    background-color: ${(props) => !props.$isActive && colors.grayText};
   }
 
   &::after {
-    width: ${(props) => (props.isActive ? "100%" : "0%")};
+    width: ${(props) => (props.$isActive ? "100%" : "0%")};
     height: 3px;
-    background-color: ${(props) => props.isActive && colors.blackTotal};
+    background-color: ${(props) => props.$isActive && colors.blackTotal};
     transition: ${transitions.fastTransition};
   }
 
   svg * {
-    color: ${(props) => (props.isActive ? colors.blackTotal : colors.grayText)};
+    color: ${(props) => (props.$isActive ? colors.blackTotal : colors.grayText)};
   }
 
   span {
@@ -94,15 +93,15 @@ interface NavProfileButtonProps {
   title: string;
 }
 
-export const NavProfileButton: FC<NavProfileButtonProps> = ({
+export const NavProfileButton = ({
   isActive,
   click,
   icon,
   title,
-}) => {
+}: NavProfileButtonProps) => {
   return (
     <NavigationItem>
-      <NavigationButton isActive={isActive} onClick={click}>
+      <NavigationButton $isActive={isActive} onClick={click}>
         <NavigationIcon iconName={icon} />
         <span>{title}</span>
       </NavigationButton>

@@ -50,14 +50,13 @@ export const colors = {
   whiteModal: `${getColorName("modalBackground")}`,
 
   //Gray
-  // gray: `${getTheme()}`,
+  grayButton: `${getColorName("buttonHover")}`,
   grayBorder: `${getColorName("border")}`,
   grayText: `${getColorName("alternateText")}`,
   grayAccent: `${getColorName("borderColor")}`,
   grayScrollBar: `${getColorName("scrollBarColor")}`,
   grayScrollBarHover: `${getColorName("scrollBarHover")}`,
   grayScrollBarActive: `${getColorName("scrollBarActive")}`,
-  messageDefault: `rgba(255, 255, 255, 1)`, 
 
   //Black
   blackTotal: `${getColorName("mainText")}`,
@@ -65,6 +64,7 @@ export const colors = {
   blackBackground: `${getColorName("buttonBackground")}`,
   blackThumb: `${getColorName("thumbColor")}`,
   shadow: `${getColorName("shadow")}`,
+  loadingGradient: `${getColorName("loadingGradient")}`,
 
   //Constant Colors
   white: "rgba(255, 255, 255, 1)",
@@ -75,10 +75,15 @@ export const colors = {
   darkBlue: "rgba(0, 26, 255, 1)",
   red: "rgba(253, 0, 0, 1)",
   green: "rgba(4, 204, 0, 1)",
-  
+  gray: "rgba(217, 217, 217, 1)",
+  messageDefault: `rgba(255, 255, 255, 1)`, 
+  whiteActive: "rgba(238, 238, 238, 1)",
+  forwardMes: "rgba(238, 238, 238, 0.5)",
+
   //Blue
-  myMesActive: `rgba(0, 26, 255, 1)`, 
-  myMesDefault: `rgba(0, 117, 255, 1)`, 
+  myMesActive: `rgba(0, 26, 255, 1)`,
+  myMesDefault: `rgba(0, 117, 255, 1)`,
+  forwardMyMes: `rgba(0, 26, 255, 0.1)`,
 };
 
 export const shadows = {
@@ -91,6 +96,7 @@ export const borders = {
   borderBlack: `1px solid ${colors.blackTotal}`,
   boldBorderBlack: `3px solid ${colors.blackTotal}`,
   avatarBorder: `3px solid ${colors.whiteTotal}`,
+  forwardMesBorder: `2px solid ${colors.blue}`,
 
   smallBorderRadius: "5px",
   mediaBorderRadius: "10px",
@@ -121,7 +127,7 @@ export const fonts = {
     mainMobile: 15,
     small: 15,
     smallMobile: 12,
-    dropdown: 14, 
+    dropdown: 14,
     dropdownMobile: 12,
     extraSmall: 12,
     extraSmallMobile: 10,
@@ -133,8 +139,7 @@ export const fonts = {
     semiBold: 600,
     medium: 500,
     regular: 400,
-  }
+  },
 };
-
 
 export const mainFont = "'Montserrat', sans-serif";

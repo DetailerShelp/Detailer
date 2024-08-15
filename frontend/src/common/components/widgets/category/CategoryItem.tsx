@@ -1,5 +1,4 @@
 import { ImageComponentsTypes } from "@/common/svg-helper";
-import { FC } from "react";
 import {
   CategoryLink,
   CategoryLinkIconWrapper,
@@ -21,7 +20,7 @@ interface CategoryItemProps {
   link: string;
 }
 
-export const CategoryItem: FC<CategoryItemProps> = ({ icon, title, link }) => {
+export const CategoryItem = ({ icon, title, link }: CategoryItemProps) => {
   return (
     <CategoryListItem>
       <CategoryLink to={link}>

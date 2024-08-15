@@ -30,7 +30,7 @@ export const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 
   return (
     <DropdownItem>
-      <DropdownButton isRed={isRed} onClick={handleClick}>
+      <DropdownButton $isRed={isRed} onClick={handleClick}>
         <SvgHelper iconName={icon} width="22" height="22" />
         {title}
       </DropdownButton>
