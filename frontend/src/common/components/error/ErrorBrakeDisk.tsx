@@ -1,10 +1,5 @@
-import {
-  absCenter,
-  absVertically,
-  buttonHoverActive,
-  flexCenter,
-} from "@/common/styles/mixins";
-import { borders, transitions } from "@/common/styles/styleConstants";
+import { absCenter, absVertically, flexCenter } from "@/common/styles/mixins";
+import { borders, device, transitions } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 const disk = "/images/brake-disk.svg";
@@ -13,13 +8,23 @@ const support = "/images/brake-support.svg";
 
 const Wrapper = styled("div")<{ $size: number }>`
   ${flexCenter}
-  width: ${(props) => (props.$size ? `${props.$size}px` : "100px")};
+  width: ${(props) => (props.$size ? props.$size : 100)}px;
   aspect-ratio: 1;
   position: relative;
   transition: ${transitions.fastTransition};
   border-radius: ${borders.circleBorderRadius};
 
-  ${buttonHoverActive}
+  @media ${device.mobile} {
+    width: ${(props) => props.$size - 25}px;
+  }
+
+  @media ${device.mobileL} {
+    width: ${(props) => props.$size - 50}px;
+  }
+
+  @media ${device.mobileM} {
+    width: ${(props) => props.$size - 75}px;
+  }
 `;
 
 const DiskImg = styled("img")`
@@ -27,7 +32,6 @@ const DiskImg = styled("img")`
   width: 75%;
   aspect-ratio: 1;
   z-index: 1;
-
 
   animation: 7s linear 0s normal none infinite running disk;
   -webkit-animation: 7s linear 0s normal none infinite running disk;
