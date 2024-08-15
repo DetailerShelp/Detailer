@@ -1,6 +1,6 @@
 import { WidgetHeaderWrapper, WidgetTitle, WidgetWrapper } from "@/common/components/widgets/WidgetsWrapper";
 import { absCenter, absVertically, clampText, square } from "@/common/styles/mixins";
-import { borders, colors, device, fonts, shadows } from "@/common/styles/styleConstants";
+import { borders, colors, device, fonts, shadows, transitions } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 export const WidgetShortComments = styled(WidgetWrapper)`
@@ -157,4 +157,21 @@ ${absVertically}
 pointer-events: none;
 border-radius: ${borders.circleBorderRadius};
 background-color: ${colors.whiteTotal};
+`;
+
+export const ShortVideoMixerWrapper = styled('div')`
+position: absolute;
+display: flex;
+gap: 5px;
+top: 20px;
+left: 20px;
+`;
+
+export const ShortVideoMixerRange = styled('div')`
+position: relative;
+opacity: 0;
+padding: 0;
+margin: auto 0;
+width: 100px;
+transition: ${transitions.fastTransition};
 `;

@@ -97,7 +97,12 @@ import error from '@/common/svg-helper/icons/toasts/error.svg?react';
 import success from '@/common/svg-helper/icons/toasts/success.svg?react';
 import infoToast from '@/common/svg-helper/icons/toasts/info.svg?react';
 import warning from '@/common/svg-helper/icons/toasts/warning.svg?react';
+import starDefault from '@/common/svg-helper/icons/star-default.svg?react';
+import starHalf from '@/common/svg-helper/icons/star-half.svg?react';
+import starActive from '@/common/svg-helper/icons/star-active.svg?react';
 import four from '@/common/svg-helper/icons/four.svg?react';
+import soundOn from '@/common/svg-helper/icons/sound-on.svg?react';
+import soundOff from '@/common/svg-helper/icons/sound-off.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -208,6 +213,11 @@ export type ImageComponentsTypes =
   | 'infoToast'
   | 'success'
   | 'error'
+  | 'starDefault'
+  | 'starHalf' 
+  | 'starActive'
+  | 'soundOn'
+  | 'soundOff'
   | 'four';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
@@ -310,5 +320,10 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   infoToast,
   success,
   error,
+  starDefault,
+  starHalf, 
+  starActive,
+  soundOn,
+  soundOff,
   four,
 };
