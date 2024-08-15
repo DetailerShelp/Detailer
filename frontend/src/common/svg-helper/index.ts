@@ -93,7 +93,8 @@ import replace from '@/common/svg-helper/icons/replace.svg?react';
 import savePicture from '@/common/svg-helper/icons/message-dropdown/savePicture.svg?react';
 import notSpeaker from '@/common/svg-helper/icons/chat-dropdown/notSpeaker.svg?react';
 import notCall from '@/common/svg-helper/icons/chat-dropdown/notCall.svg?react';
-
+import soundOn from '@/common/svg-helper/icons/sound-on.svg?react';
+import soundOff from '@/common/svg-helper/icons/sound-off.svg?react';
 
 export type IconType = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
@@ -199,7 +200,9 @@ export type ImageComponentsTypes =
   | 'ruble'
   | 'savePicture'
   | 'notSpeaker'
-  | 'notCall';
+  | 'notCall'
+  | 'soundOn'
+  | 'soundOff';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   nameLogo, 
@@ -297,4 +300,6 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   savePicture,
   notSpeaker,
   notCall,
+  soundOn,
+  soundOff
 };

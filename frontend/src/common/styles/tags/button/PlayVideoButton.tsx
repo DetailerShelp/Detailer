@@ -5,6 +5,7 @@ import { absCenter, flexCenter, square } from "../../mixins";
 
 const ControlsVideo = styled('button')`
 ${square(100)}
+pointer-events: none;
 background-color: ${colors.blackTransparent};
 border: none;
 border-radius: ${borders.circleBorderRadius};
