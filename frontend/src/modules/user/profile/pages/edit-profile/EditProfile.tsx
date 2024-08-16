@@ -4,7 +4,7 @@ import { MultipleInput } from "@/common/styles/tags/textarea/MultipleInput";
 import { useToast } from "@/common/toast/toast-contex";
 import {
   editProfileDefaultInfo,
-  editProfileSuccessInfo,
+  editProfileSuccess,
 } from "@/common/toast/toastsMessages/profileToasts";
 import {
   EditProfileHeader,
@@ -57,7 +57,7 @@ export const EditProfile = ({user}: EditProfileProps) => {
 
   const handleAcceptEditClick = () => {
     isEdit
-      ? toast?.success(editProfileSuccessInfo)
+      ? toast?.success(editProfileSuccess)
       : toast?.info(editProfileDefaultInfo);
     navigate(-1);
   };

@@ -9,6 +9,8 @@ interface ProfileDropdownMenuProps {
   setModalQR: (_: boolean) => void;
   setModalReport: (_: boolean) => void;
   setModalQuit: (_: boolean) => void;
+  setModalBlock: (_: boolean) => void;
+  isBlocked: boolean;
 }
 
 export const ProfileDropdownMenu = ({
@@ -17,6 +19,8 @@ export const ProfileDropdownMenu = ({
   setModalQR,
   setModalReport,
   setModalQuit,
+  setModalBlock,
+  isBlocked,
 }: ProfileDropdownMenuProps) => {
   const { userId } = useParams();
   const currentUserId = authorizedUser();
@@ -40,6 +44,11 @@ export const ProfileDropdownMenu = ({
   const handleQuitClick = () => {
     setDropdownOpen(false);
     setModalQuit(true);
+  };
+
+  const handleBlockClick = () => {
+    setDropdownOpen(false);
+    setModalBlock(true);
   };
 
   return (
@@ -70,42 +79,56 @@ export const ProfileDropdownMenu = ({
             link="/settings"
           />
           <DropdownMenuItem icon="help" title="Поддержка" link="/help" />
-          <DropdownMenuItem icon="quit" title="Выйти" isRed={true} onClick={handleQuitClick} />
+          <DropdownMenuItem
+            icon="quit"
+            title="Выйти"
+            isRed={true}
+            onClick={handleQuitClick}
+          />
         </DropdownMenu>
       ) : (
         <DropdownMenu>
           {/* //TODO subscribe, notifications, saved, block, */}
-          <DropdownMenuItem icon="subscribe" title="Подписаться" link="/edit" />
+          {!isBlocked && (
+            <>
+              <DropdownMenuItem
+                icon="subscribe"
+                title="Подписаться"
+                link="/edit"
+              />
+              <DropdownMenuItem
+                icon="qrcode"
+                title="QR-code Пользователя"
+                onClick={handleQRClick}
+              />
+
+              <DropdownMenuItem
+                icon="notificationsOn"
+                title="Включить уведомления"
+                link="/edit"
+              />
+              <DropdownMenuItem
+                icon="info"
+                title="Подробная информация"
+                onClick={handleProfileInfo}
+              />
+              <DropdownMenuItem
+                icon="saved"
+                title="Добавть в сохраненное"
+                link="/"
+              />
+              <DropdownMenuItem
+                icon="reportProfile"
+                title="Пожаловаться"
+                onClick={handleReportClick}
+              />
+            </>
+          )}
           <DropdownMenuItem
-            icon="qrcode"
-            title="QR-code Пользователя"
-            onClick={handleQRClick}
-          />
-          <DropdownMenuItem
-            icon="notificationsOn"
-            title="Включить уведомления"
-            link="/edit"
-          />
-          <DropdownMenuItem
-            icon="info"
-            title="Подробная информация"
-            onClick={handleProfileInfo}
-          />
-          <DropdownMenuItem
-            icon="saved"
-            title="Добавть в сохраненное"
-            link="/"
-          />
-          <DropdownMenuItem
-            icon="reportProfile"
-            title="Пожаловаться"
-            onClick={handleReportClick}
-          />
-          <DropdownMenuItem
-            icon="block"
-            title="Заблокировать"
+            icon={isBlocked ? "unblock" : "block"}
+            title={isBlocked ? "Разблокировать" : "Заблокировать"}
             isRed={true}
-            link="/"
+            onClick={handleBlockClick}
           />
         </DropdownMenu>
       )}

@@ -54,7 +54,7 @@ import quit from '@/common/svg-helper/icons/dropdown-icons/quit.svg?react';
 import privacy from '@/common/svg-helper/icons/privacy.svg?react';
 import blockedProfile from '@/common/svg-helper/icons/blocked-profile.svg?react';
 import block from '@/common/svg-helper/icons/block.svg?react';
-import ublock from '@/common/svg-helper/icons/unblock.svg?react';
+import unblock from '@/common/svg-helper/icons/unblock.svg?react';
 import view from '@/common/svg-helper/icons/view.svg?react';
 import checkMark from '@/common/svg-helper/icons/check-mark.svg?react';
 import fone from '@/common/svg-helper/icons/fone.svg?react';
@@ -170,7 +170,7 @@ export type ImageComponentsTypes =
   | 'privacy'
   | 'blockedProfile'
   | 'block'
-  | 'ublock'
+  | 'unblock'
   | 'view'
   | 'checkMark'
   | 'fone'
@@ -279,7 +279,7 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   privacy,
   blockedProfile,
   block,
-  ublock,
+  unblock,
   view,
   checkMark,
   fone,

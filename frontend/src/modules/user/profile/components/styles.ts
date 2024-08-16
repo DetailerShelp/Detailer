@@ -232,3 +232,9 @@ export const ProfileContentWrapper = styled("div")`
   flex-direction: column;
   margin-inline: 1px;
 `;
+
+export const ProfileBlockedWrapper = styled("div")`
+  width: 100%;
+  height: 100px;
+  text-align: center;
+`;

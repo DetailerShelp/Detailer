@@ -1,6 +1,6 @@
 import { ToastInfo } from "@/common/toast/interface";
 
-export const editProfileSuccessInfo: ToastInfo = {
+export const editProfileSuccess: ToastInfo = {
     message: 'Успех',
     description: 'Профиль успешно изменен'
 };
@@ -10,7 +10,17 @@ export const editProfileDefaultInfo: ToastInfo = {
     description: 'Профиль не изменен'
 };
 
-export const profileQuitInfo: ToastInfo = {
+export const profileQuitSuccess: ToastInfo = {
     message: 'Успех',
     description: 'Вы успешно вышли из аккаунта'
+};
+
+export const profileBlockInfo: ToastInfo = {
+    message: 'Информация',
+    description: 'Вы заблокировали пользователя'
+};
+
+export const profileUnlockInfo: ToastInfo = {
+    message: 'Информация',
+    description: 'Вы разблокировали пользователя'
 };
