@@ -17,7 +17,7 @@ import {
   EditProfileUserHeaderWrapper,
   EditProfileUserAvatar,
   EditProfileUserName,
-  EditProfileUserDescriptionWrpper,
+  EditProfileUserDescriptionWrapper,
   EditProfileUserAvatarWrapper,
   EditProfileAvatarButtonWrapper,
 } from "@/modules/user/profile/pages/edit-profile/styles";
@@ -131,13 +131,13 @@ export const EditProfile = ({user}: EditProfileProps) => {
           </EditProfileUserHeaderWrapper>
         </EditProfileBackgroundWrapper>
 
-        <EditProfileUserDescriptionWrpper>
+        <EditProfileUserDescriptionWrapper>
           <MultipleInput
             key="edit-profile"
             placeholder="Добавить информацию о себе..."
             title="Описание"
           />
-        </EditProfileUserDescriptionWrpper>
+        </EditProfileUserDescriptionWrapper>
       </EditProfileContent>
     </EditProfileWrapper>
   );

@@ -166,7 +166,7 @@ export const EditProfileUserName = styled("h3")`
   }
 `;
 
-export const EditProfileUserDescriptionWrpper = styled("div")`
+export const EditProfileUserDescriptionWrapper = styled("div")`
   margin: 0 20px 20px;
 
   @media ${device.tablet} {
