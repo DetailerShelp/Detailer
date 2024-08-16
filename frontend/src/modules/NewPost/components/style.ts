@@ -9,14 +9,14 @@ export const TabsWrapper = styled('div')`
     width: 100%;
 `
 
-export const TabButton = styled(DefaultButton) <{ isActive: boolean }>`
+export const TabButton = styled(DefaultButton) <{ $isActive: boolean }>`
     ${flexCenter};
     ${clampHeight(25, 50)}
     gap: 10px;
     box-sizing: border-box;
-    color: ${props => props.isActive ? colors.blackTotal : colors.grayText};
+    color: ${props => props.$isActive ? colors.blackTotal : colors.grayText};
     text-align: center;
-    border-bottom: ${props => props.isActive ? `2px solid ${colors.blackTotal}` : `2px solid ${colors.grayText}`};
+    border-bottom: ${props => props.$isActive ? `2px solid ${colors.blackTotal}` : `2px solid ${colors.grayText}`};
 `
 
 export const LoaderWrapper = styled('button')`

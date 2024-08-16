@@ -9,10 +9,15 @@ import {
 import {
   ModalProfileBackgroundWrapper,
   ModalProfileUserAvatarWrapper,
+  ModalProfileUserDescription,
+  ModalProfileUserItem,
+  ModalProfileUserList,
+  ModalProfileUserTitle,
   ModalProfileWrapper,
 } from "@/modules/user/profile/components/modal/styles";
 
 const defaultAvatar = "/images/avatar.svg";
+const defaultBackground = "/images/background.svg";
 
 interface ModalProfileInfoProps {
   isOpen: boolean;
@@ -38,7 +43,9 @@ export const ModalProfileInfo = ({
       <ModalProfileWrapper>
         <ModalProfileBackgroundWrapper>
           <ProfileBackgroungImageWrapper>
-            <ProfileBackgroundImage src={user?.backgroundImg} />
+            <ProfileBackgroundImage
+              src={user?.backgroundImg || defaultBackground}
+            />
           </ProfileBackgroungImageWrapper>
 
           <ModalProfileUserAvatarWrapper>
@@ -47,6 +54,22 @@ export const ModalProfileInfo = ({
         </ModalProfileBackgroundWrapper>
 
         <ProfileUserName>{user?.username}</ProfileUserName>
+
+        <ModalProfileUserList>
+          <ModalProfileUserItem>
+            <ModalProfileUserTitle>ID Пользователя</ModalProfileUserTitle>
+            <ModalProfileUserDescription>
+              {`#${user?.id}`}
+            </ModalProfileUserDescription>
+          </ModalProfileUserItem>
+
+          <ModalProfileUserItem>
+            <ModalProfileUserTitle>Дата создания</ModalProfileUserTitle>
+            <ModalProfileUserDescription>
+              {user?.createdAt}
+            </ModalProfileUserDescription>
+          </ModalProfileUserItem>
+        </ModalProfileUserList>
       </ModalProfileWrapper>
     </Modal>
   );

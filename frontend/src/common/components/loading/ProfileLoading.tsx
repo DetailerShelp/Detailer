@@ -15,19 +15,14 @@ import {
   ProfileWrapper,
 } from "@/modules/user/profile/components/styles";
 import styled from "styled-components";
-import {
-  clampWidth,
-  flexCenter,
-  loadingGradient,
-  square,
-} from "@/common/styles/mixins";
+import { loadingGradient, square } from "@/common/styles/mixins";
 import { NavigationList } from "@/common/styles/tags/button/NavProfileButton";
-import {
-  ProfilePostItem,
-  ProfilePostList,
-} from "@/modules/user/profile/components/publication/render/styles";
+import { ProfilePostList } from "@/modules/user/profile/components/publication/render/styles";
 import {
   LoadingCircle,
+  LoadingNavigationButton,
+  LoadingNavigationItem,
+  LoadingPostItem,
   LoadingWhiteBlackButton,
 } from "@/common/components/loading//styles";
 
@@ -93,46 +88,6 @@ const RaitingItem = styled(ProfileRaitingItem)`
   }
 `;
 
-const NavigationItem = styled("li")`
-  width: 100%;
-  height: 50px;
-  padding-block: 10px;
-  border-top-left-radius: ${borders.defaultBorderRadius};
-  border-top-right-radius: ${borders.defaultBorderRadius};
-
-  ${flexCenter}
-  column-gap: 10px;
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 2px;
-    background-color: ${colors.grayBorder};
-  }
-`;
-
-const NavigationButton = styled("div")`
-  ${clampWidth(60, 100)}
-  height: 18px;
-  ${loadingGradient};
-  border-radius: ${borders.mediaBorderRadius};
-
-  @media ${device.mobileM} {
-    display: none;
-  }
-`;
-
-const PostItem = styled(ProfilePostItem)`
-  margin-top: 1px;
-  ${loadingGradient}
-  border-radius: ${borders.smallBorderRadius};
-`;
-
 export const ProfileLoading = () => {
   return (
     <Wrapper>
@@ -165,29 +120,29 @@ export const ProfileLoading = () => {
 
       <ProfileContentWrapper>
         <NavigationList>
-          <NavigationItem>
+          <LoadingNavigationItem>
             <LoadingCircle $size={30} />
-            <NavigationButton />
-          </NavigationItem>
+            <LoadingNavigationButton />
+          </LoadingNavigationItem>
 
-          <NavigationItem>
+          <LoadingNavigationItem>
             <LoadingCircle $size={30} />
-            <NavigationButton />
-          </NavigationItem>
+            <LoadingNavigationButton />
+          </LoadingNavigationItem>
 
-          <NavigationItem>
+          <LoadingNavigationItem>
             <LoadingCircle $size={30} />
-            <NavigationButton />
-          </NavigationItem>
+            <LoadingNavigationButton />
+          </LoadingNavigationItem>
         </NavigationList>
 
         <ProfilePostList>
-          <PostItem />
-          <PostItem />
-          <PostItem />
-          <PostItem />
-          <PostItem />
-          <PostItem />
+          <LoadingPostItem />
+          <LoadingPostItem />
+          <LoadingPostItem />
+          <LoadingPostItem />
+          <LoadingPostItem />
+          <LoadingPostItem />
         </ProfilePostList>
       </ProfileContentWrapper>
     </Wrapper>

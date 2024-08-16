@@ -4,7 +4,7 @@ import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const PageHeader = styled("header")`
+export const PageHeader = styled("header")`
   ${flexCenter}
   width: 100%;
   height: 50px;
@@ -16,7 +16,7 @@ const PageHeader = styled("header")`
   }
 `;
 
-const PageHeaderButtonWrapper = styled("div")`
+export const PageHeaderButtonWrapper = styled("div")`
   position: absolute;
   top: 50%;
   left: 25px;

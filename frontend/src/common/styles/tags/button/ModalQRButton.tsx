@@ -16,14 +16,15 @@ const Button = styled("button")`
   column-gap: 10px;
   width: 100%;
   height: 50px;
-  border-top: ${borders.defaultBorder};
+  border-radius: ${borders.mediumBorderRadius};
+  /* border-top: ${borders.defaultBorder}; */
   color: ${colors.blackTotal};
 
-  @media ${device.mobileLAbove} {
+  /* @media ${device.mobileLAbove} {
     &:last-child {
       border-bottom: ${borders.defaultBorder};
     }
-  }
+  } */
 
   @media ${device.mobileL} {
     ${square(50)}
@@ -31,7 +32,7 @@ const Button = styled("button")`
     border: none;
   }
 
-  ${hoverActive};
+  ${hoverActive}
 `;
 
 const Text = styled("span")`

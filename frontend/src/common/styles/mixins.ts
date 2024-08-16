@@ -193,6 +193,7 @@ export const scrollBar = css`
 
   ::-webkit-scrollbar {
     width: 10px;
+    height: 10px;
     background-color: ${colors.whiteModal};
   }
 

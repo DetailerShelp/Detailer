@@ -15,7 +15,7 @@ export const ProfilePosts = ({ post, isAuthorizedUser }: ProfilePostsProps) => {
 
   return (
     <>
-      <ModalPost isOpen={open} setOpen={setOpen} />
+      <ModalPost isOpen={open} setOpen={setOpen} page="post" />
       {isAuthorizedUser && (
         <ProfileCreatePublication
           title="Создать пост"

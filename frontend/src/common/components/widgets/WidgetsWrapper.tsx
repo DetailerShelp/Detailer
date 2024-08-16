@@ -1,18 +1,11 @@
-import {
-  absCenter,
-  clampText,
-  clampWidth,
-  hoverActive,
-  square,
-} from "@/common/styles/mixins";
+import { clampText, clampWidth } from "@/common/styles/mixins";
 import {
   borders,
   colors,
   fonts,
   shadows,
 } from "@/common/styles/styleConstants";
-import SvgHelper from "@/common/svg-helper/SvgHelper";
-import { NavLink } from "react-router-dom";
+import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import styled from "styled-components";
 
 export const WidgetWrapper = styled("div")`
@@ -42,36 +35,23 @@ export const WidgetTitle = styled("h3")`
   text-align: start;
 `;
 
-const WidgetLink = styled(NavLink)`
-  ${square(25)}
-  border-radius: ${borders.circleBorderRadius};
-  ${hoverActive}
-  position: relative;
-`;
-
-const WidgetLinkIcon = styled(SvgHelper)`
-  ${absCenter}
-  z-index: 1;
-  width: 17px;
-  height: 17px;
-`;
-
 interface WidgetsProps {
   title: string;
-  link?: string;
-  children: React.ReactNode,
+  click?: () => void;
+  children: React.ReactNode;
 }
 
-export const WidgetsWrapper= ({ title, link, children }: WidgetsProps) => {
+export const WidgetsWrapper = ({ title, click, children }: WidgetsProps) => {
   return (
     <WidgetWrapper>
       <WidgetHeaderWrapper>
         <WidgetTitle>{title}</WidgetTitle>
-        {!!link && (
-          <WidgetLink to={link ?? "/"}>
-            <WidgetLinkIcon iconName="arrowRight" />
-          </WidgetLink>
-        )}
+        <ButtonWithIcon
+          size={25}
+          title="Перейти"
+          icon="arrowRight"
+          click={click}
+        />
       </WidgetHeaderWrapper>
       {children}
     </WidgetWrapper>

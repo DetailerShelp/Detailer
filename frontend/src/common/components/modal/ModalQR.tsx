@@ -89,7 +89,6 @@ export const ModalQR = ({
             icon="copy"
             click={copyToClipboard}
           />
-          <ModalQRButton title="Поделиться" icon="shareModal" />
         </QrButtonsWrapper>
       </ModalScrollContentWrapper>
     </Modal>

@@ -6,7 +6,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled("main")`
-  padding-top: 90px;
+  padding: 90px calc(10px - (100vw - 100%)) 0 0;
 
   display: flex;
   align-items: center;

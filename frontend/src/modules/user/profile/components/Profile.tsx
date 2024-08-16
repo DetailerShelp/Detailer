@@ -20,7 +20,7 @@ import {
 } from "@/modules/user/profile/components/styles";
 import { ProfileItem } from "@/modules/user/profile/components/ProfileItem";
 import { DropdownWrapper } from "@/common/components/dropdown-menu/styles";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { ProfileDropdownMenu } from "@/modules/user/profile/components/ProfileDropdownMenu";
 import { User } from "@/store/reducers/user/types";
@@ -39,12 +39,13 @@ import { ModalQR } from "@/common/components/modal/ModalQR";
 import { ModalReport } from "@/common/components/modal/ModalReport";
 
 const defaultAvatar = "/images/avatar.svg";
+const defaultBackground = "/images/background.svg";
 
 interface ProfileProps {
   user?: User;
 }
 
-export const Profile = ({ user }: ProfileProps) => {
+export const Profile = memo(({ user }: ProfileProps) => {
   const [publicationPage, setPublicationPage] = useState("post");
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
   const [modalProfileInfo, setModalProfileInfo] = useState(false);
@@ -78,17 +79,18 @@ export const Profile = ({ user }: ProfileProps) => {
         <ModalReport isOpen={modalReport} setOpen={setModalReport} />
       )}
 
-      {modalProfileInfo && (
-        <ModalProfileInfo
-          isOpen={modalProfileInfo}
-          setOpen={setModalProfileInfo}
-          title="Подробная информация"
-          // user={user}
-        />
-      )}
+      <ModalProfileInfo
+        isOpen={modalProfileInfo}
+        setOpen={setModalProfileInfo}
+        title="Подробная информация"
+        user={user}
+      />
+
       <ProfileBackgroundWrapper>
         <ProfileBackgroungImageWrapper>
-          <ProfileBackgroundImage src={user?.backgroundImg} />
+          <ProfileBackgroundImage
+            src={user?.backgroundImg || defaultBackground}
+          />
         </ProfileBackgroungImageWrapper>
 
         <ProfileBackWrapper>
@@ -225,4 +227,4 @@ export const Profile = ({ user }: ProfileProps) => {
       </ProfileContentWrapper>
     </ProfileWrapper>
   );
-};
+});

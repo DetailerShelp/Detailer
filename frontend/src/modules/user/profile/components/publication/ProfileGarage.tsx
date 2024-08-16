@@ -18,8 +18,7 @@ export const ProfileGarage = ({
 
   return (
     <>
-      {/* //TODO navigation in ModalPost */}
-      <ModalPost isOpen={open} setOpen={setOpen} />
+      <ModalPost isOpen={open} setOpen={setOpen} page="garage" />
       {isAuthorizedUser && (
         <ProfileCreatePublication
           title="Добавить автомобиль"

@@ -1,11 +1,10 @@
 import {
-  clampHeight,
   clampText,
   clampWidth,
   flexCenter,
   scrollBar,
 } from "@/common/styles/mixins";
-import { borders, colors, device, fonts } from "@/common/styles/styleConstants";
+import { device, fonts } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 export const ModalPostWrapper = styled("div")`

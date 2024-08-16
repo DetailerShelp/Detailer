@@ -101,6 +101,7 @@ import starDefault from '@/common/svg-helper/icons/star-default.svg?react';
 import starHalf from '@/common/svg-helper/icons/star-half.svg?react';
 import starActive from '@/common/svg-helper/icons/star-active.svg?react';
 import four from '@/common/svg-helper/icons/four.svg?react';
+import zero from '@/common/svg-helper/icons/zero.svg?react';
 import soundOn from '@/common/svg-helper/icons/sound-on.svg?react';
 import soundOff from '@/common/svg-helper/icons/sound-off.svg?react';
 
@@ -218,7 +219,8 @@ export type ImageComponentsTypes =
   | 'starActive'
   | 'soundOn'
   | 'soundOff'
-  | 'four';
+  | 'four'
+  | 'zero';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   nameLogo, 
@@ -326,4 +328,5 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   soundOn,
   soundOff,
   four,
+  zero,
 };

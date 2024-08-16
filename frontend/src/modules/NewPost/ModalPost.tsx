@@ -16,16 +16,17 @@ import {
 interface ModalPostProps {
   isOpen: boolean;
   setOpen: (open: boolean) => void;
+  page?: string;
 }
 
-const ModalPost = ({ isOpen, setOpen }: ModalPostProps) => {
-  const [moduleTab, setModuleTab] = useState("post");
+const ModalPost = ({ isOpen, setOpen, page }: ModalPostProps) => {
+  const [moduleTab, setModuleTab] = useState(page || "post");
   const [openConf, setOpenConf] = useState(false);
 
   const onCancel = () => {
     setOpen(false);
     setOpenConf(false);
-    setModuleTab("post");
+    setModuleTab(page || "post");
   };
 
   const onOk = () => {
