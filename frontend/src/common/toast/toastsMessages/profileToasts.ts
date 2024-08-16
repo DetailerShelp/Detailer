@@ -9,3 +9,8 @@ export const editProfileDefaultInfo: ToastInfo = {
     message: 'Информация',
     description: 'Профиль не изменен'
 };
+
+export const profileQuitInfo: ToastInfo = {
+    message: 'Успех',
+    description: 'Вы успешно вышли из аккаунта'
+};

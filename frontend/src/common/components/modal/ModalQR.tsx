@@ -2,11 +2,14 @@ import { QRCode } from "react-qrcode-logo";
 import Modal from "@/common/components/modal/Modal";
 import { ModalScrollContentWrapper } from "@/common/components/modal/styles";
 import { colors, device } from "@/common/styles/styleConstants";
-import { ModalQRButton } from "@/common/styles/tags/button/ModalQRButton";
 import styled from "styled-components";
 import { flexCenter } from "@/common/styles/mixins";
 import { useToast } from "@/common/toast/toast-contex";
-import { copyErrorLinkInfo, copyLinkInfo } from "@/common/toast/toastsMessages/copyToasts";
+import {
+  copyErrorLinkInfo,
+  copyLinkInfo,
+} from "@/common/toast/toastsMessages/copyToasts";
+import { WhiteButtonWithIcon } from "@/common/styles/tags/button/WhiteButtonWithIcon";
 
 const defaultAvatar = "/images/avatar.svg";
 
@@ -19,8 +22,8 @@ const QrWrapper = styled("div")`
 `;
 
 const QrButtonsWrapper = styled("div")`
+  ${flexCenter}
   width: 100%;
-  display: flex;
   flex-direction: column;
 
   @media ${device.mobileL} {
@@ -48,8 +51,9 @@ export const ModalQR = ({
 
   const copyToClipboard = () => {
     const currentUrl = window.location.href;
-    
-    navigator.clipboard.writeText(currentUrl)
+
+    navigator.clipboard
+      .writeText(currentUrl)
       .then(() => {
         toast?.success(copyLinkInfo);
       })
@@ -84,7 +88,8 @@ export const ModalQR = ({
           />
         </QrWrapper>
         <QrButtonsWrapper>
-          <ModalQRButton
+          <WhiteButtonWithIcon
+            size={50}
             title="Скопировать ссылку"
             icon="copy"
             click={copyToClipboard}

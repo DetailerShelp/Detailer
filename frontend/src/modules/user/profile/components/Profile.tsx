@@ -37,6 +37,9 @@ import { ModalProfilesList } from "@/modules/user/profile/components/modal/Modal
 import { ModalProfileInfo } from "@/modules/user/profile/components/modal/ModalProfileInfo";
 import { ModalQR } from "@/common/components/modal/ModalQR";
 import { ModalReport } from "@/common/components/modal/ModalReport";
+import ModalConfirm from "@/common/components/modal/ModalConfirm";
+import { useToast } from "@/common/toast/toast-contex";
+import { profileQuitInfo } from "@/common/toast/toastsMessages/profileToasts";
 
 const defaultAvatar = "/images/avatar.svg";
 const defaultBackground = "/images/background.svg";
@@ -51,6 +54,7 @@ export const Profile = memo(({ user }: ProfileProps) => {
   const [modalProfileInfo, setModalProfileInfo] = useState(false);
   const [modalQR, setModalQR] = useState(false);
   const [modalReport, setModalReport] = useState(false);
+  const [modalQuit, setModalQuit] = useState(false);
 
   const [modalSubscribers, setModalSubscribers] = useState(false);
   const [modalSubscribes, setModalSubscribes] = useState(false);
@@ -65,6 +69,17 @@ export const Profile = memo(({ user }: ProfileProps) => {
   const currentUserId = authorizedUser();
   const isAdmin = user?.id == currentUserId;
   const navigate = useNavigate();
+  const toast = useToast();
+
+  const onQuitCancel = () => {
+    //TODO link to /auth
+    setModalQuit(false);
+    toast?.success(profileQuitInfo);
+  };
+
+  const onQuitOk = () => {
+    setModalQuit(false);
+  };
 
   return (
     <ProfileWrapper>
@@ -84,6 +99,17 @@ export const Profile = memo(({ user }: ProfileProps) => {
         setOpen={setModalProfileInfo}
         title="Подробная информация"
         user={user}
+      />
+
+      <ModalConfirm
+        isOpen={modalQuit}
+        zIndex={1005}
+        headerText={"Вы действительно хотите выйти из аккаунта?"}
+        okText="Отмена"
+        cancelText="Выйти"
+        onOk={onQuitOk}
+        onCancel={onQuitCancel}
+        style={{ borderRadius: "25px" }}
       />
 
       <ProfileBackgroundWrapper>
@@ -116,6 +142,7 @@ export const Profile = memo(({ user }: ProfileProps) => {
                 setModalProfileInfo={setModalProfileInfo}
                 setModalQR={setModalQR}
                 setModalReport={setModalReport}
+                setModalQuit={setModalQuit}
               />
             )}
           </DropdownWrapper>
