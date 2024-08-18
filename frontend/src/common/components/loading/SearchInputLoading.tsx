@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { borders, device } from "@/common/styles/styleConstants";
-import { LoadingCircle, LoadingDescription } from "./styles";
+import { LoadingCircle, LoadingDescription } from "@/common/components/loading/styles";
 
 const SearchInputWrapper = styled("div")`
   position: relative;

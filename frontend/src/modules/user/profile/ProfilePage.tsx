@@ -6,7 +6,7 @@ import { Accounts } from "@/common/components/widgets/accounts/Accounts";
 import { ProfileLoading } from "@/common/components/loading/ProfileLoading";
 import { AccountsLoading } from "@/common/components/loading/AccountsLoading";
 import { useState } from "react";
-import { ModalProfilesList } from "./components/modal/ModalProfilesList";
+import { ModalProfilesList } from "@/modules/user/profile/components/modal/ModalProfilesList";
 import { ErrorInternetPage } from "@/common/components/error/ErrorInternetPage";
 
 export const ProfilePage = () => {

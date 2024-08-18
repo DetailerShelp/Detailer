@@ -16,15 +16,12 @@ import {
 } from "@/modules/user/profile/components/styles";
 import styled from "styled-components";
 import { loadingGradient, square } from "@/common/styles/mixins";
-import { NavigationList } from "@/common/styles/tags/button/NavProfileButton";
 import { ProfilePostList } from "@/modules/user/profile/components/publication/render/styles";
 import {
-  LoadingCircle,
-  LoadingNavigationButton,
-  LoadingNavigationItem,
   LoadingPostItem,
   LoadingWhiteBlackButton,
 } from "@/common/components/loading//styles";
+import { NavigationPublicationLoading } from "@/common/components/loading/NavigationPublicationLoading";
 
 const Wrapper = styled(ProfileWrapper)`
   width: 100%;
@@ -119,22 +116,7 @@ export const ProfileLoading = () => {
       </ProfileButtonsWrapper>
 
       <ProfileContentWrapper>
-        <NavigationList>
-          <LoadingNavigationItem>
-            <LoadingCircle $size={30} />
-            <LoadingNavigationButton />
-          </LoadingNavigationItem>
-
-          <LoadingNavigationItem>
-            <LoadingCircle $size={30} />
-            <LoadingNavigationButton />
-          </LoadingNavigationItem>
-
-          <LoadingNavigationItem>
-            <LoadingCircle $size={30} />
-            <LoadingNavigationButton />
-          </LoadingNavigationItem>
-        </NavigationList>
+        <NavigationPublicationLoading />
 
         <ProfilePostList>
           <LoadingPostItem />
