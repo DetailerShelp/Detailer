@@ -1,5 +1,6 @@
-import { loadingGradient } from "@/common/styles/mixins";
-import { borders, device } from "@/common/styles/styleConstants";
+import { flexCenter, loadingGradient } from "@/common/styles/mixins";
+import { borders, colors, device } from "@/common/styles/styleConstants";
+import { ProfilePostItem } from "@/modules/user/profile/components/publication/render/styles";
 import styled from "styled-components";
 
 export const LoadingCircle = styled("div")<{ $size: number }>`
@@ -78,4 +79,44 @@ export const LoadingWhiteBlackButton = styled("div")<{ $size: number }>`
   }
 
   ${loadingGradient}
+`;
+
+export const LoadingNavigationItem = styled("li")`
+  width: 100%;
+  height: 50px;
+  padding-block: 10px;
+  border-top-left-radius: ${borders.defaultBorderRadius};
+  border-top-right-radius: ${borders.defaultBorderRadius};
+
+  ${flexCenter}
+  column-gap: 10px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 2px;
+    background-color: ${colors.grayBorder};
+  }
+`;
+
+export const LoadingNavigationButton = styled("div")`
+  width: 50%;
+  height: 18px;
+  ${loadingGradient};
+  border-radius: ${borders.mediaBorderRadius};
+
+  @media ${device.mobileM} {
+    display: none;
+  }
+`;
+
+export const LoadingPostItem = styled(ProfilePostItem)`
+  margin-top: 1px;
+  ${loadingGradient}
+  border-radius: ${borders.smallBorderRadius};
 `;

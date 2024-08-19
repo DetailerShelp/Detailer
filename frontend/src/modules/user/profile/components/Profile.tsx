@@ -5,6 +5,7 @@ import {
   ProfileBackgroundWrapper,
   ProfileBackgroungImageWrapper,
   ProfileBackWrapper,
+  ProfileBlockedWrapper,
   ProfileButtonMoreWrapper,
   ProfileButtonsWrapper,
   ProfileContentWrapper,
@@ -20,7 +21,7 @@ import {
 } from "@/modules/user/profile/components/styles";
 import { ProfileItem } from "@/modules/user/profile/components/ProfileItem";
 import { DropdownWrapper } from "@/common/components/dropdown-menu/styles";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import { ProfileDropdownMenu } from "@/modules/user/profile/components/ProfileDropdownMenu";
 import { User } from "@/store/reducers/user/types";
@@ -37,19 +38,32 @@ import { ModalProfilesList } from "@/modules/user/profile/components/modal/Modal
 import { ModalProfileInfo } from "@/modules/user/profile/components/modal/ModalProfileInfo";
 import { ModalQR } from "@/common/components/modal/ModalQR";
 import { ModalReport } from "@/common/components/modal/ModalReport";
+import ModalConfirm from "@/common/components/modal/ModalConfirm";
+import { useToast } from "@/common/toast/toast-contex";
+import {
+  profileBlockInfo,
+  profileQuitSuccess,
+  profileUnlockInfo,
+} from "@/common/toast/toastsMessages/profileToasts";
 
 const defaultAvatar = "/images/avatar.svg";
+const defaultBackground = "/images/background.svg";
 
 interface ProfileProps {
   user?: User;
 }
 
-export const Profile = ({ user }: ProfileProps) => {
+export const Profile = memo(({ user }: ProfileProps) => {
   const [publicationPage, setPublicationPage] = useState("post");
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
   const [modalProfileInfo, setModalProfileInfo] = useState(false);
   const [modalQR, setModalQR] = useState(false);
   const [modalReport, setModalReport] = useState(false);
+  const [modalQuit, setModalQuit] = useState(false);
+  const [modalBlock, setModalBlock] = useState(false);
+
+  //TODO api about blocked user
+  const [isBlocked, setBlocked] = useState(false);
 
   const [modalSubscribers, setModalSubscribers] = useState(false);
   const [modalSubscribes, setModalSubscribes] = useState(false);
@@ -64,6 +78,27 @@ export const Profile = ({ user }: ProfileProps) => {
   const currentUserId = authorizedUser();
   const isAdmin = user?.id == currentUserId;
   const navigate = useNavigate();
+  const toast = useToast();
+
+  const onQuitCancel = () => {
+    //TODO link to /auth
+    setModalQuit(false);
+    toast?.success(profileQuitSuccess);
+  };
+
+  const onQuitOk = () => {
+    setModalQuit(false);
+  };
+
+  const onBlockCancel = () => {
+    setModalBlock(false);
+    setBlocked(!isBlocked);
+    isBlocked ? toast?.info(profileUnlockInfo) : toast?.info(profileBlockInfo);
+  };
+
+  const onBlockOk = () => {
+    setModalBlock(false);
+  };
 
   return (
     <ProfileWrapper>
@@ -78,17 +113,44 @@ export const Profile = ({ user }: ProfileProps) => {
         <ModalReport isOpen={modalReport} setOpen={setModalReport} />
       )}
 
-      {modalProfileInfo && (
-        <ModalProfileInfo
-          isOpen={modalProfileInfo}
-          setOpen={setModalProfileInfo}
-          title="Подробная информация"
-          // user={user}
-        />
-      )}
+      <ModalProfileInfo
+        isOpen={modalProfileInfo}
+        setOpen={setModalProfileInfo}
+        title="Подробная информация"
+        user={user}
+      />
+
+      <ModalConfirm
+        isOpen={modalQuit}
+        zIndex={1005}
+        headerText={"Вы действительно хотите выйти из аккаунта?"}
+        okText="Отмена"
+        cancelText="Выйти"
+        onOk={onQuitOk}
+        onCancel={onQuitCancel}
+        style={{ borderRadius: "25px" }}
+      />
+
+      <ModalConfirm
+        isOpen={modalBlock}
+        zIndex={1005}
+        headerText={
+          isBlocked
+            ? "Вы действительно хотите разблокировать данного пользователя?"
+            : "Вы действительно хотите заблокироавть данного пользователя? После блокировки у вас не будет доступа к этому аккаунту"
+        }
+        okText="Отмена"
+        cancelText={isBlocked ? "Разблокировать" : "Заблокировать"}
+        onOk={onBlockOk}
+        onCancel={onBlockCancel}
+        style={{ borderRadius: "25px" }}
+      />
+
       <ProfileBackgroundWrapper>
         <ProfileBackgroungImageWrapper>
-          <ProfileBackgroundImage src={user?.backgroundImg} />
+          <ProfileBackgroundImage
+            src={user?.backgroundImg || defaultBackground}
+          />
         </ProfileBackgroungImageWrapper>
 
         <ProfileBackWrapper>
@@ -114,6 +176,9 @@ export const Profile = ({ user }: ProfileProps) => {
                 setModalProfileInfo={setModalProfileInfo}
                 setModalQR={setModalQR}
                 setModalReport={setModalReport}
+                setModalQuit={setModalQuit}
+                setModalBlock={setModalBlock}
+                isBlocked={isBlocked}
               />
             )}
           </DropdownWrapper>
@@ -127,102 +192,116 @@ export const Profile = ({ user }: ProfileProps) => {
         </ProfileUserHeaderWrapper>
       </ProfileBackgroundWrapper>
 
-      {!!user?.description && (
-        <ProfileUserDescription>{user?.description}</ProfileUserDescription>
-      )}
-
-      <ProfileRaitingList>
-        <ProfileItem
-          title="Подписчики"
-          count={userSubscribers}
-          click={() => setModalSubscribers(true)}
-        />
-        <ProfileItem
-          title="Подписки"
-          count={userSubscribes}
-          click={() => setModalSubscribes(true)}
-        />
-        <ProfileItem title="Публикации" count={userPosts} />
-      </ProfileRaitingList>
-
-      <ModalProfilesList
-        isOpen={modalSubscribers}
-        setOpen={setModalSubscribers}
-        title="Подписчики"
-        placeholder="подписчиков"
-        user={user?.subscribers}
-      />
-
-      <ModalProfilesList
-        isOpen={modalSubscribes}
-        setOpen={setModalSubscribes}
-        title="Подписки"
-        placeholder="подписок"
-        user={user?.subscribes}
-      />
-
-      {isAdmin ? (
-        <ProfileButtonsWrapper>
-          <ProfileHideButtonWrapper>
-            <WhiteButtonWithIcon
-              size={40}
-              title="Редактировать"
-              icon="edit"
-              click={() => navigate("/edit")}
-            />
-          </ProfileHideButtonWrapper>
-          <BlackWhiteButton size={40} title="Избранное" color="black" />
-        </ProfileButtonsWrapper>
+      {isBlocked ? (
+        <ProfileBlockedWrapper>
+          <ProfileUserDescription>
+            Пользователь ограничил доступ к своему аккаунту
+          </ProfileUserDescription>
+        </ProfileBlockedWrapper>
       ) : (
-        <ProfileButtonsWrapper>
-          <ProfileHideButtonWrapper>
-            <WhiteButtonWithIcon size={40} title="Подписаться" icon="plus" />
-          </ProfileHideButtonWrapper>
-          <BlackWhiteButton size={40} title="Написать" color="black" />
-        </ProfileButtonsWrapper>
+        <>
+          {!!user?.description && (
+            <ProfileUserDescription>{user?.description}</ProfileUserDescription>
+          )}
+
+          <ProfileRaitingList>
+            <ProfileItem
+              title="Подписчики"
+              count={userSubscribers}
+              click={() => setModalSubscribers(true)}
+            />
+            <ProfileItem
+              title="Подписки"
+              count={userSubscribes}
+              click={() => setModalSubscribes(true)}
+            />
+            <ProfileItem title="Публикации" count={userPosts} />
+          </ProfileRaitingList>
+
+          <ModalProfilesList
+            isOpen={modalSubscribers}
+            setOpen={setModalSubscribers}
+            title="Подписчики"
+            placeholder="подписчиков"
+            user={user?.subscribers}
+          />
+
+          <ModalProfilesList
+            isOpen={modalSubscribes}
+            setOpen={setModalSubscribes}
+            title="Подписки"
+            placeholder="подписок"
+            user={user?.subscribes}
+          />
+
+          {isAdmin ? (
+            <ProfileButtonsWrapper>
+              <ProfileHideButtonWrapper>
+                <WhiteButtonWithIcon
+                  size={40}
+                  title="Редактировать"
+                  icon="edit"
+                  click={() => navigate("/edit")}
+                />
+              </ProfileHideButtonWrapper>
+              <BlackWhiteButton size={40} title="Избранное" color="black" />
+            </ProfileButtonsWrapper>
+          ) : (
+            <ProfileButtonsWrapper>
+              <ProfileHideButtonWrapper>
+                <WhiteButtonWithIcon
+                  size={40}
+                  title="Подписаться"
+                  icon="plus"
+                />
+              </ProfileHideButtonWrapper>
+              <BlackWhiteButton size={40} title="Написать" color="black" />
+            </ProfileButtonsWrapper>
+          )}
+
+          <ProfileContentWrapper>
+            <NavigationList>
+              <NavProfileButton
+                isActive={publicationPage === "post"}
+                click={() => setPublicationPage("post")}
+                icon="post"
+                title="Посты"
+              />
+              <NavProfileButton
+                isActive={publicationPage === "shorts"}
+                click={() => setPublicationPage("shorts")}
+                icon="shorts"
+                title="Шортсы"
+              />
+              <NavProfileButton
+                isActive={publicationPage === "garage"}
+                click={() => setPublicationPage("garage")}
+                icon="garage"
+                title="Гараж"
+              />
+            </NavigationList>
+
+            {publicationPage === "post" && (
+              <ProfilePosts
+                isAuthorizedUser={user?.isAuthorizedUser}
+                post={user?.posts}
+              />
+            )}
+            {publicationPage === "shorts" && (
+              <ProfileShorts
+                isAuthorizedUser={user?.isAuthorizedUser}
+                shorts={user?.shorts}
+              />
+            )}
+            {publicationPage === "garage" && (
+              <ProfileGarage
+                isAuthorizedUser={user?.isAuthorizedUser}
+                garage={user?.garage}
+              />
+            )}
+          </ProfileContentWrapper>
+        </>
       )}
-
-      <ProfileContentWrapper>
-        <NavigationList>
-          <NavProfileButton
-            isActive={publicationPage === "post"}
-            click={() => setPublicationPage("post")}
-            icon="post"
-            title="Посты"
-          />
-          <NavProfileButton
-            isActive={publicationPage === "shorts"}
-            click={() => setPublicationPage("shorts")}
-            icon="shorts"
-            title="Шортсы"
-          />
-          <NavProfileButton
-            isActive={publicationPage === "garage"}
-            click={() => setPublicationPage("garage")}
-            icon="garage"
-            title="Гараж"
-          />
-        </NavigationList>
-
-        {publicationPage === "post" && (
-          <ProfilePosts
-            isAuthorizedUser={user?.isAuthorizedUser}
-            post={user?.posts}
-          />
-        )}
-        {publicationPage === "shorts" && (
-          <ProfileShorts
-            isAuthorizedUser={user?.isAuthorizedUser}
-            shorts={user?.shorts}
-          />
-        )}
-        {publicationPage === "garage" && (
-          <ProfileGarage
-            isAuthorizedUser={user?.isAuthorizedUser}
-            garage={user?.garage}
-          />
-        )}
-      </ProfileContentWrapper>
     </ProfileWrapper>
   );
-};
+});

@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import { FC } from "react";
 import styled from "styled-components";
-import Modal from '@/common/components/modal/Modal';
-import { DefaultButton } from '@/common/components/ui/Button';
-import { ModalProps } from '@/common/interfaces/Modal';
-import { clampText, flexCenter } from '@/common/styles/mixins';
-import { colors, fonts } from '@/common/styles/styleConstants';
+import Modal from "@/common/components/modal/Modal";
+import { ModalProps } from "@/common/interfaces/Modal";
+import { clampText, flexCenter } from "@/common/styles/mixins";
+import { fonts } from "@/common/styles/styleConstants";
+import { ModalConfirmButton } from "@/common/styles/tags/button/ModalConfirmButton";
 
 interface ModalConfirmProps extends ModalProps {
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -23,42 +23,32 @@ interface ModalContentProps {
   cancelText?: string;
 }
 
-const ModalWrapper = styled('div')`
+const ModalWrapper = styled("div")`
+  width: 100%;
   max-width: 360px;
   display: flex;
   flex-direction: column;
 `;
 
-const ModalHeader = styled('div')`
+const ModalHeader = styled("div")`
   margin: 25px;
   ${flexCenter};
 `;
 
-const OkButton = styled(DefaultButton)`
-  width: 180px;
-  padding-block: 15px;
+const Header = styled("p")`
   text-align: center;
-  color: ${colors.blackTotal};
-`;
-
-const CancelButton = styled(DefaultButton)`
-  width: 180px;
-  padding-block: 15px;
-  text-align: center;
-  color: ${colors.red};
-`;
-
-const ButtonInner = styled('div') <{ hasbuttons: boolean }>`
-  display: flex;
-  justify-content: ${(props) => (props.hasbuttons ? 'space-between' : 'center')};
-  align-items: center;
-`;
-
-const Header = styled('h1')`
-  text-align: center;
-  ${clampText(fonts.sizes.mainMobile, fonts.sizes.titleMobile)};
+  ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)};
   font-weight: ${fonts.weights.medium};
   margin: 0;
+`;
+
+const ButtonList = styled("ul")`
+  ${flexCenter}
+  width: 100%;
+`;
+
+const ButtonItem = styled("li")`
+  width: 100%;
 `;
 
 const ModalContent: FC<ModalContentProps> = ({
@@ -83,18 +73,28 @@ const ModalContent: FC<ModalContentProps> = ({
         <Header>{headerText}</Header>
       </ModalHeader>
       {(!!okText || !!cancelText) && (
-        <ButtonInner hasbuttons={!!okText && !!cancelText}>
+        <ButtonList>
           {!!okText && (
-            <OkButton key='submit' onClick={handleOk}>
-              {okText}
-            </OkButton>
+            <ButtonItem>
+              <ModalConfirmButton
+                key="submit"
+                title={okText}
+                click={handleOk}
+              />
+            </ButtonItem>
           )}
+
           {!!cancelText && (
-            <CancelButton key='cancel' onClick={handleCancel}>
-              {cancelText}
-            </CancelButton>
+            <ButtonItem>
+              <ModalConfirmButton
+                key="cancel"
+                isRed={true}
+                title={cancelText}
+                click={handleCancel}
+              />
+            </ButtonItem>
           )}
-        </ButtonInner>
+        </ButtonList>
       )}
     </ModalWrapper>
   );

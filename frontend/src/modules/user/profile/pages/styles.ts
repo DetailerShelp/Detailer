@@ -1,5 +1,5 @@
 import { styledWrapper } from "@/common/styles/mixins";
-import { device } from "@/common/styles/styleConstants";
+import { borders, device } from "@/common/styles/styleConstants";
 import styled from "styled-components";
 
 export const LikedSavedWrapper = styled("div")`
@@ -8,8 +8,8 @@ export const LikedSavedWrapper = styled("div")`
   display: flex;
   flex-direction: column;
   row-gap: 15px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-bottom-left-radius: ${borders.mediaBorderRadius};
+  border-bottom-right-radius: ${borders.mediaBorderRadius};
 
   @media ${device.mobile} {
     row-gap: 10px;

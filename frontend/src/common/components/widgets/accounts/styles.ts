@@ -29,7 +29,7 @@ export const AccountsLink = styled(NavLink)`
   flex-direction: column;
   row-gap: 3px;
   text-align: center;
-    color: ${colors.grayText};
+  color: ${colors.grayText};
 
   &:hover,
   &:active,

@@ -139,5 +139,5 @@ export const ProfileGarageDescription = styled("p")`
 export const ProfileGarageStatus = styled("p")<{ $color: string }>`
   ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)}
   font-weight: ${fonts.weights.medium};
-  color: ${(props) => (props.color === "red" ? colors.red : colors.green)};
+  color: ${(props) => (props.$color === "red" ? colors.red : colors.green)};
 `;

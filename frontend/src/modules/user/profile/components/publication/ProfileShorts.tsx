@@ -18,8 +18,7 @@ export const ProfileShorts = ({
 
   return (
     <>
-      {/* //TODO navigation in ModalPost */}
-      <ModalPost isOpen={open} setOpen={setOpen} />
+      <ModalPost isOpen={open} setOpen={setOpen} page="shorts" />
       {isAuthorizedUser && (
         <ProfileCreatePublication
           title="Создать шортс"

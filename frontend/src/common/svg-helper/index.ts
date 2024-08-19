@@ -54,7 +54,7 @@ import quit from '@/common/svg-helper/icons/dropdown-icons/quit.svg?react';
 import privacy from '@/common/svg-helper/icons/privacy.svg?react';
 import blockedProfile from '@/common/svg-helper/icons/blocked-profile.svg?react';
 import block from '@/common/svg-helper/icons/block.svg?react';
-import ublock from '@/common/svg-helper/icons/unblock.svg?react';
+import unblock from '@/common/svg-helper/icons/unblock.svg?react';
 import view from '@/common/svg-helper/icons/view.svg?react';
 import checkMark from '@/common/svg-helper/icons/check-mark.svg?react';
 import fone from '@/common/svg-helper/icons/fone.svg?react';
@@ -101,6 +101,7 @@ import starDefault from '@/common/svg-helper/icons/star-default.svg?react';
 import starHalf from '@/common/svg-helper/icons/star-half.svg?react';
 import starActive from '@/common/svg-helper/icons/star-active.svg?react';
 import four from '@/common/svg-helper/icons/four.svg?react';
+import zero from '@/common/svg-helper/icons/zero.svg?react';
 import soundOn from '@/common/svg-helper/icons/sound-on.svg?react';
 import soundOff from '@/common/svg-helper/icons/sound-off.svg?react';
 
@@ -169,7 +170,7 @@ export type ImageComponentsTypes =
   | 'privacy'
   | 'blockedProfile'
   | 'block'
-  | 'ublock'
+  | 'unblock'
   | 'view'
   | 'checkMark'
   | 'fone'
@@ -218,7 +219,8 @@ export type ImageComponentsTypes =
   | 'starActive'
   | 'soundOn'
   | 'soundOff'
-  | 'four';
+  | 'four'
+  | 'zero';
 
 export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   nameLogo, 
@@ -277,7 +279,7 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   privacy,
   blockedProfile,
   block,
-  ublock,
+  unblock,
   view,
   checkMark,
   fone,
@@ -326,4 +328,5 @@ export const ImageComponents: Record<ImageComponentsTypes, IconType> = {
   soundOn,
   soundOff,
   four,
+  zero,
 };

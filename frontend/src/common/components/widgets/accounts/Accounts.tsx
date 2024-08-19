@@ -3,17 +3,17 @@ import { AccountsList } from "@/common/components/widgets/accounts/styles";
 import { AccountItem } from "@/common/components/widgets/accounts/AccountItem";
 import { ShortUserInfo } from "@/store/reducers/user/types";
 
-//TODO AccountsProps
 interface AccountsProps {
   title: string;
   user?: ShortUserInfo[];
+  click?: () => void;
 }
 
-export const Accounts = ({ title, user }: AccountsProps) => {
+export const Accounts = ({ title, user, click }: AccountsProps) => {
   return (
     <>
       {user?.length !== 0 && (
-        <WidgetsWrapper title={title} link="/">
+        <WidgetsWrapper title={title} click={click}>
           <AccountsList>
             {user?.slice(0, 3).map((item) => (
               <AccountItem
