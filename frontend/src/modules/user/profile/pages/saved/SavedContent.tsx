@@ -7,7 +7,6 @@ import { PageHeaderContent } from "@/modules/user/PageHeaderContent";
 import { useState } from "react";
 import { ProfilePosts } from "@/modules/user/profile/components/publication/ProfilePosts";
 import { User } from "@/store/reducers/user/types";
-import { ProfileShorts } from "@/modules/user/profile/components/publication/ProfileShorts";
 import { ProfileGarage } from "@/modules/user/profile/components/publication/ProfileGarage";
 import { SavedProfile } from "@/modules/user/profile/pages/saved/SavedProfile";
 import {
@@ -39,12 +38,6 @@ export const SavedContent = ({ user }: SavedContentProps) => {
             title="Посты"
           />
           <NavProfileButton
-            isActive={publicationPage === "shorts"}
-            click={() => setPublicationPage("shorts")}
-            icon="shorts"
-            title="Шортсы"
-          />
-          <NavProfileButton
             isActive={publicationPage === "profile"}
             click={() => setPublicationPage("profile")}
             icon="profile"
@@ -60,9 +53,6 @@ export const SavedContent = ({ user }: SavedContentProps) => {
 
         {publicationPage === "post" && (
           <ProfilePosts isAuthorizedUser={false} post={user?.posts} />
-        )}
-        {publicationPage === "shorts" && (
-          <ProfileShorts isAuthorizedUser={false} shorts={user?.shorts} />
         )}
         {publicationPage === "profile" && <SavedProfile profile={user} />}
         {publicationPage === "garage" && (

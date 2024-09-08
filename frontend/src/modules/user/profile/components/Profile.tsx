@@ -32,7 +32,6 @@ import {
   NavigationList,
 } from "@/common/styles/tags/button/NavProfileButton";
 import { ProfilePosts } from "@/modules/user/profile/components/publication/ProfilePosts";
-import { ProfileShorts } from "@/modules/user/profile/components/publication/ProfileShorts";
 import { ProfileGarage } from "@/modules/user/profile/components/publication/ProfileGarage";
 import { ModalProfilesList } from "@/modules/user/profile/components/modal/ModalProfilesList";
 import { ModalProfileInfo } from "@/modules/user/profile/components/modal/ModalProfileInfo";
@@ -71,9 +70,8 @@ export const Profile = memo(({ user }: ProfileProps) => {
   const userSubscribers = !!user?.subscribers ? user?.subscribers.length : 0;
   const userSubscribes = !!user?.subscribes ? user?.subscribes.length : 0;
   const posts = !!user?.posts ? user?.posts.length : 0;
-  const shorts = !!user?.shorts ? user?.shorts.length : 0;
   const garage = !!user?.garage ? user?.garage.length : 0;
-  const userPosts = posts + shorts + garage;
+  const userPosts = posts + garage;
 
   const currentUserId = authorizedUser();
   const isAdmin = user?.id == currentUserId;
@@ -268,12 +266,6 @@ export const Profile = memo(({ user }: ProfileProps) => {
                 title="Посты"
               />
               <NavProfileButton
-                isActive={publicationPage === "shorts"}
-                click={() => setPublicationPage("shorts")}
-                icon="shorts"
-                title="Шортсы"
-              />
-              <NavProfileButton
                 isActive={publicationPage === "garage"}
                 click={() => setPublicationPage("garage")}
                 icon="garage"
@@ -285,12 +277,6 @@ export const Profile = memo(({ user }: ProfileProps) => {
               <ProfilePosts
                 isAuthorizedUser={user?.isAuthorizedUser}
                 post={user?.posts}
-              />
-            )}
-            {publicationPage === "shorts" && (
-              <ProfileShorts
-                isAuthorizedUser={user?.isAuthorizedUser}
-                shorts={user?.shorts}
               />
             )}
             {publicationPage === "garage" && (
