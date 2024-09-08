@@ -95,8 +95,6 @@ interface PageProps {
   content: React.ReactNode;
   widgetOne?: React.ReactNode;
   widgetTwo?: React.ReactNode;
-  widgetThree?: React.ReactNode;
-  widgetFour?: React.ReactNode;
   height?: number;
 }
 
@@ -104,8 +102,6 @@ export const PageContent: FC<PageProps> = ({
   content,
   widgetOne,
   widgetTwo,
-  widgetThree,
-  widgetFour,
   height,
 }) => {
   return (
@@ -126,8 +122,6 @@ export const PageContent: FC<PageProps> = ({
             <FixedWrapper $height={height}>
               {widgetOne}
               {widgetTwo}
-              {widgetThree}
-              {widgetFour}
             </FixedWrapper>
           </WidgetsSection>
         </WrapperInner>
