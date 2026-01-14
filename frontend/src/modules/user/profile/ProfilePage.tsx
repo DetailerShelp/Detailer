@@ -2,9 +2,7 @@ import { PageContent } from "@/modules/user/PageContent";
 import { Profile } from "@/modules/user/profile/components/Profile";
 import { useParams } from "react-router-dom";
 import { useGetUserByIdQuery } from "@/store/reducers/user/userApi";
-import { Accounts } from "@/common/components/widgets/accounts/Accounts";
 import { ProfileLoading } from "@/common/components/loading/ProfileLoading";
-import { AccountsLoading } from "@/common/components/loading/AccountsLoading";
 import { useState } from "react";
 import { ModalProfilesList } from "@/modules/user/profile/components/modal/ModalProfilesList";
 import { ErrorInternetPage } from "@/common/components/error/ErrorInternetPage";
@@ -39,28 +37,6 @@ export const ProfilePage = () => {
       ) : (
         <PageContent
           content={isLoading ? <ProfileLoading /> : <Profile user={data} />}
-          widgetOne={
-            isLoading ? (
-              <AccountsLoading title="Подписчики" />
-            ) : (
-              <Accounts
-                title="Подписчики"
-                user={data?.subscribers}
-                click={() => setModalSubscribers(true)}
-              />
-            )
-          }
-          widgetTwo={
-            isLoading ? (
-              <AccountsLoading title="Подписки" />
-            ) : (
-              <Accounts
-                title="Подписки"
-                user={data?.subscribes}
-                click={() => setModalSubscribes(true)}
-              />
-            )
-          }
         />
       )}
     </>

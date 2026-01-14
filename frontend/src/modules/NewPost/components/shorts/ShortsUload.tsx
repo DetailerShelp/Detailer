@@ -11,7 +11,6 @@ import {
 import Loader from "@/modules/NewPost/components/Loader";
 import TextArea from "@/common/components/ui/TextArea";
 import DragAndDropUpload from "@/common/components/DraggerUploadFile";
-import Short from "@/modules/user/shorts/components/Short";
 
 interface CustomFile extends File {
     url: string;
@@ -45,7 +44,7 @@ const ShotrsUpload = () => {
                     </DragAndDropUpload>
                     :
                     <VideoUploaded>
-                        <Short id={1} video={videoFile.url} activeVideo={2} />
+                        {/* <Short id={1} video={videoFile.url} activeVideo={2} /> */}
                     </VideoUploaded>
                 }
             </VideoWrapper>

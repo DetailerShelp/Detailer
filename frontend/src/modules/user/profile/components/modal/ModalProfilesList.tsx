@@ -4,7 +4,6 @@ import {
   ModalSearchWrapper,
   ModalProfileList,
 } from "@/common/components/modal/styles";
-import { AccountItem } from "@/common/components/widgets/accounts/AccountItem";
 import { SearchInput } from "@/common/styles/tags/input/SearchInput";
 import { ShortUserInfo } from "@/store/reducers/user/types";
 import { ProfileEmptyPublication } from "@/modules/user/profile/components/ProfileEmptyPublication";
@@ -39,15 +38,7 @@ export const ModalProfilesList = ({
       <ModalScrollContentWrapper>
         {user?.length !== 0 ? (
           <ModalProfileList>
-            {user?.map((item) => (
-              <AccountItem
-                key={item.id}
-                name={item.username}
-                avatar={item.avatarImg}
-                link={`/profile/${item.id}`}
-                click={() => setOpen(false)}
-              />
-            ))}
+            
           </ModalProfileList>
         ) : (
           <ProfileEmptyPublication title={`Нет ${placeholder}`} icon="profileGroup" />

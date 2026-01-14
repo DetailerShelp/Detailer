@@ -7,7 +7,6 @@ import { PageHeaderContent } from "@/modules/user/PageHeaderContent";
 import { useState } from "react";
 import { ProfilePosts } from "@/modules/user/profile/components/publication/ProfilePosts";
 import { User } from "@/store/reducers/user/types";
-import { ProfileShorts } from "@/modules/user/profile/components/publication/ProfileShorts";
 import { ProfileGarage } from "@/modules/user/profile/components/publication/ProfileGarage";
 import {
   LikedSavedContentWrapper,
@@ -37,12 +36,6 @@ export const LikedContent = ({ user }: LikedContentProps) => {
             title="Посты"
           />
           <NavProfileButton
-            isActive={publicationPage === "shorts"}
-            click={() => setPublicationPage("shorts")}
-            icon="shorts"
-            title="Шортсы"
-          />
-          <NavProfileButton
             isActive={publicationPage === "garage"}
             click={() => setPublicationPage("garage")}
             icon="garage"
@@ -52,9 +45,6 @@ export const LikedContent = ({ user }: LikedContentProps) => {
 
         {publicationPage === "post" && (
           <ProfilePosts isAuthorizedUser={false} post={user?.posts} />
-        )}
-        {publicationPage === "shorts" && (
-          <ProfileShorts isAuthorizedUser={false} shorts={user?.shorts} />
         )}
         {publicationPage === "garage" && (
           <ProfileGarage isAuthorizedUser={false} garage={user?.garage} />

@@ -13,12 +13,8 @@ import Reg from "@/modules/auth/Reg";
 import { HomePage } from "@/modules/user/home/HomePage";
 import { ProfilePage } from "@/modules/user/profile/ProfilePage";
 import { PageWrapper } from "@/modules/user/PageWrapper";
-import { MessengerPage } from "@/modules/user/messenger/MessengerPage";
-import ShortsPage from "@/modules/user/shorts/ShortsPage";
 import { EditPage } from "@/modules/user/profile/pages/edit-profile/EditPage";
-import { HelpPage } from "@/modules/user/help/HelpPage";
 import { SettingsPage } from "@/modules/user/settings/SettingsPage";
-import Chat from "@/modules/user/messenger/components/Chat";
 import { LikedPage } from "@/modules/user/profile/pages/liked/LikedPage";
 import { SavedPage } from "@/modules/user/profile/pages/saved/SavedPage";
 import { ErrorPage } from "@/common/components/error/ErrorPage";
@@ -41,7 +37,6 @@ export default function RoutesProvider() {
     )
   );
 
-  // ToDo изменить elements по готовности
   const authorizedProvider = createBrowserRouter(
     createRoutesFromElements(
       <>
@@ -49,18 +44,12 @@ export default function RoutesProvider() {
           <Route path="home" element={<HomePage />} />
           <Route path="profile/:userId" element={<ProfilePage />} />
           <Route path="edit" element={<EditPage />} />
-          <Route path="messenger" element={<MessengerPage />}>
-            <Route path="chat/:id" element={<Chat />} />
-          </Route>
-          <Route path="shorts" element={<ShortsPage />} />
           <Route path="saved" element={<SavedPage />} />
           <Route path="liked" element={<LikedPage />} />
           <Route path="settings" element={<SettingsPage />} />
-          <Route path="help" element={<HelpPage />} />
         </Route>
         <Route path="error" element={<ErrorPage />} />
         <Route path="*" element={<Navigate to="/error" replace />} />
-        {/* на страницу Error можно будет вернуться на главную страницу */}
       </>
     )
   );
